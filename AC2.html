@@ -1,0 +1,580 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Advanced Calculus L2</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">				
+			<section>
+				<h2 style="color:#FF33F9">Advanced Calculus L2</h2>
+				<br>
+				<ul>
+					<span style="color: #FF33F9"> <li>Introduction to Partial Differential Equations (PDEs)</li></span>
+					<br>
+					<li>PDE classification</li>		
+					<br>
+					<li>Solving PDEs like ODEs</li>					
+					<br>
+					<li>Solving PDEs when the solution is partly known</li>										
+				</ul>
+			</section>			
+			<section align="left">
+				<h4>Basic concepts</h4>
+				<br>
+				<font size="6">
+				<ul>
+					<li>A partial differential equation (PDE) is an equation involving one or more partial derivatives of an unknown function</li><br>
+					<li>For example (here $u=u(x,t)$)</li>
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 u_{xx} = u_{tt},\quad u_{xx}=0\quad\text{and}\quad uu_t = u_x}}
+					\]
+					<li>The order of the highest derivative is called the $\color{yellow}{\text{order of the PDE}}$</li><br>
+					<li>As with ODEs we say the $\color{green}{\text{PDE is linear}}$ if it is of first degree in the unkown function and its derivatives</li>
+				</ul>
+				
+				</font>
+			</section>
+			<section align="left" data-auto-animate class="r-frame">
+				<h4>Important second order PDEs</h4>
+				
+				<font size="6">
+				<p align="left">				
+				(1)$\displaystyle\quad \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional wave equation}$
+				</p><br>
+				
+				</font>
+			</section>
+			<section align="left" data-auto-animate class="r-frame">
+				<h4>Important second order PDEs</h4>
+				
+				<font size="6">
+				<p align="left">				
+				(1)$\displaystyle\quad \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional wave equation}$
+				</p><br>
+				<p align="left">
+				(2)$\displaystyle\quad \frac{\partial u}{\partial t} = \kappa\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional heat equation}$
+				</p>
+								
+				</font>
+			</section>
+			<section align="left" data-auto-animate class="r-frame">
+				<h4>Important second order PDEs</h4>
+				
+				<font size="6">
+				<p align="left">				
+				(1)$\displaystyle\quad \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional wave equation}$
+				</p><br>
+				<p align="left">
+				(2)$\displaystyle\quad \frac{\partial u}{\partial t} = \kappa\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional heat equation}$
+				</p><br>
+				<p align="left">
+				(3)$\displaystyle\quad \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2u}{\partial y^2}\quad \text{one-dimensional Laplace's equation}$
+				</p>
+								
+				</font>
+			</section>
+			
+			<section>
+				<h2 style="color:#FF33F9">Advanced Calculus L1</h2>
+				<br>
+				<ul>
+					<li>Introduction to Partial Differential Equations (PDEs)</li>
+					<br>
+					<span style="color: #FF33F9"> 
+					<li>PDE classification</li>					
+					</span>
+					<br>
+					<li>Solving PDEs like ODEs</li>					
+					<br>
+					<li>Solving PDEs when the solution is partly known</li>
+				</ul>
+			</section>
+			<section align="left">
+				<h4>Classifying second order linear PDEs</h4>
+				
+				<font size="6">
+
+				<ul>
+					<li>Linear second order PDEs can be classified into 3 types</li>					 
+					<li>Such a PDE has the following general form:</li>
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 Au_{xx}+2Bu_{xy}+Cu_{yy}+Du_x+Eu_y+Fu=0}}
+					\]
+					<li>Here $A, B, C,\ldots$ are constants (in this course) and $u=u(x,t)$
+					<li>The three cases are:</li>
+					\[
+					\color{yellow}{\boxed{\color{white} 
+					\begin{align}
+					&\text{if    } AC-B^2>0 \text{   the PDE is \color{red}{\bf elliptic}}\\
+					&\text{if  } AC-B^2=0 \text{    the PDE is \color{green}{\bf parabolic}}\\
+					&\text{if  } AC-B^2<0 \text{    the PDE is \color{yellow}{\bf hyperbolic}}\\
+					\end{align}
+					}}
+					\]
+				</ul>
+														
+				</font>
+			</section>
+			<section>
+			
+				<section align="left" data-auto-animate>
+					<font size="6">
+					
+					<p>
+					<b>Example 2.1 (a)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}-2\frac{\partial^2u}{\partial x\partial y}+\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]
+						</p>
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (a)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}-2\frac{\partial^2u}{\partial x\partial y}+\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=C=1$ and $\displaystyle B=-1$</li>
+					</u1>	
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (a)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}-2\frac{\partial^2u}{\partial x\partial y}+\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=C=1$ and $\displaystyle B=-1$</li><br>
+						<li>$\displaystyle \implies AC-B^2=0$</li>
+					</u1>	
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (a)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}-2\frac{\partial^2u}{\partial x\partial y}+\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=C=1$ and $\displaystyle B=-1$</li><br>
+						<li>$\displaystyle \implies AC-B^2=0$</li><br>
+						<li>So the PDE is <b>parabolic</b></li>
+					</u1>	
+					</font>
+				</section>
+				
+				<section align="left" data-auto-animate>
+					<font size="6">
+					
+					<p>
+					<b>Example 2.1 (b)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial u}{\partial x}=0
+					 }} 
+					\]
+						</p>
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (b)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial u}{\partial x}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=C=1$ and $\displaystyle B=0$</li>
+					</u1>	
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (b)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial u}{\partial x}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=C=1$ and $\displaystyle B=0$</li><br>
+						<li>$\displaystyle \implies AC-B^2=1>0$</li>
+					</u1>	
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (b)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial u}{\partial x}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=C=1$ and $\displaystyle B=0$</li><br>
+						<li>$\displaystyle \implies AC-B^2=1>0$</li><br>
+						<li>So the PDE is <b>elliptic</b></li>
+					</u1>	
+					</font>
+				</section>
+				
+				<section align="left" data-auto-animate>
+					<font size="6">
+					
+					<p>
+					<b>Example 2.1 (c)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					 y\frac{\partial^2u}{\partial x^2}+x\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]
+						</p>
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (c)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					  y\frac{\partial^2u}{\partial x^2}+x\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=y, C=x$ and $\displaystyle B=0$</li><br>
+					</u1>	
+					</font>
+				</section>
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (c)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					  y\frac{\partial^2u}{\partial x^2}+x\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=y, C=x$ and $\displaystyle B=0$</li><br>
+						<li>$\displaystyle \implies AC-B^2$ depends on the quadrant we are in</li><br>
+					</u1>	
+					</font>
+				</section>
+				
+				<section align="left" data-auto-animate>
+					<font size="6">					
+					<p>
+					<b>Example 2.1 (c)</b> Classify the following PDE
+					\[
+					 \color{red}{\boxed{\color{white} 
+					  y\frac{\partial^2u}{\partial x^2}+x\frac{\partial^2u}{\partial y^2}=0
+					 }} 
+					\]</p>
+					<br>
+					<u1>
+						<li>$\displaystyle A=y, C=x$ and $\displaystyle B=0$</li><br>
+						<li>$\displaystyle \implies AC-B^2$ depends on the quadrant we are in</li><br>
+						<li>This has significant implications when solving numerically...</li>
+					</u1>	
+					</font>
+				</section>
+			</section>
+
+			<section align="left">
+				<h4>Method of solution depend on PDE type</h4>				
+				<font size="6">
+				For example
+				<ul>
+					<li><b>Parabolic PDEs</b> can be transformed into a form analogous to the <b>heat equation</b> and so solved with <em>standard methods</em></li><br>
+					<li>The famous $\color{yellow}{\text{Black Scholes PDE}}$ can be solved in this way to obtain the BS formula that is used to price financial derivatives</li>
+					\[
+					\color{red}{\boxed{\color{white} 
+					\frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV=0}}
+					\]
+					<li><b>Hyperbolic and elliptic PDEs</b> can similarly be transformed to a form similar to the <b>wave and Laplace equations</b>, respectively</li>
+				</ul>
+				</font>
+			</section>           
+			<section>
+				<h2 style="color:#FF33F9">Advanced Calculus L2</h2>
+				<br>
+				<ul>
+					<li>Introduction to Partial Differential Equations (PDEs)</li>
+					<br>
+					<li>PDE classification</li>					
+					<br>
+					<span style="color: #FF33F9"> <li>Solving PDEs like ODEs</li></span>
+					<br>
+					<li>PDEs when the solution is partly known</li>
+				</ul>
+			</section>	
+			<section>
+				<section  align="left">
+					<h4>Solving PDEs like ODEs</h4>
+				
+					<font size="6">
+						<ul>
+							<li>Sometimes we can use methods available for solving ODEs</li>
+							<br>
+							<li>More specifically, if the PDE contains derivatives with respect to only one variable it can be treated as an ODE</li>					
+						</ul>
+						<br>
+						<br>
+						<b>Example 2.2</b> &ensp; Solve &ensp; $\color{red}{\boxed{\color{white} u_{xx}-u=0}}$&ensp;  (here $u=u(x,y)$) as an ODE
+						<br>
+						<b>Solution</b>
+						<br>
+						Since the PDE has only derivatives in $x$ we can treat it like the ODE: \[u''-u=0\]
+						which we solve by using the slight variation on our usual <em>ansatz</em>...
+					</font>
+				</section>
+				<section  align="left">								
+					<font size="6">
+					... that is we take &ensp; $\color{red}{\boxed{\color{white} u(x,y)=A(y)e^{mx}}}$&ensp; and substitute this into our equation:
+					\[
+					A(y)m^2e^{mx}-A(y)e^{mx} = A(y)e^{mx}\left(m^2-1\right) =0
+					\]
+					This results in two solutions 
+						\[ 
+						 u_1(t)=A_1(y)e^{x} ~\text{ and }~ u_2(t)=A_2(y)e^{-x}
+						\]
+					We combine these linearly to obtain the general solution
+					\[
+					\color{yellow}{\boxed{\color{white} 
+					u(x,y) = A_1(y)e^{x}+A_2(y)e^{-x}
+					}}
+					\]
+				
+					</font>
+				</section>
+				<section  align="left">								
+					<font size="6">
+					<b>Example 2.3</b> &ensp; Solve &ensp; $\color{red}{\boxed{\color{white} u_{xy}+u_x=0}}$&ensp;  (here $u=u(x,y)$) as an ODE
+					<br>
+					<b>Solution</b>
+					<br>
+					Setting $v = u_x$ we can rewrite our equation as 
+					\[
+					v_y+v = 0 \implies v = A(x)e^{-y} \quad (\text{as the ODE is separable})
+					\]
+					Or 
+					\[
+					u_x = A(x)e^{-y} \implies 
+					\color{yellow}{\boxed{\color{white} 
+					 u(x,y) = B(x)e^{-y}+C(y)}}
+					\]
+					which is the general solution &ensp;
+					(Here, $B(x)=\int A(x)\mathrm{d}x$)
+					</font>
+				</section>				
+			</section>
+			<section>
+				<h2 style="color:#FF33F9">Advanced Calculus L2</h2>
+				<br>
+				<ul>
+					<li>Introduction to Partial Differential Equations (PDEs)</li>
+					<br>
+					<li>PDE classification</li>					
+					<br>
+					<li>Solving PDEs like ODEs</li>
+					<br>
+					<span style="color: #FF33F9"> <li>PDEs when the solution is partly known</li></span>
+				</ul>
+			</section>
+			<section>
+				<section  align="left">
+					<h4>Solving PDEs when the solution is partly known</h4>				
+					<font size="6">
+					Sometimes we can use the information about the system of interest (which the PDE models) to partially 'guess' the solution	<br>
+					<b>Example 2.4</b> &ensp; Solve \[\color{red}{\boxed{\color{white} z+\frac{\partial^2 z}{\partial x^2}+\frac{\partial^2z}{\partial t^2}-2\frac{\partial z}{\partial t}=0}}\]  (Here $z=z(x,t)$) subject to the conditions
+					\[
+					 z(x,0)=4\sin(3x)\quad\text{and}\quad z(0,t)=0
+					\]
+					given that &ensp; $\color{green}{\boxed{\color{white} z(x,t) = f(x)e^{-2t}}}$
+					
+					</font>
+				</section>
+				<section align="left">					
+					<font size="6">
+					<b>Solution</b><br>					
+					We start by working out the necessary derivatives
+					\[
+					 \begin{align*}
+					  z_t &= -2f(x)e^{-2t} \quad z_{tt} = 4f(x)e^{-2t}\\\\					  
+					  z_x&=f'e^{-2t} \quad z_{xx} =f''(x)e^{-2t}\\					  
+					 \end{align*}
+					\]
+					which upon substitution into our PDE gives
+					\[ 
+					fe^{-2t}+f''e^{-2t}+4fe^{-2t}+4fe^{2t} = e^{-2t}\left(f''+9f\right)= 0
+					\]
+					Or 
+					\[
+					\color{green}{\boxed{\color{white}
+					 f''+9f = 0}} \quad \left(\text{An ODE for the unknown function  } ~f(x)\right)
+					\]					
+					</font>
+				</section>
+				<section align="left">					
+					<font size="6">
+					The <em>auxillary equation</em> is 
+					\[
+					 m^2+9=0\implies m = \pm 3i
+					\]
+					And so $f$ is given by
+					\[
+					 f(x) = A\cos(3x)+B\sin(3x)
+					\]
+					Substituting this back in to the original equation for $z(x,t)$ gives
+					\[
+					 \color{green}{\boxed{\color{white}
+					 z(x,t) = \left(A\cos(3x)+B\sin(3x)\right)e^{-2t}}}
+					\]
+					as our general solution <br>
+					
+					To obtain the particular solution...
+					</font>
+				</section>				
+				<section align="left">					
+					<font size="6">
+					... we incorporate our boundary and initial data:					
+					\[
+					 z(0,t) = Ae^{-2t} = 0 \implies A = 0
+					\]
+					And
+					\[
+					\begin{align*}
+					 z(x,0) &= B\sin(3x) = 4\sin(3x)\\
+					 \implies&  B = 4
+					\end{align*}
+					\]					
+					Giving the particular solution 
+					\[
+					\color{yellow}{\boxed{\color{white}
+					 z(x,t) = 4\sin(3x)e^{-2t}}}
+					\]
+					</font>				
+				</section>
+				<section  align="left">					
+					<font size="6">					
+					<b>Example 2.5</b> &ensp; Assuming a solution of the form $\displaystyle u(x,y)=y^\alpha f(x)$, where $\alpha$ is a constant, solve the following PDE
+					\[
+					\color{red}{\boxed{\color{white}
+					 y^2u_{yy}+2yu_y-2u=0}}
+					\]
+					<b>Solution</b><br>
+					To start 
+					\[
+					 u_y =\alpha y^{\alpha-1}f(x)  \quad \text{and} \quad u_{yy} = \alpha(\alpha-1)y^{\alpha-2}f(x)
+					\]
+					which upon substitution gives
+					\[
+					 \alpha(\alpha-1)y^{\alpha-2}f(x)+\frac{2}{y}\alpha y^{\alpha-1}f(x)-\frac{2}{y^2}y^\alpha f(x)=0
+					\]
+					Rearranging gives...
+					</font>
+				</section>
+				<section  align="left">					
+					<font size="6">		
+					\[
+					\color{green}{\boxed{\color{white}
+					 y^{\alpha-2}f(x)\left[\alpha^2+\alpha-2\right] = 0
+					}}
+					\]
+					This equation has solutions (s.t $f(x)$ is non-zero) provided
+					\[
+					\alpha^2+\alpha-2 = (\alpha-1)(\alpha+2)=0
+					\]
+					Thus we have two solutions:
+					\[
+					u_1(x,y) = y(f_1(x))\quad\text{and}\quad u_2(x,y) = y^{-2}f_2(x)
+					\]
+					Which we combine linearly to obtain the general solution
+					\[
+					\color{yellow}{\boxed{\color{white}
+					u(x,y) = Ayf_1(x)+\frac{B}{y^2}f^2(x)}}
+					\]
+					</font>
+				</section>					
+			</section>
+			<section>
+				<h2 style="color:#FF33F9">Lecture 2 Review</h2>
+				<br>
+				<font size="6">
+				<ul>						
+					<li>In this lecture we covered</li>
+					<ul>
+						<li>PDEs</li>
+						<li>Introduced the three canonical PDEs (heat, wave and Laplace's equations)</li>
+						<li>Obtained solutions for a simple class of PDEs</li>
+					</ul><br>
+					<li>After this lecture you should be </li>
+					<ul>
+						<li>Aware of the three different classes of PDEs (parabolic, hyperbolic and elliptic)</li>
+						<li>Aware of the three classical example sof these classes</li>
+						<li>Able to solve PDEs in which the solution is partly known</li>
+					</ul><br>					
+				</ul>			
+				</font> 
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		});
+	</script>
+          <script src="plugin/math/math.js"></script>
+          <script>
+            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          </script>
+</body>
+</html>
