@@ -21,13 +21,342 @@
 					<br>
 					<ul>
 						<span style="color: #FF33F9"> <li>Periodic, odd and even functions</li></span>
-						<br>
-						<li>The principal of superposition</li>		
-						<br>
-						<li>Fourier series motivation</li>											
+						<li> Fourier series</li>
+						<ul>
+							<li>Fourier series motivation</li></span>		
+							<li>The principal of superposition</li>		
+						</ul>
+						<li>Example</li>
 					</ul>
-				</section>			
-			
+				</section>
+				<section  align="left">					
+					<h4>Periodic functions</h4>					
+					<font size="6">		
+					<p  class="r-frame">
+					<b>Definition</b> &emsp; $f$ is a $\text{\textcolor{yellow}{periodic function}}$ if there is an $a>0$ such that
+					\[
+					f(x+a) = f(x) \quad \forall x\in\mathbb{R}						
+					\]
+					If this is the case then $a$ is called a <a style="color:red"><b>period</b></a> of $f$
+					 </p>
+					 
+					 <ul>
+						<li>The period is not unique, but if there is a smallest such $a$ it is called the <a style="color:green">prime period</a> of $f$</li><br>
+						<li>Examples of periodic functions include ...</li>
+					</ul>
+					
+					</font>
+				</section>
+				<section  align="left">					
+					<h4>Properties of periodic functions</h4>
+					<font size="6">	
+					If $f, g$ are periodic functions with period $a$, then:<br>
+					
+					<ul>
+						<li>$f,g$ are also periodic functions with period $na, n\in\mathbb{N}$</li>
+						<li>For any $\alpha, \beta\in \mathbb{R}$, $\alpha f+\beta g$ is periodic with period $a$</li>
+						<li>$f\cdot g$ is periodic with period $a$</li>
+						<li>For any $\lambda>0$, $f(\lambda x)$ is periodic with period $a/\lambda$</li>
+						<li>For any $\alpha\in \mathbb{R}$
+						\[
+						\color{white}{\boxed{\color{white}
+						\int_0^\alpha f(x)\mathrm{d}x = \int_\alpha^{\alpha+a}f(x)\mathrm{d}x
+						}}
+						\]
+						</li>
+					</ul>
+					</font>
+				</section>
+				<section  align="left">					
+					<h4 style="color:red">Proof of last property</h4>
+					<font size="6">		
+					Assuming $\alpha< a$
+					\[
+					 \begin{align*}
+					  \int_\alpha^{\alpha+a}f(x)\mathrm{d}x &= \int_\alpha^a f(x)\mathrm{d}x+\int_{a}^{\alpha+a}f(x)\mathrm{d}x\\
+					  &=\int_\alpha^a f(x)\mathrm{d}x+\int_0^\alpha f(y)\mathrm{d}y \\
+					  &= \int_0^af(x)\mathrm{d}x
+					 \end{align*}
+					\]
+					As required 
+					
+					</font>
+				</section>
+				<section>
+					<section  align="left">					
+						<h4>Even and odd functions</h4>
+						<font size="6">		
+						<p  class="r-frame">
+					<b>Definition</b>  &emsp; Algebraicly $f$ is <a style="color:red"><b>even</b></a> if and only if $f(-x)=f(x)$ for all $x$ in the domain of $f$
+					 </p>
+					 
+					 Geometrically, a function $f(x)$ is even if it admits reflective symmetry about the $y$-axis<br>
+					 
+					 Some familiar examples include ...
+						</font>
+					</section>
+					<section  align="left">					
+						<h4>Even and odd functions</h4>
+						<font size="6">		
+							<p  class="r-frame">
+					<b>Definition</b>  &emsp; Algebraicly $f$ is <a style="color:red"><b>odd</b></a> if and only if $f(-x)=-f(x)$ for all $x$ in the domain of $f$
+					 </p>
+					 
+					 Geometrically, a function $f(x)$ is even if it admits rotational symmetry with respect to the origin<br>
+					 
+					 Some familiar examples include ...
+						</font>
+					</section>
+				</section>
+				<section>
+					<section  align="left">					
+						<h4>Properties of even and odd functions</h4>
+						<font size="6">	
+						The following properties of even/odd functions will be important for us<br>
+						<ul>
+							<li>the product of two even <em>or</em> two odd functions is even</li>
+							<li>the product of an odd and even function is odd</li>
+						</ul><br>
+						<b>Proof</b> (first statement (even case))<br>
+						Let $f, g$ be two even functions and let $h(x) = f(x)g(x)$ be their product. Then
+						\[
+						h(-x) = f(-x)g(-x) = f(x)g(x) = h(x)
+						\]
+						proving the result
+						<br>
+						<a style="color:yellow">The remaining are proved similarly</a>
+						</font>						
+					</section>
+					<section  align="left">					
+						<h4>Properties of even and odd functions</h4>
+						<font size="6">	
+						The integrals of even and odd functions over symmetric intervals about the origin 
+						simplify considerably	<br>
+						As alluded to in the illustration, for even functions we have
+						$\color{yellow}{\boxed{\color{white}\int_{-L}^Lf(x)\mathrm{d}x = 2\int_0^L f(x)\mathrm{d}x}}$				
+						</font>
+					</section>
+					<section  align="left">					
+						<h4>Properties of even and odd functions</h4>
+						<font size="6">	
+						The integrals of even and odd functions over symmetric intervals about the origin 
+						simplify considerably	<br>
+						As alluded to in the illustration, for odd functions we have
+						$\color{yellow}{\boxed{\color{white}\int_{-L}^Lf(x)\mathrm{d}x = 0}}$				
+						</font>
+					</section>
+				</section>
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L3</h2>
+					<br>
+					<ul>
+						<li>Periodic, odd and even functions</li>
+						<span style="color: #FF33F9"> <li> Fourier series</li>
+						<ul>
+							<li>Fourier series motivation</li></span>		
+							<li>The principal of superposition</li>		
+						</ul></span>
+						<li>Example</li>
+					</ul>
+				</section>
+				<section>
+					<section  align="left">					
+						<h4>Fourier series motivation</h4>
+						<font size="6">		
+						It should not be too hard to convince yourself that the function \[u(x,t)=\sin(k(x-ct))\]
+						is a solution to the wave equation \[\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}\]
+						Now since the wave equation is linear the sum of two (or more) solutions is also a solution <em>i.e.</em>...
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">		
+						<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/" target="_blank" style="color: red"><b>Joseph Fourier</b></a> 
+						asked the question of whether all periodic functions could be written as a sum of sines and cosines.<br>
+						Perhaps surprisingly, the answer was yes. At least for the types of functions that arise in practice.<br>
+						
+						In fact he found that $2\pi$-periodic functions can be written as
+						\[
+						\color{red}{\boxed{\color{white}
+						f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}
+						\]
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">		
+						If such a series exists then the coefficients $a_0, a_n$ and $b_n$ are given by the so-called <a style="color:green"><b>Euler integrals</b></a>
+						\[
+						 \color{red}{\boxed{\color{white}
+						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x \text{ and } b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x
+						 }}
+						\]
+						That is, if the function $f(x)$ is $2\pi$-periodic, then it can be written as a <a style="color:yellow">Fourier series</a>
+						\[
+						 \color{red}{\boxed{\color{white}
+						 f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}
+						\]
+						with coefficients given by the above integrals
+						</font>
+					</section>
+				</section>		
+				<section>
+					<section  align="left">					
+						<h4>Euler integrals</h4>
+						<font size="6">	
+						To see where the Euler integrals come from let us assume that the FS over page converges.<br> Then we can
+						multiply both sides of the equation by $\cos(mx)$ and integrate between $-\pi$ and $\pi$ to obtain
+						\[
+						 \begin{align}\nonumber
+						 \int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\cos(mx)\mathrm{d}x + \\\nonumber
+						 &\sum_{n=1}^\infty\left(a_n\int_{-\pi}^\pi f(x)\cos(nx)\cos(mx)\mathrm{d}x\right.+\\
+						 &\left. b_n\int_{-\pi}^\pi f(x)\sin(nx)\cos(mx)\mathrm{d}x\right)
+						 \end{align}
+						\]
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">		
+						Using the following properties
+						\[
+						 \color{yellow}{\boxed{\color{white}
+						\begin{align*}
+						\int_{-\pi}^\pi\sin(nx)\cos(mx)\mathrm{d}x&=0, \forall m,n\in\mathbb{N}\\
+						\int_{-\pi}^\pi\cos(nx)\cos(mx)\mathrm{d}x&=\begin{cases}\pi, &n=m\\0&\text{otherwise}\end{cases}						
+						\end{align*}
+						}}
+						\]
+						
+						Thus, Equation (1) reduces to
+						\[
+						\begin{align*}
+						\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x &= \sum_{n=1}^\infty a_n\pi\delta_{n,m}\\
+						&= a_m\pi \implies a_m = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x
+						\end{align*}
+						\]						
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">		
+						The above result was for $n\neq 0$.<br> In the case $n=0$ we simply integrate both 
+						sides of the FS equation as follows				
+						\[
+						 \begin{align*}
+						 \int_{-\pi}^\pi f(x)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\mathrm{d}x + \sum_{n=1}^\infty\left(a_n\int_{-\pi}^\pi \cos(nx)\mathrm{d}x + \right.\\
+						 &\left.b_n\int_{-\pi}^\pi \sin(nx)\mathrm{d}x\right)\\
+						 &=\frac{a_0}{2}\pi\implies \color{red}{\boxed{\color{white}a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x}}
+						 \end{align*}
+						\]
+						
+						We can work out $b_n$ similarly (except we multiply by $\sin(mx)$)
+						</font>
+					</section>
+				</section>
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L3</h2>
+					<br>
+					<ul>
+						<li>Periodic, odd and even functions</li>
+						<li> Fourier series</li>
+						<ul>
+							<li>Fourier series motivation</li></span>		
+							<li>The principal of superposition</li>		
+						</ul>
+						<span style="color: #FF33F9"> <li>Example</li></span>
+					</ul>
+				</section>
+				<section>
+					<section  align="left">											
+						<font size="6">		
+						<b>Example 3.1</b> &emsp; Compute the Fourier series of the function
+						\[
+						f(x) = \begin{cases}1&x\in[0,\pi)\\-1 & x\in[-\pi,0)\end{cases}
+						\]
+						such that $\displaystyle f(x)=f(x+2\pi)$ outside of $(-\pi,\pi)$
+						</font>
+					</section>					
+					<section  align="left">											
+						<font size="6"
+						<b>Solution</b><br>
+						
+						Computing&emsp; $\color{red}{\boxed{\color{white}\displaystyle a_n = \int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x}}$<br>
+						
+						Since $f(x)$ is odd we can compute 
+						\[
+						\begin{align*}
+						\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x&= 2\int_0^\pi f(x)\cos(nx)\mathrm{d}x\\
+						&=2\int_0^\pi \cos(nx)\mathrm{d}x = \Big[~\frac{1}{n}\sin(nx)~\Big]_0^\pi\\
+						&= 0 \quad\text{(we already new this... why?)}
+						\end{align*}
+						\]
+						
+						Also, note that since $f(x)$ is <em>odd</em> we have that $a_n=0$
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">
+						Computing &emsp; $\color{red}{\boxed{\color{white}\displaystyle b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x}}$<br>										
+						\[
+						\begin{align*}
+						\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x&= \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
+						&= \frac{2}{\pi}\int_0^\pi \sin(nx)\mathrm{d}x\\ 
+						&= \frac{2}{\pi}\Big[-\frac{1}{n}\cos(nx)~\Big]_0^\pi\\
+						&= \frac{2}{n\pi}\left(1-(-1)^n\right) \Big(= b_n\Big)
+						\end{align*}
+						\]																	
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">
+						Putting this all together
+						\[
+						 \color{red}{\boxed{\color{white} a_0=a_n=0 \text{ and } b_n= \frac{2}{n\pi}\left(1-(-1)^n\right)}}
+						\]
+						so that the FS of our function is given by
+						\[
+						\color{yellow}{\boxed{\color{white}
+						\begin{align*}
+						 f(x)&\sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)\\
+						 &=\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)
+						 \end{align*}
+						 }}
+						\]												
+						</font>
+						Since only sine terms arise in this series we call it a <em>Fourier sine series</em>
+					</section>
+					<section  align="left">											
+						<font size="6">
+						Interestingly, we can use the result $\color{red}{\boxed{\color{white}\displaystyle f(x) \sim\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)}}$ <br>to get an approximation to $\pi$<br>
+						Evaluating $f$ at $\pi/2$ gives
+						\[
+						f\left(\frac{\pi}{2}\right) = 1 = \frac{2}{\pi}\left(1-\frac{1}{3}+\frac{1}{5}-\cdots\right)
+						\]
+						so that
+						\[
+						\pi = 4-\frac{4}{3}+\frac{4}{5}-\frac{4}{7}\cdots
+						\]
+						</font>
+					</section>
+				</section>		
+				<section>
+					<h2 style="color:#FF33F9">Lecture 3 Review</h2>
+					<br>
+					<font size="6">
+					<ul>						
+						<li>In this lecture we covered</li>
+						<ul>
+							<li>Periodic, odd and even functions</li>
+							<li>Introduced Fourier series</li>
+							<li>An example of how to compute FS</li>
+						</ul><br>
+						<li>After this lecture you should</li>
+						<ul>
+							<li>Know what periodic, odd and even functions are</li>
+							<li>Understand the principle of linear superposition and have a basi idea of what a FS is</li>							
+						</ul><br>					
+					</ul>			
+					</font> 
+			</section>				
 			</div>
 		</div>
 
