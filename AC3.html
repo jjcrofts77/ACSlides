@@ -222,7 +222,7 @@
 						If such a series exists then the coefficients $a_0, a_n$ and $b_n$ are given by the so-called <a style="color:green"><b>Euler integrals</b></a>
 						\[
 						 \color{red}{\boxed{\color{white}
-						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x \text{ and } b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x
+						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x
 						 }}
 						\]
 						That is, if the function $f(x)$ is $2\pi$-periodic, then it can be written as a <a style="color:yellow">Fourier series</a>
@@ -278,7 +278,7 @@
 						 \begin{align*}
 						 \int_{-\pi}^\pi f(x)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\mathrm{d}x + \sum_{n=1}^\infty\left(a_n\int_{-\pi}^\pi \cos(nx)\mathrm{d}x + \right.\\
 						 &\left.b_n\int_{-\pi}^\pi \sin(nx)\mathrm{d}x\right)\\
-						 &=\frac{a_0}{2}\pi\implies \color{red}{\boxed{\color{white}a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x}}
+						 &=a_0\pi\implies \color{red}{\boxed{\color{white}a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x}}
 						 \end{align*}
 						\]
 						
@@ -315,18 +315,18 @@
 						<font size="6"
 						<b>Solution</b><br>
 						
-						Computing&emsp; $\color{red}{\boxed{\color{white}\displaystyle a_n = \int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x}}$<br>
+						Computing&emsp; $\color{red}{\boxed{\color{white}\displaystyle a_n = \int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x ~~n=0,1,2,\ldots}}$<br>
 						
-						Since $f(x)$ is odd we can compute 
+						Since $f(x)$ is odd we have that
+						\[						
+						a_0 =  \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x = 0						
+						\]
+						Also 
 						\[
-						\begin{align*}
-						\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x&= 2\int_0^\pi f(x)\cos(nx)\mathrm{d}x\\
-						&=2\int_0^\pi \cos(nx)\mathrm{d}x = \Big[~\frac{1}{n}\sin(nx)~\Big]_0^\pi\\
-						&= 0 \quad\text{(we already new this... why?)}
-						\end{align*}
+						a_n   = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x = 0						
 						\]
 						
-						Also, note that since $f(x)$ is <em>odd</em> we have that $a_0=0$
+						This holds since $f(x)\cos(nx)$ is odd being the product of an odd and even function
 						</font>
 					</section>
 					<section  align="left">											
