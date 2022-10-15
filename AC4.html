@@ -22,10 +22,323 @@
 					<ul>
 						<span style="color: #FF33F9"> <li>Fourier series of $2\pi$ periodic functions</li></span>
 						<br>
+						<li>Example</li>
+						<br>
 						<li>Sine and cosine series</li>								
 					</ul>
 				</section>			
-			
+				<section  align="left">					
+						<h4>Fourier series of periodic functions</h4>					
+						<font size="6">		
+						Recall from last weeks lecture that given a $2\pi$ periodic function $f(x)$ we can write it as a <b>Fourier series</b>						
+						\[
+						 \color{red}{\boxed{\color{white}
+						 f(x) \sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)
+						 }}
+						\]
+						Here $a_n$ and $b_n$ are given by the <b>Euler integrals</b>			
+                       \[
+					   	 \color{red}{\boxed{\color{white}
+						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x
+						 }}
+                       \]						
+					
+						</font>
+				</section>
+				<section>
+					<section  align="left">											
+						<font size="6">		
+						<b>Recap:</b> &emsp; recall that we found the Fourier series for the function
+						\[
+						f(x) = \begin{cases}1&x\in[0,\pi)\\-1 & x\in[-\pi,0)\end{cases}
+						\]
+						such that $\displaystyle f(x)=f(x+2\pi)$ outside of $(-\pi,\pi)$<br>
+						
+						The FS was given by <br>
+						
+						$
+						 \color{red}{\boxed{\color{white}
+						 f(x)\sim \sum_{n=1}^\infty \frac{2}{n\pi}\left( 1- (-1)^n\right)\sin(nx)
+						 }}
+						$
+																	
+						<br>
+						<b>Note</b>
+						<ui>
+							<li>We use $\sim$ as the FS and function differ at zero <br>and ...</li>
+							<li>$f$ consists of sines only...</li>
+						</ui>
+						
+						</font>
+						<img data-src="figures/StepFn.png"style="position:absolute;top:275px;left:675px;width:30%;">
+					</section>										
+					<section>
+					<center>
+					<img data-src="figures/3p1FSApprox.png" style="border: 3px solid red;">
+					</center>
+						<font size="6"> The above plot shows the partial sums (for $n=5, 10$ and $100$ terms) for the FS computed over page</font>
+					</section>
+					<section  align="left">											
+						<font size="6">
+						Interestingly, we can use the result $\color{red}{\boxed{\color{white}\displaystyle f(x) \sim\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)}}$ <br>to get an approximation to $\pi$<br>
+						Evaluating $f$ at $\pi/2$ gives
+						\[
+						f\left(\frac{\pi}{2}\right) = 1 = \frac{2}{\pi}\left(1-\frac{1}{3}+\frac{1}{5}-\cdots\right)
+						\]
+						so that
+						\[
+						\pi = 4-\frac{4}{3}+\frac{4}{5}-\frac{4}{7}\cdots
+						\]
+						</font>
+					</section>						
+					<section>
+					<center>
+					<img data-src="figures/FSApproxPi.png">
+					</center>
+						<font size="6"> The above plot shows our approximation to $\pi$ for increasing $n$</font>
+					</section>
+				</section>	
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L4</h2>
+					<br>
+					<ul>
+						<li>Fourier series of $2\pi$ periodic functions</li>
+						<br>
+						<span style="color: #FF33F9"> <li>Example</li></span>
+						<br>
+						<li>Sine and cosine series</li>
+					</ul>
+				</section>	
+				<section>
+					<section  align="left">											
+						<font size="6">
+						<b>Example 4.1</b>  &emsp; Compute the Fourier series of the function
+						\[
+						 f(x) = x^2,\quad x\in(-\pi, \pi)
+						\]
+						such that $f(x) = f(x+2\pi)$ outside $(-\pi,\pi)$
+						</font>						
+						<img data-src="figures/Example4p1.png"style="position:absolute;top:300px;left:150px; border: 3px solid red;">
+					</section>						
+					<section  align="left">											
+						<font size="6">
+						<b>Solution</b><br>
+						Firstly, note that since the function $f$ is even 
+						\[
+						 b_n = 0
+						\]
+						This follows since $f(x)\sin(nx)$ is odd for $f$ even<br>
+						
+						Now
+						\[
+						\begin{align*}
+						 a_0 = \frac{1}{\pi}\int_{-\pi}^\pi x^2\mathrm{d}x &= \frac{2}{\pi}\int_0^\pi x^2\mathrm{d}x\\
+						 &=\frac{2}{\pi}\bigg[\frac{1}{3}x^3\bigg]_0^\pi = \color{red}{\boxed{\color{white}\frac{2}{3}\pi^2 }}
+						 \end{align*}
+						\]
+						</font>
+					</section>						
+					<section  align="left">											
+						<font size="6">
+						To compute $a_n$
+						\[						 
+						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi x^2\cos(nx)\mathrm{d}x = \frac{2}{\pi}\int_0^\pi x^2\cos(nx)\mathrm{d}x
+						\]
+						So that
+						\[
+						\begin{align*}
+						a_n &= \frac{2}{\pi}\left(\bigg[\frac{1}{n}x^2\sin(nx)\bigg]_0^\pi - \frac{2}{n}\int_0^\pi x\sin(nx)\mathrm{d}x\right)\\
+						&=-\frac{4}{n\pi}\left(\bigg[-\frac{1}{n}x\cos(nx)\bigg]_0^\pi+\frac{1}{n}\int_0^\pi\cos(nx)\mathrm{d}x\right)\\
+						&=\color{red}{\boxed{\color{white}\frac{4}{n^2}(-1)^n}}
+						\end{align*}
+						\]
+ 						</font>
+					</section>						
+					<section  align="left">											
+						<font size="6">
+						Putting the above together gives us our FS representation
+						
+						\[
+						\color{red}{\boxed{\color{white}
+						\begin{align*}						
+						f(x) &\sim \frac{a_0}{2}+\sum_{n=1}^\infty a_n\cos(nx)+b_n\sin(nx)\\
+						&= \frac{\pi^2}{3} + \sum_{n=1}^\infty \frac{4(-1)^n}{n^2}\cos(nx) 						
+						\end{align*}						
+						}}
+						\]
+ 						</font>
+					</section>	
+					<section>
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="0" src="figures/XSquaredn2.png" width="400" height="400">
+							<img class="fragment current-visible" data-fragment-index="0" src="figures/XSquaredn5.png" width="400" height="400">
+							<img class="fragment" src="figures/XSquaredn100.png" width="400" height="400">
+						</div>					
+					</section>
+				</section>							
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L4</h2>
+					<br>
+					<ul>
+						<li>Fourier series of $2\pi$ periodic functions</li>
+						<br>
+						<li>Example</li>
+						<br>
+						<span style="color: #FF33F9"> <li>Sine and cosine series</li></span>
+					</ul>
+				</section>
+				<section>
+					<section  align="left">											
+						<h4>Fourier sine series</h4>
+						<font size="6">
+						As the previous examples have alluded, kowledge of whether a function is 
+						odd or even can greatly simplify the Fourier series computations<br>		
+						
+						<br>
+						Let $f$ be $2\pi$ periodic. If $f$ is <b style="color: red">odd</b> then its FS is given by
+
+						\[
+						 \color{yellow}{\boxed{\color{white}
+						 f(x)\sim \sum_{n=1}^\infty b_n\sin(nx)
+						 }}
+						\]						
+						where
+						\[
+						b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x = \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x
+						\]						
+						</font>
+					</section>						
+					<section  align="left">											
+						<h4>Fourier cosine series</h4>
+						<font size="6">
+						As the previous examples have alluded, kowledge of whether a function is 
+						odd or even can greatly simplify the Fourier series computations<br>		
+						
+						<br>
+						Let $f$ be $2\pi$ periodic. If $f$ is <b style="color: red">even</b> then its FS is given by
+
+						\[
+						 \color{yellow}{\boxed{\color{white}
+						 f(x)\sim \frac{a_0}{2}+\sum_{n=1}^\infty a_n\cos(nx)
+						 }}
+						\]						
+						where
+						\[
+						a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x = \frac{2}{\pi}\int_0^\pi f(x)\cos(nx)\mathrm{d}x
+						\]
+				
+						</font>
+					</section>						
+				</section>
+				<section>
+					<section  align="left">											
+						<font size="6">
+						<b>Example 4.2</b> &emsp; Compute the Fourier series of the function
+						\[
+						 f(x) = x|x|-x^3
+						\]
+						such that $f(x)=f(x+2\pi)$ outside of $(-\pi, \pi)$
+						</font>
+						<img data-src="figures/Example4p2.png"style="position:absolute;top:300px;left:150px; border: 3px solid white;">
+					</section>						
+					<section  align="left">											
+						<font size="6">
+						<b>Solution</b> <br>
+						Since $f$ is an odd function we have $a_0=a_n = 0\forall n\in\mathbb{N}$<br>
+											
+						To compute $b_n$ let us note a couple of simplifying points:
+						
+						<br><br>
+						<ui>
+							<li>$f(x)\sin(nx)$ is odd so we can integrate from $0$ to $\pi$ and double the result</li>
+							<li>On the interval $(0, \pi)$ the function \[f(x) = x|x|-x^3= x^2-x^3\]</li>
+						</ui>
+						
+						So
+						<br>
+						\[	
+						 \color{red}{\boxed{\color{white}						
+						 b_n =\frac{2}{\pi}\int_0^\pi \left(x^2-x^3\right)\sin(nx)\mathrm{d}x
+						 }}
+						\]
+						</font>
+					</section>						
+					<section  align="left">											
+						<font size="6">
+						We compute this integral as follows
+						\[
+						\begin{align*}
+						b_n &= \frac{2}{\pi}\int_0^\pi\left(x^2-x^3\right)\sin(nx)\mathrm{d}x\\ 
+						&=\frac{2}{\pi}\bigg[-\frac{1}{n}(x^2-x^3)\cos(nx)\bigg]_0^\pi\\&+\frac{2}{n\pi}\int_0^\pi(2x-3x^2)\cos(nx)\mathrm{d}x\\
+						&=-\frac{2}{n\pi}(\pi^2-\pi^3)(-1)^n+\frac{2}{n\pi}\bigg[\frac{1}{n}(2x-3x^2)\sin(nx)\bigg]_0^\pi\\
+						&-\frac{2}{n^2\pi}\int_0^\pi (2-6x)\sin(nx)\mathrm{d}x = \cdots
+						\end{align*}
+						\]
+						</font>	
+					</section>
+					<section  align="left">											
+						<font size="6">
+						...so
+						\[
+						\begin{align*}
+						b_n &= -\frac{2}{n\pi}(\pi^2-\pi^3)(-1)^n-\frac{2}{n^2\pi}\int_0^\pi (2-6x)\sin(nx)\mathrm{d}x\\
+						&=-\frac{2}{n\pi}(\pi^2-\pi^3)(-1)^n-\frac{2}{n^2\pi}\bigg[-\frac{1}{n}(2-6x)\cos(nx)\bigg]_0^\pi\\
+						&-\frac{12}{n^3\pi}\int_0^\pi\cos(nx)\mathrm{d}x\\
+						&=\color{red}{\boxed{\color{white}\frac{2}{n\pi}(\pi^3-\pi^2)(-1)^n+\frac{2}{n^3\pi}\left((2-6\pi)(-1)^n-2\right)}}
+						\end{align*}
+						\]
+						</font>
+					</section>
+					<section  align="left">											
+						<font size="6">
+						It follows that the solution is given by
+						
+						<br><br>
+						
+						\[
+						 \color{#FF33F9}{\boxed{\color{white}
+						 \begin{align*}
+						 f(x)&\sim \sum_{n=1}^\infty\left[\frac{2}{n\pi}(\pi^3-\pi^2)(-1)^n\right.\\&\left.+\frac{2}{n^3\pi}\left((2-6\pi)(-1)^n-2\right)\right]\sin(nx) 
+						 \end{align*}
+						 }}
+						\]
+						
+						<br>
+						Hopefully, you can see how much more work would have been involved in this question had we not noticed the function is odd
+						
+						</font>
+					</section>
+					<section>
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="0" src="figures/ModXXsubX3N10.png" width="400" height="400">
+							<img class="fragment current-visible" data-fragment-index="0" src="figures/ModXXsubX3N50.png" width="400" height="400">
+							<img class="fragment" src="figures/ModXXsubX3N200.png" width="400" height="400">
+						</div>					
+					</section>
+				</section>
+						
+				
+				<section>
+					<h2 style="color:#FF33F9">Lecture 3 Review</h2>
+					<br>
+					<font size="6">
+					<ul>						
+						<li>In this lecture we covered</li>
+						<ul>
+							<li>Periodic, odd and even functions</li>
+							<li>Introduced Fourier series</li>
+							<li>An example of how to compute FS</li>
+						</ul><br>
+						<li>After this lecture you should</li>
+						<ul>
+							<li>Know what periodic, odd and even functions are</li>
+							<li>Understand the principle of linear superposition and have a basi idea of what a FS is</li>							
+						</ul><br>					
+					</ul>			
+					</font> 
+			</section>					
 			</div>
 		</div>
 
