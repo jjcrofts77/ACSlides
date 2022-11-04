@@ -26,7 +26,266 @@
 						<br>
 						<li>Examples</li>											
 					</ul>
-				</section>			
+				</section>		
+
+				<section  align="left">					
+					<h4>The 1d Heat Equation</h4>					
+					<font size="6">																				
+					<img data-src="figures/HeatBar.png"style="border: 3px solid yellow;">																			
+					<ul>
+						<li>Plus BCs: ends of rod held constant at zero degrees, <em>i.e.</em></li>
+						\[
+						 u(0,t) = u(L,t) = 0
+						\]
+						<li>And IC giving the initial temperature distribution: $u(x,0)=f(x)$</li>
+					</ul>						
+					</font>
+				</section>	
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L7</h2>
+					<br>
+					<ul>
+						<li>The 1D heat equation</li>
+						<br>
+						<span style="color: #FF33F9"> <li>The method of separation of variables</li>		</span>
+						<br>
+						<li>Examples</li>											
+					</ul>
+				</section>	
+
+				<section>
+					<section  align="left">																
+						<h4>Method of Separation of Variables</h4>	
+						<font size="6">			
+						The trick is to assume that your solution takes the <em>separable form</em>
+						\[
+						\color{#FF33F9}{\boxed{\color{white}
+						 u(x,t) = F(x)G(t)
+						 }}
+						\]
+						Substituting this into the PDE gives
+						\[
+						 \begin{align*}
+						  \frac{\partial u}{\partial t} &= F(x)G'(t) \\
+						  \frac{\partial^2 u}{\partial x^2} &= F(x)''G(t)
+						 \end{align*}\implies F(x)G'(t) = \kappa F''(x)G(t)
+						\]
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">			
+						Now 
+						\[
+						F(x)G'(t) = \kappa F''(x)G(t) \implies 
+						\begin{align*}
+						\frac{G'(t)}{\kappa G(t)} &=\frac{F''(x)}{F(x)}\\
+						&= \lambda ~\text{ a constant}
+						\end{align*}
+						\]
+						This follows since the LHS is a function of $t$ only and the RHS a function of $x$ only.
+						<br>
+						Multiplying by the denominators and rearranging gives
+						\[
+						\color{red}{\boxed{\color{white}
+						\begin{cases}
+						F''-\lambda F = 0 & F(0)=F(L)=0\\
+						G'-\kappa\lambda = 0&
+						\end{cases}						
+						}}
+						\]
+						Where do the new BCs come from?
+						</font>
+					</section>
+					<section  align="left">																
+						<font size="6">		
+						It follows that in order to solve for $u(x,t)$ we need to solve the ODEs for $F$ and $G$.<br>
+						
+						Let's start with the $F$-equation:
+						\[
+						 F''-\lambda F = 0\quad F(0)=F(L)=0
+						\]
+						This is a BVP and we have seen previously that we require $\lambda=-\omega^2<0$ to obtain non-trivial solutions, <em>i.e.</em>						
+						\[
+						F'' +\omega^2 F=0,
+						\]
+						which has solution 
+						\[
+						F(x) = A\cos(\omega x)+B\sin(\omega x)
+						\]
+						</font>
+						<img data-src="figures/ODESols.png"style="position:absolute;top:125px;left:550px;scale: 0.4; border: 3px solid red">												
+					</section>
+					<section  align="left">																
+						<font size="6">			
+						Applying the BCs 
+						\[
+						 F(0) = A\cos(\omega 0)+B\sin(\omega 0) = 0 \implies A=0
+						\]
+						So that $F(x) = B\sin(\omega x)$<br>
+						
+						The second BC gives
+						\[
+						 F(L) = B\sin(\omega L)=0 \implies \omega L = n\pi, n=1,2,3,\ldots
+						\]
+						Or 
+						\[
+						 \omega_n = \frac{n\pi}{L}, n=1,2,\ldots \implies 
+						 \color{green}{\boxed{\color{white}F_n(x) = B_n\sin\left(\frac{n\pi}{L} x\right)}}
+						\]
+						</font>
+					</section>
+					<section  align="left">																
+						<font size="6">		
+						Now	for the $G$-equation
+						\[
+						 G'-\kappa\lambda = 0 \quad\text{or}\quad \color{red}{\boxed{\color{white} G'+\kappa\frac{n^2\pi^2}{L^2}G=0}}
+						\]
+						since 
+						\[
+						\lambda = -\omega^2=-\frac{n^2\pi^2}{L^2}
+						\]
+						We can solve to obtain
+						\[
+						\color{yellow}{\boxed{\color{white}
+						G_n(t) = C_ne^{-\kappa\frac{n^2\pi^2}{L^2}t}
+						}}
+						\]
+						Putting this altogether we get...
+						</font>
+					</section>
+					<section  align="left">																
+						<font size="6">		
+					... a <a style="color: yellow">family of solutions</a>
+					\[
+					 u_n(x,t) = D_ne^{-\kappa\frac{n^2\pi^2}{L^2}t}\sin\left(\frac{n\pi}{L}x\right) \quad(D_n = B_nC_n)\
+					\]					
+					Now, since the PDE is <a style="color:red">linear and homogeneous</a> we can sum these solutions to obtain a general solution, <em>i.e.</em>
+					\[
+						\color{green}{\boxed{\color{white}
+					\begin{align*}
+					 u(x,t) &=\sum_{n=1}^\infty u_n(x,t)\\
+					     	&=\sum_{n=1}^\infty D_ne^{-\kappa\frac{n^2\pi^2}{L^2}t}\sin\left(\frac{n\pi}{L}x\right)
+					 \end{align*}					}}
+					\]
+					We shall see how to incorporate the IC in the example to follow
+					</font>
+					</section>
+				</section>
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L7</h2>
+					<br>
+					<ul>
+						<li>The 1D heat equation</li>
+						<br>
+						<li>The method of separation of variables</li>		
+						<br>
+						<span style="color: #FF33F9"> <li>Examples</li>											</span>
+					</ul>
+				</section>	
+				
+				<section>
+					<section  align="left">																
+						<font size="6">			
+						<b>Example 7.1</b> &emsp; Find the solution to the IBVP						
+						\[
+						 \frac{\partial u}{\partial t} = 4\frac{\partial^2u}{\partial x^2}, \quad x\in(0,\pi), ~ t>0
+						\]
+						with BCs \[u(0,t)=u(\pi,t)=0\] and IC
+						\[
+						 u(x,0) = \sin(x)+\frac{1}{2}\sin(2x)=f(x), x\in(0,\pi)
+						\]
+					
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">		
+						<b>Solution</b><br>
+						Assuming a separable solution $u(x,t) = F(x) G(t)$ we can derive a pair of ODEs for $F,G$:
+						\[
+						\begin{cases}
+						F''-\lambda F = 0 & F(0)=F(\pi)=0\\
+						G'-4\lambda = 0&
+						\end{cases}	
+						\]
+						Since we have zero BCs we know that the $F$-equation should admit oscillatory solutions implying that
+						\[
+						 \lambda = -\omega^2<0
+						\]
+						</font>
+					</section>
+					<section  align="left">																
+						<font size="6">	
+						<b>$F$-equation:</b> &emsp; We can solve $F''+\omega^2 F=0$ to obtain
+						\[
+						 F(x) = A\cos(\omega x)+B\sin(\omega x)
+						\]
+						Incorporating the BCs gives
+						\[
+						F(0) = A = 0 ~~\text{and}~~ F(\pi) = B\sin(\omega\pi) = 0
+						\]
+						The second equation implies that $\omega\pi=n\pi$ or that $\omega=n$ giving
+						\[
+						 F_n(x) = B_n\sin(nx), \quad n=1,2,\ldots
+						\]
+						</font>
+					</section>
+					<section  align="left">																
+						<font size="6">		
+						<b>$G$-equation:</b> &emsp; Since $\lambda = -\omega^2 = -n^2$ this equation becomes
+						\[
+						 G' +4n^2T = 0
+						\]
+						This is a first-order separable ODE with solution
+						\[
+						 G(t) = C_ne^{-4n^2t},\quad n=1,2,\ldots
+						\]
+						
+						Putting this altogether gives
+						\[
+						 u_n(x,t) = D_ne^{-4n^2t}\sin(nx), \quad n=1,2,\ldots
+						\]
+						</font>
+					</section>
+					<section  align="left">																
+						<font size="6">		
+						Since our PDE is linear and homogeneous we sum to get
+						\[
+						 u(x,t) = \sum_{n=1}^\infty D_ne^{-4n^2t}\sin(nx)
+						\]						
+						To determine the coefficients $D_n$ we incorporate the IC:
+						\[
+						u(x,0) = \sum_{n=1}^\infty D_n\sin(nx) = \sin(x)+\frac{1}{2}\sin(2x)
+						\]
+						which implies that $D_1=1, D_2=1/2$ and $D_n=0$ otherwise.<br>Thus
+						\[
+						\color{red}{\boxed{\color{white}
+						 u(x,t) = e^{-4t}\sin(x)+\frac{1}{2}e^{-16t}\sin(2x)
+						 }}
+						\]
+						</font>
+					</section>
+				</section>
+				
+				<section>
+					<h2 style="color:#FF33F9">Lecture 7 Review</h2>
+					<br>
+					<font size="6">
+					<ul>						
+						<li>In this lecture we covered</li>
+						<ul>
+							<li>the 1D heat equation</li>
+							<li>the method of separation of variables</li>							
+						</ul><br>
+						<li>After this lecture you should</li>
+						<ul>
+							<li>have knowledge of the 1D heat equation and in paticular its use in modelling real-world phenomena</li>
+							<li>be able to solve the 1D heat equation for 'speacial' initial conditions using the technique of separation of variables</li>														
+						</ul><br>					
+					</ul>			
+					</font> 
+				</section>					
 			
 			</div>
 		</div>
