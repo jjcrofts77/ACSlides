@@ -26,7 +26,403 @@
 						<br>
 						<li>Examples</li>											
 					</ul>
-				</section>			
+				</section>	
+				
+								<section  align="left">					
+					<h4>The 1d Wave Equation</h4>					
+					<font size="6">																				
+					<a style="color:yellow">Vibrating string model</a> <br>
+					\[
+					 \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}, x\in(0,L), t>0
+					\]
+					<br>
+					
+					<ul>
+						<li>Plus BCs: ends of string held constant at height zero, <em>i.e.</em></li>
+						\[
+						 u(0,t) = u(L,t) = 0
+						\]
+						<li>And IC giving the initial profile and velocity of the sting 
+						\[
+						u(x,0)=f(x) ~\text{ and }~ u_t(x,0) = g(x)
+						\]
+						</li> 
+						<li>$c$ denotes the <a style="color:red">wave speed</a> </li>
+					</ul>						
+					</font>
+					<video data-src="videos/string.mp4" controls style="position:absolute;top:-150px;left:500px;scale: 0.35; border: 5px solid red" class="center"></video>	
+					<img data-src="figures/BVnonzero.png"style="position:absolute;top:275px;left:710px;scale: .5">													
+				</section>	
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L9</h2>
+					<br>
+					<ul>
+						<li>The 1D wave equation</li>
+						<br>
+						<span style="color: #FF33F9"> <li>Solving the 1D wave equation using the separation of variables technique</li>								</span>
+						<br>
+						<li>Examples</li>											
+					</ul>
+				</section>	
+				
+				<section>
+										
+					<section  align="left">					
+					<h4>Separation of variables</h4>					
+					<font size="6">		
+					
+					The basic idea is to: <br><br>
+					
+					<ul>
+						<li>Apply the method of separation to obtain to ODEs</li><br>
+						<li>Determine solutions that satisfy the BCs</li><br>
+						<li>Use Fourier series to superimpose solutions to get the final solution 
+						that satifies both the wave equation and the initial conditions</li>
+					</ul>
+					
+					</font>
+					</section>
+					
+					<section  align="left">					
+					<font size="6">
+					Assuming the form $u(x,t)=F(x)G(t)$, differentiating and substituting into the wave equation:
+					\[
+					\color{yellow}{\boxed{\color{white}
+					\begin{align*}
+					\frac{\partial^2u}{\partial x^2}&=F(x)''G(t)\\\frac{\partial^2u}{\partial t^2}&=F(x)G(t)''
+					\end{align*} \implies 
+					\begin{align*}F(x)''G(t) &= \frac{1}{c^2}F(x)G(t)''\\ \frac{F''}{F} &= \frac{G''}{c^2G}= \lambda \text{ (a constant)}\end{align*}
+					}}
+					\]
+					Rearranging gives 
+					\[
+					\begin{cases}
+					 F''-\lambda F = 0, &F(0)=F(L)=0\\ G''-\lambda G=0
+					\end{cases}
+					\]
+					<a style="color:red">For the wave equation we have <b>two</b> second order ODEs to solve</a>
+					</font>
+					<img data-src="figures/F_BCs.png"style="position:absolute;top:400px;left:750px;scale: .65">													
+					</section>					
+					<section  align="left">																
+						<font size="6">		
+						It follows that in order to solve for $u(x,t)$ we need to solve the ODEs for $F$ and $G$.<br>
+						
+						Let's start with the $F$-equation:
+						\[
+						 F''-\lambda F = 0\quad F(0)=F(L)=0
+						\]
+						This is a BVP and we have seen previously that we require $\lambda=-\omega^2<0$ to obtain non-trivial solutions, <em>i.e.</em>						
+						\[
+						F'' +\omega^2 F=0,
+						\]
+						which has solution 
+						\[
+						F(x) = A\cos(\omega x)+B\sin(\omega x)
+						\]
+						</font>
+						<img data-src="figures/ODESols.png"style="position:absolute;top:125px;left:550px;scale: 0.4; border: 3px solid red">												
+					</section>
+					<section  align="left">																
+						<font size="6">			
+						Applying the BCs 
+						\[
+						 F(0) = A\cos(\omega 0)+B\sin(\omega 0) = 0 \implies A=0
+						\]
+						So that $F(x) = B\sin(\omega x)$<br>
+						
+						The second BC gives
+						\[
+						 F(L) = B\sin(\omega L)=0 \implies \omega L = n\pi, n=1,2,3,\ldots
+						\]
+						Or 
+						\[
+						 \omega_n = \frac{n\pi}{L}, n=1,2,\ldots \implies 
+						 \color{green}{\boxed{\color{white}F_n(x) = B_n\sin\left(\frac{n\pi}{L} x\right)}}
+						\]
+						</font>
+					</section>
+					<section  align="left">					
+					<font size="6">	
+					Now for the $G$-equation			
+					\[
+					 G''+c^2\lambda G = 0 \quad\text{or}\quad \color{red}{\boxed{\color{white}G''+c^2\frac{n^2\pi^2}{L^2}G=0}}
+					\]		
+					since $\lambda = -\omega^2 = -\frac{n^2\pi^2}{L^2}$. <br>
+					
+					<b> This is the same as the $F$-equation and so has solution</b>
+					\[
+					\color{yellow}{\boxed{\color{white}
+					G_n(t) = C_n\cos\left(\frac{n\pi c}{L}t\right) + D_n\sin\left(\frac{n\pi c}{L}t\right), n=1,2,\ldots
+					}}
+					\]
+					Putting this all together gives 
+					\[
+					 u_n(x,t) = \Bigg(E_n\cos\left(\frac{n\pi c}{L}t\right)+F_n\sin\left(\frac{n\pi c}{L}t\right)\Bigg)\sin\left(\frac{n\pi}{L}x\right)
+					\]
+					</font>
+					</section>
+					<section  align="left">					
+					<font size="6">	
+					<ul>
+						<li>Finally, since the PDE is <a style="color:green">linear and homogeneous</a> we can combine solutions 
+						linearly to obtain a general solution						
+						\[
+						\color{#FF33F9}{\boxed{\color{white}
+						\begin{align*}
+						 u(x,t) &= \sum_{n=1}^\infty u_n(x,t)\\
+						 &=\sum_{n=1}^\infty \Bigg(E_n\cos\left(\frac{n\pi c}{L}t\right)+F_n\sin\left(\frac{n\pi c}{L}t\right)\Bigg)\sin\left(\frac{n\pi}{L}x\right)
+						\end{align*}
+						}}
+						\]
+						</li> <br>
+						
+						<li>To compute the $E_n$ and the $F_n$ we need to incorporate the ICs</li>
+					</ul>
+					
+					</font>
+					</section>
+					<section  align="left">					
+					<font size="6">				
+					Applying the first IC
+					\[
+					 u(x,0)= f(x) = \sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}x\right)
+					\]
+					Hence we must express $f(x)$ as a Fourier sine series 
+					<br>
+					
+					It follows that the $E_n$ are given by
+					\[
+					\color{red}{\boxed{\color{white}
+					 E_n = \frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x
+					 }}
+					\]
+					<b>Remarks</b><br>
+					<ul>
+						<li>We are of course computing the FS of the odd extension of $f$</li>
+						<li>In practice we don't need to compute the extension</li>
+					</ul>
+					</font>
+					</section>
+					<section  align="left">					
+					<font size="6">																				
+					Applying the second BC
+					\[
+					\frac{\partial u}{\partial t} = \sum_{n=1}^\infty \frac{n\pi c}{L}\left(-E_n\sin\left(\frac{n\pi c}{L}t\right)+F_n\cos\left(\frac{n\pi c}{L}t\right)\right)\sin\left(\frac{n\pi}{L}x\right)
+					\]
+					Hence at $t=0$
+					\[
+					\frac{\partial u}{\partial t}(x,0) = \sum_{n=1}^\infty \frac{n\pi c}{L}F_n \sin\left(\frac{n\pi}{L}x\right)
+					\]
+					Using the IC we have
+					\[
+					 g(x)  =\sum_{n=1}^\infty \frac{n\pi c}{L}F_n \sin\left(\frac{n\pi}{L}x\right) = \sum_{n=1}^\infty H_n\sin\left(\frac{n\pi}{L}x\right)
+					\]
+					
+					</font>
+					<img data-src="figures/Hn.png"style="position:absolute;top:400px;left:900px;scale: 0.75">												
+					</section>
+					<section  align="left">					
+					<font size="5">							
+					 As before we can compute the unkown coefficients $F_n$ by constructing a FS approximation for $g(x)$<br>
+					 
+					 Here
+					 \[
+					  g(x) = \sum_{n=1}^\infty H_n \sin\left(\frac{n\pi}{L}x\right)
+					 \]
+					 And so
+					 \[
+					  H_n = \frac{2}{L}\int_0^L g(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x
+					 \]
+					 Giving 
+					 \[
+					 \color{#FF33F9}{\boxed{\color{white}
+					  F_n = \frac{2}{n\pi c}\int_0^Lg(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x 
+					  }}
+					 \]
+					 
+					 Substituting all of this back into the genreal solution gives the required answer!!!
+					</font>					
+					</section>	
+				</section>
+				
+				<section>
+					<h2 style="color:#FF33F9">Advanced Calculus L9</h2>
+					<br>
+					<ul>
+						<li>The 1D wave equation</li>
+						<br>
+						<li>Solving the 1D wave equation using the separation of variables technique</li>								
+						<br>
+						<span style="color: #FF33F9"> <li>Examples</li>											</span>
+					</ul>
+				</section>	
+				
+				<section>
+					<section  align="left">																
+						<font size="6">
+						<b>Example 9.1</b> &emsp; Find the solution to the IBVP
+						\[
+						\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,\pi),~ t>0,\quad u(0,t)=u(\pi,t)=0
+						\]
+						when the initial conditions are given by
+						\[
+						 u(x,0) = f(x) = \sin(x), x\in(0,L)
+						\]
+						and
+						\[
+						u_t(x,0) = g(x)=-\sin(x), x\in(0,L)
+						\]											
+						
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">
+						<b>Solution</b><br>
+						Since $L=\pi$ and $c=1$, we have that
+						\[
+						 u(x,t) = \sum_{n=1}^\infty \Bigg(E_n\cos(nt)+F_n\sin(nt)\Bigg)\sin(nx)
+						\]
+						The first BC gives
+						\[
+						 u(x,0) = \sum_{n=1}^\infty E_n\sin(nx) = \sin(nx) \implies E_1=1 ~\&~ E_n=0,  n>1
+						\]
+						
+						\[
+						 \implies u(x,t) = \cos(t)\sin(x) + \sum_{n=1}^\infty F_n\sin(nt)\sin(nx)
+						\]
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">
+						The second BC states that $u_t(x,0) = -\sin(x)$ <br>
+						
+						Now
+						\[
+						u_t(x,t) = -\sin(t)\sin(x)+\sum_{n=1}^\infty nF_n\cos(nt)\sin(nx)
+						\]
+						so
+						\[
+						 u_t(x,0) = -\sin(x) = \sum_{n=1}^\infty nF_n\sin(nx) \implies F_1=-1 ~\&~ F_n=0, n>1
+						\]
+						Finally,
+						\[
+						 \color{#FF33F9}{\boxed{\color{white}
+						 u(x,t) = \cos(t)\sin(x)-\sin(t)\sin(x)
+						 }}
+						\]
+						
+						</font>
+					</section>						
+				</section>
+				
+				<section>
+					<section  align="left">																
+						<font size="6">
+						<b>Example 9.2</b> &emsp; Find the solution to the IBVP
+						\[
+						\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,\pi),~ t>0,\quad u(0,t)=u(\pi,t)=0
+						\]
+						when the initial conditions are given by
+						\[
+						 u(x,0) = f(x) = 0, x\in(0,\pi)
+						\]
+						and
+						\[
+						u_t(x,0) = g(x)=\begin{cases}\frac{2}{\pi}x& x\in(0, \pi/2)\\\frac{2}{\pi}(\pi-x)& x\in[\pi/2,\pi)\end{cases}
+						\]											
+						
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">
+						<b>Solution</b><br>
+						Since $L=\pi$ and $c=1$, we have that
+						\[
+						 u(x,t) = \sum_{n=1}^\infty \Bigg(E_n\cos(nt)+F_n\sin(nt)\Bigg)\sin(nx)
+						\]
+						The first BC gives
+						\[
+						 u(x,0) = \sum_{n=1}^\infty E_n\sin(nx) = 0 \implies E_n=0,  \forall n 
+						\]
+						
+						\[
+						 \implies u(x,t) = \sum_{n=1}^\infty F_n\sin(nt)\sin(nx)
+						\]
+						
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">
+						Since 
+						\[
+						 u_t(x,t) = \sum_{n=1}^\infty nF_n\cos(nt)\sin(nx)
+						\]
+						we have
+						\[
+						 u_t(x,0) = \sum_{n=1}^\infty nF_n\sin(nx) = \sum_{n=1}^\infty G_n\sin(nx) = g(x)
+						\]
+						so
+						\[
+						 G_n = \frac{2}{\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x \implies F_n = \frac{2}{n\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x
+						\]						
+						
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">					
+						Thus
+						\[
+						\begin{align*}
+						F_n &= \frac{2}{n\pi}\Bigg(\int_0^\frac{\pi}{2}\frac{2x}{\pi}\sin(nx)\mathrm{d}x + \int_\frac{\pi}{2}^\pi\frac{2}{\pi}(\pi-x)\sin(nx)\mathrm{d}x\Bigg)\\
+						&= \frac{2}{n\pi}\Bigg(\left[-\frac{2x}{n\pi}\cos(nx)\right]_0^{\pi/2} + \frac{2}{n\pi}\int_0^\frac{\pi}{2}\cos(nx)\mathrm{d}x \\
+						&+\left[-\frac{2}{n\pi}(\pi-x)\cos(nx)\right]_{\pi/2}^\pi - \frac{2}{n\pi}\int_\frac{\pi}{2}^\pi\cos(nx)\mathrm{d}x\Bigg)\\
+						&= \frac{4}{n^2\pi^2}\Bigg(\left[\frac{1}{n}\sin(nx)\right]_0^{\pi/2}-\left[\frac{1}{n}\sin(nx)\right]_{\pi/2}^\pi\Bigg)\\
+						&=\frac{8}{n^3\pi^2}\sin\left(\frac{n\pi}{2}\right)
+						\end{align*}
+						\]
+						</font>
+					</section>	
+					<section  align="left">																
+						<font size="6">					
+						It follows that the solution of the wave equation is given by
+						\[
+						\color{#FF33F9}{\boxed{\color{white}
+						 \begin{align*}
+						 u(x,t) &= \sum_{n=1}^\infty \frac{8}{n^3\pi^2}\sin\left(\frac{n\pi}{2}\right)\sin(nt)\sin(nx)\\
+						 &= \sum_{n=1}^\infty \frac{8}{(2n-1)^3\pi^2}(-1)^{n+1}\sin((2n-1)t)\sin((2n-1)x)
+						 \end{align*}
+						 }}
+						\]
+						
+						<br>
+						<ur>
+							<li>The last line follows since $\sin(n\pi/2)=0$ for even values of $n$</li>
+							<li>Replacing $n$ by $2n-1$ in our equation ensures that we pick out odd terms only</li>
+						</ur>
+						</font>
+					</section>						
+				</section>
+
+				<section>
+					<h2 style="color:#FF33F9">Lecture 9 Review</h2>
+					<br>
+					<font size="6">
+					<ul>						
+						<li>In this lecture we covered</li>
+						<ul>
+							<li>The 1D wave equation</li>
+							<li>Solving the 1D wave equation using the separation of variables technique</li>										
+						</ul><br>
+						<li>After this lecture you should</li>
+						<ul>							
+							<li>be aware of modelling applications of the 1D wave equation</li>														
+							<li>be able to ssolve the 1D wave equation for 'special' initial conditions</li>
+						</ul><br>					
+					</ul>			
+					</font> 
+				</section>
 			
 			</div>
 		</div>
