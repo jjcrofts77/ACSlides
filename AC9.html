@@ -75,7 +75,7 @@
 					The basic idea is to: <br><br>
 					
 					<ul>
-						<li>Apply the method of separation to obtain to ODEs</li><br>
+						<li>Apply the method of separation to obtain two ODEs</li><br>
 						<li>Determine solutions that satisfy the BCs</li><br>
 						<li>Use Fourier series to superimpose solutions to get the final solution 
 						that satifies both the wave equation and the initial conditions</li>
@@ -98,7 +98,7 @@
 					Rearranging gives 
 					\[
 					\begin{cases}
-					 F''-\lambda F = 0, &F(0)=F(L)=0\\ G''-\lambda G=0
+					 F''-\lambda F = 0, &F(0)=F(L)=0\\ G''-c^2\lambda G=0
 					\end{cases}
 					\]
 					<a style="color:red">For the wave equation we have <b>two</b> second order ODEs to solve</a>
@@ -242,7 +242,7 @@
 					  }}
 					 \]
 					 
-					 Substituting all of this back into the genreal solution gives the required answer!!!
+					 Substituting all of this back into the general solution gives the required answer!!!
 					</font>					
 					</section>	
 				</section>
@@ -304,7 +304,7 @@
 						\]
 						so
 						\[
-						 u_t(x,0) = -\sin(x) = \sum_{n=1}^\infty nF_n\sin(nx) \implies F_1=-1 ~\&~ F_n=0, n>1
+						 u_t(x,0) = -\sin(x) = \sum_{n=1}^\infty nF_n\sin(nx) \implies F_n=\begin{cases}-1&n=1\\0&\text{otherwise}\end{cases}
 						\]
 						Finally,
 						\[
@@ -361,11 +361,11 @@
 						\]
 						we have
 						\[
-						 u_t(x,0) = \sum_{n=1}^\infty nF_n\sin(nx) = \sum_{n=1}^\infty G_n\sin(nx) = g(x)
+						 u_t(x,0) = \sum_{n=1}^\infty nF_n\sin(nx) = \sum_{n=1}^\infty H_n\sin(nx) = g(x)
 						\]
 						so
 						\[
-						 G_n = \frac{2}{\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x \implies F_n = \frac{2}{n\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x
+						 H_n = \frac{2}{\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x \implies F_n = \frac{2}{n\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x
 						\]						
 						
 						</font>
@@ -402,7 +402,14 @@
 							<li>Replacing $n$ by $2n-1$ in our equation ensures that we pick out odd terms only</li>
 						</ur>
 						</font>
-					</section>						
+					</section>	
+					<section  align="left">																
+						<font size="6">					
+						The following video shows the solution $u(x,t)$: <br><br>
+						
+						<video data-src="videos/WaveEx9p2.mp4" controls style="border: 4px solid red" class="center"></video>																
+						</font>
+					</section>	
 				</section>
 
 				<section>
