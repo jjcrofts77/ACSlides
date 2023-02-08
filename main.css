@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 
-/* body {
-  background: -webkit-radial-gradient(center, circle cover, white 50%, white
+ body {
+  background: -webkit-radial-gradient(center, circle cover, #121212 50%, #121212
      100%);
- } */
+ } 
 
 .reveal {
     font-size: 28px;
@@ -38,7 +38,7 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #586e75;
+  color: white;
   font-family: "News Cycle", Impact, sans-serif;
   font-weight: normal;
   line-height: 1.2;
@@ -50,15 +50,16 @@
 
 textBox {
     /* background:#E1E9EB; */
-    background:#FFF;
+    background:white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     border-radius:10px;
     display:inline-block;
     margin-top:15px;
     margin-bottom:20px;
+    color: gray;
 }
 textBox boxTitle {
-    background:#002b36;
+    background:gray;
     /* background:#657b83; */
     border-top-left-radius:10px;
     border-top-right-radius:10px;
@@ -97,7 +98,7 @@ mathBox {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     border-radius:10px;
     background:#002b36;
-    color:#fff;
+    color:white;
     padding: 10px;
 }
 leftSide {
@@ -122,29 +123,44 @@ innerBox {
 
 ::backdrop
 {
-    background-color: white;
+    background-color: #121212;
 }
 
+.reveal {
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  color: white; }
 
 
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #00FF00; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #00FF00; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #00FF00; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #00FF00; }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #00FF00; }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #00FF00; }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #00FF00; }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #00FF00; }
 
 
-
-
-#ionGraphAnimation {
-    fill: #2C404C;
-    font: 10px serif;
-    display:inline-block;
-}
-.yaxis line, .yaxis path {
-    fill: none;
-    stroke: #2C404C;
-    shape-rendering: crispEdges;
-}
-.move.line {
-    stroke-width: 1.5px;
-    shape-rendering: optimizeSpeed;
-}
-#ionChannelAnimation {
-    display:inline-block;
-}
