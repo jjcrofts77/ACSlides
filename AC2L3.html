@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+        <h1>Advanced Calculus</h1>
+        <h2>Lecture 13</h2>
+        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+        <p style="color: #00FF00">Nottingham Trent University</p>
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->			
+		<section align="left">
+		<h1>Advanced Calculus L13</h1>
+		<br>
+		<h3>
+		<ul>			
+			<li  style="color: #00FF00"><b>Analytic functions</b></li>
+			<br>	
+			<li>Examples</li>										
+		</ul>
+		</h3>				
+			</section>			
+			
+			<section>
+				<section  align="left">					
+				<h2>Analytic functions</h2>					
+					
+					<p style="color:red">We can use the CR equations to determine an analytic function given either its real or imaginary part <em>i.e.</em> either $u$ or $v$</p>
+
+					<span class="fragment fade-in">
+					<h3>Example 13.1</h3>					
+					
+					<p>Determine the analytic function \[f(z) = u(x,y)+iv(x,y)\] whose real part is given 
+					by \[u(x,y) = x^2-y^2\]</p>
+					</span>
+					
+					<span class="fragment fade-in">
+					<br> <p><b>Solution</b></p>
+					<p>By the CR equations we have that</p>
+					\[
+					 u_x = v_y = 2x \quad \text{and} \quad v_x = -u_y = 2y
+					\]
+					</span>
+					
+				</section>
+								
+				<section  align="left">	
+				
+				<p>And so we have that 
+				\[
+				 v(x,y) = \int 2x\mathrm{d}y =  2xy + f(x)
+				\]
+				<em>and </em>
+				\[
+				v(x,y) = \int 2y\mathrm{d}x = 2xy + g(y)
+				\]
+				</p>
+				
+				<span class="fragment fade-in">
+				<p>Equating these two expressions gives </p>
+				
+				\[
+				2xy+f(x) = 2xy + g(y) \implies f(x)=g(y)=\text{constant}
+				\]
+				
+				</span>
+				
+				<span class="fragment fade-in">
+				And so 
+				\[
+				 v(x,y) = 2xy + K
+				\]
+				</span>
+				
+				<span class="fragment fade-in">
+				<p>It follows that </p>
+				
+				\[\color{red}{\boxed{\color{white}{
+				 f(z) = u(x,y)+iv(x,y) = x^2-y^2 + i\left(2xy+K\right)}}}
+				\]				
+				</span>							
+				
+				</section>	
+				
+				
+			
+			</section>
+			 
+			<section>
+			
+				<section  align="left">						
+					<p>It is often convenient to write the complex function in terms of $z$</p>
+					
+					<span class="fragment fade-in">
+					<p> In the previous example it is fairly clear that </p>
+					
+					\[
+					x^2-y^2+i\left(2xy +K\right) = z^2+iK
+					\]
+					
+					<p>In general this can be a bit tricky</p>
+					</span>
+					
+					<span class="fragment fade-in">
+					<p> Fortunately the following algorithm frequently comes to the rescue:</p>
+					
+							<textBox touch-action="none" >
+							<br>
+					<ol type="1">				
+						<li>Set $y=0$ in the expression for $f$</li><br>
+						<li class="fragment fade-in">Replace $x$ with $z$ in the resulting expression &emsp;</li><br>						
+				</ol>
+				</textBox>
+				<p class="fragment fade-in" style="color:red">To understand why this work requires knowledge of the so-called <a href="https://en.wikipedia.org/wiki/Identity_theorem" style="color:#6f0000;"><em>identity theorem</em></a> 
+				which lies outside of the scope of the current course</p>
+					</span>
+					
+							
+					
+				</section>	
+				
+				<section  align="left">						
+					
+					<h3>Example 13.2</h3> 
+					
+					<p>Using the algorithm provided, write
+					\[
+					 f = x^2-y^2+i(2xy+k) 
+					\]
+					in terms of $z$</p>
+					
+					
+					<br> <p><b>Solution</b></p>
+					
+					<span class="fragment fade-in">
+					<p>Setting $y=0$ gives</p>
+					
+					\[
+					 f = x^2+iK
+					\]
+					
+					</span>
+					
+					<span class="fragment fade-in">
+					<p>which upon replacing $x$ by $z$ gives </p>
+					
+					\[
+					\color{red}{\boxed{\color{white}{
+					 f(z) = z^2+iK}}}
+					\]
+					</span>
+					
+					
+						
+					
+				</section>	
+				
+				<section  align="left">						
+					
+					<h3>Example 13.3</h3> 
+					
+					<p>Using the algorithm provided, write
+					\[
+					 f = x(1-y)+i\left(\frac{x^2-y^2}{2}+y\right)
+					\]
+					in terms of $z$</p>
+										
+					<br> <p><b>Solution</b></p>
+					
+					<span class="fragment fade-in">
+					
+					<p>Setting $y=0$ gives</p>
+					
+					\[
+					 f = x+i\frac{x^2}{2}
+					\]
+					</span>
+					
+					<span class="fragment fade-in">
+					<p>which upon replacing $x$ by $z$ gives</p>
+					
+					\[
+					f(z) = z+i\frac{z^2}{2}
+					\]
+					
+					<span class="fragment fade-up">
+					<p style="color:red"> <b>Exercise</b>: check the above by substituting $z=x+iy$ </p>
+					</span>
+					
+					</span>
+						
+						
+					
+				</section>	
+				
+			</section>		
+
+<section  align="left">						
+					
+					<h3>Two more important results</h3>					
+					<ol type="1">				
+						<li>
+						<p>If $f(z)$ is analytic and $f'(z)=0$ then $f(z)$ is constant </p>
+						</li>
+						<span class="fragment fade-in">
+						<p style="color:red">
+						<b>Proof</b> Exercise (hint: use the CR equations)</p>
+						</span>
+					</ol>	
+						
+					<ol type="1" start="2">					
+						<li class="fragment fade-in">
+						If $f(z)$ is analytic and <em>any</em> of $\mathrm{Re}(f), \mathrm{Im}(f)$ or $|f|$ are constant then $f(z)$ is constant
+						</li>
+					<span class="fragment fade-in">
+						<p style="color:red">
+						<b>Proof</b> ($\mathrm{Re}(f)=$constant)</p>
+						
+						<p> We have that </p>						
+						\[
+						\mathrm{Re}(f) = u(x,y) = K; \text{ clearly } u_x=u_y=0
+						\]
+					</span>
+						
+						<span class="fragment fade-in">
+						<p>Then, from the CR equations we have that 
+						\[
+						 u_x=v_y=0 ~~\text{and}~~ u_y=-v_x=0
+						\]
+						<p>and so clearly $v$ equals a constant </p>
+						</span>	
+
+					<span class="fragment fade-in">
+						<p style="color:red">See the online notes for proofs of the remaining two results</p>
+					</span>						
+					
+				</ol>
+						
+					
+				</section>				
+			
+			<section align="left">
+<h1>Advanced Calculus L13</h1>
+		<br>
+		<h3>
+		<ul>			
+			<li>Analytic functions</li>
+			<br>	
+			<li style="color: #00FF00"><b>Examples</b></li>										
+		</ul>
+		</h3>		
+			</section>			
+			
+			<section>
+		
+				<section  align="left">												
+					
+					<h3>Example 13.4</h3> 
+					
+					<p>Show that the function $f(z)=z^3$ is harmonic 
+
+					</p>
+
+					<br> <p><b>Solution</b></p>
+					<span class="fragment fade-in">
+					<p>Recall that $f$ is harmonic if $\nabla^2u=\nabla^2v=0$</p>
+					</span>
+					
+					<span class="fragment fade-in">
+					Now 
+					\[
+					 \begin{align*}
+					  f = z^3 &= (x+iy)^3\\
+					  &= (x+iy)(x^2+2ixy-y^2)\\
+					  &= x^3+2ix^2y-xy^2+iyx^2-2xy^2-iy^3\\
+					  &= \left(x^3-3xy^2\right) + i\left(3yx^2-y^3\right)
+					 \end{align*}
+					\]
+					</span>
+				
+				<span class="fragment fade-in">
+				So that 
+				\[
+				\color{red}{\boxed{\color{white}{
+				 u(x,y) = x^3-3xy^2 ~~\text{and}~~  v(x,y) = 3yx^2-y^3}}}
+				\]
+				</span>
+				</section>
+				
+				<section  align="left">						
+				\[
+				\color{red}{\boxed{\color{white}{
+				 u(x,y) = x^3-3xy^2 ~~\text{and}~~  v(x,y) = 3yx^2-y^3}}}
+				\]
+				
+				<span class="fragment fade-in">
+				<p>Since</p> 
+				\[
+				u_x = 3x^2-3y^2\quad \color{#00FF00}{\boxed{\color{white}{u_{xx} = 6x}}}\quad u_y = -6xy\quad\text{and}\quad \color{#00FF00}{\boxed{\color{white}{u_{yy} = -6x}}}
+				\]
+				<p>and</p> 
+				
+				\[
+				v_x=6xy\quad \color{magenta}{\boxed{\color{white}{v_{xx}=6y}}}\quad v_y=3x^2-3y^2\quad\text{and}\quad \color{magenta}{\boxed{\color{white}{v_{yy}=-6y}}}
+				\]
+				</span>
+				
+				<span class="fragment fade-in">
+				<p> it is clear that </p>
+				\[
+				\nabla^2u = u_{xx}+u_{yy}=0 ~~\text{and}~~\nabla^2v = v_{xx}+v_{yy}=0
+				\]
+				<p> and so $f(z)=z^3$ <em>is</em> harmonic</p>
+				</span>
+				</section>	
+				
+				</section>
+				<section>
+								
+				<section  align="left">						
+				
+				<h3>Example 13.5</h3>  
+				
+				<p>Express the following functions in terms of $z$:</p>
+				
+
+				
+				<ol type="1">
+					<li>$\displaystyle f_1 = 2x+3+2iy+4i$</li><br>
+					<li>$\displaystyle f_2 = e^{-2x}\left(\cos(2y)-i\sin(2y)\right)$</li><br>
+					<li>$\displaystyle f_3 = x-iy$</li>
+				</ol>
+					
+					<br> <p><b>Solution</b></p>
+					<span class="fragment fade-in">
+					<ol type="1"><li>$\left(\displaystyle f_1 = 2x+3+2iy+4i\right)$</li></ol> 	
+					<p>Setting $y=0$ we have that</p>
+					\[
+					 f_1 = 2x+3+4i
+					\]
+					<p>and replacing $x$ by $z$ gives $\displaystyle f_1(z) = 2z+3+4i$</p>
+					</span>
+				
+				</section>	
+				
+				<section  align="left">	
+	
+					<ol type="1" start="2"><li>$\left(\displaystyle f_2 = e^{-2x}\left(\cos(2y)-i\sin(2y)\right)\right)$</li></ol> 	
+					<p>Setting $y=0$ we have that</p>
+					\[
+					 f_2 = e^{-2x}
+					\]
+					<p>and replacing $x$ by $z$ gives $\displaystyle f_2(z) = e^{-2z}$</p>
+					
+					<span class="fragment fade-in">
+					<ol type="1" start="3"><li>$\left(\displaystyle f_3 = x-iy\right)$</li></ol> 	
+					<p>Setting $y=0$ we have that</p>
+					\[
+					 f_3 = x
+					\]
+					<p>and replacing $x$ by $z$ gives $\displaystyle f_3(z) = z$</p>									
+					</span>
+					
+					<span class="fragment fade-in">
+					<p style="color:red">This is clearly wrong since $f_3=\bar{z}$</p>
+					<p style="color:red">In fact the method breaks down for functions of the form $f(z,\bar{z})$</p>
+					</span>
+	
+				
+				</section>	
+				
+				</section>
+				
+				
+				<section>
+				<section  align="left">											
+					<h3>Example 13.6</h3> 
+					
+					<p>If $u(x,y)=x(1-y)$, find $v(x,y)$</p>
+
+
+				<br> <p><b>Solution</b></p>
+				<span class="fragment fade-in">
+				<p> From the CR equations we know that </p>
+				
+				\[
+				 u_x = v_y = 1-y \quad\text{and}\quad -u_y=v_x=x
+				\]
+				</span>				
+				<span class="fragment fade-in">
+				<p>Integrating wrt to $y$ we obtain two expressions for $v$:</p>
+				\[
+				 v(x,y) = \int 1-y \mathrm{d}y = y-\frac{y^2}{2}+g(x)
+				\]
+				<p>and </p>
+				\[
+				v(x,y) = \int x \mathrm{d}x = \frac{x^2}{2} + h(y)
+ 				\]
+				</section>	
+				
+				<section  align="left">		
+					<p>Equating these two expressions</p>
+					\[
+					 y-\frac{y^2}{2}+g(x) = \frac{x^2}{2} + h(y)
+					\]
+					
+					<span class="fragment fade-in">
+					<p>This $\implies$ that </p>
+					\[
+					 g(x) = \frac{x^2}{2}+c_1\quad \text{and} \quad h(y) = y-\frac{y^2}{2}+c_2
+					\]
+					
+					<p> and so</p>
+					\[
+					v(x,y) = \frac{x^2}{2}+y-\frac{y^2}{2}+K
+					\]
+					</span>
+					
+					<span class="fragment fade-in">
+					<p>The function </p>
+					\[\color{red}{\boxed{\color{white}{
+					\displaystyle f(z) = u(x,y)+iv(x,y) = x(1-y)+i\left(\frac{x^2}{2}+y-\frac{y^2}{2}+K\right)}}}
+					\]
+					</span>
+				</section>	
+				
+				<section  align="left">		
+				
+				<p>Using our algorithm we can rewrite this function in terms of $z$</p>
+				
+				\[\color{magenta}{\boxed{\color{white}{
+					\displaystyle f(z) = x(1-y)+i\left(\frac{x^2}{2}+y-\frac{y^2}{2}+K\right)}}}
+					\]
+					
+				
+				
+					<span class="fragment fade-in">
+				<p>Setting $y=0$ gives</p>
+				
+				\[
+				 f = x+i\left(\frac{x^2}{2}+K\right)
+				\]
+				</span>
+				
+				<span class="fragment fade-in">
+				<p>and replacing $x$ by $z$ gives</p>
+				
+				\[\color{red}{\boxed{\color{white}{
+				 f = z+i\left(\frac{z^2}{2}+K\right)}}}
+				\]
+				</span>
+				</section>
+				
+			</section>						
+
+			<section>
+				<h2 style="color:#FF33F9">Lecture 13 Review</h2>
+										
+		<br>
+		<h3>
+		<ul>			
+			<ul>						
+					<li>In this lecture we covered</li>
+					<ul>
+						<li>Analytic functions</li>
+						<li>Harmonic conjugates</li>						
+						<li>Examples</li>						
+					</ul><br>
+					<li>After this lecture you should be </li>
+					<ul>
+						<li>know what an analytic function is</li>
+						<li>be able to determine the harmonic conjugate of an analytic function</li>						
+					</ul><br>					
+				</ul>			
+		</ul>
+		</h3>
+			</section>
+			 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
+
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
+        </script>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
+</html>
