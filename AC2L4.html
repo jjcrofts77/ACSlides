@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 14</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	  
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+		<h1>Advanced Calculus L14</h1>
+		<br>
+		<h3>
+		<ul>			
+			<li  style="color: #00FF00"><b>Zeros</b></li>
+			<br>	
+			<li>Singularities: poles, removable and essential</li>										
+		</ul>
+		</h3>				
+	</section>			
+			
+	<section>
+		<section  align="left">					
+			<h2>Zeros</h2>					
+					
+			<p style="color:red">A <em>zero</em> of an analytic function $f(z)$ in a domain $D$ is a 
+			point $z=z_0$ such that $f(z_0)=0$</p>
+			
+			<span class="fragment fade-in">
+			<textBox touch-action="none" >
+			<boxTitle>
+              <h3>Definition 14.1 (order of a zero)</h3>
+            </boxTitle>
+			
+			A <em>zero has order $n$</em> if not only $f$ but also the derivatives $f', f'',\ldots f^{(n-1)}$ are all zero 
+			at $z=z_0$ but $f^{(n)}\neq 0$
+			</textBox>
+			</span>
+			
+			<p class="fragment fade-in">A first order zero is called a <em>simple zero</em></p>
+			
+			<p class="fragment fade-in">For a second order zero we have 
+			
+			\[
+			 f(z_0) = f'(z_0) = 0\quad \text{but}\quad f''(z_0)\neq 0
+			\]
+			
+			
+			etc.</p>
+					
+		</section>
+								
+		<section  align="left">	
+				
+			<h3>Example 14.1</h3>					
+					
+			<p>The function $1+z^2$ has simple zeros at $\pm i$</p>
+					
+			<span class="fragment fade-in">					
+			<p>The function $\left(1-z^4\right)^2$ has second order zeros at $\pm 1$ and $\pm i$</p>
+			
+			<p class="fragment fade-in">Note, for example, that 
+			\[
+			\left.\frac{\mathrm{d}f}{\mathrm{d}z}\right|_{z_0=i} = \left. -8z^3(1-z^4)\right|_{z_0=i} = 0
+			\]
+			</p>
+			<p class="fragment fade-in">But 
+			\[
+			\left.\frac{\mathrm{d}^2f}{\mathrm{d}z^2}\right|_{z_0=i} = \left. 8z^2(7z^4-3)\right|_{z_0=i} \neq 0
+			\]
+			</p>
+			</span>
+					
+			<span class="fragment fade-in">					
+			<p>The function $e^{z}$ has <em>no</em> zeros</p>
+			</span>
+
+			<span class="fragment fade-in">					
+			<p>The function $\sin{z}$ has simple zeros at $0, \pm\pi, \pm 2\pi,\ldots$ whilst the function $\sin^2(z)$ 
+			has second order zeros at the same points</p>
+			</span>							
+				
+		</section>	
+		
+		<section  align="left">	
+				
+			<h3>Example 14.2</h3>					
+			<p>Consider the function $f(z) = \sin^2(z)$.</p>
+			
+			<p class="fragment fade-in">Differentiating gives			
+			\[
+			\begin{align*}
+			 f'(z) &= 2\sin(z)\cos(z)\\
+			 f''(z)&= 2\left(\cos^2(z)-\sin^2(z)\right)\\
+			\end{align*}					
+			\]
+			</p>
+			
+			<p class="fragment fade-in">and so clearly			
+			\[
+			f(\pm n\pi) = f'(\pm n\pi) = 0 \quad n\in\mathbb{Z}
+			\]
+			 since $\sin(\pm n\pi)=0$
+			</p>
+			
+			<p class="fragment fade-in">Also, since
+			\[
+			 f''(\pm n\pi) \neq 0 \quad n\in\mathbb{Z}
+			\]
+			
+			<br>
+			we have that $\pm n\pi$ are <span style="color:red">second order zeros</span> of $\sin^2(z)$ for each $n\in\mathbb{Z}$ </p>
+											
+		</section>	
+	</section>			 					
+	
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+		<h1>Advanced Calculus L14</h1>
+		<br>
+		<h3>
+		<ul>			
+			<li><b>Zeros</b></li>
+			<br>	
+			<li   style="color: #00FF00">Singularities: poles, removable and essential</li>										
+		</ul>
+		</h3>				
+	</section>	
+	
+	<section>
+		<section align="left">
+			<h2>Singularities</h2>			
+			
+			<p>Before moving onto complex integration we need to consider <span style="color: red"> singularities</span> of complex valued functions</p>
+			
+			<p> Recall that a function is analytic at the point $z_0$ if it is differentiable in a neighbourhood of $z_0$</p>
+			
+			<span class="fragment fade-in">
+			<textBox touch-action="none" >
+			<boxTitle>
+              <h3>Definition 14.2 (neighbourhood)</h3>
+            </boxTitle>			
+			A <em>neighbourhood</em> (or $\epsilon$-neighbourhood) of a complex number $z_0$ is defined as a disc in the complex plane 
+			obeying $\displaystyle |z-z_0|<\epsilon$ for some small positive number $\epsilon$
+			</textBox>
+			</span>
+			
+			<span class="fragment fade-in">
+			<p> The picture is as follows</p>
+			
+			<img
+            style="margin:0px;padding:0px;border: 3px solid white;position:absolute;top:550px;left:400px"				
+            height="100"
+            src="figures/EpsNH.png">
+			</span>
+		</section>
+		
+		<section align="left">
+		<h3>Example 14.3</h3>					
+		<p>Show that the function $\displaystyle f(z)= u(x,y)+iv(x,y)=x^2-iy^2$ is nowhere analytic in the complex plane</p>
+		
+		<span class="fragment fade-in">
+		<br> <p><b>Solution</b></p>
+		<p>We begin by computing the CR equations:</p>
+		
+		\[
+		\begin{align*}
+		u_x&=v_y \implies 2x=-2y\\
+		v_x&=-u_y \implies 0=0
+		\end{align*}
+		\]
+		
+		<p class="fragment fade-in">Thus the function $f$ is only differentiable at points lying on the line $x=-y$
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:150px;left:800px"				
+		height="250"		
+		src="figures/Ex14p3.png">
+		
+		</p>
+		
+		<p class="fragment fade-in">However, to be analytic at a point $z_0$, there must exist a neighbourhood of $z_0$ at all points
+		of which $f'(z)$ exists.</p>
+		
+		<span class="fragment fade-in">
+		<p>Clearly <em>any</em> neighbourhood of a point on the line $x=-y$ will contain points off of that line, for which $f'(z)$ does not exist</p>
+		</span>
+		</span>
+		</section>
+	</section>
+	
+	<section>
+		<section align="left">
+		<h2>Poles</h2>
+		
+		<p>Consider the function</p>
+		\[
+		 f(z) = \frac{2z+1}{z^2+3z+2}
+		\]		
+		<p> The denominator can be written as $(z+1)(z+2)$ and so the function is <em>not</em> defined at these points</p>
+		
+		<p style="color:#00FF00">In particular, it is <em>not</em> analytic at these points</p>
+		
+		<span class="fragment fade-in">
+			<textBox touch-action="none" >
+			<boxTitle>
+              <h3>Definition 14.3 (pole)</h3>
+            </boxTitle>			
+			A function $f(z)$ has an order $n$ pole if $z_0$ is a zero of order $n$ for the function $1/f(z)$
+			</textBox>
+		</span>
+				
+		</section>
+		
+		<section align="left">
+			
+			<span style="color: #00FF00">
+			<p>Another way of thinking about this is that $z_0$ is an order $n$ pole if </p>
+			\[
+			\left(z-z_0\right)^n f(z)~ \text{ is analytic, but } ~\left(z-z_0\right)^{n-1} f(z)				
+			\]		
+			<p>is not</p>
+			</span>
+			
+			<br>
+			
+			<span class="fragment fade-in">
+			<h3>Example 14.3</h3>	
+			<p>Consider the previous example</p>
+			\[
+			f(z) = \frac{2z+1}{z^2+3z+2}
+			\]
+			<p>Then </p>
+			\[
+			F(z) = 1/f(z) = \frac{(z+1)(z+2)}{2z+1}
+			\]
+			<span>
+		
+			<p> has zeros at $z_{1,2}=-1,-2$, that is $F(-1)=F(-2)=0$</p>
+		
+			<p style="color:red" class="fragment fade-in">What are the order of these poles?</p>
+		</section>
+		
+		<section align="left">
+			<p>To determine the order of the poles we could determine the order of the zeros of $F(z)=1/f(z)$</p>
+			
+			<p class="fragment fade-in"> Alternatively, we can use the second method</p>
+			
+			<span class="fragment fade-in">
+			<p>Firstly, note that</p>
+			\[
+			 (z+1)^1f(z) = \frac{2z+1}{z+2}
+			\]
+			<p>is analytic (well-defined and "differentiable") at $z_1=-1$</p>
+			
+			<p class="fragment fade-in">Where as 
+			<br>
+			\[
+			(z+1)^0f(z) = \frac{2z+1}{(z+1)(z+2)}
+			\]
+			<br>
+			is not.  
+			</p>
+			</span>
+			
+			<p class="fragment fade-in"> Thus $z_1=-1$ is an <span style="color:red"><b>order 1 pole</b></span></p>
+			
+			<p class="fragment fade-in">A similar analysis shows that $z_2=-2$ is also an order 1 pole</p>
+		</section>
+	</section>
+	
+	
+	<section align="left">
+		<h2>Removable singularities</h2>
+		
+		<textBox touch-action="none" >
+			<boxTitle>
+        <h3>Definition 14.4 (removable)</h3>
+        </boxTitle>			
+		If $f(z)$ is not defined at $z_0$ then $f(z)$ is not analytic there. However, if $f(z)$ is defined at every point in a 
+		neighbourhood of $z_0$ and 
+		\[
+		\lim_{z\to z_0} f(z)
+		\]
+		exists, then $z_0$ is a <em>removable singularity</em>
+		</textBox>
+			
+		<br>
+		<span class="fragment fade-in">
+		<h3>Example 14.4</h3>	
+		<p>The function $\displaystyle f(z) = \frac{\sin(z)}{z}$ has a removable singularity at $z_0=0$.</p>
+			
+		<span class="fragment fade-in">
+		<p>This follows as $f$ exists $\forall z\neq 0$ and </p>	
+		\[
+		\lim_{z\to 0} f(z) = \lim_{z\to 0}\left[\frac{1}{z}\left(z-\frac{z^3}{3!}+\frac{z^5}{5!}-\cdots\right)\right] = 1
+		\]
+				
+		</span>
+		</span>
+	</section>		
+	
+	
+	<section>
+		<section align="left">
+		<h2>Essential singularities</h2>
+		
+		<p> Both of the previous singuarities are known as <em>isolated singularities</em></p>
+		
+		<textBox touch-action="none" >
+			<boxTitle>
+              <h3>Definition 14.5 (isolated)</h3>
+            </boxTitle>					
+			We say that $z_0$ is an <em>isolated singularity</em> if a <em>deleted $\epsilon$-neighbourhood</em>&emsp;
+			\[
+			0<|z-z_0|<\epsilon
+			\]
+			can be drawn enclosing no other singular points.
+		</textBox>				
+									
+		<br>	
+		<span class="fragment fade-in">
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:450px;left:775px"				
+			height="250"		
+			src="figures/isolatedsing.png">
+		
+		<h3>Example 14.5</h3>	
+		Suppose $\displaystyle f(z) = \frac{3z+2}{(z-i)(z+2)^2}$
+		
+		<p class="fragment fade-in">$\bullet ~f$ has poles at $z=i, -2~$ (order 1 and 2, respectively)</p>
+		
+		<p class="fragment fade-in">$\bullet ~$ These singularities are clearly isolated</p>
+		</span>
+			
+		</section>
+		
+		<section align="left">
+		
+		</textBox>			
+			<textBox touch-action="none" >
+			<boxTitle>
+              <h3>Definition 14.6 (essential)</h3>			  
+            </boxTitle>						
+			If a singular point can not be isolated it is called an <em>essential singularity</em>&emsp;
+		</textBox>
+		
+		<br>
+		<span class="fragment fade-in">
+		<h3>Example 14.6</h3>	
+		<p>Show that the function $\displaystyle f(z) = \frac{1}{\sin\left(z^{-1}\right)}$ has an essential singularity at $z=0$ </p>
+		
+		<span class="fragment fade-in">			
+		<p><b>Solution</b></p>		
+		This function has two types of singularities: isolated singularities whenever the denominator equals zero, <em>i.e.</em>
+		\[\color{red}{\boxed{\color{white}{
+		\sin\left(z^{-1}\right) = 0 \implies z^{-1} = n\pi \quad n\in\mathbb{Z}}}}
+		\]
+		and an essential singularity at $z=0$.
+		
+		<p class="fragment fade-in"> To see this, note that each of the isolated singuarities can be enclosed in an $\epsilon$-disc containing no other singularities; just set 
+		\[
+		\epsilon = \frac{1}{2}|z_n-z_{n+1}| = \frac{1}{2}\frac{1}{\pi n(n+1)}
+		\]
+		</p>
+		</span>			
+		</span>
+		
+		</section>
+		<section align="left">
+		
+		<p>To see that $z^*=0$ is an <em>essential singularlty</em>, consider the plot below and try to choose a value of $\epsilon$ such that
+		the $\epsilon$-neighbourhood centered at zero, $D_\epsilon$ say, contains no singularities other than $z^*=0$.</p>
+			
+		<br>
+		
+		<span class="fragment fade-in">
+		<div class="column">
+		<p>No matter the choice of $\epsilon$ we can always choose $m\in\mathbb{Z}$ large enough so that</p>
+		
+		\[
+		 z_m = \frac{1}{m\pi}
+		\]
+		
+		<p>lies within the disc, $D_\epsilon$.</p> 
+		
+		<p>Moreover, infinitely many such singularities are enclosed within $D_\epsilon$ for any choice of $\epsilon$, since $z_n\in D_\epsilon$ for $n>m$</p>
+        </div>
+		</span>
+		<div class="column" align="right">
+        	<img style="margin:0px;padding:0px;border: 3px solid #00FF00"				
+			height="350"		
+			src="figures/essentialsing.png">
+		</div>
+		
+		<p style="color:red" class="fragment fade-in">It follows that we cannot isolate the point $z^*=0$ and so it must be an essential singularity</p>
+		</section>
+	</section>
+	
+	<!-- ################################################### -->
+    <!-- ################################################### -->
+	<section>
+		<h2 style="color:#FF33F9">Lecture 13 Review</h2>
+										
+		<br>
+		<h3>
+		<ul>			
+		<ul>						
+			<li>In this lecture we covered</li>
+			<ul>
+				<li>Zeros</li>
+				<li>Singularities: poles, removable and essential</li>										
+			</ul><br>
+			<li>After this lecture you should be </li>
+		<ul>
+			<li>be able to determine the zeros of a complex valued function and determine their order</li>
+			<li>be able to detect and classify singularities of complex valued functions</li>						
+		</ul><br>					
+		</ul>			
+		</ul>
+		</h3>
+	</section>
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
+
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
+        </script>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
+</html>
