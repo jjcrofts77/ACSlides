@@ -162,5 +162,8 @@ innerBox {
 
 .reveal .controls .navigate-down.enabled:hover {
   border-top-color: #00FF00; }
-
-
+  
+  .column {
+    float: left;
+    width: 50%;
+}
