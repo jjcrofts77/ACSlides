@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 15</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	  
+		<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L15</h1>
+		<br>
+		<ul>
+			<span style="color: #00FF00"> 					
+			<li>Integration</li>
+				<ul>
+					<li>Fundamental theorem of contour integration</li>
+					<li>Cauchy's integral theorem</li>						
+					<li>Contour integration using a path representation</li>
+				</ul></span>							
+				<br>
+			<li>Examples</li>		
+			<br>					
+			<li>Cauchy's derivative formula</li>										
+		</ul>
+	</section>			
+			
+	<section>
+		<section  align="left">					
+			<h2>Integration preliminaries</h2>					
+					
+			<p>A path in the complex plane is a continuous function </p>
+			
+			\[
+			 \mathcal{C}: z(t) = x(t)+iy(t), \quad t\in[a, b], \quad a, b\in\mathbb{R}
+			\]
+			
+			<p>that connects two points in the complex plane $z_1=z(a)$ and $z_2=z(b)$</p>
+			
+			<p class="fragment fade-in">Familiar (and important) examples include</p>
+			<ul>
+				<span class="fragment fade-in">
+				<li >straight line between the points $z_1, z_2$</li>
+				
+				\[
+				\quad\quad\quad\color{red}{\boxed{\color{white}{
+				\mathcal{C}: z(t) = (1-t)z_1 + tz_2, \quad t\in[0,1]}}}
+				\]
+				</li> </span>
+				
+				<li class="fragment fade-in">The unit circle
+				\[
+				\quad\quad\quad\color{red}{\boxed{\color{white}{
+				 \mathcal{C}: \cos{t}+i\sin{t}\quad t\in[0, 2\pi)}}}
+				\]				
+				</li>
+			</ul>
+						
+			
+			<p class="fragment fade-in">A <span style="color: red">closed path</span> is one such that $z_1=z(a)=z(b)=z_2$</p>
+			
+			<p class="fragment fade-in"> A <span style="color: #00FF00">simple path</span> is one that does not self intersect</p>
+			
+					
+		</section>
+		
+		<section  align="left">															
+			<p>The <span style="color: #FF33F9">opposite path</span> $-\mathcal{C}$ is the path $\mathcal{C}$ traversed in the opposite direction</p>
+			
+			<span  class="fragment fade-in">
+			<p>The figures below illustrate some of these definitions</p>
+			
+
+			<div class="r-stack">
+				<img class="fragment" style="border : 3px solid red" src="figures/OACP.png" >
+				<img class="fragment" style="border : 3px solid #00FF00" src="figures/SVNS.png"> 				
+				<img class="fragment" style="border : 3px solid #FF33F9" src="figures/OC.png">				
+			</div>			
+			
+			</span>
+				
+		</section>
+		
+	</section>
+			
+	<section>
+		<section  align="left">					
+			<h2>Fundamental theorem of contour integration</h2>					
+			
+			<br>
+			<textBox touch-action="none" >
+			<boxTitle>
+              <h3>Theorem 15.1(FTCI)</h3>
+            </boxTitle>			
+			<p>If $\mathcal{C}$ is a simple path in the complex plane from $z_1$ to $z_2$ and $f$ is continuous with antiderivative $F$ then</p>
+			\[
+			 \int_\mathcal{C}f(z)\mathrm{d}z = F(z_2)-F(z_1)
+			\]
+			$~$
+			</textBox>
+			
+			
+			<p class="fragment fade-in"><b>Note</b></p>
+			
+			<ul>
+				<li class="fragment fade-in">See the <a href="https://jjcrofts77.github.io/Advanced-Calculus-MATH20471/content/notebooks/Part2/Chapter4/FundamentalInt.html" style="color:red">online notes</a> for a proof of this result</li>
+				<li class="fragment fade-in">Recall that an antiderivative of $f$ is a function $F$ satisfying the relation $F'=f$ </li>				
+			<ul>
+											
+		</section>
+				
+				<section  align="left">															
+						<p>Two immediate consequences of Theorem 15.1 are</p>
+						
+						<span class="fragment fade-in">
+						<p>&emsp; 1. If two curves $\mathcal{C_1}, \mathcal{C}_2$ start and end at the same points $z_1$ and $z_2$ then</p>
+						
+						\[
+						\color{red}{\boxed{\color{white}{
+						\int_\mathcal{C_1} f(z)\mathrm{d}z = \int_\mathcal{C_2} f(z)\mathrm{d}z = F(z_2)-F(z_1)}}}
+						\]
+						</span>
+						
+						<span class="fragment fade-in">
+						<p>&emsp; 2. If a closed contour is defined by $\mathcal{C} = \mathcal{C_1}-\mathcal{C_2}$</p>
+						\[
+						\color{red}{\boxed{\color{white}{
+						\int_\mathcal{C}f(z)\mathrm{d}z = \int_\mathcal{C_1} f(z)\mathrm{d}z-\int_\mathcal{C_2} f(z)\mathrm{d}z = 0}}}
+						\]
+						</span>		
+						
+						<br>
+						<p class="fragment fade-in" style="color: red"> <em>i.e.</em> <b>integrals of analytic functions are path indepenent</b></p>
+				</section>
+			
+		</section>
+			
+		<section>
+			<section  align="left">					
+				<h2>Cauchy's integral theorem</h2>					
+				<textBox touch-action="none" >
+				<boxTitle>
+				<h3>Theorem 15.2 &emsp;(Cauchy's Integral Theorem)</h3>
+				</boxTitle>			
+				<p>If $f(z)$ is analytic on and within a closed curve $\mathcal{C}$ then</p>
+				\[
+				 \oint_\mathcal{C} f(z)\mathrm{d}z = 0
+				\]
+				$~$
+				</textBox>
+				
+				<h3 class="fragment fade-in">Proof</h3>	
+				
+				<span  class="fragment fade-in">
+				<p> The proof is an application of <a style="color: #00FF00" href="https://mathworld.wolfram.com/GreensTheorem.html">Green's theorem</a> which states</p>
+				
+				\[
+				\color{#00FF00}{\boxed{\color{white}{
+				 \oint_\mathcal{C} f_1\mathrm{d}x +f_2\mathrm{d}y = \int\int_\mathcal{D}\left(\frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y}\right)\mathrm{d}x\mathrm{d}y}}}
+				\]
+				
+				<p>Here, $\mathcal{D}$ is the region enclosed by the closed curve $\mathcal{C}$</p>
+				
+				</span>
+				
+			</section>
+				
+			<section  align="left">										
+				<h3>Proof (ctd)</h3>	
+					
+				<p>Writing $f(z) = u(x,y)+iv(x,y)$ and $\mathrm{d}z=\mathrm{d}x+i\mathrm{d}y$ gives</p>
+					
+				\[
+				 \begin{align*}
+				  I &= \oint_\mathcal{C}(u+iv)(\mathrm{d}x+i\mathrm{d}v)\\
+				  &=\oint_\mathcal{C}(u\mathrm{d}x-v\mathrm{d}y) +i\oint_\mathcal{C}(v\mathrm{d}x+u\mathrm{d}y)\\					  
+				 \end{align*}
+				\]
+				
+				<span  class="fragment fade-in">
+				<p>Setting $f_1=u, f_2=-v$ in the first integral and $f_1=v, f_2=u$ in the second, we can apply Green's theorem to obtain</p>
+				
+				\[
+				\int\int_\mathrm{D} \left(\frac{\partial (-v)}{\partial x}-\frac{\partial u}{\partial y}\right) + i\left(\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right)\mathrm{d}x\mathrm{d}y
+				\]
+				</span>
+					
+				<span class="fragment fade-in">
+				<p >which proves the result since by the C-R equations we have</p>
+				\[
+				 u_x=v_y \text{ and } v_x=-u_y \implies u_x-v_y=0 \text{ and } -u_u-v_x=0
+				\]
+					
+				and so \[I = \int_\mathcal{C}f(z)\mathrm{d}z=0\]
+				</span>
+			</section>
+										
+		</section>
+			
+		<section  align="left">					
+								
+			<h2>Contour integration using a path representation</h2>					
+				
+			<textBox touch-action="none" >
+			<boxTitle>
+			<h3>Theorem 15.3 &emsp;(Integration via a path)</h3>
+			</boxTitle>			
+			<p>Let $\mathcal{C}$ be a piecwise smooth path, represented by $z(t)$, where $t\in[a,b]$. Let $f(z)$ be a continuous 
+			function on $\mathcal{C}$. Then </p>
+			\[
+			 \int_\mathcal{C}f(z)\mathrm{d}z = \int_a^b f(z(t))z'(t)\mathrm{d}t
+			\]
+			$~$
+			</textBox>
+				
+			<span class="fragment fade-in">
+			<h3>Proof</h3>	
+			See online notes
+			
+			<p style="color: red"><b>Note</b> This method of integration can be applied to <em>any</em> continuous function regardless of whether an antiderivative exists</p>
+			</span>
+		</section>
+			
+		<section align="left">
+			<h1>Advanced Calculus L15</h1>
+			<br>
+			<ul>			
+				<li>Integration</li>
+			<ul>
+				<li>Fundamental theorem of contour integration</li>
+				<li>Cauchy's integral theorem</li>						
+				<li>Contour integration using a path representation</li>
+			</ul>
+			<br>				
+				<li style="color: #00FF00">Examples</li>		
+				<br>					
+				<li>Cauchy's derivative formula</li>										
+			</ul>
+		</section>			
+
+		<section>
+			<section  align="left">					
+				<h3>Example 15.1</h3>		
+				<p>Compute the integral of $f(z)=z^2$ along the straight line from $z_0=0$ to $z_1=1+i$</p>
+					
+				<ol type="1">
+					<li><p>using the fundamental theorem of contour integration</p></li>
+					<li><p>by constructing a suitable parameterisation of the straight line segment joining the two points</p></li>
+				</ol>
+					
+				<br>
+				<span class="fragment fade-in">
+				<h3>Solution</h3>		
+				<p> Hopefully it is clear that an anti-derivative for the function $f(z)=z^2$ is given by $\displaystyle \frac{1}{3}z^3$ and so</p>
+				
+				\[
+				 \int_0^{1+i} f(z)\mathrm{d}z = F(z_2)-F(z_1) = \frac{1}{3}(1+i)^3-\frac{1}{3}0^3 = \color{red}{\boxed{\color{white}{\frac{2}{3}(i-1)}}}
+				\]
+				</span>
+					
+			</section>
+				
+			<section  align="left">								
+				<p>For part (b) we need to parameterise the straight line between $z_1=0$ and $z_2=1+i$</p>
+				
+				<span class="fragment fade-in">
+				<p> Using the formula from earlier we have that</p>
+				
+				\[
+				\begin{align*}
+				 \mathcal{C}: z(t) &= (1-t)z_1+tz_2\\
+				 &= t(1+i) =\color{#00FF00}{\boxed{\color{white}{  t+it\quad t\in[0,1]}}}
+				\end{align*}
+				\]
+				</span>
+				
+				<span class="fragment fade-in">
+				<p> Differentiating $z$ gives $z'(t) = 1+i$ and since $\displaystyle f(z(t)) = (t+it)^2$  we have that</p>
+				
+				\[
+				 \int_\mathcal{C}f(z)\mathrm{d}z = \int_0^1 f(z(t))z'(t)\mathrm{d}t = \int_0^1 (t+it)^2(1+i)\mathrm{d}t
+				\]
+				</span>
+				
+				<span class="fragment fade-in">
+				<p>Multiplying out the brackets gives </p>
+				
+				\[
+				\begin{align*}
+				 \int_0^1 (t+it)^2(1+i)\mathrm{d}t = (1+i)\int_0^1 2it^2\mathrm{d}t &= 2i(1+i)\left[\frac{1}{3}t^3\right]_0^1\\
+				 &=\color{red}{\boxed{\color{white}{ \frac{2}{3}(i-1)}}}
+				\end{align*}
+				\]
+				</span>
+				
+			</section>
+				
+		</section>			
+			
+		<section>
+			<section  align="left">					
+							
+				<h3>Example 15.2</h3> 
+				<p>By integrating $f(z)=1/z$ counterclockwise around the unit circle, show that</p>
+				\[
+				 \oint_{\mathcal{C}}\frac{\mathrm{d}z}{z} = 2\pi i 
+				\]					
+					
+					
+				<h3>Solution</h3>
+				
+				<span class="fragment fade-in">
+				<p> Note that $f(z)=1/z$ is not analytic within the region enclosed by the curve $\mathcal{C}$</p>
+				
+				<p style="color: red"> It has a <em>first order pole</em> at z_0=0</p>
+				</span>
+				
+				<span class="fragment fade-in">
+				<p> To solve we need to paramterise the curve $\mathcal{C}$:</p>
+				
+				\[
+				 \mathcal{C}: z(t) = \cos{t}+i\sin{t}\quad t\in[0, 2\pi) 
+				\]
+				</span>
+				
+				<span class="fragment fade-in">
+				<p>Noting that </p>
+				
+				\[
+				\color{#00FF00}{\boxed{\color{white}{
+				 z'(t) = ie^{it} \quad \text{and} \quad f(z(t)) = \frac{1}{e^{it}} = e^{-it}}}}
+				\]										
+				</span>	
+			</section>
+				
+			<section  align="left">								
+			<p> We have that </p>
+				
+				\[
+				\begin{align*}
+				 \oint_\mathcal{C} &= \int_0^{2\pi}e^{-it}\cdot ie^{it}\mathrm{d}t\\
+				 &=i\int_0^{2\pi}\mathrm{d}t\\
+				 &=i\Bigg[~t~\Bigg]_0^{2\pi} = 2\pi i
+				 \end{align*}
+				\]
+				
+			<span class="fragment fade-in">
+			<p>More generally, it can be shown that </p>
+			\[
+			\color{red}{\boxed{\color{white}{
+			\int_\mathcal{C}\frac{1}{z-z_0}\mathrm{d}z = 2\pi i}}}
+			\]			
+			<p>for $z_0\in\mathbb{C}$</p>
+			</span>
+			
+						
+			<span class="fragment fade-in">
+			<p> This result will prove useful moving forward</p>
+			
+			<p style="color:red"><b>Exercise: prove the above result</b></p>
+			</span>
+
+			</section>				
+			
+		</section>	
+
+		<section align="left">
+			<h1>Advanced Calculus L15</h1>
+			<br>
+			<ul>			
+				<li>Integration</li>
+			<ul>
+				<li>Fundamental theorem of contour integration</li>
+				<li>Cauchy's integral theorem</li>						
+				<li>Contour integration using a path representation</li>
+			</ul>
+			<br>				
+				<li >Examples</li>		
+				<br>					
+				<li style="color: #00FF00">Cauchy's derivative formula</li>										
+			</ul>
+		</section>			
+			
+		<section>
+			<section  align="left">					
+				<h2>Cauchy's derivative formula</h2>					
+				
+				<textBox touch-action="none" >
+				<boxTitle>
+				<h3>Theorem 15.4 &emsp;(Cauchy's derivative formula)</h3>
+				</boxTitle>			
+				<p>If $f(z)$ is analytic on and within a simlpe closed curve $\mathcal{C}$ and $z_0$ is a point within $\mathcal{C}$ then</p>
+				\[
+				f^{(n)}(z_0) = \frac{n!}{2\pi i}\oint_\mathcal{C}\frac{f(z)}{(z-z_0)^{n+1}}\mathrm{d}z
+				\]
+				$~$
+				</textBox>
+				
+				<br>
+				<span class="fragment fade-in">
+				<b>Note</b> 
+				
+				<p> $\bullet$ The above theorem allows us to comute integrals by rearrangment</p>
+				
+				<p> $\bullet$ Setting $n=0$ gives <em>Cauchy's integral formula</em>:</p>
+				
+				\[
+				\color{red}{\boxed{\color{white}{
+				 f(z_0) = \frac{1}{2\pi i}\oint_\mathcal{C} \frac{f(z)}{z-z_0}\mathrm{d}z}}}
+				\]
+				</span>
+			</section>
+				
+				<section  align="left">										
+					
+					<h3>Example 15.3</h3> 
+					
+					<p>Use the Cauchy derivative formula to compute the integral</p>
+					\[
+					 I = \int_\mathcal{C}\frac{z^3}{(z-2)^2}\mathrm{d}z
+					\]
+					<p>where $\mathcal{C}$ is the curve $|z|=3$</p>
+					
+					<h3>Solution</h3>
+					
+					<span class="fragment fade-in">
+					<p>Since $\displaystyle f(z) = z^3, f'(z)=3z^2, z_0=2 \text{ and } n = 1$ we have from rearrangement of Cauchy's derivative formula that</p>
+					
+					\[
+					\oint_\mathcal{C} \frac{z^3}{(z-2)^2}\mathrm{d}z = 2\pi i f'(z_0) = 24\pi i
+					\]
+					</span>
+				</section>
+			
+			</section>
+		
+			<section>
+				<h2 style="color:#FF33F9">Lecture 15 Review</h2>
+				<br>
+				<font size="6">
+				<ul>						
+					<li>In this lecture we covered</li>
+					<ul>
+						<li>The fundamental theorem of contour integration</li>
+						<li>Cauchy's integral theorem</li>						
+						<li>Cauchy's derivative formula</li>						
+					</ul><br>
+					<li>After this lecture you should be </li>
+					<ul>
+						<li>know the fundamental theorem of contour integration and be able to use it to compute integrals of complex valued functions when possible</li>
+						<li>be able to apply the integration results due to Cauchy to solve integrals</li>						
+					</ul><br>					
+				</ul>			
+				</font> 
+			</section>
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
+
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
+        </script>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
+</html>
