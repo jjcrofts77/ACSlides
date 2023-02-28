@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 16</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	  
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L16</h1>
+		<br>
+		<ul>
+			<span style="color: #00FF00"> 					
+			<li>Examples (integration)</li>
+			</span>							
+				<br>
+			<li>Annulus (deformation) theorem</li>		
+			<br>					
+			<li>Multiple annulus theorem</li>										
+		</ul>
+	</section>				
+			
+			
+	<section>
+		<section  align="left">												
+				<h3>Example 16.1</h3>		 
+				<p>Evaluate the intergal $\oint_\mathcal{C} f(z)\mathrm{d}z$ on the unit circle when $f(z)$ is defined as</p>
+				
+				<ol style="1">									
+					<li>$f(z)=z$</li>
+					<li>$f(z)=\bar{z}$</li>						
+					<li>$f(z) = z^{-n}$ for integer $n$</li>
+				</ol>	
+				
+				<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:150px;left:750px"				
+				height="200"		
+				src="figures/UnitCircle.png">
+				
+				<br><br>
+				
+				<h3>Solution</h3>
+				
+				<span class=fragment fade-in>
+				<p>1. Since the function $f(z)=z$ is analytic on and within the unit circle we have by Cauchy's theorem that
+				\[
+				 \oint_\mathcal{C} z\,\mathrm{d}z = 0
+				\]
+				</span>
+				
+
+		</section>
+				
+		<section  align="left">		
+			
+			
+			<p>2. The function $f(z)=\bar{z}$ is nowehere analytic on the complex plane and so we must integrate it using contour integration.</p>
+			
+				<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:150px;left:750px"				
+				height="200"		
+				src="figures/UnitCircle.png">
+					
+			<span class="fragment fade-in">					
+			<p>The unit circle is parameterised as </p>
+			\[
+			 z(t) = e^{it}\quad t\in[0,2\pi)
+			\]
+			<p> and so </p>
+			\[
+			 f(z(t)) = e^{-it}\quad \text{ and }\quad z'(t) = ie^{it} 
+			\]
+			</span>
+			<span class="fragment fade-in">
+			<p>Thus </p>
+			\[
+			 \begin{align*}
+			 \oint_\mathcal{C} \bar{z}\,\mathrm{d}z =  \int_a^b f(z(t)) z'(t)\,\mathrm{d}t
+			 &= \int_0^{2\pi} e^{-it}ie^{it}\mathrm{d}t\\
+			 &= \int_0^{2\pi} i\mathrm{d}t = \Bigg[it\Bigg]_0^{2\pi} = \color{red}{\boxed{\color{white}{2\pi i}}}
+			 \end{align*}
+			\]
+			</span>			
+					
+		</section>
+				
+		<section  align="left">												
+								
+			<p>3. Firstly note that the function $f$ has an order $n$ pole at $z=0$</p>
+			
+			<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:150px;left:750px"				
+				height="200"		
+				src="figures/UnitCircle.png">
+			
+			<p class="fragment fade-in">There are two cases to look at</p>
+			
+			<span class="fragment fade-in">
+			<p>$n=1$: &emsp; in this case we have that </p>
+			\[
+			\oint_\mathcal{C}\frac{1}{z}\mathrm{d}z = 2\pi i
+			\]
+			
+			<p> This follows since</p>
+			\[
+			 \frac{1}{z} = \frac{\bar{z}}{z\bar{z}} = \bar{z}
+			\]
+			</span>
+			
+			<p class="fragment fade-in" style="color:red">Recall that $z\bar{z}=|z|^2=1$ for points on the unit circle</p>
+			
+					
+		</section>
+				
+		<section  align="left">													
+			<p>$n>1$: &emsp; in this case we have that </p>	
+			\[
+			\begin{align*}
+			\oint_\mathcal{C}z^{-n}\,\mathrm{d}z &= \int_0^{2\pi}e^{-int}ie^{it}\mathrm{d}t\\
+			&= i\int_0^{2\pi}e^{(1-n)it}\mathrm{d}t\\
+			&= i\left[\frac{1}{(1-n)i}e^{(1-n)it}\right]_0^{2\pi} = \frac{1}{1-n}\left(e^{(1-n)2\pi i}-1\right) = 0
+			\end{align*}			
+			\]
+			
+		<span class="fragment fade-in">	
+		<p > The last step follows since</p> 
+		\[\displaystyle e^{2\pi mi}= \cos{2m\pi}+i\sin{2m\pi}=1\quad \forall m\in\mathbb{Z}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>Thus</p>
+		\[
+		\color{red}{\boxed{\color{white}{
+		\oint_\mathcal{C} z^{-n}\mathrm{d}z=
+		\begin{cases}
+		 2\pi i & n=1\\ 0& n>1
+		\end{cases}
+		}}}
+		\]
+		</span>
+		<p class="fragment fade-in" style="color:red">For $n<1$, $\oint_\mathcal{C}z^{-n}\mathrm{d}z=0$ by Cauchy's integral theorem since $f$ is analytic</p>
+		</section>		
+	</section>	
+			
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L16</h1>
+		<br>
+		<ul>
+			
+			<li>Examples (integration)</li>			
+				<br>
+				<span style="color: #00FF00"> 					
+			<li>Annulus (deformation) theorem</li>		</span>
+			<br>					
+			<li>Multiple annulus theorem</li>										
+		</ul>
+	</section>	
+	
+	<section>
+		<section  align="left">			
+			<textBox touch-action="none" >
+			<boxTitle>
+				<h3>Theorem 16.1 &emsp;(Annulus Theorem)</h3>
+			</boxTitle>			
+			<p>If $f(z)$ is analytic on the closed annulus determined by two simple closed paths $\mathcal{C_1}$ and $\mathcal{C}_2$ then</p>
+			\[
+			 \oint_{\mathcal{C}_1} f(z)\,\mathrm{d}z = \oint_{\mathcal{C}_2} f(z)\,\mathrm{d}z
+			\]
+			&emsp;
+			</textBox>
+			
+			<br><br>
+			
+			<span class="fragment fade-in">
+			<div class="column">
+			<p> $\bullet$ Examples of closed annuli are given in the figure</p>
+			<p>$\bullet$ This result will enable us to compute integrals around complicated paths</p>
+			</div>
+			
+			<div class="column" align="right">
+				<img style="margin:0px;padding:0px;border: 3px solid #00FF00"				
+				height="250"		
+				src="figures/annuli.png">
+			</div>
+			
+			</span>
+		</section>
+			
+		<section  align="left">							
+		<h3>Proof</h3>	
+		
+		<div class="column">
+		<p>Start by splitting the annulus into two parts by adding two additional paths $\gamma_1, \gamma_2$ (see figure)</p>
+		
+		<p class="fragment fade-in">This cutting results in two new paths $C^*_1, C^*_2$</p>
+		
+		<span class="fragment fade-in">
+		<p>Now consider the integral around this shape as indicated by the arrows</p>
+		
+		\[
+		\color{#00FF00}{\boxed{\color{white}{
+		\begin{align*}		
+		I &= \int_{\mathcal{C}^*_1} f(z)\,\mathrm{d}z+\int_{\gamma_1} f(z)\,\mathrm{d}z-\int_{\mathcal{C}^*_2} f(z)\,\mathrm{d}z+\int_{\gamma_1} f(z)\,\mathrm{d}z\\
+		&=0 \quad \text{due to Cauchy's theorem}
+		\end{align*}
+		}}}
+		\]
+		</span>
+		</div>
+		
+		<div class="column" align="right">
+				<img style="margin:0px;padding:0px;border: 3px solid #00FF00"				
+				height="250"		
+				src="figures/proof.png">
+		</div>					
+		
+		</section>
+		<section  align="left">									
+		<p>In the limit $\epsilon\to 0$, $\gamma_1\to-\gamma_2$ and</p>
+		\[
+		 \int_{\gamma_1} f(z)\,\mathrm{d}z = -\int_{\gamma_2} f(z)\,\mathrm{d}z
+		\]
+		<p>thus these two integrals cancel in $I$</p>
+		
+		<p class="fragment fade-in" style="color:red"> In other words $\gamma_2$ is the opposite path of $\gamma_1$</p>
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:0px;left:750px"				
+				height="200"		
+				src="figures/proof.png">
+		
+		<span class="fragment fade-in">
+		<p>Also, since in this limit $\mathcal{C}^*_1\to\mathcal{C}_1$ and $\mathcal{C}^*_2\to\mathcal{C}_2$ we have</p>
+		\[
+		\int_\mathcal{C^*_1} f(z)\,\mathrm{d}z\to \oint_\mathcal{C_1} f(z)\,\mathrm{d}z \quad\text{ and }\quad
+		\int_\mathcal{C^*_2} f(z)\,\mathrm{d}z\to \oint_\mathcal{C_2} f(z)\,\mathrm{d}z
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>so that</p>
+		 \[
+		  I = \oint_\mathcal{C_1} f(z)\,\mathrm{d}z -\oint_\mathcal{C_2} f(z)\,\mathrm{d}z = 0 
+		 \]
+		 <p>as required</p>
+		 </span>
+		
+		</section>
+	</section>
+			
+	<section align="left">
+		<h1>Advanced Calculus L16</h1>
+		<br>
+		<ul>			
+			<li>Examples (integration)</li>			
+			<br>			
+			<li>Annulus (deformation) theorem</li>		
+			<br>					
+			<span style="color: #00FF00"> 					
+			<li>Multiple annulus theorem</li>					
+			</span>					
+		</ul>
+	</section>
+			
+	<section>
+	
+		<section  align="left">												
+		<h3>Multiple annulus theorem</h3>
+		
+		<div class="column">
+			<p> $\bullet$ The annuli in the figure are examples of <em style="color:red">doubly connected domains</em></p>		
+		</div>
+			
+		<div class="column" align="right">
+				<img style="margin:0px;padding:0px;border: 3px solid red"				
+				height="150"		
+				src="figures/annuli.png">
+		</div>
+			
+		
+		<span class="fragment fade-in">
+		<div class="column" align="left">			
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00"				
+				height="200"		
+				src="figures/triplyconnecteddomain.png">
+			
+		</div>
+			
+		<div class="column" >
+			<p>$\bullet$ We can also consider domains with <em>higher connectivity</em></p>			
+			<p class="fragment fade-in">$\bullet$  For example the figure to the left shows a <em style="color:#00FF00">triply connected domain</em></p>	
+			<span class="fragment fade-in">
+			<p>$\bullet$ For a triply connected domain</p>
+			\[
+			\color{#00FF00}{\boxed{\color{white}{
+			\oint_\mathcal{C} f(z)\,\mathrm{d}z = \oint_{\mathcal{C}_1} f(z)\,\mathrm{d}z +\oint_{\mathcal{C}_2} f(z)\,\mathrm{d}z}}}
+			\]
+			</span>
+		</div>
+		</span>
+			
+			
+		</section>
+		
+		<section  align="left">							
+		
+		<textBox touch-action="none" >
+		<boxTitle>
+			<h3>Theorem 16.2 &emsp;(Multiple Annulus Theorem)</h3>
+		</boxTitle>			
+		<p>If $f(z)$ is analytic on the closed domain $\mathcal{D}$ which is bounded by the curve $\mathcal{C}$ and contains $n$ holes,
+		each bounded by the curves $\mathcal{C}_1, \mathcal{C}_2,\ldots, \mathcal{C}_n$, then the integral over $\mathcal{C}$ is given by</p>
+		\[
+		 \oint_{\mathcal{C}} f(z)\,\mathrm{d}z = \oint_{\mathcal{C}_1} f(z)\,\mathrm{d}z +\oint_{\mathcal{C}_2} f(z)\,\mathrm{d}z+\cdots +\oint_{\mathcal{C_n}} f(z)\,\mathrm{d}z
+		\]
+		<p> provided the paths are traversed in the same direction</p>
+		</textBox>
+		
+		<p class="fragment fade-in" style="color:red">The proof of this result is like that for the Annulus Theorem - <em>i.e.</em> introduce cuts and use Cauchy's Theorem</p>
+		</section>
+		
+		
+	</section>
+			
+	<section>
+		<section  align="left">												
+					
+		<h3>Example 16.2</h3> 
+					
+		<p>Compute the integral </p>
+		\[
+		 \oint_\mathcal{C}\frac{3}{z+1}+\frac{4}{z-2i}\mathrm{d}z
+		\]
+		<p>where the path $\mathcal{C}$ is the circle given by $|z|=4$ in the anticlockwise direction.</p>					
+		
+		<h3>Solution</h3>
+					
+		<span class="fragment fade-in">
+		<p> By the multiple annulus theorem we can perform the integral around $\mathcal{C}$ as follows</p>
+		\[
+		 \oint_\mathcal{C} f(z)\,\mathrm{d}z = \oint_\mathcal{C_1} f(z)\,\mathrm{d}z + \oint_\mathcal{C_2} f(z)\,\mathrm{d}z
+		\]
+		<p> where $\mathcal{C}_1$ and $\mathcal{C}_2$ are unit cirlces enclosing the two singularities $z_1=-1$ and $z_2=2i$, respectively</p>
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:0px;left:850px"				
+				height="200"		
+				src="figures/Ex16p2.png">
+		</span>
+		</section>
+				
+		<section  align="left">									
+			<p>Thus</p>
+			\[
+			\begin{align*}
+			 \oint_\mathcal{C} f\,\mathrm{d}z &= \oint_\mathcal{C_1} \frac{3}{z+1}+\frac{4}{z-2i}\,\mathrm{d}z + \oint_\mathcal{C_2} \frac{3}{z+1}+\frac{4}{z-2i}\,\mathrm{d}z\\
+			 &= \color{#00FF00}{\boxed{\color{white}{\oint_\mathcal{C_1} \frac{3}{z+1}\,\mathrm{d}z + \oint_\mathcal{C_2}\frac{4}{z-2i}\,\mathrm{d}z}}}
+			 \end{align*}
+			\]
+			<span class="fragment fade-in">
+			<p> This last line follows since the functions</p>
+			\[
+			 g = \frac{4}{z-2i}\quad \text{and} \quad h = \frac{3}{z+1}
+			\]
+			<p>are analytic on and within the curves $\mathcal{C}_1$ and $\mathcal{C}_2$, respectively, and so Cauchy's theorem applies, <em>i.e. </em></p>
+			\[
+			 \oint_\mathcal{C_1} g\,\mathrm{d}z = \oint_\mathcal{C_2} h\,\mathrm{d}z = 0 
+			\]
+			</span>
+		</section>
+		
+		<section  align="left">		
+		<p> We have seen these type of integrals before</p>
+		
+		\[
+		\color{#00FF00}{\boxed{\color{white}{
+		\oint_\mathcal{C} f\,\mathrm{d}z = \oint_\mathcal{C_1} \frac{3}{z+1}\,\mathrm{d}z + \oint_\mathcal{C_2}\frac{4}{z-2i}\,\mathrm{d}z}}}
+		\]
+		
+		<span class="fragment fade-in">
+		<p> Recall that </p>
+		\[
+		\oint_\mathcal{C} \frac{1}{z-z_0}\,\mathrm{d}z = 2\pi i
+		\]
+		<p>independent of $z_0$</p>
+		
+		<p style="color:red"> See Example 15.2</p>
+		</span>
+		
+		<span class="fragment fade-in">
+		<p> Thus </p>
+		\[
+		\begin{align*}
+		\oint_\mathcal{C} f\,\mathrm{d}z &= \oint_\mathcal{C_1} \frac{3}{z+1}\,\mathrm{d}z + \oint_\mathcal{C_2}\frac{4}{z-2i}\,\mathrm{d}z\\
+		&= 3\cdot 2\pi i+ 4\cdot 2\pi i = \color{red}{\boxed{\color{white}{14\pi i}}}
+		\end{align*}
+		\]
+		</span>
+		</section>
+	</section>
+			
+	<section>
+		<h2 style="color:#FF33F9">Lecture 16 Review</h2>
+		<br>		
+		<ul>						
+					<li>In this lecture we covered</li>
+					<ul>
+						<li>annulus theorem</li>
+						<li>multiple annulus theorem</li>						
+						<li>examples</li>						
+					</ul><br>
+					<li>After this lecture you should be </li>
+					<ul>
+						<li>be able to apply the annulus theorem to compute integrals</li>
+						<li>extend these ideas to more complicated domains using the multiple annulus theorem</li>						
+					</ul><br>					
+				</ul>			
+			
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		});
+	</script>
+          <script src="plugin/math/math.js"></script>
+          <script>
+            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          </script>
+</body>
+</html>
