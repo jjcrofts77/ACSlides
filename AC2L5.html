@@ -177,9 +177,9 @@
 				$~$
 				</textBox>
 				
-				<h3 class="fragment fade-in">Proof</h3>	
-				
 				<span  class="fragment fade-in">
+				<h3 class="fragment fade-in">Proof</h3>	
+								
 				<p> The proof is an application of <a style="color: #00FF00" href="https://mathworld.wolfram.com/GreensTheorem.html">Green's theorem</a> which states</p>
 				
 				\[
@@ -200,7 +200,7 @@
 					
 				\[
 				 \begin{align*}
-				  I &= \oint_\mathcal{C}(u+iv)(\mathrm{d}x+i\mathrm{d}v)\\
+				  I &= \oint_\mathcal{C}(u+iv)(\mathrm{d}x+i\mathrm{d}y)\\
 				  &=\oint_\mathcal{C}(u\mathrm{d}x-v\mathrm{d}y) +i\oint_\mathcal{C}(v\mathrm{d}x+u\mathrm{d}y)\\					  
 				 \end{align*}
 				\]
@@ -209,14 +209,14 @@
 				<p>Setting $f_1=u, f_2=-v$ in the first integral and $f_1=v, f_2=u$ in the second, we can apply Green's theorem to obtain</p>
 				
 				\[
-				\int\int_\mathrm{D} \left(\frac{\partial (-v)}{\partial x}-\frac{\partial u}{\partial y}\right) + i\left(\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right)\mathrm{d}x\mathrm{d}y
+				\int\int_\mathcal{D} \left(\frac{\partial (-v)}{\partial x}-\frac{\partial u}{\partial y}\right) + i\left(\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right)\mathrm{d}x\mathrm{d}y
 				\]
 				</span>
 					
 				<span class="fragment fade-in">
 				<p >which proves the result since by the C-R equations we have</p>
 				\[
-				 u_x=v_y \text{ and } v_x=-u_y \implies u_x-v_y=0 \text{ and } -u_u-v_x=0
+				 u_x=v_y \text{ and } v_x=-u_y \implies u_x-v_y=0 \text{ and } -u_y-v_x=0
 				\]
 					
 				and so \[I = \int_\mathcal{C}f(z)\mathrm{d}z=0\]
@@ -340,7 +340,7 @@
 				<span class="fragment fade-in">
 				<p> Note that $f(z)=1/z$ is not analytic within the region enclosed by the curve $\mathcal{C}$</p>
 				
-				<p style="color: red"> It has a <em>first order pole</em> at z_0=0</p>
+				<p style="color: red"> It has a <em>first order pole</em> at $z_0=0$</p>
 				</span>
 				
 				<span class="fragment fade-in">
@@ -366,9 +366,9 @@
 				
 				\[
 				\begin{align*}
-				 \oint_\mathcal{C} &= \int_0^{2\pi}e^{-it}\cdot ie^{it}\mathrm{d}t\\
+				 \oint_\mathcal{C} \frac{1}{z}\mathrm{d}z &= \int_0^{2\pi}e^{-it}\cdot ie^{it}\mathrm{d}t\\
 				 &=i\int_0^{2\pi}\mathrm{d}t\\
-				 &=i\Bigg[~t~\Bigg]_0^{2\pi} = 2\pi i
+				 &=i\Bigg[~t~\Bigg]_0^{2\pi} = \color{red}{\boxed{\color{white}{2\pi i}}}
 				 \end{align*}
 				\]
 				
