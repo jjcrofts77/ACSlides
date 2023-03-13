@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 17</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	  
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L17</h1>
+		<br>
+		<ul>
+			<span style="color: #00FF00"> 					
+			<li>Taylor series of complex functions</li>
+			</span>																
+			<br>					
+			<li>Examples</li>										
+		</ul>
+	</section>				
+			
+		
+	<section>
+		<section  align="left">		
+			<h3>Taylor series revision</h3>
+			
+			<p>Recall that the Taylor series of a real-valued function $f(x)$ is given by</p>
+			
+			\[
+			\begin{align*}
+			f(x)&=\sum_{n=0}^\infty a_n(x-x_0)^n\\
+			&= \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\\
+			&= f(x_0) + f'(x_0)(x-x_0) + \frac{f^{''}(x_0)}{2}(x-x_0)^2 + \cdots
+			\end{align*}
+			\]
+			<p>where $f^{(n)}(x_0)$ denotes the $n$th derivative of $f$ evaluated at $x_0$</p>
+			
+			<p class="fragment fade-in" style="color: #00FF00">The <em>Maclaurin series</em> is the expansion about $x_0=0$</p>
+		</section>
+				
+		<section  align="left">									
+			<p>Examples of well-known Taylor series:</p>
+			
+			<div align="center">			
+			<textBox touch-action="none">
+				<p>
+				\[
+				\begin{align*}
+					\sin(x) &=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\cdots\\
+					e^x &= 1 + x +\frac{x^2}{2!}+\frac{x^3}{3!}+\frac{x^4}{4!}+\cdots\\
+					(1+x)^p &= 1 + px +\frac{p(p-1)}{2!}x^2+\frac{p(p-1)(p-2)}{3!}x^3+\cdots\\
+					\ln(1+x) &= x -\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots 			
+				\end{align*}
+				\]
+				</p>
+			</textBox>
+			</div>
+			
+		</section>
+								
+	</section>	
+			
+	<section>
+		<section  align="left">									
+			<h3>Example 17.1 </h3> 
+			<p>The Taylor series expansion of $f(x)=x^{-1}$ about $x_0=1$ is</p>
+			\[
+				\begin{align*}
+					 f(x) &= \frac{1}{x} = \sum_{n=1}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n\\
+						  &= 1-(x-1)+(x-1)^2-(x-1)^3+\cdots
+				\end{align*}
+			\]
+			<p>since $f^{(n)}(1)=(-1)^nn!$, $n=1,2,\ldots$</p>
+			
+			<span class="fragment fade-in">
+			<p>	Terms of the Taylor series are plotted in the figures below</p>
+			<img style="margin:0px;padding:0px;border: 3px solid white;position:absolute;top:450px;left:100px"				
+				height="200"		
+				src="figures/Ex17p1.png">
+			</span>
+		</section>
+				
+		<section  align="left">									
+		<p>Note that a closer inspection shows that the series only converges on $(0,2)$ or in other words that
+		the <em>interval of convergence</em> is given by $|x-1|<1$</p>
+		
+		<div align="center">
+		<img style="margin:0px;padding:0px;border: 3px solid white"				
+				height="300"						
+				src="figures/Ex17p1b.png">				
+		</div>
+		</span>
+		
+		<p class="fragment fade-in" style="color:red">This is because of the singularity at $x=0$</p>
+		</section>							
+				
+	</section>	
+			
+	<section  align="left">									
+		
+		<p>The range of $x$ for which the Taylor (or Maclaurin) series converges is called 
+		the <em>interval of convergence</em></p>
+		
+		<span class="fragment fade-in">
+		<p> For instance</p>
+		
+		<p>$\quad\bullet$ $\displaystyle\sin{x}$ and $\displaystyle e^x$ converge for <em>all</em> $x\in\mathbb{R}$</p>
+		</span>
+		<p class="fragment fade-in">$\quad\bullet$ $\displaystyle (1+x)^p$ and $\displaystyle \ln(1+x)$ converge for $|x|<1$ and</p>
+		<p class="fragment fade-in">$\quad\bullet$ the Taylor series of $\displaystyle \frac{1}{x}$ about $x_0=1$ converges for 
+		$\displaystyle |x-1|<1$ as we have seen</p>
+		
+		<p class="fragment fade-in" style="color:red">Typically, the series converges on an interval of radius the distance from $x_0$ to the nearest singularity</p>
+				
+	</section>
+			
+	<section>
+		<section  align="left">									
+			<h3>Taylor series for complex functions</h3>
+					
+			<p>Conveniently, the results from real variable calculus carry over to complex variable analysis</p>
+			
+			<p class="fragment fade-in">So if a complex valued function  $f(z)$ is analytic in some region then it can be represented 
+			by the power series</p>
+			
+			<div align="center" class="fragment fade-in">			
+			<textBox touch-action="none">
+				<p>
+				\[
+				f(z) = \sum_{n=0}^\infty a_n(z-z_0)^n = \sum_{n=0}^\infty \frac{f^{(n)(z_0)}}{n!}(z-z_0)^n
+				\]
+				</p>
+			</textBox>
+			</div>
+			
+			<span class="fragment fade-in">
+			 <h3>Note</h3>
+			 <p>$\bullet$ In the complex case we have a <em>region of convergence</em> given by 
+			  $$|z-z_0| < r$$ </p>
+			 
+			 
+			 <p class="fragment fade-in">$\bullet$ The <em>radius of convergence</em>, $r$, is the distance from $z_0$ 
+			 to the nearest singularity</p>
+			</span>		
+		</section>
+			
+		<section  align="left">												
+			<p> The function $f$ needs to be analytic for the derivatives to exist in the TS formula</p>
+			
+			<p class="fragment fade-in" style="color: red">Importantly, a TS can be differentiated (or integrated) term by term within its circle of convergence with the resulting expression valid within
+			the same circle</p>
+			
+			<span  class="fragment fade-in">
+			<p> Recalling Cauchy's derivative formula</p>
+			\[
+			 f^{(n)}(z_0) = \frac{n!}{2\pi i}\oint \frac{f(z)}{(z-z_0)^{n+1}}\mathrm{d}z			 
+			\]
+			<p>we see that the Taylor series coefficients can be written as</p>
+			\[
+			\color{#00FF00}{\boxed{\color{white}{
+			 a_n = \frac{1}{2\pi i}\oint \frac{f(z)}{(z-z_0)^{n+1}}\mathrm{d}z			  }}}
+			\]
+			</span>
+		</section>
+			
+	</section>
+			
+	
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L17</h1>
+		<br>
+		<ul>
+			
+			<li>Taylor series of complex functions</li>
+			<span style="color: #00FF00"> 					
+			<br>					
+			<li>Examples</li>								</span>		
+		</ul>
+	</section>	
+			
+	<section>
+		<section  align="left">													
+					
+		<h3>Example 17.2</h3> 
+		<p>Let $f(z)=1/(1-z)$ then since </p>
+			\[
+				f^{(n)}(z) = \frac{n!}{(1-z)^{n+1}} \quad\text{we have }\quad f(0)=n!
+			\]
+		<span class="fragment fade-in">	
+		<p>And so the Taylor series at $z_0$ (<em>i.e.</em> the Maclaurin series) is given by</p>
+		\[
+		 \frac{1}{1-z}=\sum_{n=0}^\infty z^n = 1+z+z^2+z^3+\cdots
+		\]
+		</span>
+		
+		<span class="fragment fade-in">
+		<p>The region of convergence for this TS is shown in the figure and is given mathematically as</p>
+		\[
+		 |z|<1 \quad \color{red}{\text{a circle of radius one centred at the origin}}
+		\]
+		<p>Note that $f$ has a singularity (a first order pole) at $z_0=1$</p>
+		
+		<img style="margin:0px;padding:0px;border: 3px solid white;position:absolute;top:0px;left:750px"				
+				height="150"		
+				src="figures/RoC.png">
+		</p>
+					
+		</section>
+			
+		<section  align="left">												
+		<p>Note we could have also used the Binomial series expansion to work out the TS of $1/(1-z)$ as follows:</p>
+		\[
+		 \begin{align*}
+		  \frac{1}{1-z} = \left(1+(-z)\right)^{-1} &= 1+(-1)(-z)+\frac{(-1)(-2)}{2!}(-z)^2+\frac{(-1)(-2)(-3)}{3!}(-z)^3+\cdots\\
+		  &= 1+z+z^2+z^3+\cdots
+		 \end{align*}
+		\]
+				
+		<span class="fragment fade-in">
+		<p> Recall that the Binomial series is given by</p>
+		\[
+		 \begin{align*}
+		 \left(1+z\right)^{p} &=\sum_{k=0}^\infty \binom{p}{k} z^k\\
+		 &= 1+pz+\frac{p(p-1)}{2!}z^2+\cdots
+		 \end{align*}
+		\]
+			
+		</p>In our example $p=-1$</p>
+		</span>
+		</section>
+			
+	</section>
+			
+				
+	<section  align="left">													
+		
+		<h3>Example 17.3</h3> 
+		<p>Let $f(z)=e^z$ then since $f^{(n)}(z)=e^z$ we have that</p>
+		\[
+			e^z = \sum_{n=0}^\infty \frac{z^n}{n!} = 1 + z+ \frac{z^2}{2!}+\frac{z^3}{3!}+\cdots
+		\]					
+		
+		<p class="fragment fade-in style="color:red">This series converges for all $z\in\mathbb{C}$</p>
+				
+	</section>
+	
+	<section>
+			
+		<section  align="left">												
+	
+			<h3>Example 17.4</h3> 
+			<p>Find the Maclaurin series of $f(z) = 1/(1+z^2)$</p>
+				
+			<h3>Solution</h3>
+			
+			<span class="fragment fade-in">
+			<p>We need to work out the first few derivatives of $f$:</p>
+			
+			\[
+			\begin{align*}
+			f'(z) &= \frac{-2z}{(1+z^2)^2}\\
+			f''(z) &= \frac{-2}{(1+z^2)^2}+\frac{8z^2}{(1+z^2)^3}\\
+			f'''(z)&=\frac{24z}{(1+z^2)^3}-\frac{48z^3}{(1+z^2)^4}\\
+			f^{(4)}(z)&= \frac{24}{(1+z^2)^3}-\frac{288z^2}{(1+z^2)^4}+\frac{384z^4}{(1+z^2)^5}
+			\end{align*}
+			\]
+			</span>
+			<span class="fragment fade-in">
+			Thus
+			\[
+			f(0) = f'(0) = f'''(0)=0,~ f''(0)=-2! \quad \text{and}\quad  f^{(4)}(0) = 4!
+			\]		 
+			</span>
+			
+		</section>
+		
+		<section  align="left">												
+		<p>Therefore</p>
+		\[
+		 \begin{align*}
+		  f(z) = \frac{1}{1+z^2}&= f(0) + f'(0)z + \frac{f''(0)z^2}{2!}+ \frac{f'''(0)z^3}{3!}+ \frac{f^{(4)}(0)z^4}{4!}+\cdots\\
+		  &= 1 -z^2+z^4-z^6+\cdots
+		 \end{align*}
+		\]
+		
+		<span class="fragment fade-in">
+		<p>Alternatively, recall that</p>
+		\[
+		 \frac{1}{1-z} = 1+z+z^2+z^3+z^4+\cdots
+		\]
+		<p> and so</p>
+		\[
+		 \frac{1}{1-(-z^2)} = 1+(-z^2)+(-z^2)^2+(-z^2)^3+(-z^2)^4+\cdots = 1-z^2+z^4-\cdots
+		\]
+		</span>
+		</section>
+			
+	</section>
+	
+	<section  align="left">												
+		
+	<p>Other useful Taylor series include</p>
+	
+	<div align="center">
+		<textBox touch-action="none">
+			<p>
+			\[
+			\begin{align*}
+			 \cos(z) &= \sum_{n=0}^\infty (-1)^n\frac{z^{2n}}{(2n)!}= 1-\frac{z^2}{2!}+\frac{z^4}{4!}-\cdots\\
+			 \sin(z) &=\sum_{n=0}^\infty (-1)^n\frac{z^{2n+1}}{(2n+1)!} = z-\frac{z^3}{3!}+\frac{z^5}{5!}-\cdots\\
+			 \cosh(z) &=\sum_{n=0}^\infty \frac{z^{2n}}{(2n)!}=1+\frac{z^2}{2!}+\frac{z^4}{4!}+\cdots\\
+			 \sinh(z) &=\sum_{n=0}^\infty \frac{z^{2n+1}}{(2n+1)!} =z+\frac{z^3}{3!}+\frac{z^5}{5!}+\cdots\\
+			\end{align*}
+			\]
+				</p>
+		</textBox>
+	</div>
+				
+	</section>
+				
+	<section  align="left">												
+	
+		<h3>Example 17.5</h3> 
+		<p>Use the Taylor series over page to show that</p>
+		\[
+			\cosh(z) = \frac{1}{2}\left(e^z+e^{-z}\right)
+		\]
+				
+		<h3>Solution</h3>
+		
+		<span class="fragment fade-in">
+		\[
+		 \begin{align*}
+		 \frac{1}{2}\left(e^z+e^{-z}\right) &=\frac{1}{2}\left[\left(1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\cdots\right)+\left(1+(-z)+\frac{(-z)^2}{2!}+\frac{(-z)^3}{3!}+\cdots\right)\right]\\
+		 &=\frac{1}{2}\left[2+2\frac{z^2}{2!}+2\frac{z^4}{4!}+\cdots\right]\\
+		 &= 1 + \frac{z^2}{2!}+ \frac{4^2}{4!}+\cdots\\
+		 &=\cosh{z}
+		 \end{align*}
+		\]
+		<p>As required</p>
+		</span>
+		
+			
+	</section>
+	
+		<section>
+		<h2 style="color:#FF33F9">Lecture 17 Review</h2>
+		<br>		
+		<ul>						
+					<li>In this lecture we covered</li>
+					<ul>
+						<li>Taylor series for complex functions</li>
+						<li>regions of convergence</li>						
+						<li>examples</li>						
+					</ul><br>
+					<li>After this lecture you should be </li>
+					<ul>
+						<li>recall how to compute the Taylor series for real-valued functions</li>
+						<li>be able to extend these ideas to complex-valued functions</li>						
+						<li>be able to determine the region of convergence in both the real and complex valued cases</li>						
+					</ul><br>					
+				</ul>			
+			
+			</section>
+			
+	
+			
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		});
+	</script>
+          <script src="plugin/math/math.js"></script>
+          <script>
+            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          </script>
+</body>
+</html>
