@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 18</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	  
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L18</h1>
+		<br>
+		<ul>
+			<span style="color: #00FF00"> 					
+			<li>Laurent series</li>
+			</span>		
+			<br>			
+			<li>Laurent series and singularities</li>
+			<br>
+			<li>Examples</li>													
+		</ul>
+	</section>	
+			
+			
+					
+	<section>			
+		<section  align="left">						
+			<h3>Laurent series</h3>					
+			<p> <em>Laurent series</em> generalise Taylor series so as to allow us to expand a function in powers of
+			$z-z_0$ even when the function $f(z)$ is singular at $z_0$</p>
+			
+			<p style="color:red" class="fragment fade-in">Importantly, we can use Laurent series to classify singularities and they are also useful in
+			integration</p>			
+			
+			<p class="fragment fade-in">Hopefully, this sufficiently motivates the following theorem ...</p>
+		</section>	
+				
+		<section  align="left">						
+			<textBox touch-action="none" >
+			<boxTitle>
+			<h3>Theorem 17.1 &emsp;(Laurent's Theorem)</h3>
+			</boxTitle>			
+			<p>Let $f(z)$ be analytic within the annular region $\displaystyle r_1 < |z-z_0|< r_2$ then $f(z)$ can be represented as a <em>Laurent series</em></p>
+			\[
+			\begin{align*}
+			f(z) &=\sum_{n=0}^\infty a_n(z-z_0)^n+\sum_{n=1}^\infty \frac{b_n}{(z-z_0)^n}\\
+			&=a_0+a_1(z-z_0)+a_2(z-z_0)^2+\cdots\\
+			&\cdots + \frac{b_1}{z-z_0}+\frac{b_2}{(z-z_0)^2}+\cdots
+			\end{align*}
+			\]
+			<p></p>
+			</textBox>
+			<br>
+			<span class="fragment fade-in">
+			<h3>Note</h3>
+			<p>$\bullet ~$ This is like a TS plus some other stuff...</p>
+			</span>
+			<p class="fragment fade-in">$\bullet ~$ We shall see that this is a generalisation of TS in a way that will become clear later on</p>
+		</section>	
+				
+		<section  align="left">						
+			<h3>Note</h3>
+			<p>The coefficients of the LS</p>
+			\[
+			 f(z) =\sum_{n=0}^\infty a_n(z-z_0)^n+\sum_{n=1}^\infty \frac{b_n}{(z-z_0)^n}
+			\]
+			
+			<p>can be computed via the integrals</p>
+			\[
+			\color{#00FF00}{\boxed{\color{white}{
+			 a_n = \frac{1}{2\pi i}\oint_\mathcal{C}\frac{f(z)}{(z-z_0)^{n+1}}\mathrm{d}z\qquad b_n = \frac{1}{2\pi i}\oint_\mathcal{C}f(z)(z-z_0)^{n-1}\mathrm{d}z}}}
+			\]
+			<p>Here $\mathcal{C}$ is a simple closed path lying in the annulus and encircling $z_0$</p>			
+			
+			<p class="fragment fade-in" style="color:red">Ordinarily we will not use the integrals given above to determine the LS coefficients, instead using known TS, binomial theorem <em>etc.</em></p>
+		</section>	
+											
+	</section>
+			
+	<section>
+		<section  align="left">						
+			<h3>Example 18.1</h3> 
+			<p>Calculate the Laurent series of $\displaystyle f(z) = \frac{1}{z(z-1)}$ around $z_0=0$ via direct integration</p>
+					
+			
+			<h3>Solution</h3>
+			<span  class="fragment fade-in">
+			<p>The function $f$ has singularities at $z=0, 1$ therefore the LS at $z_0=0$ will converge on the annulus given by</p>
+			\[
+			 0<|z|<1
+			\]
+			</span>
+			
+			<span class="fragment fade-in">
+			<p style="color:red">See the figure</p>
+			<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:350px;left:650px"				
+				height="200"		
+				src="figures/Ex18p1.png">
+			</span>
+		</section>	
+				
+		<section  align="left">						
+		<p>Here</p>
+		\[
+		a_n = \frac{1}{2\pi i}\oint_\mathcal{C}\frac{f(z)}{(z-z_0)^{n+1}}\mathrm{d}z 
+		\]
+		<p>where $f(z)=1/z(z-1)$ and $z_0=0$</p>
+		
+		<span class="fragment fade-in">
+		<p> And so </p>
+		\[
+		 \begin{align*}
+		  a_n &= \frac{1}{2\pi i}\oint_\mathcal{C}\frac{1}{z^{n+2}(z-1)}\mathrm{d}z\\
+		  &= \frac{1}{2\pi i}\int_0^{2\pi}\frac{1}{r^{n+2}e^{i(n+2)\theta}}\cdot\frac{1}{re^{i\theta}-1}ire^{i\theta}\mathrm{d}\theta\\
+		  &= -\frac{1}{2\pi r^{n+1}}\int_0^{2\pi}\frac{1}{e^{i(n+1)\theta}}\cdot\frac{1}{1-re^{i\theta}}\mathrm{d}\theta
+		 \end{align*}
+		\]
+		</span>
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:150px;left:700px"				
+				height="200"		
+				class="fragment fade-in"
+				src="figures/Ex18p1Explanation.png">
+		
+		
+		</section>	
+				
+		<section  align="left">		
+		
+		<p>$\displaystyle
+		 \color{#00FF00}{\boxed{\color{white}{
+		 a_n = -\frac{1}{2\pi r^{n+1}}\int_0^{2\pi}\frac{1}{e^{i(n+1)\theta}}\cdot\frac{1}{1-re^{i\theta}}\mathrm{d}\theta}}}
+		$</p>
+		<br>
+		<span class="fragment fade-in">
+		<p>Now, since $\displaystyle |re^{i\theta}|<1$ (since $r<1$) we can expand </p>
+		
+		\[
+		 \left(1-re^{i\theta}\right)^{-1} = \sum_{m=0}^\infty \left(re^{i\theta}\right)^m = \sum_{m=0}^\infty r^me^{im\theta}
+		\]
+		</span>
+		
+		<span class="fragment fade-in">
+		<p>Substituting this into our expression for $a_n$ gives</p>
+		
+		\[
+		 \begin{align*}
+		 a_n &=-\frac{1}{2\pi r^{n+1}}\int_0^{2\pi}e^{-i(n+1)\theta}\sum_{m=0}^\infty r^me^{im\theta}\mathrm{d}\theta\\ 
+		 &= -\frac{1}{2\pi r^{n+1}}\sum_{m=0}^\infty r^m\int_0^{2\pi} e^{i(m-n-1)\theta}\mathrm{d}\theta
+		 \end{align*}
+		\]
+		</span>
+		</section>	
+		
+		<section  align="left">						
+		<p>To obtain the result we note that the integral</p>
+		
+		\[
+		 \int_0^{2\pi} e^{i(m-n-1)\theta}\mathrm{d}\theta = \begin{cases}2\pi&m-n-1=0\\0&\text{otherwise}\end{cases}
+		\]
+		
+		<span class="fragment fade-in">
+		<p>And so all the terms in the sum are zero except when $m=n+1$ thus</p>
+		
+		\[
+		\begin{align*}
+		 a_n &=-\frac{1}{2\pi r^{n+1}}\sum_{m=0}^\infty r^m\int_0^{2\pi} e^{i(m-n-1)\theta}\mathrm{d}\theta\\
+		 &= -\frac{1}{2\pi r^{n+1}}r^{n+1}\int_0^{2\pi}\mathrm{d}\theta = \color{#00FF00}{\boxed{\color{white}{-1}}} 
+		\end{align*}
+		\]
+		</span>
+		<p class="fragment fade-in">Next for the $b_n$...</p>
+		
+		</section>	
+		
+		<section  align="left">						
+		 <p>We compute the $b_n$ in much the same way</p>
+		 
+		 \[
+		 \begin{align*}
+		 b_n &= \frac{1}{2\pi i}\oint_\mathcal{C}f(z)(z-z_0)^{n-1}\mathrm{d}z, n=1,2,\ldots\\
+		 &= \frac{1}{2\pi i}\oint_\mathcal{C} \frac{z^{n-1}}{z(z-1)}\mathrm{d}z\\
+		 &= -\frac{1}{2\pi}\int_0^{2\pi} \frac{r^{n-1}e^{i(n-1)\theta}}{1-re^{i\theta}}\mathrm{d}\theta\\
+		 &= -\frac{ r^{n-1}}{2\pi}\sum_{m=0}^\infty r^m\int_0^{2\pi}e^{i(m+n-1)\theta}\mathrm{d}\theta
+		 \end{align*}
+		 \]
+		 
+		 <span class="fragment fade-in">
+		 <p>Now the last integral is such that</p>
+		 \[
+		 \int_0^{2\pi}e^{i(m+n-1)\theta}\mathrm{d}\theta = \begin{cases}2\pi &m=1-n\\0&\text{otherwise}\end{cases}
+		 \]		 
+		 </span>
+		 
+		 <p class="fragment fade-in">$\implies b_{1}=-1$, otherwise $b_n=0$</p>
+		 
+		</section>
+		
+		<section  align="left">						
+		<p>Putting this altogether we have that</p>
+		\[
+		\begin{align*}
+		 f(z) &= \frac{1}{z(z-1)} = \sum_{n=0}^\infty a_n(z-z_0)^n +\sum_{1}^\infty \frac{b_n}{(z-z_0)^n}\\
+		 &= -\frac{1}{z}-\sum_{n=0}^\infty z^n
+		 \end{align*}
+		\]
+		<p>since $a_n=-1~ \forall n$ and $b_1=-1$ and $b_n=0, n>1$</p> 
+		
+		<p class="fragment fade-in"> The series converges for $0<|z|<1$</p>
+		
+		<p style="color:red" class="fragment fade-in">Fortunately, in practice we can often compute the Laurent series without resorting to integration<p>
+		</section>		
+		
+				
+	</section>
+			
+	<!-- ################################################### -->
+    <!-- ################################################### -->		
+	<section align="left">
+		<h1>Advanced Calculus L18</h1>
+		<br>
+		<ul>			
+			<li>Laurent series</li>			
+			<br>			
+			<span style="color: #00FF00"> 					
+			<li>Laurent series and singularities</li></span>		
+			<br>
+			<li>Examples</li>													
+		</ul>
+	</section>	
+			
+	<section  align="left">		
+		<h3>Laurent series and singularities</h3>			
+		<p>In general, the Laurent series about a (possibly singular) point $z_0$ is</p>
+		\[
+		f(z) = \sum_{n=0}^\infty a_n(z-z_0)^n+\sum_{n=1}^\infty \frac{b_n}{(z-z_0)^n} = \sum_{-\infty}^\infty d_n(z-z_0)^n
+		\]
+		<p>From the above series we can deduce the following:</p>
+		
+		<p class="fragment fade-in"> 1. If $z_0$ is <em>non-singular</em> or a <em>removable singularity</em> of $f(z)$ then $b_n=0,~\forall n$ (<em>i.e.</em> the LS is a TS)</p>
+		
+		<p class="fragment fade-in">2. If $z_0$ is an <em>order-$m$ pole</em> of $f(z)$ then its LS takes the form $\displaystyle \sum_{-m}^\infty d_n(z-z_0)^n$ <em>i.e.</em> its LS contains finitely
+		many negative power terms</p>
+		
+		<p class="fragment fade-in">3. If $z_0$ is an <em>essential singularity</em> of $f(z)$ then its LS has infintiely many negative power terms</p>
+		
+	</section>
+			
+	<section  align="left">						
+				
+		<h3>Example 18.2</h3> 
+		<p>Determine the nature of the singularity at $z_0=0$ of the function $\displaystyle f(z)=\frac{e^z}{z^3}$ using its LS</p>
+				
+				
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>The Taylor series of </p>
+			\[
+			 e^z = 1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\frac{z^4}{4!}+\cdots
+			\]
+		</span>
+		<span class="fragment fade-in">
+		<p>And so we can write</p>
+			\[
+			\begin{align*}
+			f(z) = \frac{e^z}{z^3} &= \frac{1}{z^3}\left(1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\frac{z^4}{4!}+\cdots\right)\\
+			&=\frac{1}{z^3}+\frac{1}{z^2}+\frac{1}{2z}+\frac{1}{6}+\frac{z}{24}+\cdots = \sum_{n=-3}^\infty d_nz^n
+			\end{align*}
+			\]
+		</span>
+		
+		<p style="color:red" class="fragment fade-in">Thus $z_0=0$ is an order 3 pole</p>
+				
+	</section>
+			
+	<section  align="left">						
+	
+		<h3>Example 18.3</h3> 
+		<p>Determine the nature of the singularity at $z_0=0$ of the function $\displaystyle f(z)=\frac{\sin(z)}{z}$ using its LS</p>
+				
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>The Taylor series of </p>
+			\[
+			 \sin{z} = z-\frac{z^3}{3!}+\frac{z^5}{5!}-\frac{z^7}{7!}+\cdots
+			\]
+		</span>
+		<span class="fragment fade-in">
+		<p>And so we can write</p>
+			\[
+			\begin{align*}
+			f(z) = \frac{\sin{z}}{z} &= \frac{1}{z}\left(z-\frac{z^3}{3!}+\frac{z^5}{5!}-\frac{z^7}{7!}+\cdots\right)\\
+			&=1-\frac{z^2}{3!}+\frac{z^4}{5!}-\cdots = \sum_{n=0}^\infty d_nz^n
+			\end{align*}
+			\]
+		</span>
+		
+		<p style="color:red" class="fragment fade-in">A Taylor series as we have no negative power terms <em>i.e.</em> removable singularity</p>
+					
+	</section>
+			
+	<section  align="left">						
+	
+		<h3>Example 18.4</h3>
+		<p>Determine the nature of the singularity at $z_0=0$ of the function $\displaystyle f(z)=\sin\left(\frac{1}{z}\right)$ using its LS</p>
+				
+				
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>The Taylor series of </p>
+			\[
+			 \sin{z} = z-\frac{z^3}{3!}+\frac{z^5}{5!}-\frac{z^7}{7!}+\cdots
+			\]
+		</span>
+		
+		<span class="fragment fade-in">
+		Therefore
+		\[
+		 \begin{align*}
+		 f(z)&=\sin\left(\frac{1}{z}\right)\\
+		 &= \frac{1}{z}-\frac{1}{3!z^3}+\frac{1}{5!z^5}-\cdots
+		 \end{align*}
+		\]
+		</span>
+		
+		<p style="color:red" class="fragment fade-in">It follows that $z_0=0$ is an essential singularity since its LS has infinitely many negative power terms</p>
+	</section>
+			
+	<!-- ################################################### -->
+    <!-- ################################################### -->		
+	<section align="left">
+		<h1>Advanced Calculus L18</h1>
+		<br>
+		<ul>			
+			<li>Laurent series</li>			
+			<br>			
+			
+			<li>Laurent series and singularities</li>
+			<br>
+			<span style="color: #00FF00"> 					
+			<li>Examples</li>						</span>									
+		</ul>
+	</section>	
+			
+	<section>
+			
+		<section  align="left">						
+				
+			<h3>Example 18.5</h3> 
+			<p>Find series expansions of $\displaystyle f(z)=\frac{1}{z+5}$ valid in the regions (a) $|z|<5$ and (b) $5<|z|<\infty $</p>
+				
+					
+			<h3>Solution</h3>
+			
+			<span class="fragment fade-in">
+			<p>(a) $|z|<5$</p>
+			<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:150px;left:500px"				
+				height="175"						
+				src="figures/Ex18p6TS.png">
+			</span>
+			
+			<p class="fragment fade-in"> $f=1/(z+5)$ is analytic within the region $|z|<5$ so we're computing a TS.</p>
+			
+			<span class="fragment fade-in">
+			 \[
+			  \begin{align*}
+			   f(z)=\frac{1}{z+5}&= \frac{1}{5}\frac{1}{1+z/5}\\
+			   &=\frac{1}{5}\left(1+\frac{z}{5}\right)^{-1} = \frac{1}{5}\left(1-\frac{z}{5}+\frac{z^2}{25}-\frac{z^3}{125}\cdots\right)\\
+			   &=\color{red}{\boxed{\color{white}{\frac{1}{5}-\frac{z}{25}+\frac{z^2}{125}-\frac{z^3}{625}\cdots}}}
+			  \end{align*}
+			 \]
+			</span>
+			
+			<p class="fragment fade-in">This series is valid for $\displaystyle \left|\frac{z}{5}\right|<1$ or $|z|<5$ as required</p>
+						
+					
+		</section>
+				
+		<section  align="left">						
+		<p>(b) $5<|z|<\infty$</p>
+		
+		<span class="fragment">		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:0px;left:500px"				
+				height="175"						
+				src="figures/Ex18p6LS.png">
+		<br><br>		
+		<p > Since the series converges in an annular region we are looking for a Laurent series</p>
+		</span>
+		
+		<span class="fragment">
+		<p> After some manipulation we can deploy the Binomial expansion as before:</p>
+		
+		\[
+		 \begin{align*}
+		 f(z) = \frac{1}{z+5} = \frac{1}{z}\cdot\frac{1}{1+5/z} &= \frac{1}{z}\left(1+\frac{5}{z}\right)^{-1}\\
+		 &=\frac{1}{z}\left(1-\frac{5}{z}+\frac{25}{z^2}-\frac{125}{z^3}+\cdots\right)\\
+		 &=\color{red}{\boxed{\color{white}{\frac{1}{z}-\frac{5}{z^2}+\frac{25}{z^3}-\frac{125}{z^4}+\cdots}}}
+		 \end{align*}
+		\]
+		</span>
+		
+		<p class="fragment fade-in">This series is valid for $\displaystyle \left|\frac{5}{z}\right|<1$ or $5<|z|<\infty$ as required</p>
+		</section>
+			
+	</section>
+			
+	<section>
+		<section  align="left">						
+				
+			<h3>Example 18.6</h3> 
+			<p>Find the LS expansion of $\displaystyle f(z)=\frac{1}{z}$ centred at $z_0=1$ valid in the annulus $1<|z-1|<\infty$</p>
+								
+			<h3>Solution</h3>
+		
+			<span class="fragment fade-in">
+			<p>We start by making the following change of variables: $h = z-1$, <em>i.e.</em></p>
+			\[
+			f(z) = \frac{1}{z} \to g(h) = \frac{1}{h+1}
+			\]
+			</span>
+			
+			<span class="fragment fade-in">
+			<p>In these new coordinates, we are expanding the function $g(h)$ about the origin as shown in the figure</p>
+						
+			<img style="margin:0px;padding:0px;border: 3px solid red;position:absolute;left:250px"				
+				height="175"					
+				src="figures/Ex18p7.png">
+			</span>		
+		
+		</section>
+	
+		<section  align="left">		
+			<p>Again, we can expand using the Binomial expansion</p>
+			<span class="fragment fade-in">
+			\[
+			 \begin{align*}
+			  g(h) &= \frac{1}{h}\left(1+\frac{1}{h}\right)^{-1}\\
+			  &= \frac{1}{h}\left(1-\frac{1}{h}+\frac{1}{h^2}-\frac{1}{h^3}+\cdots\right)\\
+			  &= \frac{1}{h}-\frac{1}{h^2}+\frac{1}{h^3}-\frac{1}{h^4}+\cdots
+			 \end{align*}
+			\]
+			</span>
+			<p class="fragment fade-in">This series is valid for $\displaystyle \left|\frac{1}{h}\right|<1$ or $1<|h|<\infty$</p>
+			
+			<span class="fragment fade-in">
+			<p>Transforming back to the original $z$ variable:</p>
+			\[
+			\color{red}{\boxed{\color{white}{
+			f(z) = \frac{1}{z-1}-\frac{1}{(z-1)^2}+\frac{1}{(z-1)^3}-\frac{1}{(z-1)^4}+\cdots}}}
+			\]
+			</span>
+			<p class="fragment fade-in">This series is valid for $1<|z-1|<\infty$ as required</p>
+		</section>
+		
+	</section>
+		
+	<section>
+		<h2 style="color:#00FF00">Lecture 18 Review</h2>
+		<br>				
+		<ul>						
+			<li>In this lecture we covered</li>
+			<ul>
+				<li>Laurent series</li>
+				<li>Laurent series and singularities</li>												
+			</ul><br>
+			<li>After this lecture you should be </li>
+			<ul>
+				<li>be able to compute the Laurent series of a complex-valued function using either known results from real analysis or via the Taylor series of a related function</li>						
+			</ul><br>					
+		</ul>			
+	</section>
+						
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		});
+	</script>
+          <script src="plugin/math/math.js"></script>
+          <script>
+            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          </script>
+</body>
+</html>
