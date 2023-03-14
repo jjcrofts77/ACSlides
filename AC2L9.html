@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 19</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	  
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L19</h1>
+		<br>
+		<ul>
+			<span style="color: #00FF00"> 					
+			<li>The residue theorem &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</li></span>							
+			<br>
+			<li>Examples</li>										
+		</ul>
+		
+	</section>					
+			
+				
+	<section>
+		<section  align="left">					
+			<h3>Residues</h3>					
+						
+			<p>From Cauchy's theorem we know that if $f$ is analytic on and within a closed curve containing the point $z_0$ then</p>
+			\[
+			 I = \oint_\mathcal{C} f(z)\mathrm{d}z = 0
+			\]			
+						
+			<p class="fragment fade-in">In general, if $f(z)$ is <em>not</em> analytic within $\mathcal{C}$ then $I$ is nonzero</p>
+			
+			<p class="fragment fade-in">If $z_0$ is the only singularity in $\mathcal{C}$ then the integral can be easily evaluated</p>
+			
+			<span class="fragment fade-in">
+			<p>To see this let us represent $f(z)$ by its Laurent series about the point $z_0$:
+			
+			\[
+			 f(z) = \sum_{n=0}^\infty a_n(z-z_0)^n + \sum_{n=1}^{\infty} \frac{b_{n}}{(z-z_0)^n}
+			\]
+			</span>
+			
+			<p class="fragment fade-in">Intergrating term by term gives...</p>
+			
+		</section>
+				
+		<section  align="left">				
+			\[
+			\oint_\mathcal{C}f(z)\mathrm{d}z = \sum_{n=0}^\infty \oint_\mathcal{C}a_n(z-z_0)^n\mathrm{d}z + \sum_{n=1}^\infty \frac{b_n}{(z-z_0)^n}\mathrm{d}z
+			\]
+			<p>Here $\mathcal{C}$ is the curve given by $|z-z_0|=r$</p>
+			
+			<span class="fragment fade-in">
+			<p>Now recall that </p>
+			\[			
+			 \oint_\mathcal{C}(z-z_0)^n\mathrm{d}z = \begin{cases} 2\pi i,&n=-1\\0,&\text{otherwise}\end{cases}
+			\]
+			</span>
+			
+			<span class="fragment fade-in">
+			<p >So that the only non-zero term in the above integral is the $b_1$ term so that</p>
+			\[
+			\color{red}{\boxed{\color{white}{
+			 \oint_\mathcal{C}f(z)\mathrm{d}z = 2\pi ib_1}}}
+			\]
+			</span>
+			
+			<p class="fragment fade-in" style="color:red"> The $b_1$ term is the coefficient on the first negative power term in the LS</p>
+		</section>
+				
+		<section  align="left">										
+		<p>The ideas presented above can be extended using the <em>multiple annulus theorem</em></p> 
+		
+		<span class="fragment fade-in">
+		<p>If $\mathcal{C}_i$ are $m$ closed paths within $\mathcal{C}$ each enclosing an isolated singularity $z_i$ of $f(z)$ then it can be shown that<p>		
+		\[
+		 \oint_\mathcal{C}f(z)\mathrm{d}z = 2\pi i\sum_{n=1}^m b_{1}^{(n)}
+		\]
+		<p>where $b_1^{(n)}$ indicates the coefficient associated with the first negative power term in the LS of $f$ expanded about the point $z_i$</p>
+		</span>
+		
+		<span class="fragment fade-in">
+		<textBox touch-action="none" >
+			<boxTitle>
+			<h3>Definition 19.1 &emsp;(Residue)</h3>
+			</boxTitle>			
+			<p>The non-zero part of the integral arising due to the singularity at $z_0$ is known as the <em>residue</em> of $f(z)$ and is denoted $\mathrm{Res}(f;z_0), $
+			<em>i.e.</em></p>
+			\[
+			\oint_\mathcal{C} f(z)\mathrm{d}z = 2\pi i\mathrm{Res}(f;z_0)
+			\]
+			<p></p>
+		</textBox>
+		</span>
+		</section>
+			
+	</section>
+			
+	<section  align="left">					
+		<h3>The Residue Theorem</h3>					
+				
+		<p>By simple analogy we obtain the following important result</p>
+		
+				<textBox touch-action="none" >
+			<boxTitle>
+			<h3>Theorem 19.1 &emsp;(Residue theorem)</h3>
+			</boxTitle>			
+			<p>If $f(z)$ is analytic on and inside the simple closed path $\mathcal{C}$ except at a finite number of isolated singularities of $f$, $z_1, z_2, \ldots, z_m$, then</p>
+			\[
+			\oint_\mathcal{C} f(z)\mathrm{d}z = 2\pi i\sum_{n=1}^m \mathrm{Res}(f;z_n)
+			\]
+			<p></p>
+		</textBox>
+		<p class="fragment fade-in" style="color:red">As we shall see the above theorem has many important consequences...</p>
+	</section>
+			
+			
+			
+	<!-- ################################################### -->
+    <!-- ################################################### -->				
+	<section align="left">
+		<h1>Advanced Calculus L19</h1>
+		<br>
+		<ul>			
+			<li>The residue theorem &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</li>
+			<br>
+			<span style="color: #00FF00"> 					
+			<li>Examples</li></span>
+		</ul>
+		
+	</section>						
+			
+	<section>
+		<section  align="left">										
+					
+		<h3>Example 19.1</h3> 
+		<p>Find the singularities and corresponding residues of</p>
+		\[
+			f(z) = \frac{z^2+5z+3}{(z-1)(z+2)^2}
+		\]
+		
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>The function has 2 poles:</p>
+		\[
+		z_1=1 \quad\text{and}\quad z_2=-2
+		\]
+		<p>which are first and second order, respectively</p>
+		</span>
+		
+		<span class="fragment fade-in">
+		 <p>Let us rewrite $f$ using partial fractions</p>
+		 \[
+		 f(z) = \frac{z^2+5z+3}{(z-1)(z+2)^2} = \frac{1}{z-1}+\frac{1}{(z+2)^2}
+		 \]
+		</span>		
+		</section>
+				
+		<section  align="left">										
+			<p> (a) $z_1=1$</p>
+			
+			<span  class="fragment fade-in">
+			<p>Since we are expanding about $z_1=1$, we want to write $f$ in the form </p>
+			\[
+			\begin{align*}
+			 f(z) &= \frac{1}{z-1}+\frac{1}{(z+2)^2}\\ 
+			 &=\sum_{n=0}^\infty a_n(z-1)^n + \sum_{n=1}^\infty \frac{b_n}{(z-1)^n}
+			 \end{align*}
+			\]			
+			</span>
+			
+			<p class="fragment fade-in">The first term in line one above is already in the correct form</p>
+			
+			<span  class="fragment fade-in">
+			<p> The second term is analytic at $z=1$ so we can write it as a Taylor series:</p>
+			\[
+			 \frac{1}{(z+2)^2} = \frac{1}{9}-\frac{2}{27}(z-1)+\frac{1}{27}(z-1)^2-\cdots \quad\text{\textcolor{red}{(exercise)}}
+			\]
+			</span>
+			<span class="fragment fade-in">
+			<p>Thus the Laurent series at $z_1=1$ is </p>
+			\[			
+			f(z) = \color{red}{\boxed{\color{white}{\frac{1}{z-1}}}}\color{white}{+\frac{1}{9}-\frac{2}{27}(z-1)+\frac{1}{27}(z-1)^2-\cdots} \implies \color{red}{\boxed{\color{white}{\mathrm{Res}(f; 1)=1}}}
+			\]			
+			</span>
+		</section>
+				
+		<section  align="left">										
+			<p> (a) $z_2=-2$</p>
+						<span  class="fragment fade-in">
+			<p>Since we are expanding about $z_2=-2$, we want to write $f$ in the form </p>
+			\[
+			\begin{align*}
+			 f(z) &= \frac{1}{z-1}+\frac{1}{(z+2)^2}\\ 
+			 &=\sum_{n=0}^\infty a_n(z+2)^n + \sum_{n=1}^\infty \frac{b_n}{(z+2)^n}
+			 \end{align*}
+			\]			
+			</span>
+			<p class="fragment fade-in">The second term in line one above is already in the correct form</p>
+			
+			<span  class="fragment fade-in">
+			<p> The first term is analytic at $z_2=-2$ so we can write it as a Taylor series:</p>
+			\[
+			 \frac{1}{(z-1)} = -\frac{1}{3}-\frac{z+2}{9}-\frac{1}{27}(z+2)^2-\frac{1}{81}(z+2)^3-\cdots \quad\text{\textcolor{red}{(exercise)}}
+			\]
+			</span>
+			<span class="fragment fade-in">
+			<p>Thus the Laurent series at $z_2=-2$ is </p>
+			\[			
+			f(z) = \frac{1}{(z+2)^2}-\frac{1}{3}-\frac{z+2}{9}-\frac{1}{27}(z+2)^2-\frac{1}{81}(z+2)^3-\cdots \implies \color{red}{\boxed{\color{white}{\mathrm{Res}(f; -2)=0}}}
+			\]			
+		</section>
+			
+	</section>
+			
+	<section>
+		<section  align="left">		
+			<h3>Additional results</h3>				
+			<p>Sometimes we can compute the residue without reference to the LS</p>
+
+			<p class="fragment fade-in">1. If $z_i$ is a <em>removable singularity</em> then $\mathrm{Res}(f;z_i)=0$</p>
+			
+			<span class="fragment fade-in">
+			<p>2. If $z_i$ is a <em>simple pole</em> then </p>
+			\[
+			\color{red}{\boxed{\color{white}{
+			 \mathrm{Res}(f;z_i) = b_1 = \lim_{z\to z_i}\left\{(z-z_i)f(z)\right\}}}}
+			\]
+			</span>
+			
+			<span class="fragment fade-in">
+			<p>3. If $z_i$ is a <em>pole of order $m$</em> then</p>
+			\[
+			\color{red}{\boxed{\color{white}{
+			 \mathrm{Res}(f;z_i) =\lim_{z\to z_i}\left\{\frac{1}{(m-1)!}\frac{\mathrm{d}^{m-1}}{\mathrm{d}z^{m-1}}\left((z-z_i)^mf(z)\right)\right\}}}}
+			\]
+			</span>
+			
+			<p style="color:red" class="fragment fade-in"> If $z_i$ is an <em>essential singularity</em> then we need to compute the LS to determine the residue</p>
+		</section>
+				
+		<section  align="left">	
+			<p>Another result that is sometimes useful is the following:</p>
+			
+			<p>Assuming that</p>
+			\[
+			 f(z) = \frac{p(z)}{q(z)} \quad\text{with } p(z_i)\neq 0
+			\]
+			<p>and that $q(z)$ has a simple zero at $z_i$ then</p>
+			
+			\[
+			\color{red}{\boxed{\color{white}{
+			 \mathrm{Res}(f; z_i) = \frac{p(z_i)}{q'(z_i)}}}}
+			\]
+			
+			<p style="color:red">In the above $p(z)$ and $q(z)$ are polynomial functions</p>
+						
+		</section>						
+			
+	</section>
+			
+	<section>
+		<section  align="left">										
+			<h3>Example 19.2</h3> 
+			<p>Using the results over page compute the residues of the function</p>
+			\[
+			 f(z) = \frac{z^2+5z+3}{(z-1)(z+2)^2}
+			\]
+			<p>thus verifying our earlier results</p>
+				
+			<h3>Solution</h3>
+			<span class="fragment fade-in">
+			<p>Since $z_1=1$ is a simple pole we have that</p>
+			\[
+			 \begin{align*}
+			 \mathrm{Res}(f; 1) &= \lim_{z\to 1}\left\{(z-1)f(z)\right\}\\
+			 &=\lim_{z\to 1}\left\{\frac{z^2+5z+3}{(z+2)^2}\right\}= \left.\frac{z^2+5z+3}{(z+2)^2}\right|_{z=1} = \color{red}{\boxed{\color{white}{1}}}
+			 \end{align*} 
+			\]
+			</span>
+			<p style="color:red" class="fragment fade-in">The last line follows since $f$ is continuous</p>		
+		</section>
+				
+		<section  align="left">										
+			<p> Since $z_2=-2$ is a second order pole we have that</p>
+			\[
+			 \begin{align*}
+			 \mathrm{Res}(f; -2) &= \lim_{z\to -2}\left\{\frac{\mathrm{d}}{\mathrm{d}z}\left((z+2)^2f(z)\right)\right\}\\
+			 &=\lim_{z\to -2}\left\{\frac{\mathrm{d}}{\mathrm{d}z}\left(\frac{z^2+5z+3}{z-1}\right)\right\}\\
+			 &=\lim_{z\to -2}\left\{\frac{z^2-2z-8}{(z-1)^2}\right\} = \left.\frac{z^2-2z-8}{(z-1)^2}\right|_{z=-2} = \color{red}{\boxed{\color{white}{0}}}
+			 \end{align*} 
+			\]		
+			<p>Again the last line follows since $f$ is continuous</p>
+			
+			<p style="color:red" class="fragment fade-in">Which is in agreement with our earlier result</p>
+		</section>
+			
+	</section>
+	
+	<section>
+		<h2 style="color:#00FF00">Lecture 19 Review</h2>
+		<br>				
+		<ul>						
+			<li>In this lecture we covered</li>
+				<ul>
+					<li>residues</li>
+					<li>the residue theorem</li>												
+					<li>examples</li>
+				</ul><br>
+			<li>After this lecture you should be </li>
+				<ul>
+					<li>be able to compute the residues of a function at its isolated singularities</li>						
+					<li>know how to apply the residue theorem to evaluate integrals of complex valued functions</li>
+				</ul><br>					
+		</ul>			
+	</section>
+						
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		});
+	</script>
+          <script src="plugin/math/math.js"></script>
+          <script>
+            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          </script>
+</body>
+</html>
