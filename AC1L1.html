@@ -1,26 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L1</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-			<section>
-				<h2 style="color:#FF33F9">Advanced Calculus L1</h2>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 1</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>			
+			<section align="left">
+				<h1>Advanced Calculus L1</h1>
 				<br>
 				<ul>
-					<span style="color: #FF33F9"> <li>Module overview/assessment</li></span>
+					<span style="color: #00FF00"> <li>Module overview/assessment</li></span>
 					<br>
 					<li>ODE Revision</li>					
 					<ul>
@@ -29,55 +45,61 @@
 					</ul>
 				</ul>
 			</section>
-			<section>
-				<h3>Course Information</h3>
-				<font size="6">
-				<p class="r-frame">
-				Lecturer: Dr Jonathan Crofts<br>
-				New Hall Block: Room 233<br>
-				Email: jonathan.crofts@ntu.ac.uk
-				</p>
-				<h3>Timetable</h3>
-				<p class="r-frame">
-				Lecturer: 13-14, Tuesday ERD 161<br>	
-				Seminars: Group M1  9-10, Tuesday NHB 169<br>				
-				&emsp;&emsp;&emsp;&ensp; Group M2, P 10-11, Tuesday ABK 005
-				</p>
+			    <!-- ################################################### -->
+    <!-- ################################################### -->
+	<section>
+		<h3><b>Course Information</b></h3>
+	<font size="6">
+	<p style="border-width:2px; border-style:solid; border-color:white; padding: .5em;">
+	Lecturer: Dr Jonathan Crofts<br>
+	New Hall Block: Room 233<br>
+	Email: jonathan.crofts@ntu.ac.uk
+	</p>
+	
+	<h3><b>Timetable</b></h3>
+	<p style="border-width:2px; border-style:solid; border-color:white; padding: .5em;">
+	Lecturer: 13-14, Tuesday ERD 161<br>	
+	Seminars: Group M1 9-10, Tuesday NHB 169<br>				
+	&emsp;&emsp;&emsp;&emsp;&emsp; Group M2 10-11, Tuesday ABK 005
+	</p>
 				
-				<h3>Office hours</h3>
-				<p class="r-frame">
-				9:00-10:00 Monday
-				</p>
-				</font>
-			</section>
-			<section>
-				<h3>Module content</h3>
+	<h3><b>Office hours</b></h3>
+	<p style="border-width:2px; border-style:solid; border-color:white; padding: .5em;">
+	9:00-10:00 Monday
+	</p>
+	</font>
+	</section>
+			<section align="left">
+				<h3><b>Module content</b></h3>
 				<br>
-				<font size="6">
+				
 				<ul>
-					<span style="color: yellow"> <li>Partial differential equations (TERM 1)</li></span>
+					<li><b>Partial differential equations (TERM 1)</b></li>
 					<ul>
 						<li>Equations involving one or more partial derivatives</li>
 						<li>Real-world applications</li>
 						<li>Methods of solution</li>
 					</ul><br>
-					<span style="color: yellow"><li>Fourier series (TERM 1)</li>	</span>	
+					<span class="fragment fade-in">
+					<li><b>Fourier series (TERM 1)</b></li>
 					<ul>
 						<li>Series representation of periodic functions</li>
 						<li>Used to solve PDEs</li>
 					</ul><br>
-					<span style="color: red"><li> Complex analysis (TERM 2)</li></span>
+					</span>
+					<span class="fragment fade-in">
+					<li><b> Complex analysis (TERM 2)</b></li>
 					<ul>
 						<li>Calculus of complex functions</li>
 						<li>Engineering applications</li>
 					</ul>
-				</ul>
-				</font>
+				</ul></span>
+				
 			</section>
-			<section>
+			<section align="left">
 				<h3 >Reading list</h3>
 				
-				<font size="6">
+				
 				<ul>
 					<li>You will probably not need to buy a book for this module as <a href="https://jjcrofts77.github.io/Advanced-Calculus-MATH20471/intro.html#" target="_blank" style="color: red">notes</a> are provided, as well 
 					as supplementary material during seminars and via the <a href="https://now.ntu.ac.uk/" target="_blank" style="color: red">University's virtual learning service</a></li>
@@ -91,11 +113,11 @@
 						<li>Kwok (2010), <a href="https://www.amazon.co.uk/Applied-Complex-Variables-Scientists-Engineers/dp/0521701384" target="_blank" style="color: yellow">Applied complex variables for scientists and engineers</a></li>
 					</ul>
 				</ul>
-				</font>
+				
 			</section>
-			<section>
+			<section align="left">
 				<h3>Assessment</h3>
-				<font size="6">
+				
 				<ul>
 					<li>The module consists of two elements</li>
 					<ul>
@@ -104,18 +126,20 @@
 					</ul>
 					<br>
 					<li>See <a href="https://now.ntu.ac.uk/" target="_blank" style="color: red">NOW</a> for assessment details</li>			<br>		
-					<li>Seminars are absolutely vital for high attainment in this course</li><br>
-					<li>GOOD LUCK!!!</li>					
+					<span class="fragment fade-in">
+					<li>Seminars are absolutely vital for high attainment in this course</li><br></span>
+					<span class="fragment fade-in">
+					<li>GOOD LUCK!!!</li>			</span>		
 				</ul>
-				</font>
+				
 			</section>
-			<section>
-				<h2 style="color:#FF33F9">Advanced Calculus L1</h2>
+			<section align="left">
+				<h1>Advanced Calculus L1</h1>
 				<br>
 				<ul>
 					<li>Module overview/assessment</li>
 					<br>
-					<span style="color: #FF33F9"> 
+					<span style="color: #00FF00"> 
 					<li>ODE Revision</li>					
 					<ul>
 						<li>Initial value problems (IVP)</li>
@@ -124,283 +148,318 @@
 				</ul>
 			</section>
             <section  align="left">
-				<h4 style=color:#FF33F9>Second order linear ODEs</h4>					
-				<font size="6">
-					Equations of the form
-					\[\color{red}{\boxed{\color{white} x'' = F(t,x,x')}}\]
-					Here
+				<h2>Second order linear ODEs</h2>					
+				
+					<p>Equations of the form</p>
+					\[\color{red}{\boxed{\color{white} {x'' = F(t,x,x')}}}\]
+					<p>Here</p>
 					\[
 					 x' = \frac{\mathrm{d}x}{\mathrm{d}t} \quad\text{and}\quad x'' = \frac{\mathrm{d}^2x}{\mathrm{d}t^2}
 					\]
-					Since the right-hand side is linear in the independent variable and its first derivative, $F$ takes the form
+					<p>Since the right-hand side is linear in the independent variable and its first derivative, $F$ takes the form</p>
 					\[
 					 \begin{align*}
 					  F(t,x,x')&=a(t)x'+b(t)x+c(t)\\
 					  &= ax'+bx+c
 					 \end{align*}
-					\]
-				</font>
+					\]			
 			</section>	
 			
 			<section>
 				<section  align="left">
-					<h4 style=color:#FF33F9>Examples</h4>					
-					<font size="6">
-						<b>Example 1.1:</b> $~$Solve the ODE $~~\color{red}{\boxed{\color{white} x'' = 0}}$<br>
+					<h2>Examples</h2>					
+					
+						<h3>Example 1.1</h3>  <p>Solve the ODE $~~\color{red}{\boxed{\color{white}{ x'' = 0}}}$</p>
+						
+						
+						<h3>Solution</h3>
+						<span class="fragment fade-in">
+						<p>We can solve the ODE by direct integration</p>
 							
-						<b>Solution</b><br>
-						We can solve the ODE by direct integration<br>
-							
-						Integrating we obtain
+						<p>Integrating we obtain</p>
 						\[
 						x'(t) = A ~\text{ for some constant $A\in\mathbb{R}$}
 						\]
-							
-						Integrating again gives
+						</span>
+						<span class="fragment fade-in">						
+						<p>Integrating again gives</p>
 						\[
-						\color{yellow}{\boxed{\color{white} x(t) = At+B, \quad A, B\in\mathbb{R}}}
+						\color{yellow}{\boxed{\color{white}{ x(t) = At+B, \quad A, B\in\mathbb{R}}}}
 						\]
-						This is the <em>general solution</em> of our ODE.<br> 
+						<p>This is the <em>general solution</em> of our ODE.</p> </span>
 							
-						We can check via substitution that this function satisfies our ODE 												
-					</font>
+						<p class="fragment fade-in">We can check via substitution that this function satisfies our ODE 	</p>
+					
 				</section>
 				<section  align="left">						
-					<font size="6">
-						<b>Example 1.2:</b> $~$Solve the ODE $~~\color{red}{\boxed{\color{white} x'' = 9x}}$<br>
+					
+						<h3>Example 1.2:</h3> <p>Solve the ODE $~~\color{red}{\boxed{\color{white}{ x'' = 9x}}}$</p>
 							
-						<b>Solution</b><br>
-						To solve we use the following <em>ansatz</em>: $~~\displaystyle x(t) = Ae^{mt}$<br>
+						<h3>Solution</h3>
+						<span class="fragment fade-in">
+						<p>To solve we use the following <em>ansatz</em>: $~~\displaystyle x(t) = Ae^{mt}$</p>
 							
-						Substituting this into our ODE and rearranging to the LHS gives
+						<p>Substituting this into our ODE and rearranging to the LHS gives</p>
 						\[
 						 Ae^{mt}\left(m^2-9\right) = 0\implies m^2-9 = 0 ~\text{ or }~ m = \pm 3
 						\]
-							
-						This results in two solutions 
+						</span>
+
+						<span class="fragment fade-in">
+						<p>This results in two solutions </p>
 						\[ 
 						 x_1(t)=Ae^{3t} ~\text{ and }~ x_2(t)=Be^{-3t}
 						\]
-						We combine these linearly to obtain the general solution
+						<p>We combine these linearly to obtain the general solution</p>
 						\[
-						 \color{yellow}{\boxed{\color{white} x(t) = Ae^{3t}+Be^{-3t}, \quad A,B\in\mathbb{R}}}
+						 \color{yellow}{\boxed{\color{white} {x(t) = Ae^{3t}+Be^{-3t}, \quad A,B\in\mathbb{R}}}}
 						\]						
-					</font>
+					</span>
 				</section>
 				<section  align="left">						
-					<font size="6">
-						<b>Example 1.3:</b> $~$Solve the ODE $~~\color{red}{\boxed{\color{white} x'' = -9x}}$<br>
+					
+						<h3>Example 1.3:</h3> <p>Solve the ODE $~~\color{red}{\boxed{\color{white}{ x'' = -9x}}}$</p>
 							
-						<b>Solution</b><br>
-						Using the same <em>ansatz</em> as in <b>Example 1.2</b> we obtain the auxillary equation
+						<h3>Solution</h3>
+						<span class="fragment fade-in">
+						<p>Using the same <em>ansatz</em> as in <b>Example 1.2</b> we obtain the auxillary equation</p>
 						\[
 						 m^2+9 = 0 \implies m = \pm 3i 
 						\]
-						This results in two solutions 
+						</span>
+						<span class="fragment fade-in">
+						<p>This results in two solutions </p>
 						\[ 
 						 x_1(t)=Ae^{3it} ~\text{ and }~ x_2(t)=Be^{-3it}
 						\]
-						However, these solutions are complex and since our ODE is real we wish to restrict to real solutions<br>
+						</span>
+						<span class="fragment fade-in">
+						<p>However, these solutions are complex and since our ODE is real we wish to restrict to real solutions</p>
 
-						We can do this by deploying <em>Euler's formula</em>...
-					</font>
+						<p>We can do this by deploying <em>Euler's formula</em>...</p></span>
+					
 				</section>
 				<section  align="left">						
-					<font size="6">
-						Recalling Euler's formula 
+					
+						<p>Recalling Euler's formula </p>
 						\[
-						 \color{red}{\boxed{\color{white}
-						 e^{i\theta} = \cos(\theta)+i\sin(\theta)}}
+						 \color{red}{\boxed{\color{white}{
+						 e^{i\theta} = \cos(\theta)+i\sin(\theta)}}}
 						\]
-						we see that our solutions take the form: $~\displaystyle \cos(3t)\pm i\sin(3t)$<br>		
-
-						It can be shown (but not in this course) that restricting to real solutions only, gives the following general solution to our ODEs
+						<p>we see that our solutions take the form: $~\displaystyle \cos(3t)\pm i\sin(3t)$</p>		
+						<span class="fragment fade-in">
+						<p>It can be shown (but not in this course) that restricting to real solutions only, gives the following general solution to our ODEs</p>
 						\[
-						 \color{yellow}{\boxed{\color{white}
-						 x(t) = A\cos(3t)+B\sin(3t)}}
+						 \color{yellow}{\boxed{\color{white}{
+						 x(t) = A\cos(3t)+B\sin(3t)}}}
 						\]
 						
-						Thus imaginary roots of the auxillary equation result in <em>oscillatory solutions</em> whereas real roots give <em>exponential growth/decay</em>
-					</font>
+						<p>Thus imaginary roots of the auxillary equation result in <em>oscillatory solutions</em> whereas real roots give <em>exponential growth/decay</em>
+					</p></span>
 				</section>
 			</section>
 			
 			<section>
 				<section  align="left">
-					<h4 style=color:#FF33F9>Initial value problems (IVP)</h4>					
-					<font size="6">
-						For a second-order homogeneous linear ODE an initial value problem consists of an ODE of the form
+					<h2>Initial value problems (IVP)</h2>					
+					
+					<p>	For a second-order homogeneous linear ODE an initial value problem consists of an ODE of the form</p>
 						\[
 						 x''+a(t)x'+b(t)=0
 						 \]
-						Alongside two initial conditions
+						<p>Alongside two initial conditions</p>
 						\[
 						 x(t_0) = x_0 \quad \text{and} \quad x'(t_0) = v_0
 						\]
-					</font>
+					
 				</section>					
 				<section align="left">
-					<font size="6">
-						Let us return to <b>Example 1.3</b><br>
 					
-						Recall that the solution was given by 
+						<p>Let us return to <b>Example 1.3</b></p>
+						<span class="fragment fade-in">
+						<p>Recall that the solution was given by </p>
 						\[
-						 \color{yellow}{\boxed{\color{white}
-						 x(t) = A\cos(3t)+B\sin(3t)}}
+						 \color{yellow}{\boxed{\color{white}{
+						 x(t) = A\cos(3t)+B\sin(3t)}}}
 						\]						
-						Now suppose we are given the initial conditions (<em>i.e.</em> it is an IVP)
+						
+						</span>
+						<span class="fragment fade-in">
+						<p>Now suppose we are given the initial conditions (<em>i.e.</em> it is an IVP)</p>
 						\[
 						 x(0) = x_0 \quad \text{and} \quad x'(0) = v_0
 						\]
-						Then it is straightforward to solve for $A$ and $B$ to obtain the solution:
+						<p>Then it is straightforward to solve for $A$ and $B$ to obtain the solution:</p>
 						\[
 						x(t) = x_0\cos(3t)+\frac{v_0}{3}\sin(3t)
 						\]
-					</font>
+						</span>
+					
 				</section>
 				<section align="left">
-					<font size="6">
-						To see this note that incorporating the first IC gives
+					<p>
+						To see this note that incorporating the first IC gives</p>
 						\[
 						 x(0) = A\cos(3\cdot 0)+B\sin(3\cdot 0) = A = x_0
 						\]
-						and the second IC gives
+						<span class="fragment fade-in">
+						<p>and the second IC gives</p>
 						\[
 						 x'(0) = -3x_0\sin(3\cdot 0) + 3B\cos(3\cdot 0) = 3B = v_0
 						\]
-						thus 
+						</span>
+						<span class="fragment fade-in">
+						<p>thus </p>
 						\[
 						 B = \frac{v_0}{3}
 						\]
-						giving the <em>particular solution</em>
-					</font>
+						<p>giving the <em>particular solution</em></p>
+						</span>
+					
 				</section>
 			</section>
 			
 			<section>
 				<section  align="left">
-					<h4 style=color:#FF33F9>Boundary value problems (BVP)</h4>					
-					<font size="6">
-						For a second-order homogeneous linear ODE a <em>boundary value problem</em> consists of an ODE of the form
+					<h2>Boundary value problems (BVP)</h2>					
+					
+					<p>	For a second-order homogeneous linear ODE a <em>boundary value problem</em> consists of an ODE of the form</p>
 						\[
 						 x''+a(t)x'+b(t)=0
 						 \]
-						Alongside two boundary conditions
+						<p>Alongside two boundary conditions</p>
 						\[
 						 x(a) = A \quad \text{and} \quad x(b) = B \quad
 						\]
-						In general BVPs are more difficult to solve than IVPs since they are <em>global</em> rather than <em>local</em> in nature
+						<p>In general BVPs are more difficult to solve than IVPs since they are <em>global</em> rather than <em>local</em> in nature</p>
 					</font>
 				</section>				
 				<section  align="left">
-					<font size="6">
-						Let us return to <b>Example 1.2</b> (<em>i.e.</em> $ x'' = 9x$)<br>
 					
-						Recall that the solution was given by 
+					<p>	Let us return to <b>Example 1.2</b> (<em>i.e.</em> $ x'' = 9x$)</p>
+					
+						<p>Recall that the solution was given by </p>
 						\[
-						 \color{yellow}{\boxed{\color{white}
-						 x(t) = Ae^{3t}+Be^{-3t}}}
+						 \color{yellow}{\boxed{\color{white}{
+						 x(t) = Ae^{3t}+Be^{-3t}}}}
 						\]
-						Now suppose we are given the boundary conditions (<em>i.e.</em> it is a BVP) 
+						<span class="fragment fade-in">
+						<p>Now suppose we are given the boundary conditions (<em>i.e.</em> it is a BVP) </p>
 						\[
 						 x(0)=0 \quad \text{and} \quad x(T) = 0
 						\]
-						The first BC gives $~~\displaystyle x(0) = Ae^{3\cdot 0}+Be^{-3\cdot 0} = A+B = 0$, thus<br>								
+						</span>
+						<span class="fragment fade-in">
+						<p>The first BC gives $~~\displaystyle x(0) = Ae^{3\cdot 0}+Be^{-3\cdot 0} = A+B = 0$, thus</p>								
 						<div class="r-hstack">
 							<p style="margin-right: 1em">							
 							\[
-							 \color{red}{\boxed{
-							 \sinh(at) = \frac{1}{2}\left(e^{at}-e^{-at}\right)}}
+							 \color{red}{\boxed{\color{white}{
+							 \sinh(at) = \frac{1}{2}\left(e^{at}-e^{-at}\right)}}}
 							\]										
 							</p>			
-							
+							</span>
+							<span class="fragment fade-in">
 							<p>
 							\[
 							 \begin{align*}
 							 \implies&A = -B \text{ and so } x(t) = A\left(e^{3t}-e^{-3t}\right)\\
-							 \implies& \color{yellow}{\boxed{\color{white} x(t) = 2A\sinh(3t)}}
+							 \implies& \color{yellow}{\boxed{\color{white}{ x(t) = 2A\sinh(3t)}}}
 							 \end{align*}
 							\]							
 							</p>
 						</div>
-					</font>
+						
+					</span>
 				</section>	
+				
 				<section align="left">
-					<font size="6">		
-						But there's a problem!<br>						    
-						So far, we have only used our first BC, obtaining the solution																		
+					
+					<p>	But there's a problem!</p>		
+				    
+						<p>So far, we have only used our first BC, obtaining the solution	</p>	
+<span class="fragment fade-in">						
 						<div class="r-hstack">
 							<p style="margin-right: 5em">
 								\[
-								 \color{yellow}{\boxed{\color{white} x(t) = 2A\sinh(3t)}}
+								 \color{yellow}{\boxed{\color{white}{ x(t) = 2A\sinh(3t)}}}
 								\]
-								The second BC states that 
+								<p>The second BC states that </p>
 								\[
 								 x(T) = 2A\sinh(3T) = 0
 								\]								
 							</p>			
 							<p>$\quad$</p>
-							<img class="r-frame" width="350" src="figures/sinh.png">
+							<img class="r-frame" width="350" src="figures/sinh.png" style="margin:0px;padding:0px;border: 3px solid black;position:absolute;top:200px;left:750px">
 						</div>
-						So either $A=0$ or $T=0$ since $\sinh(t)=0 \iff t=0$<br>																								
+						</span>
+						<span class="fragment fade-in">
+						<p>So either $A=0$ or $T=0$ since $\sinh(t)=0 \iff t=0$</p>																								
 					
-						Thus no solutions exist that satisfy both the ODE and the given BCs
-					</font>	
+						<p>Thus no solutions exist that satisfy both the ODE and the given BCs</p>
+						</span>
+					
 				</section>				
+				
 				<section align="left">
-					<font size="6">
-						What about <b>Example 1.3</b> as a BVP? (<em>i.e.</em> $x''=-9x$)<br>
-							
-						In this case recall that the solution is
+					
+					<p>	What about <b>Example 1.3</b> as a BVP? (<em>i.e.</em> $x''=-9x$)</p>
+					<span class="fragment fade-in">		
+						<p>In this case recall that the solution is</p>
 						\[
-						 \color{yellow}{\boxed{\color{white}
-						 x(t) = A\cos(3t) + B\sin(3t)}}
+						 \color{yellow}{\boxed{\color{white}{
+						 x(t) = A\cos(3t) + B\sin(3t)}}}
 						\]
-						
-						And so applying the BCs from earlier we obtain
+						</span>
+						<span class="fragment fade-in">
+						<p>And so applying the BCs from earlier we obtain</p>
 						\[
 						 \begin{align*}
 						  x(0) &= A\cos(3\cdot 0) + B\sin(3\cdot 0) \implies x(t) = B\sin(3t)\\
 						  &=A=0
 						 \end{align*}							 
 						\]
-						Applying the second BC gives: $\quad\displaystyle \color{red}{\boxed{\color{white} x(T) = B\sin(3T) =0}}$<br>
+						<p>Applying the second BC gives: $\quad\displaystyle \color{red}{\boxed{\color{white}{ x(T) = B\sin(3T) =0}}}$</p>
+						</span>
 						
-						So either $B=0$ or ...							
-					</font>
+						<p class="fragment fade-in">So either $B=0$ or ...							</p>
+					
 				</section>				
 				<section align="left">
-					<font size="6">
-						...or what?<br>
-							
-						If $B$ is non-zero then we must have that 
+					<p>
+						...or what?</p>
+						
+<span class="fragment fade-in">						
+						<p>If $B$ is non-zero then we must have that </p>
 						\[
 						 \begin{align*}
 						  \sin(3T) = 0 \text{ so that } 3T &=n\pi, n\in\mathbb{Z}\\
 						  \text{ or } T &= \frac{n\pi}{3}, n\in\mathbb{Z}							  
 						 \end{align*}
 						\]
-						In other words, if $T$ is an integer multiple of $\pi/3$ then
+						</span>
+						<span class="fragment fade-in">
+						<p>In other words, if $T$ is an integer multiple of $\pi/3$ then</p>
 						<div class="r-hstack">
 							<p style="margin-right: 2em; width: 20em">							
 							\[
-							 \color{yellow}{\boxed{\color{white}
-						 	 x(t) = B\sin(3t)}}
+							 \color{yellow}{\boxed{\color{white}{
+						 	 x(t) = B\sin(3t)}}}
 							\]
-							is a solution, <b>otherwise it is not</b><br>
+							<p>is a solution, <b>otherwise it is not</b></p>
 							
-							Note that the time $T$ is intrinsically related to the solution frequency
+							<p>Note that the time $T$ is intrinsically related to the solution frequency</p>
 							</p>
-							<img align="left" class="r-frame" width="300" src="figures/sin.png">
-						</div>						
-					</font>
+							<img align="left" class="r-frame" width="300" src="figures/sin.png" style="margin:0px;padding:0px;border: 3px solid black;position:absolute;top:150px;left:800px">
+						</div>						</span>
+					
 				</section>				
 			</section>	
 			
-			<section>
-				<h2 style="color:#FF33F9">Lecture 1 Review</h2>
+			<section align="left">
+				<h2 style="color:#00FF00">Lecture 1 Review</h2>
 				<br>
-				<font size="6">
+				
 				<ul>						
 					<li>In this lecture we covered</li>
 					<ul>
@@ -410,32 +469,57 @@
 					<li>After this lecture you should be able to</li>
 					<ul>
 						<li>Solve second order linear homogeneous ODEs</li>
-						<li>Understand the difference between IV and BV problems</li>
+						<li>Understand the difference between IV amd BV problems</li>
 					</ul><br>
 					<li>Further ODE revision (including 1st order ODEs) can be found in <a href="https://jjcrofts77.github.io/Advanced-Calculus-MATH20471/content/notebooks/Part1/Chapter1/ODERev.html" target="_blank" style="color: red">Section 1.2</a> of the online web book</li>
 				</ul>			
 				</font> 
 			</section>
-		</div>
-	</div>
+					 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/notes/notes.js"></script>
-	<script src="plugin/markdown/markdown.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script>
-		// More info about initialization & config:
-		// - https://revealjs.com/initialization/
-		// - https://revealjs.com/config/
-		Reveal.initialize({
-			hash: true,
-				// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-		});
-	</script>
-          <script src="plugin/math/math.js"></script>
-          <script>
-            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
-          </script>
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
+        </script>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
 </body>
 </html>
