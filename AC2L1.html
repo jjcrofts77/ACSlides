@@ -1,120 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L11</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-			<section>
-				<h2 style="color:#FF33F9">Advanced Calculus L11</h2>
-				<br>
-				<ul>
-					<span style="color: #FF33F9"> <li>Introductory slides</li></span>
-					<br>
-					<li>Revision of complex numbers</li>
-					<br>
-					<li>Examples</li>						
-				</ul>
-			</section>
-			<section>
-				<h3>Course Information</h3>
-				<font size="6">
-				<p class="r-frame">
-				Lecturer: Dr Jonathan Crofts<br>
-				New Hall Block: Room 233<br>
-				Email: jonathan.crofts@ntu.ac.uk
-				</p>
-				<h3>Timetable</h3>
-				<p class="r-frame">
-				Lecturer: 11-12, Wednesday ERD 171<br>	
-				Seminars: Group M3, P 13-14, Tuesday CTLB P08<br>				
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Group M1, M2 - 10-11, Thursday Eng Build 104
-				</p>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+        <h1>Advanced Calculus</h1>
+        <h2>Lecture 11</h2>
+        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+        <p style="color: #00FF00">Nottingham Trent University</p>
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section align="left">
+		<h1>Advanced Calculus L11</h1>
+		<br>
 				
-				<h3>Office hours</h3>
-				<p class="r-frame">
-				9:00-10:00 Monday
-				</p>
-				</font>
-			</section>
+		<ul>
+			<span style="color: #00FF00"> <li>Introductory slides</li></span>
+			<br>
+			<li>Revision of complex numbers</li>
+			<br>
+			<li>Examples</li>						
+		</ul>
+		
+	</section>
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+	<section>
+		<h3><b>Course Information</b></h3>
+	<font size="6">
+	<p style="border-width:2px; border-style:solid; border-color:white; padding: .5em;">
+	Lecturer: Dr Jonathan Crofts<br>
+	New Hall Block: Room 233<br>
+	Email: jonathan.crofts@ntu.ac.uk
+	</p>
+	
+	<h3><b>Timetable</b></h3>
+	<p style="border-width:2px; border-style:solid; border-color:white; padding: .5em;">
+	Lecturer: 13-14, Wednesday ERD 161<br>	
+	Seminars: Group M1 9-10, Tuesday NHB 169<br>				
+	&emsp;&emsp;&emsp;&emsp;&emsp; Group M2 10-11, Tuesday ABK 005
+	</p>
+				
+	<h3><b>Office hours</b></h3>
+	<p style="border-width:2px; border-style:solid; border-color:white; padding: .5em;">
+	9:00-10:00 Monday
+	</p>
+	</font>
+	</section>
+			
 			<section>
-				<h3>Module content</h3>
+				<h3><b>Module content</b></h3>
 				<br>
 				<font size="6">
 				<ul>
-					<span style="color: yellow"> <li>Partial differential equations (TERM 1)</li></span>
+					<li><b>Partial differential equations (TERM 1)</b></li></span>
 					<ul>
 						<li>Equations involving one or more partial derivatives</li>
 						<li>Real-world applications</li>
 						<li>Methods of solution</li>
 					</ul><br>
-					<span style="color: yellow"><li>Fourier series (TERM 1)</li>	</span>	
+					<span  class = "fragment fade-in"><li><b>Fourier series (TERM 1)</b></li>
 					<ul>
 						<li>Series representation of periodic functions</li>
 						<li>Used to solve PDEs</li>
-					</ul><br>
-					<span style="color: red"><li> Complex analysis (TERM 2)</li></span>
+					</ul><br>	</span>	
+					<span  class = "fragment fade-in"><li> <b>Complex analysis (TERM 2)</b></li>
 					<ul>
 						<li>Calculus of complex functions</li>
 						<li>Engineering applications</li>
 					</ul>
-				</ul>
+				</ul></span>
 				</font>
 			</section>
 			<section>
-				<h3 >Reading list</h3>
-				
-				<font size="6">
+				<h3 ><b>Reading list</b></h3>
+								
 				<ul>
-					<li>You will probably not need to buy a book for this module as <a href="https://jjcrofts77.github.io/Advanced-Calculus-MATH20471/intro.html#" target="_blank" style="color: red">notes</a> are provided, as well 
+					<span  class = "fragment fade-in"><li>You will probably not need to buy a book for this module as <a href="https://jjcrofts77.github.io/Advanced-Calculus-MATH20471/intro.html#" target="_blank" style="color: red">notes</a> are provided, as well 
 					as supplementary material during seminars and via the <a href="https://now.ntu.ac.uk/" target="_blank" style="color: red">University's virtual learning service</a></li>
-					<br>
-					<li>However, the following books cover most of the material to be presented as well as providing a good basis for additional reading and learning</li>					
+					<br></span><span  class = "fragment fade-in">
+					<li>However, the following books cover most of the material to be presented as well as providing a good basis for additional reading and learning</li>	<br>				
+					
 					<ul>
 						<li>Jordan and Smith (2008), <a href="https://www.amazon.co.uk/Mathematical-Techniques-Introduction-Engineering-Physical/dp/0199282013" target="_blank" style="color: yellow">Mathematical techniques: an introduction 
-						for the engineering, physical and mathematical sciences</a></li>
+						for the engineering, physical and mathematical sciences</a></li><br>
 						<li>Kent <em>et al.</em> (2012), <a href="https://www.amazon.co.uk/Fundamentals-Differential-Equations-Boundary-Problems/dp/0321977106" target="_blank" style="color: yellow">Fundamentals of differential equations and 
-						boundary value problems</a></li>						
+						boundary value problems</a></li>						<br>
 						<li>Kwok (2010), <a href="https://www.amazon.co.uk/Applied-Complex-Variables-Scientists-Engineers/dp/0521701384" target="_blank" style="color: yellow">Applied complex variables for scientists and engineers</a></li>
-					</ul>
+					</ul></span>
 				</ul>
-				</font>
+			
 			</section>
 			<section>
-				<h3>Assessment</h3>
-				<font size="6">
+				<h3><b>Assessment</b></h3>
+				<span  class = "fragment fade-in">
 				<ul>
 					<li>The module consists of two elements</li>
 					<ul>
 						<li>January Exam (E1): element 1 is worth 50% and covers the first half of the module (PDEs and Fourier series) </li>
 						<li>Summer Exam (E2): element 2 is worth 50% and covers the second half of the module (Complex Analysis)</li>
 					</ul>
+					</span>
 					<br>
-					<li>See <a href="https://now.ntu.ac.uk/" target="_blank" style="color: red">NOW</a> for assessment details</li>			<br>		
-					<li>Seminars are absolutely vital for high attainment in this course</li><br>
-					<li>GOOD LUCK!!!</li>					
+					<span  class = "fragment fade-in">
+					<li>See <a href="https://now.ntu.ac.uk/" target="_blank" style="color: red">NOW</a> for assessment details</li>			<br>		</span>
+					<span  class = "fragment fade-in"><li>Seminars are absolutely vital for high attainment in this course</li><br></span>
+					<span  class = "fragment fade-in"><li>GOOD LUCK!!!</li>					</span>
 				</ul>
-				</font>
+				
 			</section>
 			
-			<section>
-				<h2 style="color:#FF33F9">Advanced Calculus L11</h2>
+			<section align="left">
+				<h1>Advanced Calculus L11</h1>
 				<br>
 				<ul>
 					<li>Module overview/assessment</li>
 					<br>
-					<span style="color: #FF33F9"> 
+					<span style="color: #00FF00"> 
 					<li>Revision of complex numbers</li>					
 					</span><br>
 					<li>Examples</li>
@@ -124,9 +150,9 @@
 			<section>
             
 			<section  align="left">
-				<h4 style=color:#FF33F9>Revision of complex numbers</h4>					
-				<font size="6">
-					Let us recall some basic notations/definitions:
+				<h2>Revision of complex numbers</h2>					
+				
+					Let us recall some basic notations/definitions:<br>
 					
 					<ul>
 						<li>Complex numbers are denoted by the letter $z$ traditionally</li> <br>
@@ -134,58 +160,61 @@
 						<li>The imaginary unit $i=\sqrt{-1}$ or $i^2=-1$</li><br>
 						<li>There are a variety of ways to represent complex<br> numbers as can be seen from the figure</li>
 					</ul>
-				</font>
+				
 				<img data-src="figures/ComplexNumbers.png"style="position:absolute;top:150px;left:480px;scale: .5; border: 3px solid red;">													
 			</section>
 			<section  align="left">				
-				<font size="6">
-					Referring to the figure, a complex number $z$<br>
+				
+					<p>Referring to the figure, a complex number $z$</p>
 					
-					can be written as 
+					<p>can be written as </p>
 					
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
+					<br><br><br><br><br>
 					
-					Alternatively, the position $z$ in the <em>Argand diagram</em> can be expressed in <em>polar coordinates</em>
+					<p class="fragment fade-in">Alternatively, the position $z$ in the <em>Argand diagram</em> can be expressed in <em>polar coordinates</em>
 					\[
 					\mathbf{r} = (x,y); \quad x=r\cos\theta, y=r\sin\theta; r = \sqrt{x^2+y^2}=|z|
 					\]
-					and $\theta=\tan^{-1}(y/x)$. Here
+					and $\theta=\tan^{-1}(y/x)$.
+					
+					<br><br>
+					
+					Here
 					\[
 					z = r\cos\theta +ir\sin\theta
-					\]
-				</font>				
-				<img data-src="figures/ComplexNumberEqn.png"style="position:absolute;top:100px;left:150px;scale: 1; border: 3px solid green;">													
+					\]</p>
 				
-				<img data-src="figures/ComplexNumbers.png"style="position:absolute;top:-150px;left:450px;scale: .35; border: 3px solid red;">													
+				<img data-src="figures/ComplexNumberEqn.png"style="position:absolute;top:130px;left:150px;scale: 1; border: 3px solid green;">													
+				
+				<img data-src="figures/ComplexNumbers.png"style="position:absolute;top:-150px;left:450px;scale: .35; border: 5px solid red;">													
 			</section>
 			<section  align="left">				
-				<font size="6">
-					Adopting the Cartesian representation and setting
+				
+				<p>	Adopting the Cartesian representation and setting
+				
 					\[
 					z_1 = x_1+iy_1 \quad\text{and}\quad z_2=x_2+iy_2
 					\]
 					
-					we have					
+					we have					</p>
 					<ul>
 						<li><b>Equality</b>: $z_1=z_2$ iff $x_1=x_2$ and $y_1=y_2$</li> <br>
-						<li><b>Addition/Subtraction</b>: $z_1\pm z_2 = (x_1\pm x_2)+i(y_1\pm y_2)$</li><br>
+						<li class="fragment fade-in"><b>Addition/Subtraction</b>: $z_1\pm z_2 = (x_1\pm x_2)+i(y_1\pm y_2)$</li><br>
+						<span class="fragment fade-in">
 						<li><b>Multiplication</b>: </li>
 						<ul>
 								<li>$k\in\mathbb{R}: kz = kx+iky \quad\text{\textcolor{red}{scalar multiplication}}$</li>
 								<li>$$z_1z_2 = (x_1+iy_1)(x_2+iy_2) = (x_1x_2-y_1y_2)+i(x_1y_2+x_2y_1)$$								
 								</li>
-						</ul>
+						</ul></span>
 					</ul>
-				</font>
+				
 			</section>
 			<section  align="left">				
-				<font size="6">
-				Other important operations include<br>
 				
+				<p>Other important operations include</p><br>
+				
+				<p>
 				<ul>
 					<li><b>Modulus</b>$~|z|=|x+iy|=\sqrt{x^2+y^2}$</li><br>
 					<li><b>Conjugation</b> $$\begin{align*}						
@@ -193,16 +222,17 @@
 						 \end{align*}$$	</li>
 					<li><b>Inverse</b> $$z^{-1}=\frac{1}{x+iy}=\frac{x-iy}{x^2+y^2}$$</li>
 				</ul>
-				</font>
-			<img data-src="figures/Example11p1.png"style="position:absolute;top:265px;left:475px;scale: .75; border: 3px solid green;">														
+				</p>
+			<img class="fragment fade-in" data-src="figures/Example11p1.png"style="position:absolute;top:265px;left:475px;scale: .75;">														
 			</section>
 			
 			<section  align="left">				
-				<font size="6">
-				Related to the idea of computing an inverse ...<br>
+				<p>
+				Related to the idea of computing an inverse ...<br></p>
 				
+				<p>
 				<ul>
-					<li><b>Division</b>$\displaystyle \frac{z_1}{z_2} = z_1z_2^{-1}$, so using our previous result we have 
+					<li><b>Division</b> &emsp;$\displaystyle \frac{z_1}{z_2} = z_1z_2^{-1}$, so using our previous result we have 
 					\[
 					 \begin{align*}
 					  \frac{z_1}{z_2} &= \frac{(x_1+iy_1)(x_2-iy_2)}{x_2^2+y_2^2}\\
@@ -210,81 +240,86 @@
 					 \end{align*}
 					\]
 					</li>
-				</ul>
+				</ul></p>
 				
-		<br>
+		<br><span class="fragment fade-in">
 				<b>Note</b> Unlike real numbers complex numbers cannot be ordered, and so, for example, it makes no sense to say
 				\[
 				z_1>z_2
 				\]
-				Akin to vectors. &emsp; (Compare $|z_1|>|z_2|, \mathrm{Re}(z_1)>\mathrm{Re}(z_2)~etc.$)
-				</font>
-			</section>
+				Akin to vectors. &emsp; (Compare $|z_1|>|z_2|, \mathrm{Re}(z_1)>\mathrm{Re}(z_2)~etc.$)</span>
+				
 			</section>
 			
-			<section>
+			
+			
+			
 				<section  align="left">
-					<h4 style=color:#FF33F9>Exponential form</h4>					
-					<font size="6">
-						Employing our notation from earlier we can write 
+					<h2>Exponential form</h2>					
+					
+						<p>Employing our notation from earlier we can write </p>
 						\[
 						 z = |z|(\cos\theta +i\sin\theta)
 						\]
 						
-						Now, expressing $\cos$ and $\sin$ in exponential form gives
+						<span class="fragment fade-in"><p>Now, expressing $\cos$ and $\sin$ in exponential form gives</p>
 						\[
 						z = |z|\left(\frac{e^{i\theta}+e^{-i\theta}}{2}+i\frac{e^{i\theta}-e^{-i\theta}}{2}\right) = |z|e^{i\theta}
 						\]
-						From the above we immediately see
+						<p>From the above we immediately see</p>
 						\[
 						e^{i\theta} = \cos\theta +i\sin\theta,
 						\]
-						which is <a style="color: red">Euler's formula</a>
-					</font>
+						<p>which is <a style="color: red">Euler's formula</a></p></span>
+					
 				</section>
 								
 				<section  align="left">						
-					<font size="6">
-					<b><a style="color: green">The different representations of complex numbers are useful when considering different algebraic operations </a></b>
+					<p>
+					<b>The different representations of complex numbers are useful when considering different algebraic operations</b></p>
 					
-					<br>
+					<span class="fragment fade-in">
+					<p>
 					<ul>
 						<li>The algebraic form $x+iy$ is convenient for addition/subtraction</li>
 						<br>
 						<li>The polar form is more convenient for multiplication/division</li>
 					</ul>
-					<br>	
-					For example, let 
+					</p></span>
+					<span class="fragment fade-in">
+					<p>For example, let </p>
 					\[
 					 z_1 = r_1(\cos\theta_1+i\sin\theta_1)\text{ and } z_2 = r_2(\cos\theta_2+i\sin\theta_2)
 					\]		
-					then
+					<p>then</p>
 					\[
 					z_1z_2 = r_1r_2\left(\cos(\theta_1+\theta_2)+i\sin(\theta_1+\theta_2)\right)=r_1r_2e^{(\theta_1+\theta_2)i}
 					\]					
-					</font>
-					<img data-src="figures/DoubleAngles.png"style="position:absolute;top:375px;left:350px;scale: .75; border: 3px solid green;">														
-					<img data-src="figures/DeMoivre.png"style="position:absolute;top:525px;left:475px;scale: .75; border: 3px solid green;">														
+					<img data-src="figures/DoubleAngles.png"style="position:absolute;top:450px;left:800px;scale: .75; border: 3px solid green;">														
+					</span>
+					
+					
+					<img class="fragment fade-in" data-src="figures/DeMoivre.png"style="position:absolute;top:500px;left:300px;scale: .75; border: 3px solid green;">														
 				</section>	
 			</section>
 			
-						<section>
-				<h2 style="color:#FF33F9">Advanced Calculus L1</h2>
+						<section align="left">
+				<h1>Advanced Calculus L1</h1>
 				<br>
 				<ul>
 					<li>Module overview/assessment</li>
 					<br>					
 					<li>Revision of complex numbers</li>					
 					<br>
-					<span style="color: #FF33F9"> 
+					<span style="color: #00FF00"> 
 					<li>Examples</li></span>
 				</ul>
 			</section>
 			
 			<section>
 				<section  align="left">					
-					<font size="6">
-						<b>Example 11.2</b> &emsp; Compute the following number
+					
+						<p><h3>Example 11.2</h3> Compute the following number</p>
 						
 						\[
 						\left|\frac{(1-i)(1+i)^5}{(i+i^2+\dots +i^{21})^{10}}\right|
@@ -292,7 +327,8 @@
 						
 						<br>
 												
-						<b>Solution</b>
+						<br> <p><b>Solution</b></p>
+						<span class="fragment fade-in">
 						To start note that
 						\[
 						(1-i)(1+i)=2 \quad\text{and}\quad (1+i)^2 = 2i
@@ -301,55 +337,60 @@
 						\[
 						(1-i)(1+i)^5 = 2(2i)^2 = -8
 						\]
-					</font>
+						</span>												
+					
 				</section>
 								
 				<section  align="left">						
-					<font size="6">
-					To work out the denominator note that 
+					
+					
+					<p>To work out the denominator note that </p>
 					\[ 
 					 i^2=-1, ~i^3=-i, ~i^4=1, ~i^5=i,...
 					\]
-					and so the sum in the brackets becomes
+					<p>and so the sum in the brackets becomes</p>
 					\[
 					i+i^2+i^3+\cdots+i^{21} = i-1-i+1+i-\cdots + i = i
 					\]
-					And so
+					<span class="fragment fade-in">
+					<p>And so</p>
 					\[
 					 \left|\frac{(1-i)(1+i)^5}{(i+i^2+\dots +i^{21})^{10}}\right| = \left|\frac{-8}{i^{10}}\right| = |8| = 8.
 					\]					
-					</font>
+					</span>
 				</section>				
 			</section>
 			
 			
 			<section>
 				<section  align="left">			
-					<font size="6">
-						<b>Example 11.3</b>&emsp; Sketch the following regions in the complex plane
+					
+						<p><h3>Example 11.3</h3>  Sketch the following regions in the complex plane</p>
 						\[
 						 \text{(a) } \mathrm{Re}(z)>\mathrm{Im}(z), \quad \text{(b) } |z-1|>2
 						\]
 						
-						<br>
 						
-						<b>Solution</b> (a) $\mathrm{Re}(z)>\mathrm{Im}(z) \implies x>y$ and so the region is given by
-					</font>
-					<img data-src="figures/RezGreaterImz.png"style="position:absolute;top:300px;left:250px;scale: 1; border: 3px solid green;">	
+						
+						<br> <p><b>Solution</b></p>
+						<span class="fragment fade-in"> <p>(a) $\mathrm{Re}(z)>\mathrm{Im}(z) \implies x>y$ and so the region is given by</p>
+					
+					<img data-src="figures/RezGreaterImz.png"style="position:absolute;top:400px;left:250px; border: 3px solid green;"width="300px">	
+					</span>
 				</section>
 								
 				<section  align="left">						
-					<font size="6">					
-					(b) $|z-1|>2 \implies (x-1)^2+y^2>2$ and so the region is given by
-					</font>
-					<img data-src="figures/CircleRegion.png"style="position:absolute;top:250px;left:475px;scale: 4; border: 3px solid yellow;">
+									
+					<p>(b) $|z-1|>2 \implies (x-1)^2+y^2>2$ and so the region is given by</p>
+					
+					<img data-src="figures/CircleRegion.png"style="border: 3px solid yellow;" width="400px">
 				</section>				
 			</section>
 			
 			<section>
-				<h2 style="color:#FF33F9">Lecture 11 Review</h2>
+				<h2 style="color:#00FF00">Lecture 11 Review</h2>
 				<br>
-				<font size="6">
+				
 				<ul>						
 					<li>In this lecture we covered</li>
 					<ul>
@@ -362,28 +403,53 @@
 						<li>Recall the basics of complex numbers</li>						
 					</ul>					
 				</ul>			
-				</font> 
+				
 			</section>
-		</div>
-	</div>
+			 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/notes/notes.js"></script>
-	<script src="plugin/markdown/markdown.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script>
-		// More info about initialization & config:
-		// - https://revealjs.com/initialization/
-		// - https://revealjs.com/config/
-		Reveal.initialize({
-			hash: true,
-				// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-		});
-	</script>
-          <script src="plugin/math/math.js"></script>
-          <script>
-            Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
-          </script>
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
+        </script>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
 </body>
 </html>
