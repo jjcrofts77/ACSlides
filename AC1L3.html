@@ -1,26 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L3</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L3</h2>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+	<section>
+		<h1>Advanced Calculus</h1>
+		<h2>Lecture 3</h2>
+		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+		<p style="color: #00FF00">Nottingham Trent University</p>
+    </section>				
+				<section align="left">
+					<h1>Advanced Calculus L3</h1>
 					<br>
 					<ul>
-						<span style="color: #FF33F9"> <li>Periodic, odd and even functions</li></span>
+						<span style="color: #00FF00"> <li>Periodic, odd and even functions</li></span>
 						<li> Fourier series</li>
 						<ul>
 							<li>Fourier series motivation</li></span>		
@@ -29,56 +45,65 @@
 						<li>Example</li>
 					</ul>
 				</section>
+				
 				<section>
 					<section  align="left">					
-						<h4>Periodic functions</h4>					
-						<font size="6">		
-						<p  class="r-frame">
-						<b>Definition</b> &emsp; $f$ is a $\text{\textcolor{yellow}{periodic function}}$ if there is an $a>0$ such that
+						<h2>Periodic functions</h2>					
+						
+						<textBox touch-action="none">
+						<boxTitle>
+						<h3>Definition 3.1</h3>
+						</boxTitle>
+						<p>$f$ is a <b>periodic function</b> if there is an $a>0$ such that</p>
 						\[
 						 f(x+a) = f(x) \quad \forall x\in\mathbb{R}						
 						\]
-						If this is the case then $a$ is called a <a style="color:red"><b>period</b></a> of $f$
-						</p>
+						<p>If this is the case then $a$ is called a <b>period</b> of $f$</p>
+						</textBox>
+						
+						<span class="fragment fade-in">
 					 
 						<ul>
-							<li>The period is not unique, but if there is a smallest such $a$ it is called the <a style="color:green">prime period</a> of $f$</li><br>
+							<li>The period is not unique, but if there is a smallest such $a$ it is called the <a style="color:#00FF00">prime period</a> of $f$</li><br>
 							<li>Examples of periodic functions include ...</li>
 						</ul>
-					
+						</span>
 						</font>
 					</section>
-					<section  align="left">											
+					
+					<section  align="left">	
+					<h3>Examples of periodic functions (press play...)</h3>					<br>
 						<font size="6">								
-						<video data-src="videos/PeriodicFunctions.mp4" controls style="border: 3px solid red;"></video>											
+						<video data-src="videos/PeriodicFunctions.mp4" controls style="border: 3px solid white;"></video>											
 						</font>
 					</section>
 				</section>
 				
 				<section  align="left">					
-					<h4>Properties of periodic functions</h4>
-					<font size="6">	
-					If $f, g$ are periodic functions with period $a$, then:<br>
+					<h2>Properties of periodic functions </h2>
+					
+					<p>If $f, g$ are periodic functions with period $a$, then:</p>
 					
 					<ul>
-						<li>$f,g$ are also periodic functions with period $na, n\in\mathbb{N}$</li>
-						<li>For any $\alpha, \beta\in \mathbb{R}$, $\alpha f+\beta g$ is periodic with period $a$</li>
-						<li>$f\cdot g$ is periodic with period $a$</li>
-						<li>For any $\lambda>0$, $f(\lambda x)$ is periodic with period $a/\lambda$</li>
-						<li>For any $\alpha\in \mathbb{R}$
+						<li><p>$f,g$ are also periodic functions with period $na, n\in\mathbb{N}$</p></li>
+						<li><p>For any $\alpha, \beta\in \mathbb{R}$, $\alpha f+\beta g$ is periodic with period $a$</p></li>
+						<li><p>$f\cdot g$ is periodic with period $a$</p></li>
+						<li><p>For any $\lambda>0$, $f(\lambda x)$ is periodic with period $a/\lambda$</p></li>
+						<li><p>For any $\alpha\in \mathbb{R}$</p>
 						\[
-						\color{white}{\boxed{\color{white}
+						\color{white}{\boxed{
 						\int_0^a f(x)\mathrm{d}x = \int_\alpha^{\alpha+a}f(x)\mathrm{d}x
 						}}
 						\]
 						</li>
 					</ul>
-					</font>
+					
 				</section>
+				
 				<section  align="left">					
-					<h4 style="color:red">Proof of last property</h4>
-					<font size="6">		
-					Assuming $\alpha< a$
+					<h2>Proof of last property</h2>
+					
+					<p>Assuming $\alpha< a$</p>
 					\[
 					 \begin{align*}
 					  \int_\alpha^{\alpha+a}f(x)\mathrm{d}x &= \int_\alpha^a f(x)\mathrm{d}x+\int_{a}^{\alpha+a}f(x)\mathrm{d}x\\
@@ -88,105 +113,119 @@
 					 \end{align*}
 					\]					
 				
-					The third line follows since $f(y+a)=f(y)$ <em>i.e.</em> $f$ is periodic with period $a$
+					<p class="fragment fade-in">The third line follows since $f(y+a)=f(y)$ <em>i.e.</em> $f$ is periodic with period $a$</p>
 					
 					</font>
 				</section>
+				
 				<section>
 					<section  align="left">					
-						<h4>Even and odd functions</h4>
-						<font size="6">		
-						<p  class="r-frame">
-					<b>Definition</b>  &emsp; Algebraicly $f$ is <a style="color:red"><b>even</b></a> if and only if $f(-x)=f(x)$ for all $x$ in the domain of $f$
-					 </p>
+						<h2>Even and odd functions</h2>
+						<textBox touch-action="none">
+						<boxTitle>
+						<h3>Definition 3.2</h3>
+						</boxTitle>
+						<p>Algebraicly $f$ is <b>even</b> if and only if $f(-x)=f(x)$ for all $x$ in the domain of $f$</p>						
+						</textBox>
+						
 					 
-					 Geometrically, a function $f(x)$ is even if it admits reflective symmetry about the $y$-axis<br>
+					 <p>Geometrically, a function $f(x)$ is even if it admits reflective symmetry about the $y$-axis</p>
 					 
-					 Some familiar examples include ...
-						</font>
+					 <p>Some familiar examples include ...</p>
+						
 					</section>
+					
 					<section  align="left">											
-						<font size="6">								
-						<video data-src="videos/EvenFuncs.mp4" controls style="border: 3px solid red;"></video>											
-						</font>
+						<h3>Examples of even functions (press play ...)</h3><br>
+						<video data-src="videos/EvenFuncs.mp4" controls style="border: 3px solid white;"></video>											
+					
 					</section>
+					
 					<section  align="left">					
-						<h4>Even and odd functions</h4>
-						<font size="6">		
-							<p  class="r-frame">
-					<b>Definition</b>  &emsp; Algebraicly $f$ is <a style="color:red"><b>odd</b></a> if and only if $f(-x)=-f(x)$ for all $x$ in the domain of $f$
-					 </p>
+						<h2>Even and odd functions</h2>
+						
+						<textBox touch-action="none">
+						<boxTitle>
+						<h3>Definition 3.2</h3>
+						</boxTitle>
+						<p>Algebraicly $f$ is <b>odd</b> if and only if $f(-x)=-f(x)$ for all $x$ in the domain of $f$</p>						
+						</textBox>												
 					 
-					 Geometrically, a function $f(x)$ is odd if it admits rotational symmetry with respect to the origin<br>
+					 <p>Geometrically, a function $f(x)$ is odd if it admits rotational symmetry with respect to the origin</p>
 					 
-					 Some familiar examples include ...
-						</font>
+					 <p>Some familiar examples include ...</p>
+						
 					</section>
+					
 					<section  align="left">											
-						<font size="6">								
-						<video data-src="videos/OddFuncs.mp4" controls style="border: 3px solid red;"></video>											
-						</font>
+						<h3>Examples of odd functions (press play ...)</h3><br>
+						<video data-src="videos/OddFuncs.mp4" controls style="border: 3px solid white;"></video>											
+					
 					</section>
 				</section>
+				
 				<section>
 					<section  align="left">					
-						<h4>Properties of even and odd functions</h4>
-						<font size="6">	
-						The following properties of even/odd functions will be important for us<br>
+						<h2>Properties of even and odd functions</h2>
+						
+						<p>The following properties of even/odd functions will be important for us</p>
+						
 						<ul>
-							<li>the product of two even <em>or</em> two odd functions is even</li>
-							<li>the product of an odd and even function is odd</li>
-						</ul><br>
-						<b>Proof</b> (first statement (even case))<br>
-						Let $f, g$ be two even functions and let $h(x) = f(x)g(x)$ be their product. Then
+							<li><p>the product of two even <em>or</em> two odd functions is even</p></li>
+							<li><p>the product of an odd and even function is odd</p></li>
+						</ul><br><br>
+						<span class="fragment fade-in">
+						<h3>Proof (first statement (even case))</h3> 
+						<p>Let $f, g$ be two even functions and let $h(x) = f(x)g(x)$ be their product. Then</p>
 						\[
 						h(-x) = f(-x)g(-x) = f(x)g(x) = h(x)
 						\]
-						proving the result
-						<br>
-						<a style="color:yellow">The remaining are proved similarly</a>
-						</font>						
+						<p>proving the result</p>
+						
+						<a style="color:#00FF00">The remaining are proved similarly</a></span>
+					
 					</section>
+					
 					<section  align="left">					
-						<h4>Properties of even and odd functions</h4>
-						<font size="6">	
-						The integrals of even and odd functions over symmetric intervals about the origin 
-						simplify considerably	<br>
-						As alluded to in the illustration, for even functions we have<br><br>
+						<h2>Properties of even and odd functions</h2>
 						
-						$\color{yellow}{\boxed{\color{white}\int_{-L}^Lf(x)\mathrm{d}x = 2\int_0^L f(x)\mathrm{d}x}}$				
+						<p>The integrals of even and odd functions over symmetric intervals about the origin 
+						simplify considerably	</p>
+						<p>As alluded to in the illustration, for even functions we have</p>
 						
-						<br><br>
+						$\color{#00FF00}{\boxed{\color{white}{\int_{-L}^Lf(x)\mathrm{d}x = 2\int_0^L f(x)\mathrm{d}x}}}$				
+											
 						
-						See the video to the right for an<br> illustration of 
-						this important property
-						</font>
-						<video controls data-src="videos/EvenIntegral.mp4" style="position:absolute;top:300px;left:650px;width:45%;border: 3px solid red;"></video>	
+						<p>See the video to the right for an<br> illustration of 
+						this important property</p>
+						
+						<video controls data-src="videos/EvenIntegral.mp4" style="position:absolute;top:300px;left:650px;width:45%;border: 3px solid white;"></video>	
 					</section>
+					
 					<section  align="left">					
-						<h4>Properties of even and odd functions</h4>
-						<font size="6">	
-						The integrals of even and odd functions over symmetric intervals about the origin 
-						simplify considerably	<br>
-						As alluded to in the illustration, for odd functions we have<br><br>
+						<h2>Properties of even and odd functions</h2>
 						
-						$\color{yellow}{\boxed{\color{white}\int_{-L}^Lf(x)\mathrm{d}x = 0}}$				
+						<p>The integrals of even and odd functions over symmetric intervals about the origin 
+						simplify considerably	</p>
 						
-						<br><br>
+						<p>As alluded to in the illustration, for odd functions we have</p>
 						
-						See the video to the right for an<br> illustration of 
-						this important property
-						</font>
-						<video controls data-src="videos/OddIntegral.mp4" style="position:absolute;top:300px;left:650px;width:45%;border: 3px solid red;"></video>	
+						$\color{#00FF00}{\boxed{\color{white}{\int_{-L}^Lf(x)\mathrm{d}x = 0}}}$				
+											
+						
+						<p>See the video to the right for an<br> illustration of 
+						tphis important property</p>
+						
+						<video controls data-src="videos/OddIntegral.mp4" style="position:absolute;top:300px;left:650px;width:45%;border: 3px solid white;"></video>	
 					</section>	
 				</section>					
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L3</h2>
+				<section align="left">
+					<h1>Advanced Calculus L3</h1>
 					<br>
 					<ul>
 						<li>Periodic, odd and even functions</li>
-						<span style="color: #FF33F9"> <li> Fourier series</li>
+						<span style="color: #00FF00"> <li> Fourier series</li>
 						<ul>
 							<li>Fourier series motivation</li></span>		
 							<li>The principal of superposition</li>		
@@ -194,52 +233,62 @@
 						<li>Example</li>
 					</ul>
 				</section>
+				
 				<section>
 					<section  align="left">					
-						<h4>Fourier series motivation</h4>
-						<font size="6">		
-						It should not be too hard to convince yourself that the function \[u(x,t)=\sin(k(x-ct))\]
-						is a solution to the wave equation \[\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}\]
-						Now since the wave equation is linear the sum of two (or more) solutions is also a solution <em>i.e.</em>...
-						</font>
-						<img data-src="figures/AddingWaves.png"style="position:absolute;top:500px;left:500px;width:50%">
-					</section>
-					<section  align="left">											
-						<font size="6">		
-						<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/" target="_blank" style="color: red"><b>Joseph Fourier</b></a> 
-						asked the question of whether all periodic functions could be written as a sum of sines and cosines.<br>
-						Perhaps surprisingly, the answer was yes. At least for the types of functions that arise in practice.<br>
+						<h2>Fourier series motivation</h2>
+							
+						<p>It should not be too hard to convince yourself that the function</p> 
+						\[u(x,t)=\sin(k(x-ct))\]
+						<p>is a solution to the wave equation</p> 
+						\[\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}\]
 						
-						In fact he found that $2\pi$-periodic functions can be written as
-						\[
-						\color{red}{\boxed{\color{white}
-						f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}
-						\]
-						</font>						
+						
+						<p>Now since the wave equation is linear the sum of two (or more) solutions is also a solution <em>i.e.</em>...</p>
+						
+						<img data-src="figures/AddingWaves.png"style="position:absolute;top:450px;left:300px;width:80%">
+						
 					</section>
+					
 					<section  align="left">											
-						<font size="6">		
-						If such a series exists then the coefficients $a_0, a_n$ and $b_n$ are given by the so-called <a style="color:green"><b>Euler integrals</b></a>
+					
+						<p><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/" target="_blank" style="color: red"><b>Joseph Fourier</b></a> 
+						asked the question of whether all periodic functions could be written as a sum of sines and cosines.</p>
+						<p>Perhaps surprisingly, the answer was yes. At least for the types of functions that arise in practice.</p>
+						
+						<p>In fact he found that $2\pi$-periodic functions can be written as</p>
 						\[
-						 \color{red}{\boxed{\color{white}
-						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x
-						 }}
+						\color{#00FF00}{\boxed{\color{white}{
+						f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}}
 						\]
-						That is, if the function $f(x)$ is $2\pi$-periodic, then it can be written as a <a style="color:yellow">Fourier series</a>
-						\[
-						 \color{red}{\boxed{\color{white}
-						 f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}
-						\]
-						with coefficients given by the above integrals
-						</font>
+										
 					</section>
-				</section>		
+					
+					<section  align="left">											
+					
+						<p>If such a series exists then the coefficients $a_0, a_n$ and $b_n$ are given by the so-called <a style="color:#00FF00"><b>Euler integrals</b></a></p>
+						\[
+						 \color{red}{\boxed{\color{white}{
+						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x
+						 }}}
+						\]
+						<p>That is, if the function $f(x)$ is $2\pi$-periodic, then it can be written as a <a style="color:#00FF00">Fourier series</a></p>
+						\[
+						 \color{red}{\boxed{\color{white}{
+						 f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}}
+						\]
+						<p>with coefficients given by the above integrals</p>
+						
+					</section>
+				</section>
+				
 				<section>
 					<section  align="left">					
-						<h4>Euler integrals</h4>
-						<font size="6">	
-						To see where the Euler integrals come from let us assume that the FS over page converges.<br> Then we can
-						multiply both sides of the equation by $\cos(mx)$ and integrate between $-\pi$ and $\pi$ to obtain
+						<h2>Euler integrals</h2>
+						
+						<p>To see where the Euler integrals come from let us assume that the FS over page converges.</p> 
+						
+						<p>Then we can multiply both sides of the equation by $\cos(mx)$ and integrate between $-\pi$ and $\pi$ to obtain</p>
 						\[
 						 \begin{align}\nonumber
 						 \int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\cos(mx)\mathrm{d}x + \\\nonumber
@@ -247,48 +296,49 @@
 						 &\left. b_n\int_{-\pi}^\pi f(x)\sin(nx)\cos(mx)\mathrm{d}x\right)
 						 \end{align}
 						\]
-						</font>
+						
 					</section>
 					<section  align="left">											
-						<font size="6">		
-						Using the following properties
+						
+						<p>Using the following properties</p>
 						\[
-						 \color{yellow}{\boxed{\color{white}
+						 \color{#00FF00}{\boxed{\color{white}{
 						\begin{align*}
 						\int_{-\pi}^\pi\sin(nx)\cos(mx)\mathrm{d}x&=0, \forall m,n\in\mathbb{N}\\
 						\int_{-\pi}^\pi\cos(nx)\cos(mx)\mathrm{d}x&=\begin{cases}\pi, &n=m\\0&\text{otherwise}\end{cases}						
 						\end{align*}
-						}}
+						}}}
 						\]
-						
-						Thus, Equation (1) reduces to
+						<span class="fragment fade-in">
+						<p>Thus, Equation (1) reduces to</p>
 						\[
 						\begin{align*}
 						\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x &= \sum_{n=1}^\infty a_n\pi\delta_{n,m}\\
-						&= a_m\pi \implies a_m = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x
+						&= a_m\pi \implies \color{red}{\boxed{\color{white}{a_m = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x}}}
 						\end{align*}
 						\]						
-						</font>
+						</span>
 					</section>
+					
 					<section  align="left">											
-						<font size="6">		
-						The above result was for $n\neq 0$.<br> In the case $n=0$ we simply integrate both 
-						sides of the FS equation as follows				
+					
+						<p>The above result was for $n\neq 0$.</p> <p>In the case $n=0$ we simply integrate both 
+						sides of the FS equation as follows				</p>
 						\[
 						 \begin{align*}
 						 \int_{-\pi}^\pi f(x)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\mathrm{d}x + \sum_{n=1}^\infty\left(a_n\int_{-\pi}^\pi \cos(nx)\mathrm{d}x + \right.\\
 						 &\left.b_n\int_{-\pi}^\pi \sin(nx)\mathrm{d}x\right)\\
-						 &=a_0\pi\implies \color{red}{\boxed{\color{white}a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x}}
+						 &=a_0\pi\implies \color{red}{\boxed{\color{white}{a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x}}}
 						 \end{align*}
 						\]
 						
-						We can work out $b_n$ similarly (except we multiply by $\sin(mx)$)
+						<p>We can work out $b_n$ similarly (except we multiply by $\sin(mx)$)</p>
 						</font>
 					</section>
 				</section>
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L3</h2>
+				<section align="left">
+					<h1>Advanced Calculus L3</h1>
 					<br>
 					<ul>
 						<li>Periodic, odd and even functions</li>
@@ -297,41 +347,47 @@
 							<li>Fourier series motivation</li></span>		
 							<li>The principal of superposition</li>		
 						</ul>
-						<span style="color: #FF33F9"> <li>Example</li></span>
+						<span style="color: #00FF00"> <li>Example</li></span>
 					</ul>
 				</section>
+				
 				<section>
 					<section  align="left">											
-						<font size="6">		
-						<b>Example 3.1</b> &emsp; Compute the Fourier series of the function
+						
+						<h3>Example 3.1</h3> <p>Compute the Fourier series of the function</p>
 						\[
 						f(x) = \begin{cases}1&x\in[0,\pi)\\-1 & x\in[-\pi,0)\end{cases}
 						\]
-						such that $\displaystyle f(x)=f(x+2\pi)$ outside of $(-\pi,\pi)$
-						</font>
-						<img data-src="figures/Example3p1.png"style="position:absolute;top:350px;left:50px;width:90%; border: 3px solid red;">
-					</section>					
+						<p>such that $\displaystyle f(x)=f(x+2\pi)$ outside of $(-\pi,\pi)$</p>
+
+						<img class="fragment fade-in" data-src="figures/Example3p1.png"style="position:absolute;top:350px;left:50px;width:75%; border: 3px solid red;">
+					</section>		
+					
 					<section  align="left">											
-						<font size="6"
-						<b>Solution</b><br>
+
+						<h3>Solution</h3>
 						
-						Computing&emsp; $\color{red}{\boxed{\color{white}\displaystyle a_n = \int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x ~~n=0,1,2,\ldots}}$<br>
+						<p>Computing&emsp; $\color{red}{\boxed{\color{white}{\displaystyle a_n = \int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x ~~n=0,1,2,\ldots}}}$</p>
 						
-						Since $f(x)$ is odd we have that
+						<p>Since $f(x)$ is odd we have that</p>
 						\[						
 						a_0 =  \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x = 0						
 						\]
-						Also 
+						<span class="fragment fade-in">
+						<p>Also </p>
 						\[
 						a_n   = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x = 0						
 						\]
 						
-						This holds since $f(x)\cos(nx)$ is odd being the product of an odd and even function
-						</font>
+						<p>This holds since $f(x)\cos(nx)$ is odd being the product of an odd and even function</p>
+						</span>
 					</section>
+					
 					<section  align="left">											
-						<font size="6">
-						Computing &emsp; $\color{red}{\boxed{\color{white}\displaystyle b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x}}$<br>										
+						
+						<p>Computing &emsp; $\color{red}{\boxed{\color{white}{\displaystyle b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x}}}$</p>										
+						
+						<p>We have</p>
 						\[
 						\begin{align*}
 						\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x&= \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
@@ -340,56 +396,64 @@
 						&= \frac{2}{n\pi}\left(1-(-1)^n\right) \Big(= b_n\Big)
 						\end{align*}
 						\]																	
-						</font>
+						
 					</section>
+					
 					<section  align="left">											
-						<font size="6">
-						Putting this all together
+					
+						<p>Putting this all together</p>
 						\[
-						 \color{red}{\boxed{\color{white} a_0=a_n=0 \text{ and } b_n= \frac{2}{n\pi}\left(1-(-1)^n\right)}}
+						 \color{red}{\boxed{\color{white}{ a_0=a_n=0 \text{ and } b_n= \frac{2}{n\pi}\left(1-(-1)^n\right)}}}
 						\]
-						so that the FS of our function is given by
+						<span class="fragment fade-in">
+						<p>so that the FS of our function is given by</p>
 						\[
-						\color{yellow}{\boxed{\color{white}
+						\color{#00FF00}{\boxed{\color{white}{
 						\begin{align*}
 						 f(x)&\sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)\\
 						 &=\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)
 						 \end{align*}
-						 }}
+						 }}}
 						\]												
-						</font>
-						Since only sine terms arise in this series we call it a <em>Fourier sine series</em>
+						
+						<p>Since only sine terms arise in this series we call it a <em>Fourier sine series</em></p>
+						</span>
 					</section>
+					
 					<section>
 					<center>
-					<img data-src="figures/3p1FSApprox.png" style="border: 3px solid red;">
+					<img data-src="figures/3p1FSApprox.png" style="border: 3px solid white;">
 					</center>
-						<font size="6"> The above plot shows the partial sums (for $n=5, 10$ and $100$ terms) for the FS computed over page</font>
+						<p align="left"> The above plot shows the partial sums (for $n=5, 10$ and $100$ terms) for the FS computed over page</p>
 					</section>
+					
 					<section  align="left">											
-						<font size="6">
-						Interestingly, we can use the result $\color{red}{\boxed{\color{white}\displaystyle f(x) \sim\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)}}$ <br>to get an approximation to $\pi$<br>
-						Evaluating $f$ at $\pi/2$ gives
+					
+						<p>Interestingly, we can use the result</p> \[\color{red}{\boxed{\color{white}{ f(x) \sim\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)}}}\] 
+						<p>to get an approximation to $\pi$</p>
+						<span class="fragment fade-in">
+						<p>Evaluating $f$ at $\pi/2$ gives</p>
 						\[
 						f\left(\frac{\pi}{2}\right) = 1 = \frac{2}{\pi}\left(1-\frac{1}{3}+\frac{1}{5}-\cdots\right)
 						\]
-						so that
+						<p>so that</p>
 						\[
 						\pi = 4-\frac{4}{3}+\frac{4}{5}-\frac{4}{7}\cdots
 						\]
-						</font>
-					</section>						
+						</span>
+					</section>	
+					
 					<section>
 					<center>
 					<img data-src="figures/FSApproxPi.png">
 					</center>
-						<font size="6"> The above plot shows our approximation to $\pi$ for increasing $n$</font>
+						<p> The above plot shows our approximation to $\pi$ for increasing $n$</p>
 					</section>
 				</section>		
 				<section>
-					<h2 style="color:#FF33F9">Lecture 3 Review</h2>
+					<h2 style="color:#00FF00">Lecture 3 Review</h2>
 					<br>
-					<font size="6">
+					
 					<ul>						
 						<li>In this lecture we covered</li>
 						<ul>
@@ -403,28 +467,53 @@
 							<li>Understand the principle of linear superposition and have a basi idea of what a FS is</li>							
 						</ul><br>					
 					</ul>			
-					</font> 
+					
 			</section>				
-			</div>
-		</div>
+							 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-					// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-        <script src="plugin/math/math.js"></script>
-        <script>
-			Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
         </script>
-	</body>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
 </html>
