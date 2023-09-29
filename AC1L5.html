@@ -1,26 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L5</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L5</h2>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+        <h1>Advanced Calculus</h1>
+        <h2>Lecture 5</h2>
+        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+        <p style="color: #00FF00">Nottingham Trent University</p>
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->				
+				<section align="left">
+					<h1>Advanced Calculus L5</h1>
 					<br>
 					<ul>
-						<span style="color: #FF33F9"> <li>Convergence of Fourier series</li>
+						<span style="color: #00FF00"> <li>Convergence of Fourier series</li>
 						<br>
 						<li>Gibbs phenomenon</li>								</span>
 						<br>
@@ -29,126 +47,139 @@
 				</section>	
 				
 				<section  align="left">					
-						<h4>Convergence of Fourier series</h4>					
-						<font size="6">		
-						So far we have assumed convergence of the FS:
+						<h2>Convergence of Fourier series</h2>					
+						
+						<p>So far we have assumed convergence of the FS:</p>
 						\[						 
 						 f(x) \sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)						 
 						\]
-						Under these assumptions we found that the coefficients are given by the <b>Euler integrals</b>			
+						<p>Under these assumptions we found that the coefficients are given by the <b>Euler integrals</b>			</p>
                        \[
-					   	 \color{red}{\boxed{\color{white}
+					   	 \color{red}{\boxed{\color{white}{
 						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x
-						 }}
+						 }}}
                        \]						
-					   An important question is: for the above $a_n, b_n$ for what $x\in\mathbb{R}$ does the FS converge?
-						</font>
+					   <p>An important question is: for the above $a_n, b_n$ for what $x\in\mathbb{R}$ does the FS converge?</p>
+						
 				</section>		
 
 				<section>
 					<section  align="left">											
-						<font size="6">
-						<b>Example 5.1</b>  &emsp; Compute the Fourier series of the function
+						
+						<h3>Example 5.1</h3>  <p>Compute the Fourier series of the function</p>
 						\[
 						 f(x) = \begin{cases}x+\pi&x\in(0,\pi)\\x-\pi& x\in(-\pi,0)\end{cases}
 						\]
-						such that $f(x) = f(x+2\pi)$ outside $(-\pi,\pi)$
-						</font>						
-						<img data-src="figures/Example5p1.png"style="position:absolute;top:300px;left:150px; border: 3px solid red;">
+						<p>such that $f(x) = f(x+2\pi)$ outside $(-\pi,\pi)$</p>
+						<br>
+						<img class="fragment fade-in" data-src="figures/Example5p1.png"style="position:absolute;top:300px;left:150px; border: 3px solid white;">
 					</section>		
+					
 					<section  align="left">											
-						<font size="6">
-						<b>Solution</b> &emsp; Since $f$ is odd we have that &emsp;$\color{red}{\boxed{\color{white}\displaystyle a_0=a_n=0}}$<br>
+						
+						<h3>Solution</h3> <p>Since $f$ is odd we have that &emsp;$\color{red}{\boxed{\color{white}{\displaystyle a_0=a_n=0}}}$</p>
 						
 						\[
 						\begin{align*}
 						 b_n=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x&=\frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
 						 &=\frac{2}{\pi}\bigg[-\frac{1}{n}(x+\pi)\cos(nx)\bigg]_0^\pi \\&+\frac{2}{n\pi}\int_0^\pi \cos(nx)\mathrm{d}x\\
 						 &=\frac{2}{\pi}\bigg[-\frac{2\pi}{n}(-1)^n+\frac{\pi}{n}\bigg]\\
-						 &= \color{yellow}{\boxed{\color{white}\frac{2}{n}\left(1-2(-1)^n\right)}}
+						 &= \color{#00FF00}{\boxed{\color{white}{\frac{2}{n}\left(1-2(-1)^n\right)}}}
 						 \end{align*}
 						\]
-						</font>
+						
 					</section>	
 					<section  align="left">											
-						<font size="6">						
-						The Fourier series of our example is given by
+						
+						<p>The Fourier series of our example is given by</p>
 						\[
-						\color{yellow}{\boxed{\color{white}
+						\color{red}{\boxed{\color{white}{
 						 f(x)\sim \sum_{n=1}^\infty \frac{2}{n}\left(1-2(-1)^n\right) \sin(nx)
-						 }}
+						 }}}
 						\]
-						Recall that
+						<span class="fragment fade-in">
+						<p>Recall that</p>
 						\[
 						\sum_{n=1}^\infty \frac{2}{n}\left(1-2(-1)^n\right) \sin(nx)
 						\]
-						means $\displaystyle \lim_{n\to\infty} s_n(x)$ where
+						</p>means $\displaystyle \lim_{n\to\infty} s_n(x)$ where</p>
 						\[
 						s_n(x) = \sum_{m=1}^n \frac{2}{m}\left(1-2(-1)^m\right) \sin(mx)
 						\]
-						</font>
+						</span>
 					</section>					
 					<section  align="left">											
-						<font size="6">	
-						The question therefore is whether $s_n(x)$ converges for each $x$ and if it does is the limit $f(x)$?<br><br>
-						Some partial sums are plotted below
-						<img data-src="figures/Example5p1_PSs.png"style="border: 3px solid red;">
+						
+						<p>The question therefore is whether $s_n(x)$ converges for each $x$ and if it does is the limit $f(x)$?</p>
+						<p>Some partial sums are plotted below</p>
+						<img data-src="figures/Example5p1_PSs.png"style="border: 3px solid white;">
 						<p style="position:absolute;top:325px;left:50px;">$n=5$</p>
 						<p style="position:absolute;top:325px;left:400px;">$n=15$</p>
 						<p style="position:absolute;top:325px;left:725px;">$n=100$</p>
 						
-						<br>
-						At the discontinuities the FS appears to converge to zero...
+						
+						<p class="fragment fade-in">At the discontinuities the FS appears to converge to zero...</p>
 						</font>
 					</section>
 				</section>
 				
 				<section  align="left">					
-					<h4>Note</h4>
-					<font size="6">	
+					<h3>Note</h3>
+					
 					<ul>
-						<li> For the previous example it appears that the FS converges <em>except at discontinuities</em></li>
-						<li> At points of discontinuity they converge to zero (in our example)</li>
-						<li> The overshoot observed at points of discontinuity is known as <a href="https://mathworld.wolfram.com/GibbsPhenomenon.html" target="_blank" style="color: yellow">Gibbs phenomenon</a></li>
-						<li> A similar result holds for <em>most</em> functions appearing in applications</li>
-						<li> Before presenting the main result we need to discuss some technical preliminaries</li>
+						<li> For the previous example it appears that the FS converges <em>except at discontinuities</em></li><br>
+						<li> At points of discontinuity they converge to zero (in our example)</li><br>
+						<span class="fragment fade-in">
+						<li> The overshoot observed at points of discontinuity is known as <a href="https://mathworld.wolfram.com/GibbsPhenomenon.html" target="_blank" style="color: white"><b>Gibbs phenomenon</b></a></li><br>
+						<li> A similar result holds for <em>most</em> functions appearing in applications</li><br>
+						<li> Before presenting the main result we need to discuss some technical preliminaries</li></span>
 					</ul>
 					</font>
 				</section>
 				
 				<section>
 					<section  align="left">		
-						<h4>Technical preliminaries</h4>
-						<font size="6">	
-						<p class="r-frame"> &emsp; <b>Definition</b>&emsp; we say that the <a style="color: red">right-hand limit</a> of $f$ at $c$ is
+						<h2>Technical preliminaries</h2>
+						<textBox touch-action="none">
+						<boxTitle>
+						<h3>Definition 5.1</h3>
+						</boxTitle>
+						<p>We say that the <b>right-hand limit</b> of $f$ at $c$, if it exists, is given by</p>
 						\[
 						 f(c_+) = \lim_{\substack{h\to 0\\h>0}} f(c+h)
 						\]
-						if it exists. Similarly, the <a style="color: yellow">left-hand limit</a> of $f$ at $c$ is
+						<p>Similarly, the <b>left-hand limit</b> of $f$ at $c$ is</p>
 						\[
 						 f(c_-) = \lim_{\substack{h\to 0\\h>0}} f(c-h)
 						\]
-						if it exists.
-						</p>
-						</font>
-					</section>
-					<section  align="left">										
-						<font size="6">	
-						What are the left- and right-hand limts at the points $x=1, x=5$ and $x=6$?<br>
-						<center>
-						<img data-src="figures/TechPrelimFig.png"style="border: 3px solid red;">						
-						</center>
-						</font>
-					</section>
-					<section  align="left">										
-						<font size="6">	
-						<p class="r-frame"> &emsp; <b>Definition</b>&emsp; The function $f$ is <a style="color: red">piecewise continuous</a> 
-						on an interval $(a,b)$ if we can divide $(a,b)$ into a finite number of subintervals, on each of which $f$ is defined 
-						and continuous, and the left- and right-hand limits at the end points of each subinterval exist.
-						</p>
+						<p>if it exists.</p>
 						
-						<br>
-						<b>Example</b><br>
+						</textBox>	
+												
+					</section>
+					<section  align="left">										
+					
+						<p>What are the left- and right-hand limts at the points $x=1, x=5$ and $x=6$?</p>
+						<center>
+						<img data-src="figures/TechPrelimFig.png">						
+						</center>
+					
+					</section>
+					
+					<section  align="left">			
+
+						<textBox touch-action="none">
+						<boxTitle>
+						<h3>Definition 5.2</h3>
+						</boxTitle>
+						<p>The function $f$ is <b>piecewise continuous</b> 
+						on an interval $(a,b)$ if we can divide $(a,b)$ into a finite number of subintervals, on each of which $f$ is defined 
+						and continuous, and the left- and right-hand limits at the end points of each subinterval exist.</p>
+						
+						</textBox>						
+						<span class="fragment fade-in">
+						<br><br>
+						<h3>Example</h3><br>
 						<ul>
 							<li>The function consists of 4 subintervals</li>
 							<li>The left- and right-hand limits exist</li>							
@@ -156,107 +187,117 @@
 							<li>Therefore it is PWC</li>
 						</ul>
 						</font>
-						<img data-src="figures/TechPrelimFig.png" style="position:absolute;top:300px;left:650px;width:35%">
+						<img data-src="figures/TechPrelimFig.png" style="position:absolute;top:350px;left:550px;width:35%">
+						</span>
 					</section>
 				</section>
 				
-				<section  align="left">										
-					<h4>FS Convergence Theorem</h4>
-					<font size="6">	
-					<p class="r-frame"> &emsp;<b>THEOREM</b> (FS convergence theorem) &emsp; Let $f$ be a periodic function with period $2\pi$ and $f$ and $f'$ 
-					piecewise continuous on $(-\pi,\pi)$. 
-					Then the FS of $f$ at $x$ converges to the value
-					\[
-					 \frac{1}{2}\bigg[f(x_+) + f(x_-)\bigg]
-					\]
+				<section  align="left">															
 					
-					<em>i.e.</em>
+					<textBox touch-action="none">
+					<boxTitle>
+					<h3>Theorem 5.1 (FS convergence theorem)</h3>
+					</boxTitle>
+					<p>Let $f$ be a periodic function with period $2\pi$ and $f$ and $f'$ 
+					piecewise continuous on $(-\pi,\pi)$. Then the FS of $f$ at $x$ converges to the value</p>
+					\[
+					\frac{1}{2}\bigg[f(x_+) + f(x_-)\bigg]
+					\]
+				
+					<p><em>i.e.</em></p>
 					\[
 					\frac{1}{2}\bigg[f(x_+) + f(x_-)\bigg] = \frac{a_0}{2} + \sum_{n=1}^\infty a_n\cos(nx)+b_n\sin(nx)
 					\]
-					</p>
-					<p style="color:red">If the left- and right-hand limits are equal at $x$ then the FS equals $f(x)$</p>
-					</font>
+					
+					</textBox>
+					
+					<p class="fragment fade-in"><b>If the left- and right-hand limits are equal at $x$ then the FS equals $f(x)$</b></p>					
 				</section>
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L5</h2>
+				
+				<section align="left">
+					<h1>Advanced Calculus L5</h1>
 					<br>
 					<ul>
 						<li>Convergence of Fourier series</li>
 						<br>
 						<li>Gibbs phenomenon</li>			
 						<br>						
-						<span style="color: #FF33F9"><li>Examples</li></span>
+						<span style="color: #00FF00"><li>Examples</li></span>
 					</ul>
 				</section>	
+				
 				<section>
 					<section  align="left">										
-						<font size="6">	
-						<b>Example 5.2</b> &emsp; Find the Fourier coefficients of the function
+				
+						<h3>Example 5.2</h3> <p>Find the Fourier coefficients of the function</p>
 						\[
 						 f(x) = \begin{cases}-k&x\in(-\pi,0)\\k& x\in(0,\pi)\end{cases}
 						\]
-						such that $\displaystyle f(x+2\pi) = f(x)$
+						<p>such that $\displaystyle f(x+2\pi) = f(x)$</p>
 						
-						<br>
-						<br>
-						<b>Solution</b> &emsp; Since $f$ is odd we have $\displaystyle \color{red}{\boxed{\color{white}a_0=a_n=0}}$
 						
-						<br>
-						To compute $b_n$ we solve the integral
+						<h3>Solution</h3> 
+						
+						<p class="fragment fade-in">Since $f$ is odd we have $\displaystyle \color{red}{\boxed{\color{white}{a_0=a_n=0}}}$</p>
+						
+						<span class="fragment fade-in">
+						<p>To compute $b_n$ we solve the integral</p>
 						\[
-						 b_n = \frac{2}{\pi}\int_0^\pi k\sin(nx)\mathrm{d}x = \color{red}{\boxed{\color{white}\frac{2k}{n\pi}\left(1-(-1)^n\right)}}
+						 b_n = \frac{2}{\pi}\int_0^\pi k\sin(nx)\mathrm{d}x = \color{red}{\boxed{\color{white}{\frac{2k}{n\pi}\left(1-(-1)^n\right)}}}
 						\]
-						</font>
+						</span>
 					</section>
+					
 					<section  align="left">										
-						<font size="6">	
-						<img data-src="figures/Example5p2.png"style="border: 3px solid red;width:100%">
-						</font>
+						
+						<img data-src="figures/Example5p2.png"style="border: 3px solid white;width:100%">
+						
 					</section>					
 				</section>
 				
 				
 				<section>
 					<section  align="left">										
-						<font size="6">	
-						<b>Example 5.3</b> &emsp; Given that the FS of
+						
+						<h3>Example 5.3</h3> <p>Given that the FS of</p>
 						\[
 						f(x) = x^2,\quad x\in(\pi,\pi)
 						\]
-						is
+						<p>is</p>
 						\[
 						f(x) = \frac{\pi^2}{3} + \sum_{n=1}^\infty \frac{4}{n^2}(-1)^n\cos(nx)
 						\]
-						Show that
+						<p>Show that</p>
 						\[
 						1-\frac{1}{4}+\frac{1}{9}-\frac{1}{16}+\cdots = \frac{1}{12}\pi^2					
-						\]
-						</font>
+						\]						
 					</section>
+					
 					<section  align="left">										
-						<font size="6">	
-						<b>Solution</b> &emsp; Since the function $f$ is continuous it equals its FS everywhere, so in particular
+					
+						<h3>Solution</h3> <p>Since the function $f$ is continuous it equals its FS everywhere, so in particular</p>
 						\[
 						f(0) = 0 = \frac{\pi^2}{3} + \sum_{n=1}^\infty \frac{4}{n^2}(-1)^n
 						\]
-						Rearranging gives
+						<span class="fragment fade-in">
+						<p>Rearranging gives</p>
 						\[
 						\frac{\pi^2}{3} = -4\left(-1+\frac{1}{4}-\frac{1}{9}+\frac{1}{16}-\cdots\right)
 						\]
-						or
+						</span>
+						<span class="fragment fade-in">
+						<p>or</p>
 						\[
 						\frac{\pi^2}{12} = 1-\frac{1}{4}+\frac{1}{9}-\frac{1}{16}+\cdots\quad \text{as required}
 						\]
-						
-						</font>
+												</span>
 					</section>
 				</section>
 				
 				<section>
-					<h2 style="color:#FF33F9">Lecture 5 Review</h2>
+					<h2 style="color:#00FF00">Lecture 5 Review</h2>
 					<br>
-					<font size="6">
+					
 					<ul>						
 						<li>In this lecture we covered</li>
 						<ul>
@@ -270,28 +311,53 @@
 							<li>be aware of Gibbs phenomenon</li>
 						</ul><br>					
 					</ul>			
-					</font> 
+					
 			</section>		
-			</div>
-		</div>
+					 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-					// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-        <script src="plugin/math/math.js"></script>
-        <script>
-			Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
         </script>
-	</body>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
 </html>
