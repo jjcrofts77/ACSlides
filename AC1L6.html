@@ -1,26 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L6</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L6</h2>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+        <h1>Advanced Calculus</h1>
+        <h2>Lecture 6</h2>
+        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+        <p style="color: #00FF00">Nottingham Trent University</p>
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->						
+				<section align="left">
+					<h1>Advanced Calculus L6</h1>
 					<br>
 					<ul>
-						<span style="color: #FF33F9"> <li>Odd and even extensions</li></span>
+						<span style="color: #00FF00"> <li>Odd and even extensions</li></span>
 						<br>
 						<li>Fourier series of functions of general period</li>		
 						<br>
@@ -30,124 +48,121 @@
 				
 				<section>
 					<section  align="left">					
-						<h4>Periodic extensions</h4>					
-						<font size="6">								
+						<h2>Periodic extensions</h2>					
+										
 						<ul>
 							<li>FS calculations for an odd or even function are greatly simplified</li><br>
 							<li>Given a function $f$ defined on $(0,L)$ we would like to obtain a FS expansion in terms of either just sines or cosines</li><br>
 							<li>We can do this by <a style="color:red"><b>extending</b></a> the function $f$ to be even/odd on the interval $(-L,L)$ and then 
 							extending to a $2L$-periodic function</li>						
 						</ul>
-						</font>
+						
 					</section>		
+					
 					<section  align="left">											
-						<font size="6">								
-						Let us consider an example
+													
+						<p>Let us consider an example</p>
 							\[
 							 f(x) = \cos(2x)e^{-x},\quad x\in(0,\pi)
 							\]
-							We can extend this function to be either an odd or even function of period $2\pi$
-							<img data-src="figures/FuncEgL6.png"style="position:absolute;top:300px;left:375px;scale: 1.5; border: 3px solid red;">													
-						</font>
+							<p>We can extend this function to be either an odd or even function of period $2\pi$</p>
+							<img data-src="figures/FuncEgL6.png"style="position:absolute;top:300px;left:375px;scale: 1.5; border: 3px solid white;">													
+						
 						
 					</section>		
+					
 					<section  align="left">													
-						<font size="6">								
-						What does the <em>odd extension</em> look like?
+					
+						<p>What does the <em>odd extension</em> look like?</p>
 						
-						<br>
-						Since 
+						<p>
+						Since </p>
 						\[
 						 -f(-x) = -\cos(2x)e^x
 						\]
-						we have that 
+						<p>we have that </p>
 						\[
 						f_\mathrm{oe}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
 						-\cos(2x)e^x,& x\in (-\pi, 0)
 						\end{cases}
 						\]
 						
-						which after extending periodically looks like...
-						</font>
+						<p>which after extending periodically looks like...</p>
+						
 					</section>		
+					
 					<section  align="left">													
-						<font size="6">								
-						Odd extension:
+					
+						<p>Odd extension:</p>
 						\[
 						f_\mathrm{oe}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
 						-\cos(2x)e^x,& x\in (-\pi, 0)
 						\end{cases}
 						\]
-						such that $f(x+2\pi) = f(x)$ outside this range
+						<p>such that $f(x+2\pi) = f(x)$ outside this range</p>
 						
-						</font>						
-						<img data-src="figures/oddextension.png"style="position:absolute;top:325px;left:600px;scale: 1.25; border: 3px solid red;">													
-						<img data-src="figures/FSexComm.png"style="position:absolute;top:300px;left:0px;scale: 0.75; border: 3px solid yellow;">													
+						
+						<img data-src="figures/oddextension.png"style="position:absolute;top:325px;left:600px;scale: 1.25;">													
+						<img data-src="figures/FSexComm.png"style="position:absolute;top:300px;left:0px;scale: 0.75;">													
 					</section>	
+					
 					<section  align="left">													
-						<font size="6">								
-						What does the <em>even extension</em> look like?
-						<br>
-						Since 
+					
+						<p>What does the <em>even extension</em> look like?</p>
+						
+						<p>Since </p>
 						\[
 						 f(-x) = \cos(2x)e^x
 						\]
-						we have that 
+						<p>we have that </p>
 						\[
 						f_\mathrm{ee}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
 						\cos(2x)e^x,& x\in (-\pi, 0)
 						\end{cases}
 						\]
 						
-						which after extending periodically looks like...
-						</font>
+						<p>which after extending periodically looks like...</p>
+						
 					</section>		
 					<section  align="left">													
-						<font size="6">								
-						Even extension:
+														
+						<p>Even extension:</p>
 						\[
 						f_\mathrm{ee}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
 						\cos(2x)e^x,& x\in (-\pi, 0)
 						\end{cases}
 						\]
-						such that $f(x+2\pi) = f(x)$ outside this range
+						<p>such that $f(x+2\pi) = f(x)$ outside this range</p>
 						
-						</font>						
-						<img data-src="figures/evenextension.png"style="position:absolute;top:325px;left:600px;scale: 1.25; border: 3px solid red;">													
-						<img data-src="figures/FSexComm.png"style="position:absolute;top:300px;left:0px;scale: 0.75; border: 3px solid yellow;">													
+						
+						<img data-src="figures/evenextension.png"style="position:absolute;top:325px;left:600px;scale: 1.25;">													
+						<img data-src="figures/FSexComm.png"style="position:absolute;top:300px;left:0px;scale: 0.75;">													
 					</section>	
 				</section>
 				
-				<section>
+				
 				<section  align="left">													
-						<font size="6">								
-				Formally we can construct odd and even extensions as follows:<br>
 				
-				<br><b>Even extension:</b>
-				<p class="r-frame">
-				\[f_\mathrm{ee} = \begin{cases}f(x)&x\in(0,L)\\f(-x)& x\in(-L,0)\end{cases}\]
-				</p>
-				</font>
-				</section>
-				<section  align="left">													
-						<font size="6">								
-				Formally we can construct odd and even extensions as follows:<br>
+				<p>Formally we can construct odd and even extensions as follows:</p>
 				
-				<br><b>Odd extension:</b>
-				<p class="r-frame">
-				\[f_\mathrm{oe} = \begin{cases}f(x)&x\in(0,L)\\-f(-x)& x\in(-L,0)\end{cases}\]
-				</p>
-				</font>
-				</section>
-				</section>
+				<p><b>Even extension:</b></p>
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L6</h2>
+				\[\color{#00FF00}{\boxed{\color{white}{f_\mathrm{ee} = \begin{cases}f(x)&x\in(0,L)\\f(-x)& x\in(-L,0)\end{cases}}}}\]
+				
+				<span class="fragment fade-in">
+				<p>And</p> 
+				<p><b>Odd extension:</b></p>
+				\[\color{red}{\boxed{\color{white}{f_\mathrm{ee} = \begin{cases}f(x)&x\in(0,L)\\-f(-x)& x\in(-L,0)\end{cases}}}}\]
+				</span>
+				</section>				
+								
+				<section align=left>
+					<h1>Advanced Calculus L6</h1>
 					<br>
 					<ul>
 						<li>Odd and even extensions</li>
 						<br>
-						<span style="color: #FF33F9"> <li>Fourier series of functions of general period</li></span>
+						<span style="color: #00FF00"> <li>Fourier series of functions of general period</li></span>
 						<br>
 						<li>Examples</li>											
 					</ul>
@@ -155,141 +170,158 @@
 				
 				<section>
 					<section  align="left">					
-						<h4>Functions of any period</h4>					
-						<font size="6">		
+						<h2>Functions of any period</h2>					
+							
 						<ul>
 							<li>Consider a function of period $T=2L$</li><br>
 							<li> For example</li><br><br><br><br>
-							<li>We would like to represent such functions as a FS consisting of terms like</li>
+							<li>We would like to represent such functions as a FS consisting of terms like</li><br>
 							\[
-							 \color{#FF33F9}{\boxed{\color{white}
+							 \color{red}{\boxed{\color{white}{
 							 \cos\left(\frac{n\pi}{L}x\right) ~\text{ and }~ \sin\left(\frac{n\pi}{L}x\right)
-							 }}
+							 }}}
 							\]
 						</ul>						
-						</font>
-						<img data-src="figures/PeriodT.png"style="position:absolute;top:35px;left:250px;scale: 0.6; border: 3px solid red">													
-					</section>		
+						
+						<img data-src="figures/PeriodT.png"style="position:absolute;top:35px;left:400px;scale: 0.6;">													
+					</section>	
+					
 					<section  align="left">											
-						<font size="6">								
-						To see how to do this we make the following change of variables \[X = x\pi/L\] so that, for example,
+
+						<p>To see how to do this we make the following change of variables \[X = x\pi/L\] so that, for example,</p>
 						\[
 						f(x) = \cos\left(\frac{n\pi}{L}x\right) = f(\frac{LX}{\pi}) =\cos(nX)=g(X)
 						\]
-						Importantly, $g(X)$ is a $2\pi$-periodic function.
-						</font>
+						<p>Importantly, $g(X)$ is a $2\pi$-periodic function.</p>
+						
 					</section>		
+					
 					<section  align="left">													
-						<font size="6">	
+					
 						<ul>
 							<li>Note that the example over slide holds more generally, <em>i.e.</em> if $f(x)$ is $2L$-periodic then $g(X)$ is $2\pi$-periodic</li><br>
-							<li>To see this note that</li>
+							<span class="fragment fade-in">
+							<li><p>To see this note that</p></li>
 							\[
 							\begin{align*}
 							g(X+2\pi) &= f\left(\frac{L(X+2\pi)}{\pi}\right)\\ &= 
 							f\left(\frac{LX}{\pi}+2L\right)=f\left(\frac{LX}{\pi}\right)=g(X)
 							\end{align*}
 							\]
-							<li>Since $g(X)$ is $2\pi$-periodic we have its FS:</li>
+							</span>
+							<span class="fragment fade-in">
+							<li><p>Since $g(X)$ is $2\pi$-periodic we have its FS:</p></li>
 							\[
-							 \color{#FF33F9}{\boxed{\color{white}
+							 \color{#00FF00}{\boxed{\color{white}{
 							 g(X) = \frac{a_0}{2}+\sum_{n=1}^\infty\left[a_n\cos(nX)+b_n\sin(nX)\right]
-							 }}
+							 }}}
 							\]							
-						</ul>
+						</ul></span>
 						
-						</font>
+						
 					</section>		
 					<section  align="left">													
-						<font size="6">	
-						Under the above transformation the Euler integrals and FS become<br><br>
-						</font>
-						<img data-src="figures/EulerTrans.png"style="scale: 1.25; border: 3px solid white">													
+						
+						<p>Under the above transformation the Euler integrals and FS become</p>
+						
+						<img data-src="figures/EulerTrans.png"style="scale: 1.15; border: 3px solid white">													
 					</section>
 				</section>
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L6</h2>
+				<section align="left">
+					<h1>Advanced Calculus L6</h1>
 					<br>
 					<ul>
 						<li>Odd and even extensions</li>
 						<br>
 						<li>Fourier series of functions of general period</li>		
 						<br>
-						<span style="color: #FF33F9"> <li>Examples</li>	</span>
+						<span style="color: #00FF00"> <li>Examples</li>	</span>
 					</ul>
 				</section>
 
 				<section>
 					<section  align="left">											
-						<font size="6">						
-						<b>Example 6.1 </b>&emsp; Find the <a style="color: red"><b>half-range sine series</b></a> of the function 
+						
+						<h3>Example 6.1 </h3><p>Find the <b>sine series</b> of the function </p>
 						
 						\[
 						 f(x) = x \quad \text{for } x\in(0,\pi)\quad (T=2L=2\pi)
 						\]
-						<br>
 						
-						<b>Solution:</b> We need the <em>odd extension</em> to compute the sine series (<em>i.e.</em> a FS consisting of sines only)
-						</font>
+						
+						<h3>Solution:</h3> 
+						
+						<p>We need the <em>odd extension</em> to compute the sine series (<em>i.e.</em> a FS consisting of sines only)</p>
+						<span class="fragment fade-in">
 						<img data-src="figures/Example6p1.png"style=" border: 3px solid red;">
+						</span>
 					</section>		
 					<section  align="left">											
-						<font size="6">
-						Since $F$ is odd we have $a_0=a_n=0, n=1,2,\ldots$<br>
 						
-						And
+						<p>Since $F$ is odd we have $a_0=a_n=0, n=1,2,\ldots$</p>
+						
+						<p>And</p>
 						\[
 						 \begin{align*}
 						 b_n &=\frac{1}{\pi}\int_{-\pi}^\pi F(x)\sin(nx)\mathrm{d}x\\
 						 &= \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
 						 &= \frac{2}{\pi}\int_0^\pi x\sin(nx)\mathrm{d}x\\
 						 &=\frac{2}{\pi}\bigg[-\frac{x}{n}\cos(nx)\bigg]_0^\pi+\frac{2}{n\pi}\int_0^\pi \cos(nx)\mathrm{d}x\\
-						 &= \frac{2}{n}\left(-(-1)^n\right) = \color{red}{\boxed{\color{white}\frac{2}{n}(-1)^{n+1}}}
+						 &= \frac{2}{n\pi}\left(-(-1)^n\right) = \color{red}{\boxed{\color{white}{\frac{2}{n\pi}(-1)^{n+1}}}}
 						 \end{align*}						
 						\]
-						</font>
-					</section>		
-					<section  align="left">													
-						<font size="6">								
-						Thus the FS for the function $F(x)$ is given by 
-						\[
-						\color{yellow}{\boxed{\color{white}
-						F(x)\sim \sum_{n=1}^\infty \frac{2}{n}(-1)^{n+1}\sin(nx)
-						}}
-						\]
-						which equals $f(x)$ on the interval $(0,\pi)$<br><br><br><br>
 						
-						100 terms of the FS:
-						</font>
-						<img data-src="figures/Example6p1FSfig100.png" style="position:absolute;top:235px;left:400px;scale: .75; border: 3px solid green;">
+					</section>	
+					
+					<section  align="left">													
+													
+						<p>Thus the FS for the function $F(x)$ is given by </p>
+						\[
+						\color{red}{\boxed{\color{white}{
+						F(x)\sim \sum_{n=1}^\infty \frac{2}{n\pi}(-1)^{n+1}\sin(nx)
+						}}}
+						\]
+						<p>which equals $f(x)$ on the interval $(0,\pi)$</p>
+						
+						<br><br>
+						<span class="fragment fade-in">
+						<p>100 terms of the FS:</p>
+						
+						<img data-src="figures/Example6p1FSfig100.png" style="position:absolute;top:210px;left:400px;scale: .8;">
+						</span>
 					</section>						
 				</section>				
 				
 				<section>
 					<section  align="left">											
-						<font size="6">						
-						<b>Example 6.2 </b>&emsp; Find the <a style="color: green"><b>half-range cosine series</b></a> of the function 
+										
+						<h3>Example 6.2 </h3><p>Find the <b>cosine series</b> of the function</p> 
 						
 						\[
 						 f(x) = x \quad \text{for } x\in(0,L)
 						\]
-						<br>
 						
-						<b>Solution:</b> We need the <em>even extension</em> to compute the cosine series (<em>i.e.</em> a FS consisting of cosines only)
-						</font>
+						
+						<h3>Solution:</h3> 
+						<span class="fragment fade-in">
+						We need the <em>even extension</em> to compute the cosine series (<em>i.e.</em> a FS consisting of cosines only)
+						
 						<img data-src="figures/Example6p2.png"style=" border: 3px solid green;">
+						</span>
 					</section>		
+					
 					<section  align="left">											
-						<font size="6">
-						Since $F$ is even we have $b_n=0, n=1,2,\ldots$<br>
 						
-						Thus
+						<p>Since $F$ is even we have $b_n=0, n=1,2,\ldots$</p>
+						
+						<p>Thus</p>
 						\[
 						a_0 = \frac{2}{L}\int_0^L x\mathrm{d}x = \frac{2}{L}\bigg[\frac{1}{2}x^2\bigg]_0^L 
-						= \color{red}{\boxed{\color{white}L}}
+						= \color{red}{\boxed{\color{white}{L}}}
 						\]
-						And
+						<span class="fragment fade-in">
+						<p>And</p>
 						\[
 						 \begin{align*}
 						 a_n &=\frac{2}{L}\int_0^L x\cos\left(\frac{n\pi}{L}x\right)\mathrm{d}x\\\\
@@ -298,47 +330,51 @@
 						 &= \ldots						 
 						 \end{align*}						
 						\]
-						</font>
+						</span>
 					</section>	
+					
 					<section  align="left">													
-						<font size="6">								
-						...
+					
+						<p>...</p>
 						\[
 						\begin{align*}
 						a_n &= \frac{2}{L}\bigg[\frac{L}{n\pi}x\sin\left(\frac{n\pi}{L}x\right)\bigg]_0^L-
 						 \frac{2}{n\pi}\int_0^L\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x\\
 						 &= -\frac{2}{n\pi}\bigg[-\frac{L}{n\pi}\cos\left(\frac{n\pi}{L}x\right)\bigg]_0^L\\ 						 
-						 &= \color{red}{\boxed{\color{white}\frac{2L}{n^2\pi^2}\left((-1)^n-1\right)}}
+						 &= \color{red}{\boxed{\color{white}{\frac{2L}{n^2\pi^2}\left((-1)^n-1\right)}}}
 						 \end{align*}
 						\]
-						so that the FS is given by
+						<span class="fragment fade-in">
+						<p>so that the FS is given by</p>
 						\[
-						\color{#FF33F9}{\boxed{\color{white}
+						\color{#00FF00}{\boxed{\color{white}{
 						F(x) = \frac{L}{2} + \sum_{n=1}^\infty \frac{2L}{n^2\pi^2}\left((-1)^n-1\right) \cos\left(\frac{n\pi}{L}x\right)
-						}}
+						}}}
 						\]						
-						</font>
-					</section>						
+						</span>
+					</section>	
+					
 					<section  align="left">													
-						<font size="6">								
-						Of course the FS given above for $F(x)$ converges to our original function $f(x)$ on the interval $(0,L)$, <em>i.e.</em>
-											\[
-						\color{yellow}{\boxed{\color{white}
-						f(x) = \frac{L}{2} + \sum_{n=1}^\infty \frac{2L}{n^2\pi^2}\left((-1)^n-1\right) \cos\left(\frac{n\pi}{L}x\right) \text{ on } (0,\pi)
-						}}
-						\]
 						
+						<p>Of course the FS given above for $F(x)$ converges to our original function $f(x)$ on the interval $(0,L)$, <em>i.e.</em></p>
+											\[
+						\color{#00FF00}{\boxed{\color{white}{
+						f(x) = \frac{L}{2} + \sum_{n=1}^\infty \frac{2L}{n^2\pi^2}\left((-1)^n-1\right) \cos\left(\frac{n\pi}{L}x\right) \text{ on } (0,\pi)
+						}}}
+						\]
 						<br><br>
-						100 terms of the FS ($L=5$):
-						</font>
-						<img data-src="figures/Example6p2FSfig100.png" style="position:absolute;top:235px;left:400px;scale: .75; border: 3px solid green;">
+						<span class="fragment fade-in">
+						<p>100 terms of the FS ($L=5$):</p>
+						
+						<img data-src="figures/Example6p2FSfig100.png" style="position:absolute;top:235px;left:400px;scale: .75; border: 3px solid white;">
+						</span>
 					</section>
 				</section>		
 
 				<section>
-					<h2 style="color:#FF33F9">Lecture 6 Review</h2>
+					<h2 style="color:#00FF00">Lecture 6 Review</h2>
 					<br>
-					<font size="6">
+					
 					<ul>						
 						<li>In this lecture we covered</li>
 						<ul>
@@ -351,29 +387,53 @@
 							<li>be able to compute Fourier series of functions of any period</li>														
 						</ul><br>					
 					</ul>			
-					</font> 
+					
 				</section>					
-			
-			</div>
-		</div>
+						 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-					// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-        <script src="plugin/math/math.js"></script>
-        <script>
-			Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
         </script>
-	</body>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
 </html>
