@@ -1,26 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L9</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L9</h2>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+        <h1>Advanced Calculus</h1>
+        <h2>Lecture 9</h2>
+        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+        <p style="color: #00FF00">Nottingham Trent University</p>
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->				
+				<section align="left">
+					<h1>Advanced Calculus L9</h1>
 					<br>
 					<ul>
-						<span style="color: #FF33F9"> <li>The 1D wave equation</li></span>
+						<span style="color: #00FF00"> <li>The 1D wave equation</li></span>
 						<br>
 						<li>Solving the 1D wave equation using the separation of variables technique</li>								
 						<br>
@@ -28,39 +46,39 @@
 					</ul>
 				</section>	
 				
-								<section  align="left">					
-					<h4>The 1d Wave Equation</h4>					
-					<font size="6">																				
-					<a style="color:yellow">Vibrating string model</a> <br>
+				<section  align="left">					
+					<h2>The 1d Wave Equation</h2>					
+																					
+					<p><b>Vibrating string model</b> </p>
 					\[
 					 \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}, x\in(0,L), t>0
 					\]
-					<br>
+					
 					
 					<ul>
-						<li>Plus BCs: ends of string held constant at height zero, <em>i.e.</em></li>
+						<li><p>Plus BCs: ends of string held constant at height zero, <em>i.e.</em></p></li>
 						\[
 						 u(0,t) = u(L,t) = 0
 						\]
-						<li>And IC giving the initial profile and velocity of the sting 
+						<li><p>And IC giving the initial profile and velocity of the string </p>
 						\[
 						u(x,0)=f(x) ~\text{ and }~ u_t(x,0) = g(x)
 						\]
 						</li> 
-						<li>$c$ denotes the <a style="color:red">wave speed</a> </li>
+						<li><p>$c$ denotes the <b>wave speed</b> </p></li>
 					</ul>						
-					</font>
-					<video data-src="videos/string.mp4" controls style="position:absolute;top:-150px;left:500px;scale: 0.35; border: 5px solid red" class="center"></video>	
+					
+					<video data-src="videos/string.mp4" controls style="position:absolute;top:-150px;left:550px;scale: 0.4; border: 5px solid white class="center"></video>	
 					<img data-src="figures/BVnonzero.png"style="position:absolute;top:275px;left:710px;scale: .5">													
 				</section>	
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L9</h2>
+				<section align="left">
+					<h1>Advanced Calculus L9</h1>
 					<br>
 					<ul>
 						<li>The 1D wave equation</li>
 						<br>
-						<span style="color: #FF33F9"> <li>Solving the 1D wave equation using the separation of variables technique</li>								</span>
+						<span style="color: #00FF00"> <li>Solving the 1D wave equation using the separation of variables technique</li>								</span>
 						<br>
 						<li>Examples</li>											
 					</ul>
@@ -69,222 +87,245 @@
 				<section>
 										
 					<section  align="left">					
-					<h4>Separation of variables</h4>					
-					<font size="6">		
+					<h2>Separation of variables</h2>					
 					
-					The basic idea is to: <br><br>
+					
+					<p>The basic idea is to: </p>
 					
 					<ul>
-						<li>Apply the method of separation to obtain two ODEs</li><br>
-						<li>Determine solutions that satisfy the BCs</li><br>
-						<li>Use Fourier series to superimpose solutions to get the final solution 
-						that satifies both the wave equation and the initial conditions</li>
+						<li><p>Apply the method of separation to obtain two ODEs</p></li><br>
+						<li><p>Determine solutions that satisfy the BCs</p></li><br>
+						<li><p>Use Fourier series to superimpose solutions to get the final solution 
+						that satifies both the wave equation and the initial conditions</p></li>
 					</ul>
 					
-					</font>
+					
 					</section>
 					
 					<section  align="left">					
-					<font size="6">
-					Assuming the form $u(x,t)=F(x)G(t)$, differentiating and substituting into the wave equation:
+					
+					<p>Assuming the form $u(x,t)=F(x)G(t)$, differentiating and substituting into the wave equation:</p>
 					\[
-					\color{yellow}{\boxed{\color{white}
+					\color{red}{\boxed{\color{white}{
 					\begin{align*}
 					\frac{\partial^2u}{\partial x^2}&=F(x)''G(t)\\\frac{\partial^2u}{\partial t^2}&=F(x)G(t)''
 					\end{align*} \implies 
 					\begin{align*}F(x)''G(t) &= \frac{1}{c^2}F(x)G(t)''\\ \frac{F''}{F} &= \frac{G''}{c^2G}= \lambda \text{ (a constant)}\end{align*}
-					}}
+					}}}
 					\]
-					Rearranging gives 
+					<p>Rearranging gives </p>
 					\[
 					\begin{cases}
 					 F''-\lambda F = 0, &F(0)=F(L)=0\\ G''-c^2\lambda G=0
 					\end{cases}
 					\]
-					<a style="color:red">For the wave equation we have <b>two</b> second order ODEs to solve</a>
-					</font>
+					<p>For the wave equation we have <b>two</b> second order ODEs to solve</p>
+					
 					<img data-src="figures/F_BCs.png"style="position:absolute;top:400px;left:750px;scale: .65">													
 					</section>					
+
 					<section  align="left">																
-						<font size="6">		
-						It follows that in order to solve for $u(x,t)$ we need to solve the ODEs for $F$ and $G$.<br>
+							
+						<p>It follows that in order to solve for $u(x,t)$ we need to solve the ODEs for $F$ and $G$.</p>
 						
-						Let's start with the $F$-equation:
+						<p>Let's start with the $F$-equation:</p>
 						\[
 						 F''-\lambda F = 0\quad F(0)=F(L)=0
 						\]
-						This is a BVP and we have seen previously that we require $\lambda=-\omega^2<0$ to obtain non-trivial solutions, <em>i.e.</em>						
+						<span class="fragment fade-in">
+						<p>This is a BVP and we have seen previously that we require $\lambda=-\omega^2<0$ to obtain non-trivial solutions, <em>i.e.</em>						</p>
 						\[
 						F'' +\omega^2 F=0,
 						\]
-						which has solution 
+						<p>which has solution </p>
 						\[
 						F(x) = A\cos(\omega x)+B\sin(\omega x)
 						\]
-						</font>
-						<img data-src="figures/ODESols.png"style="position:absolute;top:125px;left:550px;scale: 0.4; border: 3px solid red">												
+						
+						<img data-src="figures/ODESols.png"style="position:absolute;top:195px;left:650px;scale: 0.6; border: 3px solid white">												
+						</span>
 					</section>
+					
 					<section  align="left">																
-						<font size="6">			
-						Applying the BCs 
+					
+						<p>Applying the BCs </p>
 						\[
 						 F(0) = A\cos(\omega 0)+B\sin(\omega 0) = 0 \implies A=0
 						\]
-						So that $F(x) = B\sin(\omega x)$<br>
+						<p>So that $F(x) = B\sin(\omega x)$</p>
 						
-						The second BC gives
+						<span class="fragment fade-in">
+						<p>The second BC gives</p>
 						\[
 						 F(L) = B\sin(\omega L)=0 \implies \omega L = n\pi, n=1,2,3,\ldots
 						\]
-						Or 
+						<p>Or </p>
 						\[
 						 \omega_n = \frac{n\pi}{L}, n=1,2,\ldots \implies 
-						 \color{green}{\boxed{\color{white}F_n(x) = B_n\sin\left(\frac{n\pi}{L} x\right)}}
+						 \color{#00FF00}{\boxed{\color{white}{F_n(x) = B_n\sin\left(\frac{n\pi}{L} x\right)}}}
 						\]
-						</font>
+						</span>
 					</section>
-					<section  align="left">					
-					<font size="6">	
-					Now for the $G$-equation			
-					\[
-					 G''+c^2\lambda G = 0 \quad\text{or}\quad \color{red}{\boxed{\color{white}G''+c^2\frac{n^2\pi^2}{L^2}G=0}}
-					\]		
-					since $\lambda = -\omega^2 = -\frac{n^2\pi^2}{L^2}$. <br>
 					
-					<b> This is the same as the $F$-equation and so has solution</b>
+					<section  align="left">					
+					
+					<p>Now for the $G$-equation			</p>
 					\[
-					\color{yellow}{\boxed{\color{white}
+					 G''+c^2\lambda G = 0 \quad\text{or}\quad \color{#00FF00}{\boxed{\color{white}{G''+c^2\frac{n^2\pi^2}{L^2}G=0}}}
+					\]		
+					<p>since $\lambda = -\omega^2 = -\frac{n^2\pi^2}{L^2}$. </p>
+					
+					<span class="fragment fade-in">
+					<p> This is the same as the $F$-equation and so has solution</p>
+					\[
+					\color{red}{\boxed{\color{white}{
 					G_n(t) = C_n\cos\left(\frac{n\pi c}{L}t\right) + D_n\sin\left(\frac{n\pi c}{L}t\right), n=1,2,\ldots
-					}}
+					}}}
 					\]
-					Putting this all together gives 
+					</span>
+					<span class="fragment fade-in">
+					<p>Putting this all together gives </p>
 					\[
 					 u_n(x,t) = \Bigg(E_n\cos\left(\frac{n\pi c}{L}t\right)+F_n\sin\left(\frac{n\pi c}{L}t\right)\Bigg)\sin\left(\frac{n\pi}{L}x\right)
 					\]
-					</font>
+					</span>
 					</section>
+					
 					<section  align="left">					
-					<font size="6">	
+					
 					<ul>
-						<li>Finally, since the PDE is <a style="color:green">linear and homogeneous</a> we can combine solutions 
-						linearly to obtain a general solution						
+						<li><p>Finally, since the PDE is <b>linear and homogeneous</b> we can combine solutions 
+						linearly to obtain a general solution</p>						
 						\[
-						\color{#FF33F9}{\boxed{\color{white}
+						\color{#00FF00}{\boxed{\color{white}{
 						\begin{align*}
 						 u(x,t) &= \sum_{n=1}^\infty u_n(x,t)\\
 						 &=\sum_{n=1}^\infty \Bigg(E_n\cos\left(\frac{n\pi c}{L}t\right)+F_n\sin\left(\frac{n\pi c}{L}t\right)\Bigg)\sin\left(\frac{n\pi}{L}x\right)
 						\end{align*}
-						}}
+						}}}
 						\]
 						</li> <br>
 						
-						<li>To compute the $E_n$ and the $F_n$ we need to incorporate the ICs</li>
+						<li><p>To compute the $E_n$ and the $F_n$ we need to incorporate the ICs</p></li>
 					</ul>
 					
-					</font>
+					
 					</section>
+					
 					<section  align="left">					
-					<font size="6">				
-					Applying the first IC
+					
+					<p>Applying the first IC</p>
 					\[
 					 u(x,0)= f(x) = \sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}x\right)
 					\]
-					Hence we must express $f(x)$ as a Fourier sine series 
-					<br>
+					<p>Hence we must express $f(x)$ as a Fourier sine series 
+					</p>
 					
-					It follows that the $E_n$ are given by
+					<span class="fragment fade-in">
+					<p>It follows that the $E_n$ are given by</p>
 					\[
-					\color{red}{\boxed{\color{white}
+					\color{red}{\boxed{\color{white}{
 					 E_n = \frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x
-					 }}
+					 }}}
 					\]
-					<b>Remarks</b><br>
+					<h3>Remarks</h3>
 					<ul>
-						<li>We are of course computing the FS of the odd extension of $f$</li>
-						<li>In practice we don't need to compute the extension</li>
+						<li><p>We are of course computing the FS of the odd extension of $f$</p></li>
+						<li><p>In practice we don't need to compute the extension</p></li>
 					</ul>
-					</font>
+					</span>
 					</section>
+					
 					<section  align="left">					
-					<font size="6">																				
-					Applying the second BC
+																								
+					<p>Applying the second BC</p>
 					\[
 					\frac{\partial u}{\partial t} = \sum_{n=1}^\infty \frac{n\pi c}{L}\left(-E_n\sin\left(\frac{n\pi c}{L}t\right)+F_n\cos\left(\frac{n\pi c}{L}t\right)\right)\sin\left(\frac{n\pi}{L}x\right)
 					\]
-					Hence at $t=0$
+					<span class="fragment fade-in">
+					<p>Hence at $t=0$</p>
 					\[
 					\frac{\partial u}{\partial t}(x,0) = \sum_{n=1}^\infty \frac{n\pi c}{L}F_n \sin\left(\frac{n\pi}{L}x\right)
 					\]
-					Using the IC we have
+					</span>
+					<span class="fragment fade-in">
+					<p>Using the IC we have</p>
 					\[
 					 g(x)  =\sum_{n=1}^\infty \frac{n\pi c}{L}F_n \sin\left(\frac{n\pi}{L}x\right) = \sum_{n=1}^\infty H_n\sin\left(\frac{n\pi}{L}x\right)
 					\]
 					
-					</font>
+				
 					<img data-src="figures/Hn.png"style="position:absolute;top:400px;left:900px;scale: 0.75">												
+					</span>
 					</section>
-					<section  align="left">					
-					<font size="5">							
-					 As before we can compute the unkown coefficients $F_n$ by constructing a FS approximation for $g(x)$<br>
+				
+				<section  align="left">					
+										
+					<p> As before we can compute the unkown coefficients $F_n$ by constructing a FS approximation for $g(x)$</p>
 					 
-					 Here
+					 <span  class="fragment fade-in">
+					 <p>Here</p>
 					 \[
 					  g(x) = \sum_{n=1}^\infty H_n \sin\left(\frac{n\pi}{L}x\right)
 					 \]
-					 And so
+					 <p>And so</p>
 					 \[
 					  H_n = \frac{2}{L}\int_0^L g(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x
 					 \]
-					 Giving 
+					 </span>
+					 <span class="fragment fade-in">
+					 <p>Giving </p>
 					 \[
-					 \color{#FF33F9}{\boxed{\color{white}
+					 \color{#00FF00}{\boxed{\color{white}{
 					  F_n = \frac{2}{n\pi c}\int_0^Lg(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x 
-					  }}
+					  }}}
 					 \]
 					 
-					 Substituting all of this back into the general solution gives the required answer!!!
-					</font>					
+					 <p>Substituting all of this back into the general solution gives the required answer!!!</p>
+					</span>
 					</section>	
 				</section>
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L9</h2>
+				<section align="left">
+					<h1>Advanced Calculus L9</h1>
 					<br>
 					<ul>
 						<li>The 1D wave equation</li>
 						<br>
 						<li>Solving the 1D wave equation using the separation of variables technique</li>								
 						<br>
-						<span style="color: #FF33F9"> <li>Examples</li>											</span>
+						<span style="color: #00FF00"> <li>Examples</li>											</span>
 					</ul>
 				</section>	
 				
 				<section>
 					<section  align="left">																
-						<font size="6">
-						<b>Example 9.1</b> &emsp; Find the solution to the IBVP
+						
+						<h3>Example 9.1</h3> <p>Find the solution to the IBVP</p>
 						\[
 						\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,\pi),~ t>0,\quad u(0,t)=u(\pi,t)=0
 						\]
-						when the initial conditions are given by
+						<p>when the initial conditions are given by</p>
 						\[
 						 u(x,0) = f(x) = \sin(x), x\in(0,L)
 						\]
-						and
+						<p>and</p>
 						\[
 						u_t(x,0) = g(x)=-\sin(x), x\in(0,L)
 						\]											
 						
-						</font>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						<b>Solution</b><br>
-						Since $L=\pi$ and $c=1$, we have that
+					
+						<h3>Solution</h3>
+						<p>Since $L=\pi$ and $c=1$, we have that</p>
 						\[
 						 u(x,t) = \sum_{n=1}^\infty \Bigg(E_n\cos(nt)+F_n\sin(nt)\Bigg)\sin(nx)
 						\]
-						The first BC gives
+						<span class="fragment fade-in">
+<p>						The first BC gives</p>
 						\[
 						 u(x,0) = \sum_{n=1}^\infty E_n\sin(nx) = \sin(nx) \implies E_1=1 ~\&~ E_n=0,  n>1
 						\]
@@ -292,57 +333,62 @@
 						\[
 						 \implies u(x,t) = \cos(t)\sin(x) + \sum_{n=1}^\infty F_n\sin(nt)\sin(nx)
 						\]
-						</font>
+						</span>
 					</section>	
 					<section  align="left">																
-						<font size="6">
-						The second BC states that $u_t(x,0) = -\sin(x)$ <br>
 						
-						Now
+						<p>The second BC states that $u_t(x,0) = -\sin(x)$ </p>
+						
+						<p>Now</p>
 						\[
 						u_t(x,t) = -\sin(t)\sin(x)+\sum_{n=1}^\infty nF_n\cos(nt)\sin(nx)
 						\]
-						so
+						<span class="fragment fade-in">
+						<p>so</p>
 						\[
 						 u_t(x,0) = -\sin(x) = \sum_{n=1}^\infty nF_n\sin(nx) \implies F_n=\begin{cases}-1&n=1\\0&\text{otherwise}\end{cases}
 						\]
-						Finally,
+						</span>
+						<span class="fragment fade-in">
+						<p>Finally,</p>
 						\[
-						 \color{#FF33F9}{\boxed{\color{white}
+						 \color{red}{\boxed{\color{white}{
 						 u(x,t) = \cos(t)\sin(x)-\sin(t)\sin(x)
-						 }}
+						 }}}
 						\]
+						</span>
 						
-						</font>
 					</section>						
 				</section>
 				
 				<section>
 					<section  align="left">																
-						<font size="6">
-						<b>Example 9.2</b> &emsp; Find the solution to the IBVP
+						
+						<h3>Example 9.2</h3> <p>Find the solution to the IBVP</p>
 						\[
 						\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,\pi),~ t>0,\quad u(0,t)=u(\pi,t)=0
 						\]
-						when the initial conditions are given by
+						<p>when the initial conditions are given by</p>
 						\[
 						 u(x,0) = f(x) = 0, x\in(0,\pi)
 						\]
-						and
+						<p>and</p>
 						\[
 						u_t(x,0) = g(x)=\begin{cases}\frac{2}{\pi}x& x\in(0, \pi/2)\\\frac{2}{\pi}(\pi-x)& x\in[\pi/2,\pi)\end{cases}
 						\]											
 						
-						</font>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						<b>Solution</b><br>
-						Since $L=\pi$ and $c=1$, we have that
+					
+						<h3>Solution</h3>
+						<p>Since $L=\pi$ and $c=1$, we have that</p>
 						\[
 						 u(x,t) = \sum_{n=1}^\infty \Bigg(E_n\cos(nt)+F_n\sin(nt)\Bigg)\sin(nx)
 						\]
-						The first BC gives
+						<span class="fragment fade-in">
+						<p>The first BC gives</p>
 						\[
 						 u(x,0) = \sum_{n=1}^\infty E_n\sin(nx) = 0 \implies E_n=0,  \forall n 
 						\]
@@ -350,29 +396,32 @@
 						\[
 						 \implies u(x,t) = \sum_{n=1}^\infty F_n\sin(nt)\sin(nx)
 						\]
-						
-						</font>
+											</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						Since 
+					
+						<p>Since </p>
 						\[
 						 u_t(x,t) = \sum_{n=1}^\infty nF_n\cos(nt)\sin(nx)
 						\]
-						we have
+						<p>we have</p>
 						\[
 						 u_t(x,0) = \sum_{n=1}^\infty nF_n\sin(nx) = \sum_{n=1}^\infty H_n\sin(nx) = g(x)
 						\]
-						so
+						<span class="fragment fade-in">
+						<p>so</p>
 						\[
 						 H_n = \frac{2}{\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x \implies F_n = \frac{2}{n\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x
 						\]						
+						</span>
 						
-						</font>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">					
-						Thus
+					
+						<p>Thus</p>
 						\[
 						\begin{align*}
 						F_n &= \frac{2}{n\pi}\Bigg(\int_0^\frac{\pi}{2}\frac{2x}{\pi}\sin(nx)\mathrm{d}x + \int_\frac{\pi}{2}^\pi\frac{2}{\pi}(\pi-x)\sin(nx)\mathrm{d}x\Bigg)\\
@@ -382,40 +431,43 @@
 						&=\frac{8}{n^3\pi^2}\sin\left(\frac{n\pi}{2}\right)
 						\end{align*}
 						\]
-						</font>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">					
-						It follows that the solution of the wave equation is given by
+									
+						<p>It follows that the solution of the wave equation is given by</p>
 						\[
-						\color{#FF33F9}{\boxed{\color{white}
+						\color{#00FF00}{\boxed{\color{white}{
 						 \begin{align*}
 						 u(x,t) &= \sum_{n=1}^\infty \frac{8}{n^3\pi^2}\sin\left(\frac{n\pi}{2}\right)\sin(nt)\sin(nx)\\
 						 &= \sum_{n=1}^\infty \frac{8}{(2n-1)^3\pi^2}(-1)^{n+1}\sin((2n-1)t)\sin((2n-1)x)
 						 \end{align*}
-						 }}
+						 }}}
 						\]
 						
 						<br>
+						<span class="fragment fade-in">
 						<ur>
-							<li>The last line follows since $\sin(n\pi/2)=0$ for even values of $n$</li>
+							<li>The last line follows since $\sin(n\pi/2)=0$ for even values of $n$</li><br>
 							<li>Replacing $n$ by $2n-1$ in our equation ensures that we pick out odd terms only</li>
 						</ur>
-						</font>
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">					
-						The following video shows the solution $u(x,t)$: <br><br>
+					
+						<p>The following video shows the solution $u(x,t)$</p>
 						
-						<video data-src="videos/WaveEx9p2.mp4" controls style="border: 4px solid red" class="center"></video>																
+						<video data-src="videos/WaveEx9p2.mp4" controls style="border: 4px solid white" class="center"></video>																
 						</font>
 					</section>	
 				</section>
 
 				<section>
-					<h2 style="color:#FF33F9">Lecture 9 Review</h2>
+					<h2 style="color:#00FF00">Lecture 9 Review</h2>
 					<br>
-					<font size="6">
+					
 					<ul>						
 						<li>In this lecture we covered</li>
 						<ul>
@@ -428,29 +480,53 @@
 							<li>be able to solve the 1D wave equation for general initial conditions</li>
 						</ul><br>					
 					</ul>			
-					</font> 
+					
 				</section>
-			
-			</div>
-		</div>
+					 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-					// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-        <script src="plugin/math/math.js"></script>
-        <script>
-			Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
         </script>
-	</body>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
 </html>
