@@ -1,117 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-		<title>Advanced Calculus L8</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L8</h2>
+ <div class="reveal">
+    <div class="slides">
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <!-- ################################################### -->
+      <section>
+        <h1>Advanced Calculus</h1>
+        <h2>Lecture 8</h2>
+        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+        <p style="color: #00FF00">Nottingham Trent University</p>
+      </section>
+	  <!-- ################################################### -->
+      <!-- ################################################### -->				
+				<section align="left">
+					<h1>Advanced Calculus L8</h1>
 					<br>
 					<ul>
-						<span style="color: #FF33F9"> <li>Fourier series solutions of the 1D heat equation</li></span>
+						<span style="color: #00FF00"> <li>Fourier series solutions of the 1D heat equation</li></span>
 						<br>
 						<li>Examples</li>								
 					</ul>
 				</section>			
 				<section>
 					<section  align="left">																
-						<h4>Method of Separation of Variables (Ctd)</h4>	
-						<font size="6">			
+						<h2>Method of Separation of Variables (Ctd)</h2>	
+						
 						<ul>
 							<li>Previously, we saw how to solve the 1D heat equation using the method of <em>separation of variables</em></li>
-							<li>In particular, we solved the <b>heat equation</b> with zero BCs and IC given by </li>
+							<li><p>In particular, we solved the <b>heat equation</b> with zero BCs and IC given by </p></li>
 							\[
 							 u(x,0) = \sin(x)+\frac{1}{2}\sin(2x)
 							\]
-							<li>This enabled us to determine the coefficients of our general solution simply by equating terms:</li>
+							<li><p>This enabled us to determine the coefficients of our general solution simply by equating terms:</p></li>
 						</ul>
 						\[
-						u(x,t) =\sum D_n\sin(nx)e^{-4n^2t} \\~\\\implies \color{#FF33F9}{\boxed{\color{white}u(x,t) = \sin(x)e^{-4t}+\frac{1}{2}\sin(2x)e^{-16t}}}
+						u(x,t) =\sum D_n\sin(nx)e^{-4n^2t} \\~\\\implies \color{#00FF00}{\boxed{\color{white}{u(x,t) = \sin(x)e^{-4t}+\frac{1}{2}\sin(2x)e^{-16t}}}}
 						\]						
-						</font>
+						
 					</section>	
 					<section  align="left">																
-						<font size="6">			
-						Now suppose we want to solve the 1D heat equation for 'non-trivial' initial conditions<br>
 						
-						How can we do that?<br><br>
+						<p>Now suppose we want to solve the 1D heat equation for 'non-trivial' initial conditions</p>
 						
+						<p>How can we do that?</p>
 						
-						<b>Example 8.1</b> &emsp; Solve the IBVP
+						<span class="fragment fade-in">
+						<h3>Example 8.1</h3> <p>Solve the IBVP</p>
 						\[
 						 \frac{\partial u}{\partial t} = 4\frac{\partial^2 u}{\partial x^2},\quad x\in(0, \pi), t>0 \quad u(0,t)=u(\pi,t)=0
 						\]
-						when
+						<p>when</p>
 						\[
 						 u(x,0) = f(x) = \begin{cases}x& \text{if } x\in(0,\pi/2)\\\pi-x, &\text{if } x\in [\pi/2,\pi)\end{cases}
-						\]
-						</font>
+						\]						
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">	
-						We know from Example 7.1 that a general solution to our PDE is					
+						
+						<h3>Solution</h3>
+						<p>We know from Example 7.1 that a general solution to our PDE is					</p>
 						\[
 						 u(x,t) = \sum_{n=1}^\infty D_n \sin(nx)e^{-4n^2t}
 						\]						
 						
-						We wish to seek the particular solution with a triangle initial profile <em>i.e.</em>
+						<span class="fragment fade-in">
+						<p>We wish to seek the particular solution with a triangle initial profile <em>i.e.</em></p>
 						\[	
 						 \begin{align*}						
 						 u(x,0) &= f(x)\\ &= \begin{cases}x& \text{if } x\in(0,\pi/2)\\\pi-x, &\text{if } x\in [\pi/2,\pi)\end{cases}
 						 \end{align*}
 						\]
-						</font>
-						<img data-src="figures/fx.png"style="position:absolute;top:150px;left:700px;scale: .5; border: 3px solid red;">													
+						
+						<img data-src="figures/fx.png"style="position:absolute;top:250px;left:700px;scale: .65; border: 3px solid white">													
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">			
-						Incorporating the initial condition into the general solution gives
+							
+						<p>Incorporating the initial condition into the general solution gives</p>
 						\[
 						 u(x,0) = \sum_{n=1}^\infty D_n\sin(nx) = f(x) = \begin{cases}x& \text{if } x\in(0,\pi/2)\\\pi-x, &\text{if } x\in [\pi/2,\pi)\end{cases}
 						\]
 						
-						<br><br>
-						This looks like a <b>Fourier series</b>, right?<br>
+						<span class="fragment fade-in">
+						<p>This looks like a <b>Fourier series</b>, right?</p>
 						
-						We can work out $D_n$ by computing the FS of <br> the <a style="color: green">odd extension</a> of $f(x)$
-						</font>
-						<img data-src="figures/fxEx.png"style="position:absolute;top:175px;left:600px;scale: .8; border: 3px solid green;">													
+						<p>We can work out $D_n$ by computing the FS of <br> the <b>odd extension</b> of $f(x)$</p>
+						
+						<img data-src="figures/fxEx.png"style="position:absolute;top:175px;left:600px;scale: .8; border: 3px solid white">													
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">	
-						Putting this altogether we have that the $D_n$ are given by computing the FS of the odd extension $F(x)$.<br>
+					
+						<p>Putting this altogether we have that the $D_n$ are given by computing the FS of the odd extension $F(x)$.</p>
 						
-						The $D_n$ are what we would usually refer to as $b_n$.<br>
+						<p>The $D_n$ are what we would usually refer to as $b_n$.</p>
 						
-						We want to write 
+						<p>We want to write </p>
 						\[
 						 F(x) = \sum_{n=1}^\infty D_n\sin(nx)
 						\]
+						<span class="fragment fade-in">
+						<p>Importantly this FS will agree with $f(x)$ on $(0, \pi)$.</p>
 						
-						Importantly this FS will agree with $f(x)$ on $(0, \pi)$.
-						
-						The Fourier coefficients are given by
+						<p>The Fourier coefficients are given by</p>
 						\[
 						 D_n = \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x
 						\]
-						</font>
-						<img data-src="figures/FSSepVarComment.png"style="position:absolute;top:500px;left:775px;scale: 1; border: 3px solid yellow;">													
+						
+						<img data-src="figures/FSSepVarComment.png"style="position:absolute;top:500px;left:750px;scale: 1">													
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">		
-							To solve for the particular solution with initial triangular heat distribution
+					
+							<p>To solve for the particular solution with initial triangular heat distribution</p>
 							\[
 							 \begin{align*}
 							  D_n &=\frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\ 
@@ -120,142 +147,159 @@
 							  &+\left.\bigg[-\frac{1}{n}(\pi-x)\cos(nx)\bigg]_{\pi/2}^\pi - \frac{1}{n}\int_{\pi/2}^\pi \cos(nx)\mathrm{d}x\right) = \cdots
 							 \end{align*}
 							\]
-						</font>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="5.5">		
+					
 						\[
 						 \begin{align*}
 						 \cdots&=\frac{2}{\pi}\left(\frac{1}{n}\bigg[\frac{1}{n}\sin(nx)\bigg]_0^{\pi/2} - \frac{1}{n}\bigg[\frac{1}{n}\sin(nx)\bigg]_{\pi/2}^\pi\right)\\
-						 &= \color{#FF33F9}{\boxed{\color{white}\frac{4}{n^2\pi}\sin(n\pi/2) = D_n}}
+						 &= \color{#00FF00}{\boxed{\color{white}{\frac{4}{n^2\pi}\sin(n\pi/2) = D_n}}}
 						 \end{align*}
 						\]						
+						<br><br>
 						
-						It follows that the FS of $F(x)$ is
+						<span class="fragment fade-in">
+						<p>It follows that the FS of $F(x)$ is</p>
 						\[
 						\begin{align*}
 						 F(x) &= \sum_{n=1}^\infty \frac{4}{n^2\pi}\sin(n\pi/2)\sin(nx)\\
 						 &= \sum_{n=1}^\infty \frac{4}{(2n-1)^2\pi}(-1)^{n+1}\sin((2n-1)x)						 
 						 \end{align*}
 						\]
-						Since $\sin(n\pi/2) = 0$ for even $n$ and alternates between $\pm 1$ for odd $n$
-						</font>
-						<img data-src="figures/sinnpi2.png"style="position:absolute;top:-25px;left:650px;scale: .5; border: 3px solid yellow;">													
+						<p>Since $\sin(n\pi/2) = 0$ for even $n$ and alternates between $\pm 1$ for odd $n$</p>
+						
+						<img data-src="figures/sinnpi2.png"style="position:absolute;top:-25px;left:650px;scale: .5; border: 3px solid white">													
+						</span>
 						</section>	
+						
 					<section  align="left">																
-						<font size="6">
-						Since the above FS agrees with $f(x)$ on $(0,\pi)$ we have that 
+						
+						<p>Since the above FS agrees with $f(x)$ on $(0,\pi)$ we have that </p>
 						\[
 						u(x,0) = f(x) = \sum_{n=1}^\infty \frac{4}{(2n-1)^2\pi}(-1)^{n+1}\sin((2n-1)x) 
 						\]
-						on $(0,\pi)$. <br> And so the solution to our PDE is
+						<p>on $(0,\pi)$. <br> And so the solution to our PDE is</p>
 						\[
-						\color{red}{\boxed{\color{white}
+						\color{red}{\boxed{\color{white}{
 						 u(x,t) = \sum_{n=1}^\infty \frac{4}{(2n-1)^2\pi}(-1)^{n+1}\sin((2n-1)x) e^{-4(2n-1)^2t}
-						 }}
+						 }}}
 						\]
-						</font>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						The video below shows the heat distribution for $t=0$ to $t=10$ with $n=1000$ terms <br><br>
+					
+						<p>The video below shows the heat distribution for $t=0$ to $t=10$ with $n=1000$ terms </p>
 						
 						<video data-src="videos/HeatEx8p1.mp4" controls style="border: 4px solid red" class="center"></video>											
-						</font>
+						
 					</section>	
 				</section>
 				
-				<section>
-					<h2 style="color:#FF33F9">Advanced Calculus L8</h2>
+				<section align="left">
+					<h1>Advanced Calculus L8</h1>
 					<br>
 					<ul>
 						<li>Fourier series solutions of the 1D heat equation</li>
 						<br>
-						<span style="color: #FF33F9"> <li>Examples</li></span>								
+						<span style="color: #00FF00"> <li>Examples</li></span>								
 					</ul>
 				</section>			
 					
 				<section>
 					<section  align="left">																
-						<font size="6">
-						<b>Example 8.2</b> &emsp; Find the solution to the IBVP
+						
+						<h3>Example 8.2</h3> <p>Find the solution to the IBVP</p>
 						\[
 						\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,L),~ t>0,\quad u(0,t)=u(L,t)=0
 						\]
-						when the initial condition is given by
+						<p>when the initial condition is given by</p>
 						\[
 						 f(x) = 100, x\in(0,L)
 						\]
 						
-						<b>Solution</b>
-						As usual we assume a separable form $u(x,t) = F(x)G(t)$ from which we derive the ODEs:
+						<h3>Solution</h3>
+						<span class="fragment fade-in">
+						<p>As usual we assume a separable form $u(x,t) = F(x)G(t)$ from which we derive the ODEs:</p>
 						\[
 						\begin{cases}
 						 F''+\omega^2F = 0&F(0)=F(L)=0\\G'+\omega^2G=0
 						\end{cases}
 						\]
-						</font>
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						We can solve the $F$-equation to obtain
+					
+						<p>We can solve the $F$-equation to obtain</p>
 						\[
 						 F(x) = A\cos(\omega x)+B\sin(\omega x)
 						\]
-						and then susbstitute the BCs
+						<p>and then susbstitute the BCs</p>
 						\[
 						 F(0) = A = 0 ~~\text{ and }~~ F(L) = B\sin(\omega L) = 0
 						\]
-						The second equation implies that 
+						<span class="fragment fade-in">
+						<p>The second equation implies that </p>
 						\[
 						\omega L=n\pi \implies \omega_n = n\pi/L, n=1,2,\ldots
 						\]
-						so &emsp; $\color{red}{\boxed{\color{white} F_n(x) = B_n\sin\left(\frac{n\pi}{L}x\right), n=1,2,\ldots}}$<br>
+						<p>so &emsp; $\color{red}{\boxed{\color{white}{ F_n(x) = B_n\sin\left(\frac{n\pi}{L}x\right), n=1,2,\ldots}}}$</p>
 						
-						<a style="color: yellow">A family of solutions</a> 
-						</font>
+						<p><b>A family of solutions</b> </p>
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						To solve the $G$-equation we note that $\omega^2 = n^2\pi^2/L^2$ so that
+					
+						<p>To solve the $G$-equation we note that $\omega^2 = n^2\pi^2/L^2$ so that</p>
 						\[
 						 G' +\frac{n^2\pi^2}{L^2}G = 0
 						\]
-						This is a separable ODE which solves to 
+						<span class="fragment fade-in">
+						<p>This is a separable ODE which solves to </p>
 						\[
-						\color{red}{\boxed{\color{white}
+						\color{red}{\boxed{\color{white}{
 						 G(t) = C_n e^{-n^2\pi^2 t/L^2}, n=1,2,\ldots
-						 }}
+						 }}}
 						\]
-						Putting this altogether we have the following family of solutions
+						</span>
+						<span class="fragment fade-in">
+						<p>Putting this altogether we have the following family of solutions</p>
 						\[
-						\color{yellow}{\boxed{\color{white}
+						\color{#00ff00}{\boxed{\color{white}{
 						 u_n(x,t) = F_n(x)G_n(t) = D_n\sin\left(\frac{n\pi}{L}x\right)e^{-n^2\pi^2 t/L^2}, n=1,\ldots
-						 }}
+						 }}}
 						\]
-						</font>
+						</span>
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						Now, since the PDE is <a style="color:green">linear and homogeneous</a> we can sum our solutions to obtain a general solution of the form 
+					
+						<p>Now, since the PDE is <b>linear and homogeneous</b> we can sum our solutions to obtain a general solution of the form </p>
 						\[
 						 \begin{align*}
 						 u(x,t) &= \sum_{n=1}^\infty u_n(x,t)\\
 						 &= \sum_{n=1}^\infty D_n \sin\left(\frac{n\pi}{L}x\right)e^{-n^2\pi^2 t/L^2}
 						 \end{align*}
 						\]
-						To find the $D_n$ we need to use the IC, <em>i.e.</em>
+						<span class="fragment fade-in">
+						<p>To find the $D_n$ we need to use the IC, <em>i.e.</em></p>
 						\[
 						 u(x,0) = \sum_{n=1}^\infty D_n\sin\left(\frac{n\pi}{L}x\right) = 100
 						\]
-						<a style="color:red">We want to compute the Fourier sine series of $f(x)$</a>
-						</font>
+						<p><b>We want to compute the Fourier sine series of $f(x)$</b></p>
+						</span>
+
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
+						
 						<ul>
 						<li>
-						The odd extension of the function $f(x)=100$ on $(0,L)$ is 
+						<p>The odd extension of the function $f(x)=100$ on $(0,L)$ is </p>
 						<img src="figures/Ex8p1OddEx.png" style="position:absolute;top:-50px;left:50px;scale: .5; border: 3px solid red">
 						 </li>
 						 </ul>
@@ -263,38 +307,46 @@
 						
 						<br><br><br><br><br><br><br>
 						
+						<span class="fragment fade-in">
 						<li>The FS of $F(x)$ agrees with $f(x)$ on $(0,L)$</li>
-						<li>The Fourier coefficient is given by</li>												
+						
+						<li><p>The Fourier coefficient is given by</p></li>												
 						\[
 						\begin{align*}
 						 D_n = \frac{2}{L}\int_0^L100\sin(\frac{n\pi}{L}x)\mathrm{d}x &= \frac{2}{L}\bigg[-\frac{100L}{n\pi}\cos\left(\frac{n\pi}{L}x\right)\bigg]_0^L\\
-						 &= \color{yellow}{\boxed{\color{white}\frac{200}{n\pi}\left(1-(-1)^n\right)}}
+						 &= \color{#00ff00}{\boxed{\color{white}{\frac{200}{n\pi}\left(1-(-1)^n\right)}}}
 						 \end{align*}
 						\]
 						</ul>
-						</font>
+						</span>
+						
 					</section>	
+					
 					<section  align="left">																
-						<font size="6">
-						It follows that the particular solution is given by
+					
+						<p>It follows that the particular solution is given by</p>
 						\[
-						\color{#FF33F9}{\boxed{\color{white}						
+						\color{red}{\boxed{\color{white}						{
 						u(x,t) = \sum_{n=1}^\infty \frac{200}{n\pi}\left(1-(-1)^n\right) \sin\left(\frac{n\pi}{L}x\right)e^{-n^2\pi^2 t/L^2}												
-						}}
+						}}}
 						\]
+						<br><br>
+						<span class="fragment fade-in">
+						<p>The video shows how the heat distribution in this example changes with time</p>
+						<br><br><br><br>
+						<video data-src="videos/HeatEx8p2.mp4" controls style="border: 4px solid white;position:absolute;top:295px;left:50px;scale: .75" class="center"></video>											
 						
-						The video shows how the heat distribution in this example changes with time<br><br><br><br><br><br>
-						<video data-src="videos/HeatEx8p2.mp4" controls style="border: 4px solid red;position:absolute;top:275px;left:50px;scale: .75" class="center"></video>											
+						<br><br><br><br>
+						<p>Notice Gibb's phenomenom in the plot to the LHS</p>
 						
-						Notice Gibb's phenomenom in the plot to the LHS
-						</font>
+						</span>
 					</section>	
 				</section>
 				
 				<section>
-					<h2 style="color:#FF33F9">Lecture 8 Review</h2>
+					<h2 style="color:#00FF00">Lecture 8 Review</h2>
 					<br>
-					<font size="6">
+					
 					<ul>						
 						<li>In this lecture we covered</li>
 						<ul>
@@ -305,32 +357,53 @@
 							<li>be able to use Fourier series to solve the 1D heat equation for general initial conditions</li>														
 						</ul><br>					
 					</ul>			
-					</font> 
-				</section>
 					
-				
-						
-			
-			</div>
-		</div>
+				</section>
+							 <!-- ################################################### -->
+ <!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-					// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-        <script src="plugin/math/math.js"></script>
-        <script>
-			Reveal.initialize({ plugins:[ RevealMath.KaTeX ] });
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
         </script>
-	</body>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
 </html>
