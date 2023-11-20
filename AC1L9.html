@@ -104,24 +104,27 @@
 					
 					<section  align="left">					
 					
-					<p>Assuming the form $u(x,t)=F(x)G(t)$, differentiating and substituting into the wave equation:</p>
-					\[
-					\color{red}{\boxed{\color{white}{
-					\begin{align*}
-					\frac{\partial^2u}{\partial x^2}&=F(x)''G(t)\\\frac{\partial^2u}{\partial t^2}&=F(x)G(t)''
-					\end{align*} \implies 
-					\begin{align*}F(x)''G(t) &= \frac{1}{c^2}F(x)G(t)''\\ \frac{F''}{F} &= \frac{G''}{c^2G}= \lambda \text{ (a constant)}\end{align*}
+										<p>Assuming the form $u(x,t)=F(x)G(t)$, differentiating and substituting into the wave equation:</p>
+					\[					
+				 \begin{align*}
+					  \frac{\partial^2u}{\partial x^2}&=F(x)''G(t)\\\frac{\partial^2u}{\partial t^2}&=F(x)G(t)''
+					 \end{align*} 		\implies 			
+					\color{#00FF00}{\boxed{\color{white}{
+	
+					 \begin{align*}F(x)''G(t) &= \frac{1}{c^2}F(x)G(t)''\\ \frac{F''}{F} &= \frac{G''}{c^2G}= \lambda \text{ (a constant)}\end{align*}
 					}}}
 					\]
+					<span class="fragment fade-in">
 					<p>Rearranging gives </p>
 					\[
 					\begin{cases}
 					 F''-\lambda F = 0, &F(0)=F(L)=0\\ G''-c^2\lambda G=0
-					\end{cases}
+					\end{cases}					
 					\]
 					<p>For the wave equation we have <b>two</b> second order ODEs to solve</p>
 					
 					<img data-src="figures/F_BCs.png"style="position:absolute;top:400px;left:750px;scale: .65">													
+					</span>												
 					</section>					
 
 					<section  align="left">																
