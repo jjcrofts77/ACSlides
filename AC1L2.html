@@ -32,423 +32,511 @@
 		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
 		<p style="color: #00FF00">Nottingham Trent University</p>
     </section>				
-			<section align="left">
-				<h1>Advanced Calculus L2</h1>
-				<br>
-				<ul>
-					<span style="color: #00FF00"> <li>Introduction to Partial Differential Equations (PDEs)</li></span>
-					<br>
-					<li>PDE classification</li>		
-					<br>
-					<li>Solving PDEs like ODEs</li>					
-					<br>
-					<li>Solving PDEs when the solution is partly known</li>										
-				</ul>
-			</section>			
-			<section align="left">
-				<h2>Basic concepts</h2>
-				
-				<ul>
-					<li>A partial differential equation (PDE) is an equation involving one or more partial derivatives of an unknown function</li><br>
-					<li><p>For example (here $u=u(x,t)$)</p>
-					\[
-					 \color{red}{\boxed{\color{white} {
-					 u_{xx} = u_{tt},\quad u_{xx}=0\quad\text{and}\quad uu_t = u_x}}}
-					\]
-					</li><br>
-					<span class="fragment fade-in">
-					<li>The order of the highest derivative is called the <em>order</em> of the PDE</li><br>
-					<li>As with ODEs we say the PDE is <em>linear</em> if it is of first degree in the unkown function and its derivatives</li>
-				</ul></span>
-				
-				
-			</section>
-			<section align="left" data-auto-animate class="r-frame">
-				<h2>Important second order PDEs</h2>
-								
-				<ol>
-				<li>\[\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional wave equation}\]
-				</li><br>
-				<li class="fragment fade-in">\[\frac{\partial u}{\partial t} = \kappa\frac{\partial^2u}{\partial x^2}\quad \text{one-dimensional heat equation}\]</li><br>
-				<li class="fragment fade-in">\[\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2u}{\partial y^2}=0\quad \text{two-dimensional Laplace's equation}\]</li>				
-				
-				</ol>
-				
-					<p class="fragment fade-in">These three PDES will be the focus of this half of the module</p>			
-			</section>
 			
-			
-			
-			<section align="left">
-				<h1>Advanced Calculus L2</h1>
-				<br>
-				<ul>
-					<li>Introduction to Partial Differential Equations (PDEs)</li>
-					<br>
-					<span style="color: #00FF00"> 
-					<li>PDE classification</li>					
-					</span>
-					<br>
-					<li>Solving PDEs like ODEs</li>					
-					<br>
-					<li>Solving PDEs when the solution is partly known</li>
-				</ul>
-			</section>
-			<section align="left">
-				<h2>Classifying second order linear PDEs</h2>
-				
-			
+	<section align="left">
+	<h1>Advanced Calculus L2</h1>
+	<br>
+	<ul>
+	<span style="color: #00FF00"> 
+		<li>Multivariable differentiation</li>			
+	<ul>
+		<li>Limits and continuity</li>
+		<li>Partial differentiation</li>					
+	</ul>
+	</span>
+	<br>
+		<li>Mappings, curves and surfaces</li>	<br>	
+		<li>The Jacobian matrix</li>
+	</ul>
+	</section>				
+	
+	<section>
+	<section align="left">
+	<h2>Limits and continuity of functions of several variables</h2>
+	
+	<textBox touch-action="none">
+	<boxTitle>
+	<h3>Definition 2.1</h3>
+	</boxTitle>
+	<p>We say that the limit of $f(x,y)$ as the point $P(x,y)$ approaches $P_0(x_0, y_0)$ is the
+	number $L$ and write</p>
+	\[
+		\lim_{(x,y)\rightarrow (x_0, y_0)} f(x,y) = L,
+	\]
+	<p>if, for every $\epsilon>0$, there exists a $\delta>0$ such that</p>
+	\[
+		(x,y)\in\mathcal{N}_\delta(P_0)\setminus P_0 \implies |f(x,y) - f(x_0,y_0)| <\epsilon
+	\]
+	<p></p>
+	</textBox>	
+	
+	<p class="fragment fade-in" style="color:#00FF00">Here, $\mathcal{N}_\delta(P_0)$ denotes a disk in the plane of radius $\delta$</p>
+	</section>
+	
+	<section align="left">	
+	<h3>Example 2.1</h3> 
+	<p>Investigate the limits along rays at the origin of</p>
+	\[
+	\begin{align*}
+	f_1(x,y) &= \frac{x^4+y^4}{x^2+y^2}, \qquad (x,y)\neq 0\\
+	f_2(x,y) &= \frac{x^2-y^2}{x^2+y^2}, \qquad (x,y)\neq 0
+	\end{align*}
+	\]
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>Consider the rays $~y=x$, $~y=-x$, $~y=0$ and $~x=0$.</p>
+	\[
+	\lim_{x\to 0}f_1(x,x) = \lim_{x\to 0} \frac{2x^4}{2x^2} = \lim_{x\to 0}x^2 = 0
+	\]
+	<p>Analogously, we can show $f_1(x,-x) = f_1(x,0) = f_1(0,y)=0$</p>
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00">The limit would appear to be independent of the path of approach</p>
+	</section>
+	
+	<section align="left">	
+	<h3>Example 2.1 (ctd)</h3> 
+	<p>Considering the same rays for the second function</p>
+	\[
+	\begin{align*}
+	\lim_{x\to 0}f_2(x,x) &= \lim_{x\to 0} 0 = 0\\
+	\lim_{x\to 0}f_2(x,-x) &= \lim_{x\to 0} 0 = 0\\
+	\lim_{x\to 0}f_2(x,0) &= \lim_{x\to 0} 1 = 1\\
+	\lim_{x\to 0}f_2(0,y) &= \lim_{x\to 0} -1 = -1
+	\end{align*}
+	\]
+	<p class="fragment fade-in" style="color:#00FF00">The limits depend on the path of approach</p>
+	</section>
+	
+	<section align="left">
+	<textBox touch-action="none">
+	<boxTitle>
+	<h3>Definition 2.2</h3>
+	</boxTitle>
+	<p>We say that $f$ is <b>continuous</b> at $P_0$ if</p>
+	\[
+		\lim_{(x,y)\rightarrow (x_0,y_0)}f(x,y) = f(x_0,y_0)
+	\]
+	<p></p>
+	</textBox>	
+	
+	<p>A function is said to be continuous if it is continuous at each point of its domain.</p>
+	
+	<span class="fragment fade-in">
+	<p>In the previous example the function $f_1$ can be made continuous for all $(x,y)\in\mathbb{R}^2$</p>
+	\[
+	f_3 = \begin{cases}\frac{x^4+y^4}{x^2+y^2}&(x,y)\neq 0\\0&(x,y)=(0, 0)\end{cases}
+	\]
+	<p>We can not <em>extend</em> the function $f_2$ in this manner since its limit at $(0, 0)$ is path dependent</p>
+	</span>
+	</section>
+	</section>
+	
+	<section>
+	<section align="left">
+	<h2>Partial derivatives</h2>
+	
+	<p>Let $f: \mathbb{R}^2\to\mathbb{R}$. If we hold one variable fixed in $f(x,y)$, say $y=y_0$, then we
+	obtain a function of one variable</p>
+	\[
+		g(x) = f(x, y_0).
+	\]
+	<p>The derivative of this function w.r.t. $x$ is just</p>
+	\[
+		g'(x) = \lim_{h\to 0}\left(\frac{g(x+h)-g(x)}{h}\right)
+	\]
+	<span class="fragment fade-in">
+	or
+	\[
+		\color{red}{\boxed{\color{white}{
+		f_x(x,y_0) = \frac{\partial f}{\partial x} = \lim_{h\to 0}\left(\frac{f(x+h,y_0)-f(x,y_0)}{h}\right)
+		}}}
+	\]
+	
+	<p>The rate of change of the function $f$ above is the partial derivative w.r.t. $x$.</p> 
+	
+	<p class="fragment fade-in" style="color:#00FF00">We can write a similar expression for $f_y(x_0, y_0)$</p>
+	</span>
+	</section>
+	
+	<section align="left">
+	<p>The following schematic illustrates the partial derivatives of a function $f(x,y)$</p>
+		
+	<img style="margin:20px;padding:20px"				
+		height="200"					
+		src="figures/PartialDerivs.png">
+	
+	<span class="fragment fade-in">
+	<h3>Example 2.2</h3> 
+	<p>Find $f_x$ if $\displaystyle f(x,y) = \frac{2y}{y+\cos{x}}$</p>
+	<h3>Solution</h3>
+	</span>
+	<span class="fragment fade-in">
+	\[
+		f_x(x,y) = \frac{\partial}{\partial x}\left(\frac{2y}{y+\cos{x}}\right) = 
+		\color{#00FF00}{\boxed{\color{white}{\frac{-2y\sin{y}}{\left(y+\cos{x}\right)^2}}}}
+	\]
+	</span>
+	</section>
+	
+	<section align="left">
+	<p>The following result will be useful moving forward.</p>
+		
+	<textBox touch-action="none">
+	<boxTitle>
+	<h3>Theorem 2.1</h3>
+	</boxTitle>
+	<p>If all the second partials are continuous, then $f_{xy}=f_{yx}$</p>
+	</textBox>	
+	
+	<br>
+	<span class="fragment fade-in">
+	<h3>Example 2.3</h3> 
+	<p>Compute the second order partial derivatives of the function $\displaystyle f(x,y) = x\cos{y}+ye^x$</p>
+	<h3>Solution</h3>
+	</span>
+	<span class="fragment fade-in">	
+	<p>First derivatives:</p>
+	\[
+	 \frac{\partial f}{\partial x} = \cos{y}+ye^x, \qquad \frac{\partial f}{\partial y} = -x\sin{y}+e^x
+	\]	
+	</span>
+	</section>
+	
+	<section align="left">
+	<h3>Example 2.3 (ctd)</h3> 
+	<p>Second derivatives:</p>
+	\[
+	 \frac{\partial^2 f}{\partial x^2} = ye^x, \qquad \frac{\partial^2 f}{\partial y^2} = -x\sin{y}+e^x
+	\]
+	<span class="fragment fade-in">
+	<p>Mixed derivatives:</p>
+	\[
+	 \frac{\partial^2 f}{\partial y\partial x} = -\sin{y} + e^x, \qquad \frac{\partial^2 f}{\partial x\partial y} = -\sin{y} + e^x
+	\]
+	</span>
+	
+	<span class="fragment fade-in">
+	<h3>Example 2.4</h3> 
+	<p>Find $\partial^2 w/\partial x\partial y$ if</p>
+	\[
+	 w(x,y) = xy + \frac{e^y}{y^2+1}
+	\]
+	<h3>Solution</h3> 
+	</span>
+	<p class="fragment fade-in">The order of differentiation is important here: $\displaystyle w_x=y \implies 
+	\color{#00FF00}{\boxed{\color{white}{ w_{yx}=1=w_{xy}}}}$</p>
+	
+	</section>
+	</section>
+	
+	<section align="left">
+	<h1>Advanced Calculus L2</h1>
+	<br>
+	<ul>
+		<li>Multivariable differentiation</li>		
+		<ul>
+			<li>Limits and continuity</li>
+			<li>Partial differentiation</li>					
+		</ul>
+	
+		<br>
+		<span style="color: #00FF00"> 
+		<li>Mappings, curves and surfaces</li>			
+		</span>
+		<br>		
+		<li>The Jacobian matrix</li>			
+	</ul>	
+	</section>						
+		
+		
+		
+	<section align="left">
+	<h3>Transformations</h3>
+	<p>A <b style="color: red">transformation</b> of a region $\mathcal{R}_1$ into a region $\mathcal{R}_2$ is a rule that
+	assigns to each point of $\mathcal{R}_1$ a unique image point in $\mathcal{R}_2$</p> 
+	
+	<img style="margin:0px;padding:0px"				
+		height="200"					
+		src="figures/Transformation.png">
+		
+	<span class="fragment fade-in">	
+	<p>Examples include</p> 
+	<ul>
+		<li>mappings of an interval $[a, b]$ to a subset of $\mathbb{R}^n$ (curve in $\mathbb{R}^n$)</li><br>
+		<li>mappings of a square $[a, b]^2$ to a subset of $\mathbb{R}^n$ (surface in $\mathbb{R}^n$)</li>
+	</ul>
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00">In this course transformations will arise as parametrisations of curves or surfaces as above, or due to a 
+	change of variables/coordinate system</p>	
+	</section>
+	
+	<!--Curves-->
+	<section>
+	<section align="left">
 
-				<ul>
-					<li>Linear second order PDEs can be classified into 3 types</li>					 <br>
-					<li><p>Such a PDE has the following general form:</p>
-					\[
-					 \color{red}{\boxed{\color{white} {
-					 Au_{xx}+2Bu_{xy}+Cu_{yy}+Du_x+Eu_y+Fu=0}}}
-					\]</li><br>
-					<li>Here $A, B, C,\ldots$ are constants (in this course) and $u=u(x,t)$</li><br>
-					<span class="fragment fade-in">
-					<li><p>The three cases are:</p>
-					\[
-					\color{#00FF00}{\boxed{\color{white}{ 
-					\begin{align}
-					&\text{if    } AC-B^2>0 \text{   the PDE is elliptic}\\
-					&\text{if  } AC-B^2=0 \text{    the PDE is parabolic}\\
-					&\text{if  } AC-B^2<0 \text{    the PDE is hyperbolic}\\
-					\end{align}
-					}}}
-					\]</li></span>
-				</ul>
-														
+	<textBox touch-action="none">
+	<boxTitle>
+	<h3>Definition 2.2 (parametric curve)</h3>	
+	</boxTitle>
+	<p>If $x$ and $y$ are given as continuous functions</p>
+	\[
+	 x = f(t),\qquad y=g(t)
+	\]
+	<p>over an interval of $t$-values, then the set of points $\displaystyle (x, y) = (f(t), g(t))$
+	defined by these equations is a <b>curve</b> in the coordinate plane</p>
+	</textBox>
+	
+	<p>Using the langauge of transformations, a curve is a mapping (transformation) $\Phi(t):\mathbb{R}\to\mathbb{R}^2$</p>
+	<p>Here, $\displaystyle\Phi(t) = (f(t), g(t))$</p>
+	<span class="fragment fade-in">
+	<h3>Example 2.5</h3>
+	<p>Perhaps the most familiar such example is a circle:</p>
+	\[
+	C: [0, 2\pi]\to\mathbb{R}^2, \quad\text{defined by}\quad C(t) = \begin{pmatrix}\cos{t}&\sin{t}\end{pmatrix},\quad t\in[0,2\pi)
+	\]	
+	
+	</section>
+	
+	<section align="left">
+	<h3>Example 2.6 </h3>
+	<p>Draw the curve given by the transformation</p>
+	\[
+	C(t):\mathbb{R}\to\mathbb{R}^3,\qquad C(t) = 2\cos{t}\mathbf{i}+2\sin{t}\mathbf{j}+t\mathbf{k}
+	\]
+	for $t\in[0, 3\pi]$
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>The graph of $~C(t) = (f(t), g(t), h(t))~$ is that of a <em>helix</em> as shown below</p>
+	
+	<img style="margin:15px;padding:0px"				
+		height="250"					
+		src="figures/Helix.png">
+	</span>	
+	<p style="color:#00FF00" class="fragment fade-in">It is a curve in $\mathbb{R}^3$ since the mapping is of the form $C:\mathbb{R}\to\mathbb{R}^3$</p>	
+	</section>
+	
+	<section align="left">
+	<p>If the function $f(x,y)$ can be written explicitly as $y = f(x)$ then we can parametrise 
+	the curve given by the graph of $y=f(x)$ as follows</p>
+	\[
+	 \Phi(t) = (t, f(t)), \qquad t\in[a,b]
+	\]
+	
+	<span class="fragment fade-in">
+	<br>
+	<h3>Example 2.7</h3>
+	<p>A particle moves along the parabolic path given by the equation $y=x^2$. Its journey begins at the point $(−2, 4)$
+	and ends at the point $(1,1)$. Find a parametric equation for the particle's displacement along this path.</p>
+	<h3>Solution</h3>
+	</span>
+	<span class="fragment fade-in">
+	<p>The parametrisation is</p>
+	\[
+	 C(t) = (t, t^2)
+	\]
+	<p>with $t\in[-2, 1]$</p>
+	<img style="margin:0px;padding:0px;position:absolute;top:450px;left:800px"				
+		height="250"					
+		src="figures/Ex2p6Quad.png">	
+	</span>
+	</section>
+	
+	</section>
+	
+	
+	<!--Surfaces-->
+	<section>	
+	<section align="left">
+	<h3>Surfaces</h3>
+	<p>Just as with curves, we can represent surfaces in a number of ways</p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		\begin{align*}
+		&\text{Explicit form:}\qquad &z=f(x,y)\\
+		&\text{Implict form:} &F(x,y,z)=0\\
+		&\text{Parametric form:} &\mathbf{r}(s,t)=(f(s,t), g(s,t), h(s,t))\\
+		\end{align*}}}}
+	\]
+	
+	<p>Aas we can see from the above a surface is a mapping from $\mathbb{R}^2\to\mathbb{R}^n$</p> 
+	<p>Typically $n=3$,  <em>i.e.</em> we consider surfaces embedded in 3-dimensional space</p>
+	
+	<span class="fragment fade-in">
+	<p>The simplest example of a surface is a plane in $\mathbb{R}^3$, which is defined by the Cartesian equation</p>
+	\[
+	 ax+by+cz = d
+	\]
+	for constants $a, b, c, d\in\mathbb{R}$.
+	</span>
+	
+	<p class="fragment fade-in" style="color:#00FF00">What is the parametric equation of a plane?</p>
+	
+	</section>
+	
+	<section align="left">
+	<h3>Example 2.8 (parametric equation of a plane)</h3>
+	<p>We can write a <em>parametric equation</em> for a plane if we have a point on the plane and two non-parallel vectors $\mathbf{u}, \mathbf{v}$ that lie in the plane as follows</p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		T(s,t) = \mathbf{r} = \mathbf{r}_0 + s\mathbf{u} + t\mathbf{v}}}}
+	\]
+	<p>Here, $\mathbf{r}_0$ is the position vector of the point in the plane and </p>
+	\[\mathbf{r}(s,t) = (x(s,t), y(s,t), z(s,t)))\]
+	
+	<span class="fragment fade-in">
+	<p>We can relate this to our Cartesian representation:</p>
+	\[
+	 \mathbf{n}\cdot\mathbf{r} = \mathbf{n}\cdot\left(\mathbf{r}_0 + s\mathbf{u} + t\mathbf{v}\right) = a
+	\]
+	or
+	\[
+	 n_1x+n_2y+n_3z = a
+	\]
+	<p>for $a\in\mathbb{R}$, $\mathbf{n}$ a vector normal to the plane and $\mathbf{r}=\begin{pmatrix}x&y&z\end{pmatrix}$ a general
+	point on the plane.</p>
+	</span>
+	<img style="margin:0px;padding:0px;position:absolute;top:175px;left:750px"				
+		height="300"					
+		src="figures/Plane.png">	
+	</section>
+	
+	<section align="left">
+	<h3>Example 2.9</h3>
+	<p>Sketch the surface $z^2=x^2+y^2$ and determine a parametric form of the equation</p>
+	<h3>Solution</h3>
+	<span>
+	<span class="fragment fade-in">
+	<p>Here, cylindrical coordinates provides everything we need</p>
+	\[
+		x=r\cos\theta,\quad y=r\sin\theta, \quad z = \sqrt{x^2+y^2} = r
+	\]
+	<p>So our equation becomes</p>
+	\[
+		\mathbf{r}(r, \theta) = (r\cos\theta, r\sin\theta, r)
+	\]	
+	<p>It should be clear from this that the surface is a cone</p>	
+	<p>(For fixed height $r$ we have a circle of radius $r$ parallel to the $xy$-plane)</p>
+	</span>
+	<span class="fragment fade-in">
+	<p style="color:#00FF00"> Actually this is only half the story ...</p>
+	<img style="margin:0px;padding:0px;position:absolute;top:350px;left:850px"				
+		height="250"					
+		src="figures/Cone.png">	
+	</span>
+	</span>
+	
+	</section>
+	</section>	
+	
+	<section align="left">
+	<h1>Advanced Calculus L2</h1>
+	<br>
+	<ul>
+		<li>Multivariable differentiation</li>		
+		<ul>
+			<li>Limits and continuity</li>
+			<li>Partial differentiation</li>					
+		</ul>	
+		<br>	
+		<li>Mappings, curves and surfaces</li>					
+		<br>		
+		<li style="color:#00FF00">The Jacobian matrix</li>			
+	</ul>	
+	</section>		
+	
+	<section>
+	<section align="left">
+	<h3>The Jacobian matrix</h3>
+	<p>The <b>Jacobian matrix</b> of a transformation $T$ is the matrix of partial derivatives
+	of $T(u,v)$ and denoted $\displaystyle J = DT(u,v) = \partial T(u,v)/\partial(u,v)$</p>
+	
+	<p>If</p>
+	\[
+	 T(u,v) = (f(u,v), g(u,v))
+	\]
+	<p>then</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	 J = DT = \begin{pmatrix}f_u&g_u\\f_v&g_v\end{pmatrix}}}}
+	\]
+	<p>A fundamental property of the Jacobian determinant is that it represents the local scaling factor 
+	for area when a region undergoes a transformation</p> 
+	
+	<p>That is, if $\mathcal{U}$ is a small square that is mapped to $\mathcal{V}$ under $T$, then</p>
+	\[
+		\color{#00FF00}{\boxed{\color{white}{
+		\mathrm{area}(\mathcal{V}) = |J|\mathrm{area}(\mathcal{U})}}}
+	\]
+	</section>
+	
+	<section align="left">	
+	<h3>Example 2.10</h3>
+	<p>The square of a complex number $u+iv$</p>
+	\[
+	(u+iv)^2 = u^2-v^2 +i(2uv)
+	\]
+	<p>can be considered as a mapping of the complex plane as follows</p>
+	\[
+	T(u,v) = (u^2-v^2, 2uv)
+	\]
+	<span class="fragment fade-in">
+	<p>Its Jacobian is given by</p>
+	\[
+	 J = \begin{pmatrix}
+			2u&-2v\\
+			2v&2u
+		 \end{pmatrix}
+	\]
+	and its determinant
+	\[
+		|J| = 4(u^2+v^2)
+	\]
+	</span>
+	</section>
+	<section align="left">	
+	<h3>Example 2.11</h3>
+	<p>Compute the Jacobian matrix and determinant of the map</p>
+	\[
+	 T(u,v) = (\cos(\theta)u+\sin(\theta)v, -\sin(\theta)u+\cos(\theta)v)
+	\]
+	<p>where, $\theta\in[0, 2\pi]$ is fixed.</p>
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	\[
+		|J| = \begin{vmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{vmatrix} = \cos^2\theta+\sin^2\theta = 1
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>What does this tell us about the transformation?</p>
+	<p>Does it make sense?</p>
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00">Yes, the transformation is a rotation by $\theta$ about the origin 
+	and so areas are preserved</p>
+	</section>
+	
+	</section>
 			
-			</section>
-			<section>
-			
-				<section align="left">
-					
-					
-					<h3>Example 2.1 (a)</h3> <p>Classify the following PDE</p>
-					\[
-					 \color{red}{\boxed{\color{white} {
-					 \frac{\partial^2u}{\partial x^2}-2\frac{\partial^2u}{\partial x\partial y}+\frac{\partial^2u}{\partial y^2}=0
-					 }} }
-					\]
-					<h3>Solution</h3>
-					<span class="fragment fade-in">
-					<p>Since</p> \[A=C=1 \text{ and } B=-1\]
-					<p>so that </p> \[AC-B^2=0\]
-					<p> we have that the PDE is <em>parabolic</em>.</p>
-					</span>
-					
-				</section>
+	<section>
+	<h2 style="color:#00FF00">Lecture 2 Review</h2>
+	<br>
 				
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Multivariable differentiation</li>
+			<li>Mappings, curves and surfaces</li>			
+		</ul><br>
+		<li>After this lecture you should be </li>
+		<ul>
+			<li>Apply multivariable differentiation and related concepts of limits and continuity</li>
+			<li>Construct and interpret the equations of basic curves and surfaces in 2D and 3D</li>
+			<li>Explain how the Jacobian determinant quantifies the local change in area when mapping a planar region</li>
+		</ul><br>					
+	</ul>			
 				
-				<section align="left">
-															
-					<h3>Example 2.1 (b)</h3> <p>Classify the following PDE</p>
-					\[
-					 \color{red}{\boxed{\color{white}{ 
-					 \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial u}{\partial x}=0
-					 }} }
-					\]
-						
-					<h3>Solution</h3>
-					<span class="fragment fade-in">
-					<p>Since</p> \[A=C=1 \text{ and } B=0\]
-					<p>so that </p> \[AC-B^2=1>0\]
-					<p> we have that the PDE is <em>elliptic</em>.</p>
-					</span>
-				</section>			
-				
-				<section align="left">
-					
-					<h3>Example 2.1 (c)</h3><p> Classify the following PDE</p>
-					\[
-					 \color{red}{\boxed{\color{white} {
-					 y\frac{\partial^2u}{\partial x^2}+x\frac{\partial^2u}{\partial y^2}=0}
-					 }} 
-					\]
-					<h3>Solution</h3>
-					<span class="fragment fade-in">
-					<p>Since</p> \[A=y, C=x \text{ and } B=0\]
-					<p>we have that </p> \[AC-B^2=xy\]
-					<p>and so $AC-B^2$ is dependent upon which quadrant we are in.</p>
-					</span>					
-					
-					<p class="fragment fade-in"> This has significant implications when solving such a PDE numerically</p>
-				</section>
-				
-			</section>
-
-			<section align="left">
-				<h2>Method of solution depend on PDE type</h2>				
-				
-				<p>For example</p>
-				
-				<ul>
-					<li><p><b>Parabolic PDEs</b> can be transformed into a form analogous to the <b>heat equation</b> and so solved with <em>standard methods</em></p></li>
-					<li class="fragment fade-in"><p>The famous <b>Black Scholes PDE</b> can be solved in this way to obtain the BS formula that is used to price financial derivatives</p>
-					\[
-					\color{red}{\boxed{\color{white} {
-					\frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV=0}}}
-					\]</li>
-					<li class="fragment fade-in"><p><b>Hyperbolic and elliptic PDEs</b> can similarly be transformed to a form similar to the <b>wave and Laplace equations</b>, respectively</p></li>
-				</ul>
-				
-			</section>           
-			
-			<section align="left">
-				<h1>Advanced Calculus L2</h1>
-				<br>
-				<ul>
-					<li>Introduction to Partial Differential Equations (PDEs)</li>
-					<br>
-					<li>PDE classification</li>					
-					<br>
-					<span style="color: #00FF00"> <li>Solving PDEs like ODEs</li></span>
-					<br>
-					<li>PDEs when the solution is partly known</li>
-				</ul>
-			</section>	
-			
-			<section>
-				<section  align="left">
-					<h2>Solving PDEs like ODEs</h2>
-									
-						<p>Sometimes we can use methods available for solving ODEs</p>
-							
-						<p>More specifically, if the PDE contains derivatives with respect to only one variable it can be treated as an ODE</p>					
-						
-						<span class="fragment fade-in">
-						<h3>Example 2.2</h3> <p>Solve &ensp; $\color{red}{\boxed{\color{white}{ u_{xx}-u=0}}}$&ensp;  (here $u=u(x,y)$) as an ODE</p>
-						
-						<h3>Solution</h3>
-						</span>
-						<p class="fragment fade-in">Since the PDE has only derivatives in $x$ we can treat it like the ODE: \[u''-u=0\]
-						which we solve by using the slight variation on our usual <em>ansatz</em>...<p>
-					
-				</section>
-				<section  align="left">								
-					
-					<p>... that is we take</p> 
-					
-					\[\color{red}{\boxed{\color{white}{ u(x,y)=A(y)e^{mx}}}}\] <p>and substitute this into our equation:</p>
-					
-					\[
-					A(y)m^2e^{mx}-A(y)e^{mx} = A(y)e^{mx}\left(m^2-1\right) =0
-					\]
-					<span class="fragment fade-in">
-					</p>This results in two solutions </p>
-						
-						\[ 
-						 u_1(t)=A_1(y)e^{x} ~\text{ and }~ u_2(t)=A_2(y)e^{-x}
-						\]
-					<p>We combine these linearly to obtain the general solution</p>
-					
-					\[
-					\color{#00FF00}{\boxed{\color{white}{ 
-					u(x,y) = A_1(y)e^{x}+A_2(y)e^{-x}
-					}}}
-					\]
-									</span>
-				</section>
-				<section  align="left">								
-					
-					<h3>Example 2.3</h3> <p>Solve &ensp; $\color{red}{\boxed{\color{white}{ u_{xy}+u_x=0}}}$&ensp;  (here $u=u(x,y)$) as an ODE</p>
-					
-					<h3>Solution</h3>
-					<span class="fragment fade-in">
-					<p>Setting $v = u_x$ we can rewrite our equation as </p>
-					\[
-					v_y+v = 0 \implies v = A(x)e^{-y} \quad (\text{as the ODE is separable})
-					\]
-					<span class="fragment fade-in">
-					<p>Or </p>
-					\[
-					u_x = A(x)e^{-y} \implies 
-					\color{#00FF00}{\boxed{\color{white} {
-					 u(x,y) = B(x)e^{-y}+C(y)}}}
-					\]
-					<p>which is the general solution &ensp;
-					(Here, $B(x)=\int A(x)\mathrm{d}x$)</p>					
-					</span>
-				</section>				
-			</section>
-			
-			<section align="left">
-				<h1>Advanced Calculus L2</h1>
-				<br>
-				<ul>
-					<li>Introduction to Partial Differential Equations (PDEs)</li>
-					<br>
-					<li>PDE classification</li>					
-					<br>
-					<li>Solving PDEs like ODEs</li>
-					<br>
-					<span style="color: #00FF00"> <li>PDEs when the solution is partly known</li></span>
-				</ul>
-			</section>
-			
-			<section>
-				<section  align="left">
-					<h2>Solving PDEs when the solution is partly known</h2>				
-					
-					<p>Sometimes we can use the information about the system of interest (which the PDE models) to partially 'guess' the solution	</p>
-					
-					<h3>Example 2.4</h3> <p>Solve</p> 
-					
-					\[\color{red}{\boxed{\color{white}{ z+\frac{\partial^2 z}{\partial x^2}+\frac{\partial^2z}{\partial t^2}-2\frac{\partial z}{\partial t}=0}}}\]  
-					
-					<p>(Here $z=z(x,t)$) subject to the conditions</p>
-					
-					\[
-					 z(x,0)=4\sin(3x)\quad\text{and}\quad z(0,t)=0
-					\]
-					
-					<p>given that &ensp; $\color{green}{\boxed{\color{white}{ z(x,t) = f(x)e^{-2t}}}}$</p>
-					
-					
-				</section>
-				
-				<section align="left">					
-				
-					<h3>Solution</h3>					
-					<p>We start by working out the necessary derivatives</p>
-					\[
-					 \begin{align*}
-					  z_t &= -2f(x)e^{-2t} \quad z_{tt} = 4f(x)e^{-2t}\\\\					  
-					  z_x&=f'e^{-2t} \quad z_{xx} =f''(x)e^{-2t}\\					  
-					 \end{align*}
-					\]
-					<span class="fragment fade-in">
-					<p>which upon substitution into our PDE gives</p>
-					\[ 
-					fe^{-2t}+f''e^{-2t}+4fe^{-2t}+4fe^{2t} = e^{-2t}\left(f''+9f\right)= 0
-					\]
-					</span>
-					<span class="fragment fade-in">
-					<p>Or </p>
-					\[
-					\color{#00FF00}{\boxed{\color{white}{
-					 f''+9f = 0}}} \quad \left(\text{An ODE for the unknown function  } ~f(x)\right)
-					\]					
-					</span>
-				</section>
-				
-				<section align="left">					
-				
-					<p>The <em>auxillary equation</em> is </p>
-					\[
-					 m^2+9=0\implies m = \pm 3i
-					\]
-					<p>And so $f$ is given by</p>
-					\[
-					 f(x) = A\cos(3x)+B\sin(3x)
-					\]
-					<span class="fragment fade-in">
-					<p>Substituting this back in to the original equation for $z(x,t)$ gives</p>
-					\[
-					 \color{#00FF00}{\boxed{\color{white}{
-					 z(x,t) = \left(A\cos(3x)+B\sin(3x)\right)e^{-2t}}}}
-					\]
-					<p>as our general solution </p>
-					</span>
-					
-					<p class="fragment fade-in">To obtain the particular solution...</p>
-					
-				</section>				
-				
-				<section align="left">					
-					
-					<p>... we incorporate our boundary and initial data:					</p>
-					\[
-					 z(0,t) = Ae^{-2t} = 0 \implies A = 0
-					\]
-					<p>And</p>
-					\[
-					\begin{align*}
-					 z(x,0) &= B\sin(3x) = 4\sin(3x)\\
-					 \implies&  B = 4
-					\end{align*}
-					\]					
-					<p>Giving the particular solution </p>
-					\[
-					\color{#00FF00}{\boxed{\color{white}{
-					 z(x,t) = 4\sin(3x)e^{-2t}}}}
-					\]
-					
-				</section>
-				
-				<section  align="left">					
-				
-					<h3>Example 2.5</h3> <p>Assuming a solution of the form $\displaystyle u(x,y)=y^\alpha f(x)$, where $\alpha$ is a constant, solve the following PDE</p>
-					\[
-					\color{red}{\boxed{\color{white}{
-					 y^2u_{yy}+2yu_y-2u=0}}}
-					\]
-					
-					<h3>Solution</h3>
-					<span class="fragment fade-in">
-					<p>To start </p>
-					\[
-					 u_y =\alpha y^{\alpha-1}f(x)  \quad \text{and} \quad u_{yy} = \alpha(\alpha-1)y^{\alpha-2}f(x)
-					\]
-					<p>which upon substitution gives</p>
-					\[
-					 \alpha(\alpha-1)y^{\alpha-2}f(x)+\frac{2}{y}\alpha y^{\alpha-1}f(x)-\frac{2}{y^2}y^\alpha f(x)=0
-					\]
-					<p>Rearranging gives...</p>
-					</span>
-				</section>
-				
-				<section  align="left">					
-				<p>...</p>
-					\[
-					\color{#00FF00}{\boxed{\color{white}{
-					 y^{\alpha-2}f(x)\left[\alpha^2+\alpha-2\right] = 0
-					}}}
-					\]
-					<span class="fragment fade-in">
-					<p>This equation has solutions (s.t $f(x)$ is non-zero) provided</p>
-					\[
-					\alpha^2+\alpha-2 = (\alpha-1)(\alpha+2)=0
-					\]
-					</span>
-					<span class="fragment fade-in">
-					<p>Thus we have two solutions:</p>
-					\[
-					u_1(x,y) = yf_1(x)\quad\text{and}\quad u_2(x,y) = y^{-2}f_2(x)
-					\]
-					<p>Which we combine linearly to obtain the general solution</p>
-					\[
-					\color{red}{\boxed{\color{white}{
-					u(x,y) = Ayf_1(x)+\frac{B}{y^2}f^2(x)}}}
-					\]
-					</span>
-				</section>					
-			</section>
-			<section>
-				<h2 style="color:#00FF00">Lecture 2 Review</h2>
-				<br>
-				
-				<ul>						
-					<li>In this lecture we covered</li>
-					<ul>
-						<li>PDEs</li>
-						<li>Introduced the three canonical PDEs (heat, wave and Laplace's equations)</li>
-						<li>Obtained solutions for a simple class of PDEs</li>
-					</ul><br>
-					<li>After this lecture you should be </li>
-					<ul>
-						<li>Aware of the three different classes of PDEs (parabolic, hyperbolic and elliptic)</li>
-						<li>Aware of the three classical example sof these classes</li>
-						<li>Able to solve PDEs in which the solution is partly known</li>
-					</ul><br>					
-				</ul>			
-				
-			</section>
-					 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>
+	 <!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
