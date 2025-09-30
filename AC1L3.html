@@ -27,450 +27,439 @@
       <!-- ################################################### -->
       <!-- ################################################### -->
 	<section>
-		<h1>Advanced Calculus</h1>
-		<h2>Lecture 3</h2>
-		<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-		<p style="color: #00FF00">Nottingham Trent University</p>
+	<h1>Advanced Calculus</h1>
+	<h2>Lecture 3</h2>
+	<p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+	<p style="color: #00FF00">Nottingham Trent University</p>
     </section>				
-				<section align="left">
-					<h1>Advanced Calculus L3</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>Periodic, odd and even functions</li></span>
-						<li> Fourier series</li>
-						<ul>
-							<li>Fourier series motivation</li></span>		
-							<li>The principal of superposition</li>		
-						</ul>
-						<li>Example</li>
-					</ul>
-				</section>
+			
+	<section align="left">
+	<h1>Advanced Calculus L3</h1>
+	<br>
+	<ul>
+		<span style="color: #00FF00"> 
+		<li>Scalar and vector fields</li></span>
+		<br>
+		<li> Grad, div and curl operators</li>
+		<br>
+		<li>Examples</li>
+	</ul>
+	</section>
+	
+	<section>
+		<section align="left">
+		<p>A <b>scalar field</b> is a function associating a single number to each point in a region of space</p>
+		
+		<p>For example, the function</p>
+		\[
+		 d(\mathbf{r}) = d(x,y,x) = \sqrt{x^2+y^2+z^2}
+		\]
+		<p><em>i.e.</em> the distance of each point in space from the origin</p>
+		<br>
+		<span class="fragment fade-in">
+		<p>Other examples include the temperature $T(x,y,z)$ acoss the Earth's surface, the height $H(x,y)$ above sea-level <em>etc.</em></p>
+		
+		<img style="margin:0px;padding:0px;position:absolute;top:150px;left:850px"				
+		height="200"					
+		src="figures/annavgtemp.png">
+		</span>		
+		</section>			
+		
+		<section align="left">
+		<p>A <b>vector field</b> is a function associating a vector to each point in a region of space</p>
+		
+		<h3>Example 3.1</h3>
+		<p>Examples of vector fields include</p>
+		<ul>			
+			<li>Flow past an obstacle</li><br>
+			<img style="margin:0px;padding:0px;position:absolute;top:150px;left:650px"				
+			height="150"					
+			src="figures/Flow.png">
+			<span class="fragment fade-in">
+			<li>Gravitational force due to the Earth</li>
+			<img style="margin:0px;padding:0px;position:absolute;top:350px;left:550px"				
+			height="150"					
+			src="figures/Gravity.png">
+			</span>
+		</ul>	
+		</section>	
+		
+		<section align="left">
+		<h3>Example 3.2</h3>
+		<p>Sketch the planar vector fields:</p>
+		\[
+			\begin{align*}
+			(i)~ \mathbf{v}(x,y) &=x^2\mathbf{i}+y^2\mathbf{j}\\
+			&\\
+			(ii)~ \mathbf{v}(x,y) &=\frac{-y\mathbf{i}+x\mathbf{j}}{x^2+y^2}
+			\end{align*}
+		\]
+		<h3>Solution</h3>
+		<img style="margin:0px;padding:0px;position:absolute;top:375px;left:125px"				
+			height="350"				
+			class="fragment fade-in"
+			src="figures/Eg3p2a.png">
+		<img style="margin:0px;padding:0px;position:absolute;top:375px;left:550px"				
+			height="350"					
+			class="fragment fade-in"
+			src="figures/Eg3p2b.png">	
+		
+		</section>
+	</section>
+			
+	<section align="left">
+	<h1>Advanced Calculus L3</h1>
+	<br>
+	<ul>
+		
+		<li>Scalar and vector fields</li>
+		<br>
+		<span style="color: #00FF00"> 
+		<li> Grad, div and curl operators</li></span>
+		<br>
+		<li>Examples</li>
+	</ul>
+	</section>	
+	
+	<section>
+		<section align="left">
+		<p>Let $\phi$ be a scalar function of position (<em>i.e.</em> a scalar field),</p>
+		\[
+			\phi(\mathbf{r}) = \phi(x,y,z),\qquad (x,y,z)\in S\subset\mathbf{R}^3
+		\]
+		<p></p>
+		<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 3.1</h3>
+		</boxTitle>
+		<p>The gradient of the scalar field $\phi$, denoted $\nabla\phi$, is the vector function composed of the partial
+		derivatives of $\phi$, <em>i.e.</em></p>
+		\[
+			\begin{align*}
+			\nabla\phi &= \begin{pmatrix}\phi_x&\phi_y&\phi_z\end{pmatrix}\\
+					   &= \frac{\partial\phi}{\partial x}\mathbf{i} +\frac{\partial\phi}{\partial y}\mathbf{j} +\frac{\partial\phi}{\partial z}\mathbf{k}
+			\end{align*}
+		\]
+		<p></p>
+		</textBox>	
+		
+		<p class="fragment fade-in">An alternative notation is $\mathrm{grad}(\phi)$</p>
+		
+		<p class="fragment fade-in">Importantly, the gradient can be used to determine the tangent plane of a surface</p>
+		
+		</section>
+		 
+		<section align="left">
+		<p style="color:#00FF00">It can be shown that a function $f$ increases/decreases most rapidly in the direction of the gradient, $\pm\nabla\phi$</p>
+		
+		<h3>Example 3.3</h3>
+		<p>Find the directions in which $f(x,y)=(x^2/2)+(y^2/2)$ (a) increases most rapidly and (b) decreases most rapidly 
+		at the point $(1,1)$</p>
+		
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>(a) The function increases most rapidly in the direction of $\nabla f$:</p>
+		\[
+		 \nabla f = \begin{pmatrix}x\mathbf{i}+y\mathbf{j}\end{pmatrix}_{(1,1)} = \begin{pmatrix}1&1\end{pmatrix}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>(b) The function decreases most rapidly in the direction of $-\nabla f$:</p>
+		\[
+		 -\nabla f_{(1,1)} = \begin{pmatrix}-1&-1\end{pmatrix}
+		\]
+		</span>
+		</section>
+		
+		<section align="left">
+		<p>We can use the gradient to find the tangent to a <em>level curve</em></p>
+		
+		<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 3.2 (level curves)</h3>
+		</boxTitle>		
+		<p>The set of points in the plane where a function $f(x,y)$ has a constant value</p>
+		\[
+			f(x,y) = c
+		\]
+		<p>is called a <b>level curve</b> of $f$</p>
+		</textBox>	
+		
+		<p class="fragment fade-in">The set of all points $(x, y, f(x,y))$ in space, for the domain $(x, y)$ of $f$, is called the graph of $f$, and
+		is also the surface $z = f(x,y)$</p>
+		
+		<p class="fragment fade-in" style="color:#00FF00">The above idea can be extended to obtain level surfaces (<em>i.e.</em> $f(x,y,z)=c$)<p>
+		
+		<p class="fragment fade-in"><b>Importantly, it can be shown that $\left(\nabla f\right)\left.\right|_{(x,y)}$ is normal to the level curve at the point $(x,y)$</b></p>
+		
+		</section>
+		
+		<section align="left">
+		<h3>Example 3.4</h3>
+		<p>The figure shows the graph of the surface $z = x^2+y^2$ along with level curves for $z=0, 0.5, 1, \ldots, 4$</p>
+		
+		<img style="margin:20px;padding:20px"				
+		height="400"					
+		src="figures/ParaboloidLevelCurves.png">
+		</section>
+		
+		<section align="left">
+		<h3>Example 3.5</h3>
+		<p>Graph $f(x,y)=100-x^2-y^2$ and plot the level curves $f(x,y)=0$ and $f(x,y)=75$</p>
+		
+		<h3>Solution</h3>
+		<p class="fragment fade-in">The domain of $f$ is the entire $xy$-plane and the range is the set of real numbers less than or equal to 100</p>
+		
+		<span class="fragment fade-in">
+		<p>A portion of the paraboloid is shown in the figure</p>
+		<img style="margin:0px;padding:0px;position:absolute;top:325px;left:950px"				
+		height="350"					
+		src="figures/Ex3p3_VC.png">	
+		</span>
+		
+		<span class="fragment fade-in">
+		<p>The level curve $f(x,y)=0$:</p>
+		\[
+		 f(x,y) = 100-x^2-y^2 = 0 \implies x^2 + y^2 = 100
+		\]
+		
+		<p>which is the circle of radius 10 centred at the origin.</p>
+		</span>
+		
+		<p class="fragment fade-in" style="color:#00FF00">Similarly, the level curve $f(x,y)=75$ is a circle of radius 5 with centre (0,0)</p>
+		</section>	
+		
+		<section align="left">
+		<h3>Example 3.6</h3>
+		<p>Find the tangent plane and normal line of the surface at $P_0(1,2,4)$</p>
+		\[
+		 f(x,y,z) = x^2+y^2+z-9=0
+		\]
+	
+		<h3>Solution</h3>
+		<span class=fragment fade-in>
+		<p>The tangent plane through $P_0$ is perpindicular to the gradient of $f$ at $P_0$</p>
+		\[
+			\nabla f\left|_{P_0}\right. = \left(2x\mathbf{i}+2y\mathbf{j}+\mathbf{k}\right)_{(1,2,4)} = (2, 4, 1)
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>The plane is therefore</p>
+		\[
+		 2(x-1) + 4(y-2) + (z-4) = 0\qquad \text{or} \qquad 2x+4y+z = 14
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>The line normal to the surface at $P_0$ is</p>
+		\[
+			\color{red}{\boxed{\color{white}{
+			\mathbf{r}(t) = \begin{pmatrix}1\\2\\4\end{pmatrix} + t\begin{pmatrix}2\\4\\1\end{pmatrix}
+			}}}
+		\]
+		</span>
+		</section>
+	</section>
+	
+	<section>
+		<section align="left">
+		
+		<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 3.1</h3>
+		</boxTitle>
+		<p>The <b>divergence</b> or <b>flux density</b> of a vector field $\mathbf{F} = M(x,y)\mathbf{i}+N(x,y)\mathbf{j}$
+		at the point $(x,y)$ is</p>
+		\[
+		\nabla\cdot\mathbf{F} = \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}
+		\]
+		<p></p>
+		</textBox>	
+		
+		<p class="fragment fade-in">An alternative notation is $\mathrm{div}(\mathbf{F})$</p>		
+		
+		<p class="fragment fade-in">The extension to 3 dimensions is just $\displaystyle \nabla\cdot\mathbf{F} = M_x+N_y+Q_z$ 
+		for a field $\displaystyle \mathbf{F} = (M(x,y,z), N(x,y,z), Q(x,y,z))$</p>
+		
+		<p class="fragment fade-in">Intuitively, suppose the vector field describes a fluid flow, water say. Then the divergence 
+		evaluated at $(x,y)$ tells us if the fluid is expanding ($\nabla\cdot\mathbf{F}>0$) or contracting ($\nabla\cdot\mathbf{F}<0$) at that point. 
+		
+		</section>
+	</section></section>
+	
+	<section>
+		<section align="left">		
+		<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 3.1 (2d curl)</h3>
+		</boxTitle>
+		<p>The <b>curl</b> or <b>circulation density</b> of a vector field $\mathbf{F}=M(x,y)\mathbf{i}+N(x,y)\mathbf{j}$ as 
+		the point $(x, y)$ is</p>
+		\[
+			\nabla\times\mathbf{F} = \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
+		\]
+		<p></p>
+		</textBox>	
+		
+		<p class="fragment fade-in">An alternative notation is $\mathrm{curl}(\mathbf{F})$</p>		
+		
+		<p class="fragment fade-in">Intuitively, <b>Curl</b> measures the tendency of a vector field to induce 
+		rotation (like a whirlpool or spinning motion). </p>		
+		
+		</section>
+		
+		<section align="left">
+		<p>The curl is a vector quantity in 3D that points in the direction of the axis of rotation, with magnitude 
+		corresponding to the strength of rotation.</p>
+		
+		<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 3.1 (3d curl)</h3>
+		</boxTitle>
+		<p>The <b>curl</b> of a 3d vector field $\mathbf{F}=M(x,y,z)\mathbf{i}+N(x,y,z)\mathbf{j} + P(x,y,z)\mathbf{k}$ at 
+		the point $(x, y, z)$ is</p>
+		\[
+			\nabla\times\mathbf{F} = \begin{pmatrix}\partial P/\partial y - \partial N/\partial z & 
+			\partial M/\partial z - \partial P/\partial x & 
+			\partial N/\partial x - \partial M/\partial y 
+			\end{pmatrix}
+		\]
+		<p></p>
+		</textBox>	
+		
+		<span class="fragment fade-in">
+		<p>For remembering the curl we use the device</p>
+		\[
+		\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+		\partial/\partial x&\partial/\partial y&\partial/\partial z\\
+		M&N&P\end{vmatrix}
+		\]
+		</span>
+		
+		</section>
+	</section>
+			
+	<section align="left">
+	<h1>Advanced Calculus L3</h1>
+	<br>
+	<ul>		
+		<li>Scalar and vector fields</li>
+		<br>
+		<li> Grad, div and curl operators</li>
+		<br>
+		<span style="color: #00FF00"> 
+		<li>Examples</li></span>
+	</ul>
+	</section>
 				
-				<section>
-					<section  align="left">					
-						<h2>Periodic functions</h2>					
-						
-						<textBox touch-action="none">
-						<boxTitle>
-						<h3>Definition 3.1</h3>
-						</boxTitle>
-						<p>$f$ is a <b>periodic function</b> if there is an $a>0$ such that</p>
-						\[
-						 f(x+a) = f(x) \quad \forall x\in\mathbb{R}						
-						\]
-						<p>If this is the case then $a$ is called a <b>period</b> of $f$</p>
-						</textBox>
-						
-						<span class="fragment fade-in">
-					 
-						<ul>
-							<li>The period is not unique, but if there is a smallest such $a$ it is called the <a style="color:#00FF00">prime period</a> of $f$</li><br>
-							<li>Examples of periodic functions include ...</li>
-						</ul>
-						</span>
-						</font>
-					</section>
-					
-					<section  align="left">	
-					<h3>Examples of periodic functions (press play...)</h3>					<br>
-						<font size="6">								
-						<video data-src="videos/PeriodicFunctions.mp4" controls style="border: 3px solid white;"></video>											
-						</font>
-					</section>
-				</section>
+	<section>
+		<section align="left">
+		<h3>Example 3.7</h3>
+		<p>Consider the following fields</p>
+		\[
+		 \phi(x,y,z) = x^2+y^2+z^2\quad\text{and} \quad\mathbf{F} = (x, y, z)
+		\]
+		<p>Show that</p>
+		\[
+			(i) \nabla\phi = 2\mathbf{r}, (ii) \quad \nabla^2\phi = 6, \quad (iii) \nabla\cdot\mathbf{F}=3, \quad (iv) \nabla\times\mathbf{F}=0
+		\]
+		<h3>Solution</h3>	
+		<p class="fragment fade-in">$\displaystyle (i) \quad\nabla\phi = (2x, 2y, 2z) = 2\mathbf{r}$</p>
+		
+		<span class="fragment fade-in">
+		$(ii)$
+		\[
+		\begin{align*}
+		\nabla^2\phi &= \nabla\cdot\nabla\phi\\ 
+					 &=\nabla\cdot\left(2\mathbf{r}\right)\\
+					 &=\frac{\partial}{\partial x}\left(2x\right) +
+					 \frac{\partial}{\partial z}\left(2y\right) +
+					 \frac{\partial}{\partial x}\left(2z\right) =6\\
+					&\\
+		\end{align*}
+		\]
+		</span>
+		<p class="fragment fade-in">$(iii)\quad 
+		\nabla\cdot\mathbf{F} = \frac{\partial}{\partial x}\left(x\right) +
+		\frac{\partial}{\partial y}\left(y\right)+\frac{\partial}{\partial z}\left(z\right) = 3
+		$</p>
+		
+		
+		</section>
+		
+		<section align="left">
+		<h3>Example 3.7 (ctd)</h3>
+		\[
+		\begin{align*}
+		\nabla\times\mathbf{F} &=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+		\partial/\partial x&\partial/\partial y&\partial/\partial z\\x&y&z\end{vmatrix}\\
+		&\\ 
+		&=\mathbf{i}\begin{vmatrix}\partial/\partial y&\partial/\partial z\\y&z\end{vmatrix}
+		-\mathbf{j}\begin{vmatrix}\partial/\partial x&\partial/\partial z\\x&z\end{vmatrix}		
+		+\mathbf{k}\begin{vmatrix}\partial/\partial x&\partial/\partial y\\x&y\end{vmatrix}\\
+		&\\
+		&=(0, 0, 0)
+		\end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>To see why this makes sense consider the following picture</p>
+		<img style="margin:0px;padding:0px;position:absolute;top:400px;left:750px"				
+		height="250"					
+		src="figures/Ex3p7VecField.png">	
+		<p>This is the 2d vector field given by $(x,y)$</p>
+		<p>Clearly there is no rotation</p>
+		</span>
+		</section>
+		
+		<section align="left">
+		<h3>Example 3.8</h3>
+		<p>Let</p>
+		\[
+		 \phi(\mathbf{r}) = g(||\mathbf{r}||), \quad g:\mathbb{R}\to\mathbb{R}
+		\]
+		<p>Show that</p>
+		\[
+			\nabla g = \frac{g'(||\mathbf{r}||)}{||\mathbf{r}||}\mathbf{r}
+		\]
+		<h3>Solution</h3>
+		<p class="fragment fade-in">Let $\displaystyle r = ||\mathbf{r}|| = \sqrt{x^2+y^2+z^2}$, then</p>
+		<span class="fragment fade-in">
+		\[
+		\begin{align*}
+		\frac{\partial r}{\partial x} &= \frac{\mathrm{d}g}{\mathrm{d}r}\frac{\partial r}{\partial x}
+		 = g'(r)\cdot\frac{1}{2}\left(x^2+y^2+z^2\right)^{-1/2}2x\\
+		 &= \frac{g'(r)}{r}x
+		 \end{align*}
+		\]
+		</span>
+		<p class="fragment fade-in">Also $\displaystyle \frac{\partial g}{\partial y} =\frac{g'(r)}{r}y$ and 
+		$\displaystyle \frac{\partial g}{\partial z} =\frac{g'(r)}{r}z\implies 
+		\color{red}{\boxed{\color{white}{\nabla g = \frac{g'(r)}{r}(x, y, z)}}}$
+		</section>
+	</section>
 				
-				<section  align="left">					
-					<h2>Properties of periodic functions </h2>
+	<section>
+	<h2 style="color:#00FF00">Lecture 3 Review</h2>
+	<br>
 					
-					<p>If $f, g$ are periodic functions with period $a$, then:</p>
-					
-					<ul>
-						<li><p>$f,g$ are also periodic functions with period $na, n\in\mathbb{N}$</p></li>
-						<li><p>For any $\alpha, \beta\in \mathbb{R}$, $\alpha f+\beta g$ is periodic with period $a$</p></li>
-						<li><p>$f\cdot g$ is periodic with period $a$</p></li>
-						<li><p>For any $\lambda>0$, $f(\lambda x)$ is periodic with period $a/\lambda$</p></li>
-						<li><p>For any $\alpha\in \mathbb{R}$</p>
-						\[
-						\color{white}{\boxed{
-						\int_0^a f(x)\mathrm{d}x = \int_\alpha^{\alpha+a}f(x)\mathrm{d}x
-						}}
-						\]
-						</li>
-					</ul>
-					
-				</section>
-				
-				<section  align="left">					
-					<h2>Proof of last property</h2>
-					
-					<p>Assuming $\alpha< a$</p>
-					\[
-					 \begin{align*}
-					  \int_\alpha^{\alpha+a}f(x)\mathrm{d}x &= \int_\alpha^a f(x)\mathrm{d}x+\int_{a}^{\alpha+a}f(x)\mathrm{d}x\\
-					  &=\int_\alpha^a f(x)\mathrm{d}x+\int_0^\alpha f(y+a)\mathrm{d}y \\
-					  &=\int_\alpha^a f(x)\mathrm{d}x+\int_0^\alpha f(y)\mathrm{d}y \\
-					  &= \int_0^af(x)\mathrm{d}x \quad\text{as required}
-					 \end{align*}
-					\]					
-				
-					<p class="fragment fade-in">The third line follows since $f(y+a)=f(y)$ <em>i.e.</em> $f$ is periodic with period $a$</p>
-					
-					</font>
-				</section>
-				
-				<section>
-					<section  align="left">					
-						<h2>Even and odd functions</h2>
-						<textBox touch-action="none">
-						<boxTitle>
-						<h3>Definition 3.2</h3>
-						</boxTitle>
-						<p>Algebraicly $f$ is <b>even</b> if and only if $f(-x)=f(x)$ for all $x$ in the domain of $f$</p>						
-						</textBox>
-						
-					 
-					 <p>Geometrically, a function $f(x)$ is even if it admits reflective symmetry about the $y$-axis</p>
-					 
-					 <p>Some familiar examples include ...</p>
-						
-					</section>
-					
-					<section  align="left">											
-						<h3>Examples of even functions (press play ...)</h3><br>
-						<video data-src="videos/EvenFuncs.mp4" controls style="border: 3px solid white;"></video>											
-					
-					</section>
-					
-					<section  align="left">					
-						<h2>Even and odd functions</h2>
-						
-						<textBox touch-action="none">
-						<boxTitle>
-						<h3>Definition 3.2</h3>
-						</boxTitle>
-						<p>Algebraicly $f$ is <b>odd</b> if and only if $f(-x)=-f(x)$ for all $x$ in the domain of $f$</p>						
-						</textBox>												
-					 
-					 <p>Geometrically, a function $f(x)$ is odd if it admits rotational symmetry with respect to the origin</p>
-					 
-					 <p>Some familiar examples include ...</p>
-						
-					</section>
-					
-					<section  align="left">											
-						<h3>Examples of odd functions (press play ...)</h3><br>
-						<video data-src="videos/OddFuncs.mp4" controls style="border: 3px solid white;"></video>											
-					
-					</section>
-				</section>
-				
-				<section>
-					<section  align="left">					
-						<h2>Properties of even and odd functions</h2>
-						
-						<p>The following properties of even/odd functions will be important for us</p>
-						
-						<ul>
-							<li><p>the product of two even <em>or</em> two odd functions is even</p></li>
-							<li><p>the product of an odd and even function is odd</p></li>
-						</ul><br><br>
-						<span class="fragment fade-in">
-						<h3>Proof (first statement (even case))</h3> 
-						<p>Let $f, g$ be two even functions and let $h(x) = f(x)g(x)$ be their product. Then</p>
-						\[
-						h(-x) = f(-x)g(-x) = f(x)g(x) = h(x)
-						\]
-						<p>proving the result</p>
-						
-						<a style="color:#00FF00">The remaining are proved similarly</a></span>
-					
-					</section>
-					
-					<section  align="left">					
-						<h2>Properties of even and odd functions</h2>
-						
-						<p>The integrals of even and odd functions over symmetric intervals about the origin 
-						simplify considerably	</p>
-						<p>As alluded to in the illustration, for even functions we have</p>
-						
-						$\color{#00FF00}{\boxed{\color{white}{\int_{-L}^Lf(x)\mathrm{d}x = 2\int_0^L f(x)\mathrm{d}x}}}$				
-											
-						
-						<p>See the video to the right for an<br> illustration of 
-						this important property</p>
-						
-						<video controls data-src="videos/EvenIntegral.mp4" style="position:absolute;top:300px;left:650px;width:45%;border: 3px solid white;"></video>	
-					</section>
-					
-					<section  align="left">					
-						<h2>Properties of even and odd functions</h2>
-						
-						<p>The integrals of even and odd functions over symmetric intervals about the origin 
-						simplify considerably	</p>
-						
-						<p>As alluded to in the illustration, for odd functions we have</p>
-						
-						$\color{#00FF00}{\boxed{\color{white}{\int_{-L}^Lf(x)\mathrm{d}x = 0}}}$				
-											
-						
-						<p>See the video to the right for an<br> illustration of 
-						tphis important property</p>
-						
-						<video controls data-src="videos/OddIntegral.mp4" style="position:absolute;top:300px;left:650px;width:45%;border: 3px solid white;"></video>	
-					</section>	
-				</section>					
-				
-				<section align="left">
-					<h1>Advanced Calculus L3</h1>
-					<br>
-					<ul>
-						<li>Periodic, odd and even functions</li>
-						<span style="color: #00FF00"> <li> Fourier series</li>
-						<ul>
-							<li>Fourier series motivation</li></span>		
-							<li>The principal of superposition</li>		
-						</ul></span>
-						<li>Example</li>
-					</ul>
-				</section>
-				
-				<section>
-					<section  align="left">					
-						<h2>Fourier series motivation</h2>
-							
-						<p>It should not be too hard to convince yourself that the function</p> 
-						\[u(x,t)=\sin(k(x-ct))\]
-						<p>is a solution to the wave equation</p> 
-						\[\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}\]
-						
-						
-						<p>Now since the wave equation is linear the sum of two (or more) solutions is also a solution <em>i.e.</em>...</p>
-						
-						<img data-src="figures/AddingWaves.png"style="position:absolute;top:450px;left:300px;width:80%">
-						
-					</section>
-					
-					<section  align="left">											
-					
-						<p><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/" target="_blank" style="color: red"><b>Joseph Fourier</b></a> 
-						asked the question of whether all periodic functions could be written as a sum of sines and cosines.</p>
-						<p>Perhaps surprisingly, the answer was yes. At least for the types of functions that arise in practice.</p>
-						
-						<p>In fact he found that $2\pi$-periodic functions can be written as</p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}}
-						\]
-										
-					</section>
-					
-					<section  align="left">											
-					
-						<p>If such a series exists then the coefficients $a_0, a_n$ and $b_n$ are given by the so-called <a style="color:#00FF00"><b>Euler integrals</b></a></p>
-						\[
-						 \color{red}{\boxed{\color{white}{
-						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(x)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(x)\mathrm{d}x
-						 }}}
-						\]
-						<p>That is, if the function $f(x)$ is $2\pi$-periodic, then it can be written as a <a style="color:#00FF00">Fourier series</a></p>
-						\[
-						 \color{red}{\boxed{\color{white}{
-						 f(x)\sim \frac{a_0}{2} + \sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)}}}
-						\]
-						<p>with coefficients given by the above integrals</p>
-						
-					</section>
-				</section>
-				
-				<section>
-					<section  align="left">					
-						<h2>Euler integrals</h2>
-						
-						<p>To see where the Euler integrals come from let us assume that the FS over page converges.</p> 
-						
-						<p>Then we can multiply both sides of the equation by $\cos(mx)$ and integrate between $-\pi$ and $\pi$ to obtain</p>
-						\[
-						 \begin{align}\nonumber
-						 \int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\cos(mx)\mathrm{d}x + \\\nonumber
-						 &\sum_{n=1}^\infty\left(a_n\int_{-\pi}^\pi \cos(nx)\cos(mx)\mathrm{d}x\right.+\\
-						 &\left. b_n\int_{-\pi}^\pi \sin(nx)\cos(mx)\mathrm{d}x\right)
-						 \end{align}
-						\]
-						
-					</section>
-					<section  align="left">											
-						
-						<p>Using the following properties</p>
-						\[
-						 \color{#00FF00}{\boxed{\color{white}{
-						\begin{align*}
-						\int_{-\pi}^\pi\sin(nx)\cos(mx)\mathrm{d}x&=0, \forall m,n\in\mathbb{N}\\
-						\int_{-\pi}^\pi\cos(nx)\cos(mx)\mathrm{d}x&=\begin{cases}\pi, &n=m\\0&\text{otherwise}\end{cases}						
-						\end{align*}
-						}}}
-						\]
-						<span class="fragment fade-in">
-						<p>Thus, Equation (1) reduces to</p>
-						\[
-						\begin{align*}
-						\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x &= \sum_{n=1}^\infty a_n\pi\delta_{n,m}\\
-						&= a_m\pi \implies \color{red}{\boxed{\color{white}{a_m = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(mx)\mathrm{d}x}}}
-						\end{align*}
-						\]						
-						</span>
-					</section>
-					
-					<section  align="left">											
-					
-						<p>The above result was for $n\neq 0$.</p> <p>In the case $n=0$ we simply integrate both 
-						sides of the FS equation as follows				</p>
-						\[
-						 \begin{align*}
-						 \int_{-\pi}^\pi f(x)\mathrm{d}x &= \frac{a_0}{2}\int_{-\pi}^\pi\mathrm{d}x + \sum_{n=1}^\infty\left(a_n\int_{-\pi}^\pi \cos(nx)\mathrm{d}x + \right.\\
-						 &\left.b_n\int_{-\pi}^\pi \sin(nx)\mathrm{d}x\right)\\
-						 &=a_0\pi\implies \color{red}{\boxed{\color{white}{a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x}}}
-						 \end{align*}
-						\]
-						
-						<p>We can work out $b_n$ similarly (except we multiply by $\sin(mx)$)</p>
-						</font>
-					</section>
-				</section>
-				
-				<section align="left">
-					<h1>Advanced Calculus L3</h1>
-					<br>
-					<ul>
-						<li>Periodic, odd and even functions</li>
-						<li> Fourier series</li>
-						<ul>
-							<li>Fourier series motivation</li></span>		
-							<li>The principal of superposition</li>		
-						</ul>
-						<span style="color: #00FF00"> <li>Example</li></span>
-					</ul>
-				</section>
-				
-				<section>
-					<section  align="left">											
-						
-						<h3>Example 3.1</h3> <p>Compute the Fourier series of the function</p>
-						\[
-						f(x) = \begin{cases}1&x\in[0,\pi)\\-1 & x\in[-\pi,0)\end{cases}
-						\]
-						<p>such that $\displaystyle f(x)=f(x+2\pi)$ outside of $(-\pi,\pi)$</p>
-
-						<img class="fragment fade-in" data-src="figures/Example3p1.png"style="position:absolute;top:350px;left:50px;width:75%; border: 3px solid white">
-					</section>		
-					
-					<section  align="left">											
-
-						<h3>Solution</h3>
-						
-						<p>Computing&emsp; $\color{red}{\boxed{\color{white}{\displaystyle a_n = \int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x ~~n=0,1,2,\ldots}}}$</p>
-						
-						<p>Since $f(x)$ is odd we have that</p>
-						\[						
-						a_0 =  \frac{1}{\pi}\int_{-\pi}^\pi f(x)\mathrm{d}x = 0						
-						\]
-						<span class="fragment fade-in">
-						<p>Also </p>
-						\[
-						a_n   = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x = 0						
-						\]
-						
-						<p>This holds since $f(x)\cos(nx)$ is odd being the product of an odd and even function</p>
-						</span>
-					</section>
-					
-					<section  align="left">											
-						
-						<p>Computing &emsp; $\color{red}{\boxed{\color{white}{\displaystyle b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x}}}$</p>										
-						
-						<p>We have</p>
-						\[
-						\begin{align*}
-						\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x&= \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
-						&= \frac{2}{\pi}\int_0^\pi \sin(nx)\mathrm{d}x\\ 
-						&= \frac{2}{\pi}\Big[-\frac{1}{n}\cos(nx)~\Big]_0^\pi\\
-						&= \frac{2}{n\pi}\left(1-(-1)^n\right) \Big(= b_n\Big)
-						\end{align*}
-						\]																	
-						
-					</section>
-					
-					<section  align="left">											
-					
-						<p>Putting this all together</p>
-						\[
-						 \color{red}{\boxed{\color{white}{ a_0=a_n=0 \text{ and } b_n= \frac{2}{n\pi}\left(1-(-1)^n\right)}}}
-						\]
-						<span class="fragment fade-in">
-						<p>so that the FS of our function is given by</p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						\begin{align*}
-						 f(x)&\sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)\\
-						 &=\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)
-						 \end{align*}
-						 }}}
-						\]												
-						
-						<p>Since only sine terms arise in this series we call it a <em>Fourier sine series</em></p>
-						</span>
-					</section>
-					
-					<section>
-					<center>
-					<img data-src="figures/3p1FSApprox.png" style="border: 3px solid white;">
-					</center>
-						<p align="left"> The above plot shows the partial sums (for $n=5, 10$ and $100$ terms) for the FS computed over page</p>
-					</section>
-					
-					<section  align="left">											
-					
-						<p>Interestingly, we can use the result</p> \[\color{red}{\boxed{\color{white}{ f(x) \sim\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)}}}\] 
-						<p>to get an approximation to $\pi$</p>
-						<span class="fragment fade-in">
-						<p>Evaluating $f$ at $\pi/2$ gives</p>
-						\[
-						f\left(\frac{\pi}{2}\right) = 1 = \frac{2}{\pi}\left(1-\frac{1}{3}+\frac{1}{5}-\cdots\right)
-						\]
-						<p>so that</p>
-						\[
-						\pi = 4-\frac{4}{3}+\frac{4}{5}-\frac{4}{7}\cdots
-						\]
-						</span>
-					</section>	
-					
-					<section>
-					<center>
-					<img data-src="figures/FSApproxPi.png">
-					</center>
-						<p> The above plot shows our approximation to $\pi$ for increasing $n$</p>
-					</section>
-				</section>		
-				<section>
-					<h2 style="color:#00FF00">Lecture 3 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>Periodic, odd and even functions</li>
-							<li>Introduced Fourier series</li>
-							<li>An example of how to compute FS</li>
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>
-							<li>Know what periodic, odd and even functions are</li>
-							<li>Understand the principle of linear superposition and have a basi idea of what a FS is</li>							
-						</ul><br>					
-					</ul>			
-					
-			</section>				
-							 <!-- ################################################### -->
- <!-- ################################################### -->
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Scalar and vector fields</li>
+			<li> Grad, div and curl operators</li>
+			<li>Physical interpretation of vector operators</li></span>
+		</ul><br>
+		<li>After this lecture you should</li>
+		<ul>
+			<li>Define scalar and vector fields, and provide examples of each</li>
+			<li>Compute the gradient, divergence, and curl of given scalar and vector fields</li>							
+			<li>Explain the physical interpretation of each vector operator, including the 
+			gradient as a direction of maximum increase, divergence as a measure of sources and sinks, and curl as a measure of local rotation.</li>
+		</ul><br>					
+	</ul>			
+	</section>				
+	
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
