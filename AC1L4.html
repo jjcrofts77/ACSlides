@@ -18,361 +18,401 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 4</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->			
-				<section align="left">
-					<h1>Advanced Calculus L4</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>Fourier series of $2\pi$ periodic functions</li></span>
-						<br>
-						<li>Example</li>
-						<br>
-						<li>Sine and cosine series</li>								
-					</ul>
-				</section>		
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 4</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L4</h1>
+	<br>
+	<ul>						
+		<li style="color:#00FF00">Taylor's theorem</li>
+		<br>
+		<li>Double integrals (revision)</li>								
+		<ul>
+			<li>Change of variables</li>
+			<li>Different coordinate systems</li>
+		</ul>
+	</ul>
+	</section>		
+	
+	<section>
+	<section  align="left">	
+	<h3>Taylor series for functions of two variables</h3>
+	<p>Suppose $f(x,y)$ has continuous partial derivatives of order $k+1$ at $(x_0, y_0)$, then we can write the 
+	following series expansion</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	\begin{align*}		
+		f(x,y) &= f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)\\
+		&+\frac{1}{2}\left[f_{xx}(x_0,y_0)(x-x_0)^2+2f_{xy}(x_0,y_0)(x-x_0)(y-y_0)f_{yy}(x_0,y_0)(y-y_0)^2\right]\\ &+ \mathrm{remainder}		
+	\end{align*}
+	}}}
+	\]
+	
+	<p>This is just the <b>Taylor series</b> of the function $f$ at the point $(x_0,y_0)$</p>
+	</section>
+	
+	<section  align="left">		
+	<h3>Example 4.1</h3>
+	<p>Find the Taylor series about $(0,0)$ of the function</p>
+	\[
+		f(x,y) = ye^x
+	\]
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>To start lets compute some derivatives:</p>
+	\[	
+		\color{red}{\boxed{\color{white}{
+		\frac{\partial^n f(x,y)}{\partial x^n} = ye^x, \,n\in\mathbb{Z}^+ \quad\text{and}\quad \frac{\partial f(x,y)}{\partial y} = e^x, \,n=1	
+		}}}
+	\]
+	<p>but is otherwise zero (<em>i.e.</em> $\displaystyle \frac{\partial^n f(x,y)}{\partial y^n} = 0, ~n>1$)</p>
+	</span>
+	
+	<span class="fragment fade-in">
+	<p>The only non-zero mixed derivatives are of the form </p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		\frac{\partial^n}{\partial y\partial x^{n-1}}f(x,y) = e^x, \,n\in\mathbb{Z}^+
+		}}}
+	\]
+	</span>
+	</section>
+	
+	<section  align="left">		
+	<h3>Example 4.1 (ctd)</h3>
+	<p>The Taylor series takes the form</p>
+	\[
+	\begin{align*}
+	 f(x,y) &= f(0,0) + xf_x(0,0)+yf_y(0,0)+\frac{1}{2!}\big(x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)\big)+\cdots\\
+	 &= 0 + x\cdot0+y\cdot 1+\frac{1}{2}\big(x^2\cdot 0+2xy\cdot 1 + y^2\cdot 0\big) + \frac{1}{3!}\big(x^3\cdot 0
+	 +3x^2y\cdot 1+3xy^2\cdot 0+y^3\cdot 0\big)+\cdots\\
+	 &=\color{red}{\boxed{\color{white}{y+xy+\frac{1}{2}x^2y +\frac{1}{6}x^3y+ \mathrm{H.O.T.}
+	 }}}
+	 \end{align*}
+	\]
+	</section>
+	<section  align="left">		
+	<h3>Example 4.2</h3>
+	<p>Find the Taylor series about $(0,0)$ of the function</p>
+	\[
+		f(x,y) = e^x\ln(1+y)
+	\]
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>Derivatives wrt $x$ and $y$ (up to second order):</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	 f_x = e^x\ln(1+y),~ f_{xx} = e^x\ln(1+y)\quad\text{and}\quad f_y=\frac{e^x}{1+y},~f_{yy}=\frac{-e^x}{(1+y)^2}
+	 }}}
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>The mixed second order derivative is $f_{xy}=e^x/(1+y)$ so that </p>
+	\[
+	\begin{align*}
+	f(x,y)&= f(0,0)+xf_x(0,0)+yf_y(0,0)+\frac{1}{2!}\Big(x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)\Big)+\cdots\\
+	&= 0 +x\cdot 0+y\cdot 1 +\frac{1}{2}\Big(x^2\cdot 0+2xy\cdot 1 +y^2\cdot(-1)\Big)+\cdots\\
+	&=\color{#00FF00}{\boxed{\color{white}{y+\frac{1}{2}\Big(2xy-y^2\Big)+\mathrm{H.O.T.}}}}
+	\end{align*}
+	\]
+	</span>
+	</section>
+	</section>				
+			
+	<section>		
+	<section  align="left">	
+	<p style="color:#00FF00">We can use Taylor's Theorem to approximate a surface at a given point</p>
+	
+	<p>The more terms we keep the higher order the approximation</p>
+	
+	<p>Let's consider the function </p>
+	\[
+	 f(x,y) = x\cos{y} - ye^x
+	\]
+	<p>A linear approximation of this function is given by</p>
+	\[
+	 z = f(x,y)\approx x-y 
+	\]
+	<span class="fragment fade-in">
+	<p>Geometrically we have:</p>
+	
+	<img style="margin:0px;padding:0px;position:absolute;top:450px;left:150px"				
+		height="225"					
+		src="figures/SurfEg.png">
+	</span>	
+		
+	<img class ="fragment fade-in" style="margin:0px;padding:0px;position:absolute;top:450px;left:450px"				
+		height="225"					
+		src="figures/SurfPlusTangentEg.png">	
+	
+	</section>	
+	
+	<section  align="left">	
+	<p>In the plot of $f$ and its linear approximation, the approximation looks like a tangent plane at (0,0,0)</p>
+	
+	<span class="fragment fade-in">
+	<p>The gradient of $f$ at the point $(0, 0, 0)$ is </p>
+	\[
+	\begin{align*}
+	 \nabla F &= \begin{pmatrix}\cos{y}-ye^e&-x\sin{y}-e^x&-1\end{pmatrix}\Big|_{(0,0,0)}\\
+	 &=\begin{pmatrix}1&-1&-1\end{pmatrix}
+	 \end{align*}
+	\]
+	<p>with $F(x,y,z) = f(x,y)-z=0$</p>
+	</span>
+	
+	<span class="fragment fade-in">
+	<p>We can rewrite the linear approximation as $x-y-z=0$. From this, we immediately see that $\nabla F$ 
+	is normal to the plane since</p>
+	\[
+	 x-y-z = 0 \implies \begin{pmatrix}1\\-1\\-1\end{pmatrix}\cdot\begin{pmatrix}x\\y\\z\end{pmatrix} = 0
+	\]
+	<p>which is of the form $\mathbf{n}\cdot\mathbf{r} = a$</p>
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00">We can use $\nabla F$ to determine tangent planes and normal lines</p>
+	</section>
+	
+	<section  align="left">	
+	<h3>Example 4.3 (quadratic approximation)</h3>
+	<p>Find a second order approximation of the function</p> 
+	\[
+		h(x,y) = \sin{x}\sin{y}
+	\] 
+	<p>valid near the origin</p>
+	
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>If we retain terms upto and including the quadratic terms our Taylor series is</p>
+	\[
+	 h(x,y) \approx h(0,0) + \left(xh_x(0,0)+yh_y(0,0)\right) + \frac{1}{2}\left(x^2h_{xx}+2xyh_{xy}+y^2h_{yy}\right)
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>with</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	\begin{align*}
+	h(0,0) &= \sin{x}\sin{y}\left|_{(0,0)}\right. = 0   &h_{xx}(0,0) =-\sin{x}\sin{y}\left|_{(0,0)}\right. = 0\\
+	h_x(0,0) &= \cos{x}\sin{y}\left|_{(0,0)}\right. = 0 &h_{yy}(0,0) =~~\cos{x}\cos{y}\left|_{(0,0)}\right. = 1\\
+	h_y(0,0) &= \sin{x}\cos{y}\left|_{(0,0)}\right. = 0 &h_{xy}(0,0) =-\sin{x}\sin{y}\left|_{(0,0)}\right. = 0\\
+	\end{align*}
+	}}}
+	\]
+	</span>
+	</section>
+	
+	<section  align="left">	
+	<p>Putting this altogether gives</p>
+	\[
+	 h(x,y) = \sin{x}\sin{y} = 0 + 0 + \frac{1}{2}\left(x^2\cdot(0) +2xy\cdot(1)+y^2\cdot(0)\right)
+	\]
+	<span class="fragment fade-in">
+	<p>Or</p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		\sin{x}\sin{y}\approx xy
+		}}}
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>Geometrically we have:</p>
+	
+	<img style="margin:0px;padding:0px;position:absolute;top:400px;left:100px"				
+		height="275"					
+		src="figures/SinEg4p3.png">
+	</span>	
+		
+	<img class ="fragment fade-in" style="margin:0px;padding:0px;position:absolute;top:400px;left:500px"				
+		height="275"					
+		src="figures/SinEg4p3b.png">		
+	</section>
+	
+	</section>	
+			
+	
+	
+	<section align="left">
+	<h1>Advanced Calculus L4</h1>
+	<br>
+	<ul>						
+		<li>Taylor's theorem</li>
+		<br>
+		<span style="color:#00FF00">
+		<li>Double integrals (revision)</li>								
+		<ul>
+			<li>Change of variables</li>
+			<li>Different coordinate systems</li>
+		</ul>
+	</ul>
+	</span>
+	</section>
+	
+	<section align="left">
+	<h3>Multivariable integration</h3>
+	<p>Recall that if a region $\mathcal{G}$ in the $uv$-plane is mapped one-to-one into a region 
+	$\mathcal{R}$ in the $xy$-plane by equations of the form</p>
+	\[
+	 x = g(u,v)\qquad y = h(u,v)
+	\]
+	<p>Then any function $f(x,y)$ over $\mathcal{R}$ can be thought of as a function $f(g(u,v), h(u,v))$
+	over the region $\mathcal{G}$</p>
+	
+	<span class="fragment fade-in">
+	<p>In this case the integral of $f$ over $\mathcal{R}$ is related to the integral $f(g(u,v), h(u,v))$ 
+	over $\mathcal{G}$ as follows</p>
+	
+	\[
+	\color{red}{\boxed{\color{white}{
+	\iint_\mathcal{R} f(x,y)\,\mathrm{d}x\mathrm{d}y = \iint_\mathcal{G}f(g(u,v), h(u,v))|J(u,v)|\,\mathrm{d}u\mathrm{d}v
+	}}}
+	\]
+	<p style="color:#00FF00">Here $J$ is the <em>Jacobian matrix</em> of the transformation</p>
+	</span>
+	
+	</section>
+	
+	<section>
+	<section align="left">
+	<h3>Example 4.4</h3>
+	<p>Evaluate</p>
+	\[
+	 \int_0^4\int_{x=y/2}^{x=(y/2)+1}\frac{2x-y}{2}\,\mathrm{d}x\mathrm{d}y
+	\]
+	<p>by applying the transformation</p>
+	\[
+	 u = \frac{2x-y}{2},\qquad v=\frac{y}{2}
+	\]
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>To apply the equation over slide we need to sketch the region of integration</p>
+	<p>Algebra gives:</p>
+	\[
+	 x = u+v,\qquad y = 2v
+	\]
+	<img style="margin:0px;padding:0px;position:absolute;top:500px;left:750px"				
+				height="150"					
+				src="figures/IntegralMapping1.png">
+	</span>		
+		
+	</section>
+	
+	<section align="left">
+	<h3>Example 4.4 (ctd)</h3>
+	<p>The Jacobian determinant of the transformation is</p>
+	\[
+	 J(u,v) = \begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\
+	 \frac{\partial y}{\partial x}&\frac{\partial y}{\partial v}\end{vmatrix} = 
+	 \begin{vmatrix}\frac{\partial}{\partial u}\left(u+v\right)&\frac{\partial}{\partial v}\left(u+v\right)\\
+	 \frac{\partial}{\partial u}\left(2v\right)&\frac{\partial}{\partial v}\left(2v\right)\end{vmatrix} = 
+	 \begin{vmatrix}1&1\\0&2\end{vmatrix} = 2
+	\]
+	<span class="fragment fade-in">
+	<p>so that</p>
+	\[
+	\begin{align*}
+	\int_0^4\int_{x=y/2}^{x=(y/2)+1}\frac{2x-y}{2}\,\mathrm{d}x\mathrm{d}y &=
+	\int_0^2\int_0^1 u|J(u,v)|\,\mathrm{d}u\mathrm{d}v\\
+	&=\int_0^2\int_0^1 2u\,\mathrm{d}u\mathrm{d}v\\
+	&=\color{red}{\boxed{\color{white}{\int_0^2\Big[u^2\Big]_0^1\,\mathrm{d}v = \int_0^2\,\mathrm{d}v = 2}}}
+	\end{align*}
+	\]
+	</span>
+	</section>
+	</section>
+	
+	<section>
+	<section align="left">
+	<h3>Example 4.5</h3>
+	<p>Evaluate</p>
+	\[
+		\iint_\mathcal{R}e^{x^2+y^2}\,\mathrm{d}x\mathrm{d}y
+	\]
+	<p>where $\mathcal{R}$ is the semicircular region bounded by the $x$-axis and and the curve</p>
+	\[
+		y=\sqrt{1-x^2}
+	\]
+	<h3>Solution</h3>
+	<p class="fragment fade-in">In Cartesian coordinates the integral is nonelementary and there is no direct way to integrate 
+	$\displaystyle e^{x^2+y^2}$ with respect to either $x$ or $y$</p>
+	
+	<span class="fragment fade-in">
+	<p style="color:#00FF00">Here, polar coordinates save the day</p>
+	<p>Recall</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	 x = r\cos{\theta},\quad y=r\sin{\theta}\quad\text{and}\quad \mathrm{d}x\mathrm{d}y = r\mathrm{d}r\mathrm{d}\theta
+	 }}}
+	\]
+	</span>
+	</section>
+	
+	<section align="left">
+	<h3>Example 4.5 (ctd)</h3>
+	<p>The term $r\mathrm{d}r\mathrm{d}\theta$ comes from the Jacobian determinant</p>
+	\[
+	 |J| = \begin{vmatrix}\frac{\partial}{\partial r}\left(r\cos\theta\right)&\frac{\partial}{\partial \theta}\left(r\cos\theta\right)\\
+	 \frac{\partial}{\partial r}\left(r\sin\theta\right)&\frac{\partial}{\partial \theta}\left(r\sin\theta\right)\end{vmatrix} = 
+	 \begin{vmatrix}\cos\theta&-r\sin\theta\\\sin\theta&r\cos\theta\end{vmatrix} = r(\cos^2\theta+\sin^2\theta) = r
+	\]
+	<p>and the fact that $\mathrm{d}x\mathrm{d}y = |J|\mathrm{d}r\mathrm{d}\theta$</p>
+	
+	<span class="fragment fade-in">
+	<p>Thus</p>
+	\begin{align*}
+	\iint_\mathcal{R}e^{x^2+y^2}\,\mathrm{d}x\mathrm{d}y &=\int_0^\pi\int_0^1 e^{r^2}r\,\mathrm{d}r\mathrm{d}\theta\\
+	&=\int_0^\pi\Big[\frac{1}{2}e^{r^2}\Big]_0^1\mathrm{d}\theta = \int_0^\pi\frac{1}{2}\Big(e-1\Big)\,\mathrm{d}\theta 
+	= \color{red}{\boxed{\color{white}{\frac{\pi}{2}\Big(e-1\Big)}}}
+	\end{align*}
+	</span>
+	</section>
+	
+	<section align="left">
+	<h3>Example 4.5 (ctd)</h3>
+	<p>The geometry of the problem is as follows</p>
+	
+	<img align="center" style="margin:0px;padding:0px;height="400"	
+				src="figures/IntegralMapping2.png">
+	</span>		
+	</section>
+	
+	
+	</section>
 				
-				<section  align="left">					
-						<h2>Fourier series of periodic functions</h2>					
-						
-						<p>Recall from last weeks lecture that given a $2\pi$ periodic function $f(x)$ we can write it as a <b>Fourier series</b>						</p>
-						\[
-						 \color{red}{\boxed{\color{white}{
-						 f(x) \sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)
-						 }}}
-						\]
-						<p>Here $a_n$ and $b_n$ are given by the <b>Euler integrals</b>			</p>
-                       \[
-					   	 \color{#00FF00}{\boxed{\color{white}{
-						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x
-						 }}}
-                       \]						
+	<section>
+	<h2 style="color:#00FF00">Lecture 4 Review</h2>
+	<br>
 					
-						</font>
-				</section>
-				<section>
-					<section  align="left">											
-						
-						<h3>Recap:</h3> <p>recall that we found the Fourier series for the function</p>
-						\[
-						f(x) = \begin{cases}1&x\in[0,\pi)\\-1 & x\in[-\pi,0)\end{cases}
-						\]
-						<p>such that $\displaystyle f(x)=f(x+2\pi)$ outside of $(-\pi,\pi)$<br></p>
-						
-						<p>The FS was given by </p>
-						
-						$
-						 \color{red}{\boxed{\color{white}{
-						 f(x)\sim \sum_{n=1}^\infty \frac{2}{n\pi}\left( 1- (-1)^n\right)\sin(nx)
-						 }}}
-						$
-																	
-						<span class="fragment fade-in">
-						<h3>Note</h3>
-						<ui>
-							<li>We use $\sim$ as the FS and function differ at zero <br>and ...</li>
-							<li>$f$ consists of sines only...</li>
-						</ui>
-						</span>
-						
-						<img data-src="figures/StepFn.png"style="position:absolute;top:275px;left:675px;width:30%;">
-					</section>		
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Taylor's theorem</li>
+			<li>Linear approximation of a surface</li>							
+		</ul><br>
+		<li>After this lecture you should</li>
+		<ul>
+			<li>Be able to calculate the equation of a tangent to a surface at a given point</li>
+			<li>Be able to explain the geometric significance of the gradient vector</li>							
+			<li>Be able to relate the tangent plane to the first-order Tayolr series expansion</li>
+		</ul><br>					
+	</ul>			
 					
-					<section>
-					<center>
-					<img data-src="figures/3p1FSApprox.png" style="border: 3px solid white;">
-					</center>
-						<p align="left"> The above plot shows the partial sums (for $n=5, 10$ and $100$ terms) for the FS computed over page</p>
-					</section>
-					
-					<section  align="left">											
-					
-						<p>Interestingly, we can use the result</p> 
-						\[\color{red}{\boxed{\color{white}{f(x) \sim\sum_{n=1}^\infty \frac{2}{n\pi}\left(1-(-1)^n\right)\sin(nx)}}}\] 
-						<p>to get an approximation to $\pi$</p>
-						
-						<p>Evaluating $f$ at $\pi/2$ gives</p>
-						\[
-						f\left(\frac{\pi}{2}\right) = 1 = \frac{2}{\pi}\left(2-\frac{2}{3}+\frac{2}{5}-\cdots\right)
-						\]
-						<p>so that</p>
-						\[
-						\pi = 4-\frac{4}{3}+\frac{4}{5}-\frac{4}{7}\cdots
-						\]
-						
-					</section>						
-					<section>
-					<center>
-					<img data-src="figures/FSApproxPi.png">
-					</center>
-						<p> The above plot shows our approximation to $\pi$ for increasing $n$</p>
-					</section>
-				</section>	
-				
-				<section align="left">
-					<h1>Advanced Calculus L4</h1>
-					<br>
-					<ul>
-						<li>Fourier series of $2\pi$ periodic functions</li>
-						<br>
-						<span style="color: #00FF00"> <li>Example</li></span>
-						<br>
-						<li>Sine and cosine series</li>
-					</ul>
-				</section>
-				
-				<section>
-					<section  align="left">											
-
-						<h3>Example 4.1</h3>  <p>Compute the Fourier series of the function</p>
-						\[
-						 f(x) = x^2,\quad x\in(-\pi, \pi)
-						\]
-						<p>such that $f(x) = f(x+2\pi)$ outside $(-\pi,\pi)$</p>
-						
-						<img data-src="figures/Example4p1.png"style="position:absolute;top:300px;left:150px; border: 3px solid white;">
-					</section>	
-					
-					<section  align="left">											
-
-						<h3>Solution</h3>
-						<p>Firstly, note that since the function $f$ is even </p>
-						\[
-						 b_n = 0
-						\]
-						<p>This follows since $f(x)\sin(nx)$ is odd for $f$ even<br></p>
-						
-						<span class="fragment fade-in">
-						<p>Now</p>
-						\[
-						\begin{align*}
-						 a_0 = \frac{1}{\pi}\int_{-\pi}^\pi x^2\mathrm{d}x &= \frac{2}{\pi}\int_0^\pi x^2\mathrm{d}x\\
-						 &=\frac{2}{\pi}\bigg[\frac{1}{3}x^3\bigg]_0^\pi = \color{red}{\boxed{\color{white}{\frac{2}{3}\pi^2 }}}
-						 \end{align*}
-						\]
-						</span>
-					</section>	
-					
-					<section  align="left">											
-
-						<p>To compute $a_n$</p>
-						\[						 
-						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi x^2\cos(nx)\mathrm{d}x = \frac{2}{\pi}\int_0^\pi x^2\cos(nx)\mathrm{d}x
-						\]
-						<span class="fragment fade-in">
-						<p>So that</p>
-						\[
-						\begin{align*}
-						a_n &= \frac{2}{\pi}\left(\bigg[\frac{1}{n}x^2\sin(nx)\bigg]_0^\pi - \frac{2}{n}\int_0^\pi x\sin(nx)\mathrm{d}x\right)\\
-						&=-\frac{4}{n\pi}\left(\bigg[-\frac{1}{n}x\cos(nx)\bigg]_0^\pi+\frac{1}{n}\int_0^\pi\cos(nx)\mathrm{d}x\right)\\
-						&=\color{red}{\boxed{\color{white}{\frac{4}{n^2}(-1)^n}}}
-						\end{align*}
-						\]
- 						</span>
-					</section>	
-					
-					<section  align="left">											
-
-						<p>Putting the above together gives us our FS representation</p>
-						
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						\begin{align*}						
-						f(x) &\sim \frac{a_0}{2}+\sum_{n=1}^\infty a_n\cos(nx)+b_n\sin(nx)\\
-						&= \frac{\pi^2}{3} + \sum_{n=1}^\infty \frac{4(-1)^n}{n^2}\cos(nx) 						
-						\end{align*}						
-						}}}
-						\]
- 						
-					</section>	
-					<section>
-						<p>5, 10 and 50 FS terms</p>
-							<img src="figures/XSquaredn2.png" width="280" height="280">&emsp;
-							<img src="figures/XSquaredn5.png" width="280" height="280">&emsp;
-							<img src="figures/XSquaredn100.png" width="280" height="280">
-								
-					</section>
-				</section>							
-				
-				<section align="left">
-					<h1>Advanced Calculus L4</h1>
-					<br>
-					<ul>
-						<li>Fourier series of $2\pi$ periodic functions</li>
-						<br>
-						<li>Example</li>
-						<br>
-						<span style="color: #00FF00"> <li>Sine and cosine series</li></span>
-					</ul>
-				</section>
-				
-				<section>
-					<section  align="left">											
-						<h2>Fourier sine series</h2>
-						
-						<p>As the previous examples have alluded, knowledge of whether a function is 
-						odd or even can greatly simplify the Fourier series computations</p>		
-												
-						<p>Let $f$ be $2\pi$ periodic.</p> <p>If $f$ is <b>odd</b> then its FS is given by</p>
-
-						\[
-						 \color{red}{\boxed{\color{white}{
-						 f(x)\sim \sum_{n=1}^\infty b_n\sin(nx)
-						 }}}
-						\]						
-						<p>where</p>
-						\[
-						b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x = \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x
-						\]						
-						
-					</section>	
-					
-					<section  align="left">											
-						<h2>Fourier cosine series</h2>
-						
-						<p>As the previous examples have alluded, knowledge of whether a function is 
-						odd or even can greatly simplify the Fourier series computations</p>		
-												
-						<p>Let $f$ be $2\pi$ periodic.</p> <p>If $f$ is <b>even</b> then its FS is given by</p>
-
-						\[
-						 \color{red}{\boxed{\color{white}{
-						 f(x)\sim \frac{a_0}{2}+\sum_{n=1}^\infty a_n\cos(nx)
-						 }}}
-						\]						
-						<p>where</p>
-						\[
-						a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x = \frac{2}{\pi}\int_0^\pi f(x)\cos(nx)\mathrm{d}x
-						\]
-									
-					</section>						
-				</section>
-				<section>
-					<section  align="left">											
-						
-						<h3>Example 4.2</h3> <p>Compute the Fourier series of the function</p>
-						\[
-						 f(x) = x|x|-x^3
-						\]
-						<p>such that $f(x)=f(x+2\pi)$ outside of $(-\pi, \pi)$</p>
-						
-						<img data-src="figures/Example4p2.png"style="position:absolute;top:300px;left:150px; border: 3px solid white;">
-					</section>		
-					
-					<section  align="left">											
-
-						<h3>Solution</h3>
-						<p>Since $f$ is an odd function we have $a_0=a_n = 0~~\forall n\in\mathbb{N}$</p>
-											
-						<p>To compute $b_n$ let us note a couple of simplifying points:</p>
-						
-					
-						<ui>
-							<li>$f(x)\sin(nx)$ is even so we can integrate from $0$ to $\pi$ and double the result</li><br>
-							<li>On the interval $(0, \pi)$ the function \[f(x) = x|x|-x^3= x^2-x^3\]</li>
-						</ui>
-						
-						<span class="fragment fade-in">
-						<p>So</p>
-						
-						\[	
-						 \color{#00FF00}{\boxed{\color{white}						{
-						 b_n =\frac{2}{\pi}\int_0^\pi \left(x^2-x^3\right)\sin(nx)\mathrm{d}x
-						 }}}
-						\]
-						</span>
-						
-					</section>						
-					<section  align="left">											
-						
-						<p>We compute this integral as follows</p>
-						\[
-						\begin{align*}
-						b_n &= \frac{2}{\pi}\int_0^\pi\left(x^2-x^3\right)\sin(nx)\mathrm{d}x\\ 
-						&=\frac{2}{\pi}\bigg[-\frac{1}{n}(x^2-x^3)\cos(nx)\bigg]_0^\pi\\&+\frac{2}{n\pi}\int_0^\pi(2x-3x^2)\cos(nx)\mathrm{d}x\\
-						&=-\frac{2}{n\pi}(\pi^2-\pi^3)(-1)^n+\frac{2}{n\pi}\bigg[\frac{1}{n}(2x-3x^2)\sin(nx)\bigg]_0^\pi\\
-						&-\frac{2}{n^2\pi}\int_0^\pi (2-6x)\sin(nx)\mathrm{d}x = \cdots
-						\end{align*}
-						\]
-						
-					</section>
-					
-					<section  align="left">											
-					
-						<p>...so</p>
-						\[
-						\begin{align*}
-						b_n &= -\frac{2}{n\pi}(\pi^2-\pi^3)(-1)^n-\frac{2}{n^2\pi}\int_0^\pi (2-6x)\sin(nx)\mathrm{d}x\\
-						&=-\frac{2}{n\pi}(\pi^2-\pi^3)(-1)^n-\frac{2}{n^2\pi}\bigg[-\frac{1}{n}(2-6x)\cos(nx)\bigg]_0^\pi\\
-						&-\frac{12}{n^3\pi}\int_0^\pi\cos(nx)\mathrm{d}x\\
-						&=\color{red}{\boxed{\color{white}{\frac{2}{n\pi}(\pi^3-\pi^2)(-1)^n+\frac{2}{n^3\pi}\left((2-6\pi)(-1)^n-2\right)}}}
-						\end{align*}
-						\]
-						
-					</section>
-					
-					<section  align="left">											
-					
-						<p>It follows that the solution is given by</p>
-						
-												
-						\[
-						 \color{#00FF00}{\boxed{\color{white}{
-						 \begin{align*}
-						 f(x)&\sim \sum_{n=1}^\infty\left[\frac{2}{n\pi}(\pi^3-\pi^2)(-1)^n\right.\\&\left.+\frac{2}{n^3\pi}\left((2-6\pi)(-1)^n-2\right)\right]\sin(nx) 
-						 \end{align*}
-						 }}}
-						\]
-						
-						
-						<p>Hopefully, you can see how much more work would have been involved in this question had we not noticed the function is odd</p>
-												
-					</section>
-					<section>
-						<p>5, 10 and 50 FS terms</p>
-							<img src="figures/ModXXsubX3N10.png" width="280" height="280">&emsp;
-							<img src="figures/ModXXsubX3N50.png" width="280" height="280">&emsp;
-							<img src="figures/ModXXsubX3N200.png" width="280" height="280">
-						
-					</section>
-				</section>
-						
-				
-				<section>
-					<h2 style="color:#00FF00">Lecture 4 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>Periodic, odd and even functions</li>
-							<li>Introduced Fourier series</li>
-							<li>An example of how to compute FS</li>
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>
-							<li>Know what periodic, odd and even functions are</li>
-							<li>Understand the principle of linear superposition and have a basic idea of what a FS is</li>							
-						</ul><br>					
-					</ul>			
-					
-			</section>					
-				 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
