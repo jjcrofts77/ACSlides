@@ -18,303 +18,334 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 5</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->				
-				<section align="left">
-					<h1>Advanced Calculus L5</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>Convergence of Fourier series</li>
-						<br>
-						<li>Gibbs phenomenon</li>								</span>
-						<br>
-						<li>Examples</li>
-					</ul>
-				</section>	
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 5</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L5</h1>
+	<br>
+	<ul>
+		<li style="color:#00FF00">Arc length and the unit tangent vector</li>
+		<br>
+		<li>Line integrals</li>								
+		<br>
+		<li>Work done</li>
+	</ul>	
+	</section>		
+	
+	<section>
+	<section  align="left">		
+	<h3>Arc length along a curve</h3>
+	<p>Suppose we have a parametrisation of a smooth space curve, <em>i.e.</em></p>
+	\[
+	 \mathbf{r}(t) = \begin{pmatrix}f(t)&g(t)&h(t)\end{pmatrix}, \quad t\in[a, b]
+	\]
+	
+	<span class="fragment fade-in">
+	<p>Then we can measure the <b>distance</b> along the curve using the formula</p>
+		
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Definition 5.1</h3>
+	</boxTitle>			
+	<p>The <b>length</b> of a smooth curve $\mathbf{r}(t)=(f(t), g(t), h(t))$, $t\in[a, b]$ that is traced exactly once as
+	$t$ inceases from $a$ to $b$ is</p>
+	\[
+		L = \int_a^b\sqrt{\left(\frac{\mathrm{d}f}{\mathrm{d}t}\right)^2+\left(\frac{\mathrm{d}g}{\mathrm{d}t}\right)^2
+		+\left(\frac{\mathrm{d}h}{\mathrm{d}t}\right)^2}\,\mathrm{d}t
+	\]
+	<p></p>
+	</textBox>
+	</span>
+	
+	<p class="fragment fade-in" style="color:#00FF00">Setting $\mathbf{v}=\mathrm{d}\mathbf{r}/\mathrm{d}t$ we can write the above as 
+	$\displaystyle L=\int_a^b|\mathbf{v}|\,\mathrm{d}t$</p>
+	</section>
+	
+	<section align="left">
+	<h3>Example 5.1</h3>
+	<p>Find the length of one turn of the helix</p>
+	\[
+		\mathbf{r}(t) = \begin{pmatrix}\cos(t)&\sin(t)&t\end{pmatrix}
+	\]
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>The helix makes one full turn as $t$ runs from 0 to $2\pi$. The length of this portion of curve is
+	\[
+	\begin{align*}
+		L &=\int_a^b|\mathbf{v}|\,\mathrm{d}t = \int_0^{2\pi}\sqrt{(-\sin(t))^2+(\cos(t))^2+(1)^2}\,\mathrm{d}t\\
+		&=\color{red}{\boxed{\color{white}{\int_0^{2\pi}\sqrt{2} = 2\pi\sqrt{2}}}}
+	\end{align*}
+	\]
+	</span>
+	</section>
+	
+	<section align="left">
+	<span style="font-size: 25px">
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Definition 5.2</h3>
+	</boxTitle>			
+	<p>The <b>unit tangent vector</b> of a differentiable curve $\mathbf{r}(t)=(f(t), g(t), h(t))$, $t\in[a, b]$ </p>
+	\[
+		\mathbf{T} = \frac{\mathbf{v}}{|\mathbf{v}|}
+	\]	
+	<p>where $\mathbf{v}=\mathrm{d}\mathbf{r}/\mathrm{d}t$</p>
+	</textBox>
+	<span class="fragment fade-in">
+	<h3>Example 5.2</h3>
+	<p>Find the tangent unit vector of the helix $\mathbf{r}(t) = (\cos(t), \sin(t), t)$
+	<h3>Solution</h3>
+	</span>
+	<span class="fragment fade-in">
+	\begin{align*}
+	\mathbf{v} &= (-\sin(t), \cos(t), 1)\\
+	|\mathbf{v}| &= \sqrt{(-\sin(t))^2+(\cos(t))^2+1} = \sqrt{2}\\	
+	\mathbf{T} &= \frac{\mathbf{v}}{|\mathbf{v}|} =\color{red}{\boxed{\color{white}{ \frac{1}{\sqrt{2}}(-\sin(t), \cos(t), 1)}}}\\	
+	\end{align*}
+	</span>
+	</span>
+	</section>
+	
+	</section>
 				
-				<section  align="left">					
-						<h2>Convergence of Fourier series</h2>					
-						
-						<p>So far we have assumed convergence of the FS:</p>
-						\[						 
-						 f(x) \sim \frac{a_0}{2}+\sum_{n=1}^\infty \left(a_n\cos(nx)+b_n\sin(nx)\right)						 
-						\]
-						<p>Under these assumptions we found that the coefficients are given by the <b>Euler integrals</b>			</p>
-                       \[
-					   	 \color{red}{\boxed{\color{white}{
-						 a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)\mathrm{d}x~ \text{ and }~ b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x
-						 }}}
-                       \]						
-					   <p>An important question is: for the above $a_n, b_n$ for what $x\in\mathbb{R}$ does the FS converge?</p>
-						
-				</section>		
+	<section align="left">
+	<h1>Advanced Calculus L5</h1>
+	<br>
+	<ul>						
+		<li>Arc length and the unit tangent vector</li>
+		<br>
+		<li style="color:#00FF00">Line integrals</li>								
+		<br>
+		<li>Work done</li>
+	</ul>
+	</section>		
+				
+	<section>			
+	<section  align="left">		
+	<p>We can generalise the concepts in the previous slides in order to integrate a scalar field $f$ over a 
+	curve $\mathbf{r}(t)$</p>
+	
+	<p>Such integrals are called <b>line integrals</b> and they have important applications in physics and applied mathematics</p>
+	
+	<p></p>
+	<span class="fragment fade-in">
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Definition 5.3</h3>
+	</boxTitle>			
+	<p>The <b>line integral</b> of a scalar field $f:\mathbb{R}^3\to\mathbb{R}$ along a curve parametrised by 
+	$\mathbf{r}=\mathbf{r}(t)$, $t\in[a, b]$ is</p>
+	\[
+		\int_C f(x,y,z)\,\mathrm{d}s = \int_a^b f(\mathbf{r}(t))|\mathbf{r}'(t)|\,\mathrm{d}t
+	\]	
+	<p>Such an integral is also known as a <b>path integral</b></p>
+	</textBox>
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00">We call $\mathrm{d}s = |\mathbf{r}'(t)|\mathrm{d}t$ the <b>arc length element</b> </p>
+	
+	</section>		
+	
+	<section  align="left">
+	<h3>Example 5.3</h3>
+	<p>Evaluate </p>
+	\[
+	 \int_C (xy+y+z)\,\mathrm{d}s
+	\]
+	<p>along the curve $\mathbf{r}(t) = (2t, t, 2-2t), ~t\in[0, 1]$</p>
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	\[
+	\begin{align*}
+	\mathbf{r}'(t) &= (2, 1, -2)\\
+	|\mathbf{r}'(t)| &=\sqrt{9} = 3\\
+	f(\mathbf{r}(t))&=2t^2-t+2
+	\end{align*}
+	\]
+	</span>
+	
+	<span class="fragment fade-in">
+	Thus
+	\[
+	\begin{align*}
+		\int_C (xy+y+z)\,\mathrm{d}s &= \int_0^1 \left(2t^2-t+2\right)\cdot\left(3\right)\,\mathrm{d}t\\
+		&=3\left[\frac{2}{3}t^3-\frac{1}{2}t^2+2t\right]_0^1 = \color{red}{\boxed{\color{white}{\frac{13}{2}}}}
+	\end{align*}
+	\]
+	</span>
+	</section>
+	
+	<section  align="left">	
+	<span style="font-size: 26px">	
+	<h3>Example 5.4</h3>
+	<p>Find the mass of a wire that lies along the curve 
+	\[
+	\mathbf{r}(t) = \begin{pmatrix}t^2-1&0&2t\end{pmatrix}\quad t\in[0, 1]
+	\]
+	with density $\rho(t) = (3/2)t$
+	
+	<h3>Solution </h3>
+	<span class="fragment fade-in">
+	<p>The mass, $M$, of the wire is given by</p>
+	\[
+		M = \int_C \rho(t)\,\mathrm{d}s = \int_0^1\rho(t)|\mathbf{r}'(t)|\,\mathrm{d}t
+	\]
+	<p>Or</p>
+	\[
+		M = \int_0^1 \frac{3}{2}t\cdot 2\sqrt{t^2+1}\,\mathrm{d}t
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>We can solve this integral by setting $u=t^2+1$ so that</p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		M = \frac{3}{2}\int_1^2u^{\frac{1}{2}}\,\mathrm{d}t = \frac{3}{2}\left[\frac{3}{2}u^{\frac{3}{2}}\right]_1^2 = 2\sqrt{2}-1
+		}}}
+	\]
+	</span>
+	</span>
+	</section>
+	
+	</section>
+				
+	<section align="left">
+	<h1>Advanced Calculus L5</h1>
+	<br>
+	<ul>						
+		<li>Arc length and the unit tangent vector</li>
+		<br>
+		<li>Line integrals</li>								
+		<br>
+		<li style="color:#00FF00">Work done</li>
+	</ul>
+	</section>	
 
-				<section>
-					<section  align="left">											
-						
-						<h3>Example 5.1</h3>  <p>Compute the Fourier series of the function</p>
-						\[
-						 f(x) = \begin{cases}x+\pi&x\in(0,\pi)\\x-\pi& x\in(-\pi,0)\end{cases}
-						\]
-						<p>such that $f(x) = f(x+2\pi)$ outside $(-\pi,\pi)$</p>
-						<br>
-						<img class="fragment fade-in" data-src="figures/Example5p1.png"style="position:absolute;top:300px;left:150px; border: 3px solid white;">
-					</section>		
-					
-					<section  align="left">											
-						
-						<h3>Solution</h3> <p>Since $f$ is odd we have that &emsp;$\color{red}{\boxed{\color{white}{\displaystyle a_0=a_n=0}}}$</p>
-						
-						\[
-						\begin{align*}
-						 b_n=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)\mathrm{d}x&=\frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
-						 &=\frac{2}{\pi}\bigg[-\frac{1}{n}(x+\pi)\cos(nx)\bigg]_0^\pi \\&+\frac{2}{n\pi}\int_0^\pi \cos(nx)\mathrm{d}x\\
-						 &=\frac{2}{\pi}\bigg[-\frac{2\pi}{n}(-1)^n+\frac{\pi}{n}\bigg]\\
-						 &= \color{#00FF00}{\boxed{\color{white}{\frac{2}{n}\left(1-2(-1)^n\right)}}}
-						 \end{align*}
-						\]
-						
-					</section>	
-					<section  align="left">											
-						
-						<p>The Fourier series of our example is given by</p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						 f(x)\sim \sum_{n=1}^\infty \frac{2}{n}\left(1-2(-1)^n\right) \sin(nx)
-						 }}}
-						\]
-						<span class="fragment fade-in">
-						<p>Recall that</p>
-						\[
-						\sum_{n=1}^\infty \frac{2}{n}\left(1-2(-1)^n\right) \sin(nx)
-						\]
-						</p>means $\displaystyle \lim_{n\to\infty} s_n(x)$ where</p>
-						\[
-						s_n(x) = \sum_{m=1}^n \frac{2}{m}\left(1-2(-1)^m\right) \sin(mx)
-						\]
-						</span>
-					</section>					
-					<section  align="left">											
-						
-						<p>The question therefore is whether $s_n(x)$ converges for each $x$ and if it does is the limit $f(x)$?</p>
-						<p>Some partial sums are plotted below</p>
-						<img data-src="figures/Example5p1_PSs.png"style="border: 3px solid white;">
-						<p style="position:absolute;top:325px;left:50px;">$n=5$</p>
-						<p style="position:absolute;top:325px;left:400px;">$n=15$</p>
-						<p style="position:absolute;top:325px;left:725px;">$n=100$</p>
-						
-						
-						<p class="fragment fade-in">At the discontinuities the FS appears to converge to zero...</p>
-						</font>
-					</section>
-				</section>
+	<section>
+	<section  align="left">		
+	<p>Suppose that $\mathbf{F} = \begin{pmatrix}M(x,y,z)&N(x,y,z)&P(x,y,z))\end{pmatrix}$ is a vector field and</p>
+	\[
+		\mathbf{r}(t) = \begin{pmatrix}f(t)&g(t)&h(t)\end{pmatrix},\quad t\in[a, b]
+	\]
+	<p>is a parametrisation of a smooth space curve</p>
+	
+	<p>If $\mathbf{F}$ represents a force then the integral of the scalar field $\mathbf{F}\cdot\mathbf{T}$, 
+	<em>i.e.</em>the scalar component of $\mathbf{F}$ in the direction of the unit vector $\mathbf{T}$, over the curve is
+	called the <b style="color:#00FF00">work done</b> by $\mathbf{F}$</p>
+	
+	<img style="margin:0px;padding:0px;position:absolute;top:375px;left:150px"				
+		height="175"					
+		src="figures/WorkFig.png">
+	
+	</section>	
+	
+	<section  align="left">		
+	<textBox touch-action="none" >
+	<boxTitle>
+	<h3>Definition 5.4</h3>
+	</boxTitle>			
+	<p>The <b>work</b> done by a force $\mathbf{F}$ over a smooth curve $C$ paramatrised by $\mathbf{r}(t),~t\in[a, b]$ is</p>
+	\[
+		W = \int_C\mathbf{F}\cdot\mathbf{T}\,\mathrm{d}s = \int_a^b\mathbf{F}(\mathbf{r}(t))\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t
+	\]
+	<p></p>
+	</textBox>
+	
+	<span class="fragment fade-in">
+	<h3>Example 5.5</h3>
+	<p>Find the work done by $\displaystyle\mathbf{F} = (y-x^2, z-y^2, x-z^2)$ over the curve</p>
+	\[
+		\mathbf{r}(t) = (t, t^2, t^3), \quad t\in[0, 1]
+	\]
+	<h3>Solution</h3>
+	</span>
+	<span class="fragment fade-in">
+	<p>Evaluate $\mathbf{F}$ on the curve:</p>
+	\[
+	\begin{align*}
+	 \mathbf{F} = (y-x^2, z-y^2, x-z^2) &= (t^2-t^2, t^3-t^4, t-t^6)\\
+	 &= (0, t^3-t^4, t-t^6)
+	 \end{align*}
+	\]
+	</span>
+	</section>
+	
+	<section  align="left">			
+	<h3>Example 5.5 (ctd)</h3>
+	<p>Thus $\mathbf{F}= (0, t^3-t^4, t-t^6)$ and</p>
+	\[
+	 \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\left(t, t^2, t^3\right) = (1, 2t, 3t^2)
+	\]
+	<span class="fragment fade-in">
+	<p>So</p>
+	\[
+	 \mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = (0, t^3-t^4, t-t^6)\cdot(1, 2t, 3t^2) = 2t^4-2t^5+3t^3-3t^8
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>Finally, we integrate:</p>
+	\[
+	 \begin{align*}
+	 W = \int_C\mathbf{F}\cdot\mathbf{T}\,\mathrm{d}s&=\int_C\mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t\\
+	   &= \int_0^12t^4-2t^5+3t^3-3t^8\,\mathrm{d}t\\
+	   &= \left[\frac{2}{5}t^5-\frac{2}{6}t^6-\frac{3}{4}t^4-\frac{3}{9}t^9\right]_0^1 = \color{red}{\boxed{\color{white}{\frac{29}{60}}}}
+	 \end{align*}
+	\]
+	</span>
+	</section>
+	</section>	
+	
+	<section  align="left">
+	<h3>Note</h3>
+	<p>The notation for the line integral used to compute work is varied in the literature, and the following expressions 
+	are generally considered equivalent in the context of a force field $\mathbf{F}$ acting along a curve $C$:</p>	
+	\[	
+	\color{red}{\boxed{\color{white}{
+	\begin{align*}	
+		\int_C\mathbf{F}\cdot\mathbf{T}\,\mathrm{d}s&=\int_a^b\mathbf{F}\cdot\frac{\mathbf{r}'(t)}{||\mathbf{r}'(t)||}||\mathbf{r}'(t)||\,\mathrm{d}t\\
+		&=\int_a^b\mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t\\
+		&=\int_C\mathbf{F}\cdot\mathrm{d}\mathbf{r}\quad (\textbf{compact differential form})\\
+		&=\int_CM\,\mathrm{d}x+N\,\mathrm{d}y+P\,\mathrm{d}z \quad (\textbf{$\mathrm{d}t$'s cancelled})
+	\end{align*}
+	}}}
+	\]
+	</section>
 				
-				<section  align="left">					
-					<h3>Note</h3>
+	<section>
+	<h2 style="color:#00FF00">Lecture 5 Review</h2>
+	<br>
 					
-					<ul>
-						<li> For the previous example it appears that the FS converges <em>except at discontinuities</em></li><br>
-						<li> At points of discontinuity they converge to zero (in our example)</li><br>
-						<span class="fragment fade-in">
-						<li> The overshoot observed at points of discontinuity is known as <a href="https://mathworld.wolfram.com/GibbsPhenomenon.html" target="_blank" style="color: white"><b>Gibbs phenomenon</b></a></li><br>
-						<li> A similar result holds for <em>most</em> functions appearing in applications</li><br>
-						<li> Before presenting the main result we need to discuss some technical preliminaries</li></span>
-					</ul>
-					</font>
-				</section>
-				
-				<section>
-					<section  align="left">		
-						<h2>Technical preliminaries</h2>
-						<textBox touch-action="none">
-						<boxTitle>
-						<h3>Definition 5.1</h3>
-						</boxTitle>
-						<p>We say that the <b>right-hand limit</b> of $f$ at $c$, if it exists, is given by</p>
-						\[
-						 f(c_+) = \lim_{\substack{h\to 0\\h>0}} f(c+h)
-						\]
-						<p>Similarly, the <b>left-hand limit</b> of $f$ at $c$ is</p>
-						\[
-						 f(c_-) = \lim_{\substack{h\to 0\\h>0}} f(c-h)
-						\]
-						<p>if it exists.</p>
-						
-						</textBox>	
-												
-					</section>
-					<section  align="left">										
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Arc length and the unit tangent vector</li>		
+			<li>Line integrals</li>										
+			<li>Work done</li>
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul>
+			<li>Parametrise a given curve in two or three dimensions to prepare it for integration</li>
+			<li>Compute the arc length of a curve and explain its relation to the line element</li>
+			<li>Evaluate scalar line integrals and vector line integrals along a specified path</li>										
+			<li>Apply vector line integrals to calculate the work done by a force field along a given path</li>
+		</ul><br>					
+	</ul>			
 					
-						<p>What are the left- and right-hand limts at the points $x=1, x=5$ and $x=6$?</p>
-						<center>
-						<img data-src="figures/TechPrelimFig.png">						
-						</center>
-					
-					</section>
-					
-					<section  align="left">			
-
-						<textBox touch-action="none">
-						<boxTitle>
-						<h3>Definition 5.2</h3>
-						</boxTitle>
-						<p>The function $f$ is <b>piecewise continuous</b> 
-						on an interval $(a,b)$ if we can divide $(a,b)$ into a finite number of subintervals, on each of which $f$ is defined 
-						and continuous, and the left- and right-hand limits at the end points of each subinterval exist.</p>
-						
-						</textBox>						
-						<span class="fragment fade-in">
-						<br><br>
-						<h3>Example</h3><br>
-						<ul>
-							<li>The function consists of 4 subintervals</li>
-							<li>The left- and right-hand limits exist</li>							
-							<li>The function is cts on each subinterval</li>
-							<li>Therefore it is PWC</li>
-						</ul>
-						</font>
-						<img data-src="figures/TechPrelimFig.png" style="position:absolute;top:350px;left:550px;width:35%">
-						</span>
-					</section>
-				</section>
-				
-				<section  align="left">															
-					
-					<textBox touch-action="none">
-					<boxTitle>
-					<h3>Theorem 5.1 (FS convergence theorem)</h3>
-					</boxTitle>
-					<p>Let $f$ be a periodic function with period $2\pi$ and $f$ and $f'$ 
-					piecewise continuous on $(-\pi,\pi)$. Then the FS of $f$ at $x$ converges to the value</p>
-					\[
-					\frac{1}{2}\bigg[f(x_+) + f(x_-)\bigg]
-					\]
-				
-					<p><em>i.e.</em></p>
-					\[
-					\frac{1}{2}\bigg[f(x_+) + f(x_-)\bigg] = \frac{a_0}{2} + \sum_{n=1}^\infty a_n\cos(nx)+b_n\sin(nx)
-					\]
-					
-					</textBox>
-					
-					<p class="fragment fade-in"><b>If the left- and right-hand limits are equal at $x$ then the FS equals $f(x)$</b></p>					
-				</section>
-				
-				<section align="left">
-					<h1>Advanced Calculus L5</h1>
-					<br>
-					<ul>
-						<li>Convergence of Fourier series</li>
-						<br>
-						<li>Gibbs phenomenon</li>			
-						<br>						
-						<span style="color: #00FF00"><li>Examples</li></span>
-					</ul>
-				</section>	
-				
-				<section>
-					<section  align="left">										
-				
-						<h3>Example 5.2</h3> <p>Find the Fourier coefficients of the function</p>
-						\[
-						 f(x) = \begin{cases}-k&x\in(-\pi,0)\\k& x\in(0,\pi)\end{cases}
-						\]
-						<p>such that $\displaystyle f(x+2\pi) = f(x)$</p>
-						
-						
-						<h3>Solution</h3> 
-						
-						<p class="fragment fade-in">Since $f$ is odd we have $\displaystyle \color{red}{\boxed{\color{white}{a_0=a_n=0}}}$</p>
-						
-						<span class="fragment fade-in">
-						<p>To compute $b_n$ we solve the integral</p>
-						\[
-						 b_n = \frac{2}{\pi}\int_0^\pi k\sin(nx)\mathrm{d}x = \color{red}{\boxed{\color{white}{\frac{2k}{n\pi}\left(1-(-1)^n\right)}}}
-						\]
-						</span>
-					</section>
-					
-					<section  align="left">										
-						
-						<img data-src="figures/Example5p2.png"style="border: 3px solid white;width:100%">
-						
-					</section>					
-				</section>
-				
-				
-				<section>
-					<section  align="left">										
-						
-						<h3>Example 5.3</h3> <p>Given that the FS of</p>
-						\[
-						f(x) = x^2,\quad x\in(\pi,\pi)
-						\]
-						<p>is</p>
-						\[
-						f(x) = \frac{\pi^2}{3} + \sum_{n=1}^\infty \frac{4}{n^2}(-1)^n\cos(nx)
-						\]
-						<p>Show that</p>
-						\[
-						1-\frac{1}{4}+\frac{1}{9}-\frac{1}{16}+\cdots = \frac{1}{12}\pi^2					
-						\]						
-					</section>
-					
-					<section  align="left">										
-					
-						<h3>Solution</h3> <p>Since the function $f$ is continuous it equals its FS everywhere, so in particular</p>
-						\[
-						f(0) = 0 = \frac{\pi^2}{3} + \sum_{n=1}^\infty \frac{4}{n^2}(-1)^n
-						\]
-						<span class="fragment fade-in">
-						<p>Rearranging gives</p>
-						\[
-						\frac{\pi^2}{3} = -4\left(-1+\frac{1}{4}-\frac{1}{9}+\frac{1}{16}-\cdots\right)
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>or</p>
-						\[
-						\frac{\pi^2}{12} = 1-\frac{1}{4}+\frac{1}{9}-\frac{1}{16}+\cdots\quad \text{as required}
-						\]
-												</span>
-					</section>
-				</section>
-				
-				<section>
-					<h2 style="color:#00FF00">Lecture 5 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>convergence of Fourier series</li>
-							<li>Gibbs phenomenon</li>							
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>
-							<li>be able to determine for which values a Fourier series converges</li>
-							<li>be able to determine the value of the Fourier series at points of discontinuity</li>							
-							<li>be aware of Gibbs phenomenon</li>
-						</ul><br>					
-					</ul>			
-					
-			</section>		
-					 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
