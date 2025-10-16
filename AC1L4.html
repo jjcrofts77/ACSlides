@@ -314,7 +314,7 @@
 	<h3>Example 4.4 (ctd)</h3>
 	<p>The Jacobian determinant of the transformation is</p>
 	\[
-	 J(u,v) = \begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\
+	 \mathrm{det}\left(J(u,v)\right) = \begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\
 	 \frac{\partial y}{\partial x}&\frac{\partial y}{\partial v}\end{vmatrix} = 
 	 \begin{vmatrix}\frac{\partial}{\partial u}\left(u+v\right)&\frac{\partial}{\partial v}\left(u+v\right)\\
 	 \frac{\partial}{\partial u}\left(2v\right)&\frac{\partial}{\partial v}\left(2v\right)\end{vmatrix} = 
@@ -364,7 +364,7 @@
 	<h3>Example 4.5 (ctd)</h3>
 	<p>The term $r\mathrm{d}r\mathrm{d}\theta$ comes from the Jacobian determinant</p>
 	\[
-	 |J| = \begin{vmatrix}\frac{\partial}{\partial r}\left(r\cos\theta\right)&\frac{\partial}{\partial \theta}\left(r\cos\theta\right)\\
+	 |\mathrm{det}\left(J\right)| = \begin{vmatrix}\frac{\partial}{\partial r}\left(r\cos\theta\right)&\frac{\partial}{\partial \theta}\left(r\cos\theta\right)\\
 	 \frac{\partial}{\partial r}\left(r\sin\theta\right)&\frac{\partial}{\partial \theta}\left(r\sin\theta\right)\end{vmatrix} = 
 	 \begin{vmatrix}\cos\theta&-r\sin\theta\\\sin\theta&r\cos\theta\end{vmatrix} = r(\cos^2\theta+\sin^2\theta) = r
 	\]
@@ -459,6 +459,7 @@
         <!-- ################################################### -->
 </body>
 </html>
+
 
 
 
