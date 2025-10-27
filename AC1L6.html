@@ -18,379 +18,441 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 6</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->						
-				<section align="left">
-					<h1>Advanced Calculus L6</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>Odd and even extensions</li></span>
-						<br>
-						<li>Fourier series of functions of general period</li>		
-						<br>
-						<li>Examples</li>											
-					</ul>
-				</section>			
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 6</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L6</h1>
+	<br>
+	<ul>	
+		<li style="color:#00FF00">Line integrals (ctd)</li>
+		<br>
+		<li>Conservative fields</li>
+		
+		<ul>
+		<li>Potential functions</li>										
+		<li>Independence of path and the curl operator</li>
+		</ul>
+	</ul>
+	</section>
+	
+	<section>
+		<section  align="left">	
+		<h3>How to evaluate a line integral</h3>
+		<p>Recall from last week that to integrate a continuous function $f(x,y,z)$ over a curve $C$:</p>
+		<ol>
+			<li><p>Find a parametrisation of $C$,</p>
+			\[
+			\mathbf{r}(t) = (g(t), h(t), k(t)), \quad t\in[a, b]
+			\]
+			</li><br>
+			<li><p>Evaluate the integral as</p>
+			\[
+			\int_C f(x,y,z)\,\mathrm{d}s = \int_a^b f(g(t),h(t),k(t))|\mathbf{r}'(t)|\,\mathrm{d}t
+			\]
+			</li>
+		</ol>	
+		<br><br>
+		<p class="fragment fade-in" style="color:#00FF00">Note that if $f$ has constant value 1, then the integral of $f$ over $C$ gives the length of $C$</p>
+		</section>
+		
+		<section  align="left">	
+		<h3>Properties of line integrals</h3>
+		<p>Line integrals have the useful property that if a curve $C$ is made by joining a finite number of curves 
+		$C_1, C_2, \ldots, C_n$ end to end, then the integral of a function over $C$ is the 
+		<span style="color:#00FF00"><b>sum of the integrals</b></span> over the curves that make it up</p>
+		<br>
+		
+		\[
+		\color{red}{\boxed{\color{white}{
+		 \int_C f\,\mathrm{d}s = \int_{C_1}f\,\mathrm{d}s + \int_{C_2}f\,\mathrm{d}s +\cdots+\int_{C_n}f\,\mathrm{d}s
+		 }}}
+		\]
+		
+		<br>
+		<span class="fragment fade-in">
+		<p>The line integral along a curve changes sign when the curve's orientation is reversed. 
+		Specifically, the <span style="color:#00FF00"><b>integral along the reversed curve</b></span>, denoted $-C$, is the negative of the integral along the original 
+		curve $C$, <em>i.e.</em></p>
+		<br>
+		\[
+		\color{red}{\boxed{\color{white}{
+		\int_{-C}f\,\mathrm{d}s = -\int_{C}f\,\mathrm{d}s 
+		}}}
+		\]
+		</span>
+		</section>
+	</section>
+	
+	<section>
+		<section  align="left">	
+		<h3>Example 6.1</h3>
+		<p>Let</p>
+		\[
+		\mathbf{F} = \left(y^2-x^2\right)\mathbf{i}+\left(x^2+y^2\right)\mathbf{j}
+		\]
+		<p> and let $C$ be the boundary of the region $\mathcal{D}$ in the first quadrant bounded by the triangle 
+		$y=0$, $x=3$ and $y=x$, oriented counter-clockwise.</p>
+		
+		<p>(a) Sketch the region $\mathcal{D}$</p>
+		<p>(b) Evaluate $\displaystyle \oint_C\mathbf{f}\cdot\mathrm{d}\mathbf{r}$ directly by parametrising $C$</p>
+		
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>We begin by drawing the region $\mathcal{D}$</p>
+		
+		<p>Note also that $C = C_1 +C_2+C_3$ consists of three sections</p>
+		
+		<p>(traversed counter-clockwise)</p>
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:450px;left:850px"				
+				height="175"					
+				src="figures/Example6p1Region.png">
+		
+		</span>
+		</section>
+		
+		<section  align="left">	
+		<h3>Example 6.1 (ctd)</h3>
+		<p>We have three integrals to compute</p>
+		<p>$C_1:$</p>
+		\[
+		\begin{align*}
+		\mathbf{r}(t) &= (3t,0) \quad t\in[0,1]\\
+		\mathbf{r}'(t) &= (3, 0)\\
+		\mathbf{F}(\mathbf{r}(t)) &= (-9t^2, 9t^2)\\
+		\end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>Therefore</p>
+		\[
+		\begin{align*}
+		\int_{C_1}\mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \int_0^1\mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t\\
+		&=\int_0^1 -27t^2\,\mathrm{d}t\\
+		&=\bigg[-9t^3\bigg]_0^1 = -9
+		\end{align*}
+		\]
+		</span>
+		</section>
+		
+		<section  align="left">	
+		<h3>Example 6.1 (ctd)</h3>
+		<p>We have three integrals to compute</p>
+		<p>$C_2:$</p>
+		\[
+		\begin{align*}
+		\mathbf{r}(t) &= (3,3t) \quad t\in[0,1]\\
+		\mathbf{r}'(t) &= (0, 3)\\
+		\mathbf{F}(\mathbf{r}(t)) &= (9t^2-9, 9t^2+9)\\
+		\end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>Therefore</p>
+		\[
+		\begin{align*}
+		\int_{C_2}\mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \int_0^1\mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t\\
+		&=27\int_0^1 t^2+1\,\mathrm{d}t\\
+		&=27\bigg[\frac{1}{3}t^3+t\bigg]_0^1 = 27\left(\frac{4}{3}\right) = 36
+		\end{align*}
+		\]
+		</span>
+		</section>
+		
+		<section  align="left">	
+		<span style="font-size:24px">
+		<h3>Example 6.1 (ctd)</h3>
+		<p>We have three integrals to compute</p>
+		<p>$-C_3:$</p>
+		\[
+		\begin{align*}
+		\mathbf{r}(t) &= (3t,3t) \quad t\in[0,1]\\
+		\mathbf{r}'(t) &= (3, 3)\\
+		\mathbf{F}(\mathbf{r}(t)) &= (0, 18t^2)\\
+		\end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>Therefore</p>
+		\[
+		\begin{align*}
+		\int_{-C_3}\mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \int_0^1\mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t\\
+		&=\int_0^1 54t^2\,\mathrm{d}t\\
+		&=\bigg[18t^3\bigg]_0^1 = 18
+		\end{align*}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>The final result is $\int_{C_3}\mathbf{F}\cdot\mathrm{d}\mathbf{r}=-18 \implies$</p>
+		\[
+		\color{red}{\boxed{\color{white}{
+		\int_{C}\mathbf{F}\cdot\mathrm{d}\mathbf{r} = \int_{C_1}\mathbf{F}\cdot\mathrm{d}\mathbf{r}+\int_{C_2}\mathbf{F}\cdot\mathrm{d}\mathbf{r}
+		+\int_{C_3}\mathbf{F}\cdot\mathrm{d}\mathbf{r} = -9 + 36 - 18 = 9
+		}}}
+		\]
+		</span>
+		</span>
+		</section>
+	</section>
+	
+	<section align="left">
+	<h1>Advanced Calculus L6</h1>
+	<br>
+	<ul>	
+		<li>Line integrals (ctd)</li>
+		<br>
+		<li style="color:#00FF00">Conservative fields</li>
+		
+		<ul>
+		<li>Potential functions</li>										
+		<li>Independence of path and the curl operator</li>
+		</ul>
+	</ul>
+	</section>
+			
+	<section>
+	<section  align="left">		
+	<h3>Conservative fields</h3>
+	
+	<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 6.1</h3>
+		</boxTitle>
+		<p>Let $\mathbf{F}$ be a field defined on an open region $\mathcal{D}$ in space, and suppose for any 
+		two points $A$ and $B$ the integral </p>
+		\[
+			\int_A^B\mathbf{F}\cdot\mathrm{d}\mathbf{r}
+		\]
+		<p>is the same over all paths. Then the integral is said to be <b>path independent in $\mathcal{D}$</b> and 
+		the field $\mathbf{F}$ is said to be <b>conservative on $\mathcal{D}$</b></p>
+		<p></p>
+	</textBox>	
+		
+		<p style="color:#00FF00" class="fragment fade-in">The word conservative here comes from physics where it refers to fields in which energy is conserved</p>
+	</section>			
+	
+	<section  align="left">		
+	<h3>Potential functions</h3>
+	
+	<textBox touch-action="none">
+		<boxTitle>
+		<h3>Definition 6.2</h3>
+		</boxTitle>
+		<p>If $\mathbf{F}$ is a field defined on $\mathcal{D}$ and</p>		
+		\[
+			\mathbf{F} = \nabla f
+		\]
+		<p>for some scalar function $f$ on $\mathcal{D}$, then $f$ is called a <b>potential function</b> for $\mathbf{F}$</p>
+		<p></p>
+	</textBox>	
+	<span class="fragment fade-in">
+	
+	<p>Importantly, it can be show that in this case the integral $\displaystyle \int_C \mathbf{F}\cdot\mathrm{d}\mathbf{r}~$
+	greatly simplifies:</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	 \int_C \mathbf{F}\cdot\mathrm{d}\mathbf{r} = \int_C\nabla f\cdot\mathrm{d}\mathbf{r} = f(A)-f(B)
+	 }}}
+	\]
+	<p>where $A, B$ are respectively the start and end points of $C$</p>
+	
+	<p style="color:#00FF00">This is the vector calculus equivalent of the Fundamental Theorem of Calculus</p>
+	</span>
+	</section>
+	
+	<section  align="left">		
+	<h3>Some important consequences</h3>
+	
+	<p>The result overpage tells us that for a conservative field $\mathbf{F}$ the line integral $\int_C\mathbf{F}\cdot\mathrm{d}\mathbf{r}$ 
+	depends only on the endpoints and not the specific path joining them</p>
+	
+	<span class="fragment fade-in">
+	<textBox touch-action="none">
+		<boxTitle>
+		<h3>Theorem 6.1</h3>
+		</boxTitle>
+		<p>The following statements are equivalent:</p>		
+		<ol>
+			<li>$\displaystyle \int_C\mathbf{F}\cdot\mathrm{d}\mathbf{r} = 0$ around every closed loop in $\mathcal{D}~~~$</li>
+			<li>The field $\mathbf{F}$ is conservative on $\mathcal{D}$</li>
+		</ol>
+		<p></p>
+	</textBox>	
+	</span>
+	</section>
+	
+	</section>
+	
+	<section  align="left">		
+	<h3>Example 6.2</h3>
+	<p>Find the work done by the conservative field </p>
+	\[
+	 \mathbf{F} = (yz, xz, xy) = \nabla\left(xyz\right)
+	\]
+	<p>along any smooth curve $C$ joining $(-1, 3, 9)$ to $(1, 6, -4)$</p>
+	
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p>With $f(x,y,z) = xyz$, we have </p>
+	\[
+		\begin{align*}
+		\int_C\mathbf{F}\cdot\mathrm{d}\mathbf{r} &=\int_A^B \nabla f\cdot \mathrm{d}\mathbf{r}\\
+		&= f(B)-f(A)\\
+		&= \left.xyz\right|_{(1, 6, -4)} - \left.xyz\right|_{(-1, 3 , 9)}\\
+		&=(1)(6)(-4) - (-1)(3)(9)\\
+		&=-24+27 = 3
+		\end{align*}
+	\]
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00"> Here we were provided with the potential function, but what if we aren't ...</p>
+	</section>
+	
+	<section>
+		<section  align="left">		
+		<span style="font-size:24px">
+		<h3>Finding potentials for conservative fields</h3>
+	
+		<textBox touch-action="none">
+			<boxTitle>
+			<h3>Component test for conservative fields</h3>
+			</boxTitle>
+			<p>Let $\mathbf{F} = (g(x,y,z), h(x,y,z), k(x,y,z))$ be a field, then $\mathbf{F}$ is <b>conservative</b>
+			if and only if</p>		
+			\[
+				\frac{\partial k}{\partial y} = \frac{\partial h}{\partial z}, \quad \frac{\partial g}{\partial z} = \frac{\partial k}{\partial x}, \quad
+				\text{and}\quad \frac{\partial h}{\partial x} = \frac{\partial g}{\partial y}
+			\]		
+			<p></p>
+		</textBox>	
+	
+		<span class="fragment fade-in">
+		<p>When we know $\mathbf{F}$ is conservative then we usually want to find a potential function</p>
+			
+		<p>This requires solving $\nabla f = \mathbf{F}$, <em>i.e.</em></p>
+		\[
+			\left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right) = 
+			\left(g(x,y,z), h(x,y,z), k(x,y,z)\right)
+		\]
+		<p>Or integrating</p>
+		\[
+			\color{red}{\boxed{\color{white}{
+			\frac{\partial f}{\partial x} = g, \quad\frac{\partial f}{\partial y} = h, \quad\frac{\partial f}{\partial z} = k,
+			}}}
+		\]
+		</span>
+		</span>	
+		</section>	
+		
+		<section  align="left">				
+		<h3>Example 6.3</h3>
+		<p>Show that</p> 
+		\[
+		\mathbf{F} = (e^x\cos{y}+yz, xz-e^x\sin{y}, xy+z)
+		\]
+		<p>is conservative and find a potential function for it</p>
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>Applying the test to</p>
+		\[
+		 g = e^x\cos{y}+yz, \quad h = xz-e^x\sin{y}, \quad k = xy+z
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>we find</p>
+		\[
+		 \frac{\partial k}{\partial y} = x = \frac{\partial h}{\partial z},\quad\frac{\partial g}{\partial z} = y = \frac{\partial k}{\partial x},
+		 \quad\frac{\partial h}{\partial x} = -e^x\sin{y}+z = \frac{\partial g}{\partial y}
+		\]
+		<p>Proving the field <em>is</em> conservative</p> 
+		
+		</span>
+		</section>
+		
+		<section  align="left">				
+		<h3>Example 6.3 (ctd)</h3>
+		<p>Thus there exists an $f$ with $\nabla f=\mathbf{F}$</p> 
+		
+		<span class="fragment fade-in">
+		<p>We find $f$ by integrating</p>
+		\[
+		\frac{\partial f}{\partial x} = e^x\cos{y}+yz,\quad\frac{\partial f}{\partial y} = xz-e^x\sin{y},\quad 
+		\frac{\partial f}{\partial z} = xy+z
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>Integrating the first equation wrt $x$:</p>
+		\[
+		 f(x,y,z) = e^x\cos{y} + xyz + M(y,z)
+		\]
+		<span class="fragment fade-in">
+		<p>Caclulating $\partial f/\partial y$ and matching with our previous expression gives</p>
+		\[
+		 -e^x\sin{y} + xz + \frac{\partial M}{\partial y} = -e^x\sin{y} + xz
+		\]
+		<p>so $\partial M/\partial y = 0$ meaning $M$ is a function of $z$ only so</p>
+		\[
+		 f(x,y,z) = e^x\cos{y}+xyz+N(z)
+		\]
+		</span>
+		</section>
+		
+		<section  align="left">				
+		<h3>Example 6.3 (ctd)</h3>
+		<p>Computing $\partial f/\partial z$ and matching with our previous expression gives
+		\[
+		 xy+\frac{\partial N}{\partial z} = xy+z		 
+		\]
+		<p>so</p>
+		\[
+		 N(z) = \frac{z^2}{2} + C
+		\]
+		<span class="fragment fade-in">
+		<p>Hence</p>
+		\[ 
+			\color{red}{\boxed{\color{white}{
+			f(x,y,z) = e^x\cos{y}+xyz+\frac{z^2}{2}+C
+			}}}
+		\]
+		</span>
+		</section>
+	</section>				
 				
-				<section>
-					<section  align="left">					
-						<h2>Periodic extensions</h2>					
-										
-						<ul>
-							<li>FS calculations for an odd or even function are greatly simplified</li><br>
-							<li>Given a function $f$ defined on $(0,L)$ we would like to obtain a FS expansion in terms of either just sines or cosines</li><br>
-							<li>We can do this by <a style="color:red"><b>extending</b></a> the function $f$ to be even/odd on the interval $(-L,L)$ and then 
-							extending to a $2L$-periodic function</li>						
-						</ul>
-						
-					</section>		
+	<section>
+	<h2 style="color:#00FF00">Lecture 6 Review</h2>
+	<br>
 					
-					<section  align="left">											
-													
-						<p>Let us consider an example</p>
-							\[
-							 f(x) = \cos(2x)e^{-x},\quad x\in(0,\pi)
-							\]
-							<p>We can extend this function to be either an odd or even function of period $2\pi$</p>
-							<img data-src="figures/FuncEgL6.png"style="position:absolute;top:300px;left:375px;scale: 1.5; border: 3px solid white;">													
-						
-						
-					</section>		
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul><li>Line integrals (ctd)</li>
+			<li>Conservative fields</li>
+			<ul>
+				<li>Potential functions</li>							
+				<li>Independence of path and the curl operator</li>
+			</ul>
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul>
+			<li>Identify a conservative vector field by calculating its curl and explain why this condition is important</li>
+			<li>Determine the potential function for a given conservative field</li>
+			<li>Apply the Fundamental Theorem for Line Integrals to efficiently evaluate line integrals for conservative fields, 
+			thereby demonstrating path independence</li>
+		</ul><br>					
+	</ul>			
 					
-					<section  align="left">													
-					
-						<p>What does the <em>odd extension</em> look like?</p>
-						
-						<p>
-						Since </p>
-						\[
-						 -f(-x) = -\cos(2x)e^x
-						\]
-						<p>we have that </p>
-						\[
-						f_\mathrm{oe}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
-						-\cos(2x)e^x,& x\in (-\pi, 0)
-						\end{cases}
-						\]
-						
-						<p>which after extending periodically looks like...</p>
-						
-					</section>		
-					
-					<section  align="left">													
-					
-						<p>Odd extension:</p>
-						\[
-						f_\mathrm{oe}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
-						-\cos(2x)e^x,& x\in (-\pi, 0)
-						\end{cases}
-						\]
-						<p>such that $f(x+2\pi) = f(x)$ outside this range</p>
-						
-						
-						<img data-src="figures/oddextension.png"style="position:absolute;top:325px;left:600px;scale: 1.25;">													
-						<img data-src="figures/FSexComm.png"style="position:absolute;top:300px;left:0px;scale: 0.75;">													
-					</section>	
-					
-					<section  align="left">													
-					
-						<p>What does the <em>even extension</em> look like?</p>
-						
-						<p>Since </p>
-						\[
-						 f(-x) = \cos(2x)e^x
-						\]
-						<p>we have that </p>
-						\[
-						f_\mathrm{ee}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
-						\cos(2x)e^x,& x\in (-\pi, 0)
-						\end{cases}
-						\]
-						
-						<p>which after extending periodically looks like...</p>
-						
-					</section>		
-					<section  align="left">													
-														
-						<p>Even extension:</p>
-						\[
-						f_\mathrm{ee}(x) = \begin{cases}\cos(2x)e^{-x},&x\in(0,\pi)\\
-						\cos(2x)e^x,& x\in (-\pi, 0)
-						\end{cases}
-						\]
-						<p>such that $f(x+2\pi) = f(x)$ outside this range</p>
-						
-						
-						<img data-src="figures/evenextension.png"style="position:absolute;top:325px;left:600px;scale: 1.25;">													
-						<img data-src="figures/FSexComm.png"style="position:absolute;top:300px;left:0px;scale: 0.75;">													
-					</section>	
-				</section>
-				
-				
-				<section  align="left">													
-				
-				<p>Formally we can construct odd and even extensions as follows:</p>
-				
-				<p><b>Even extension:</b></p>
-				
-				\[\color{#00FF00}{\boxed{\color{white}{f_\mathrm{ee} = \begin{cases}f(x)&x\in(0,L)\\f(-x)& x\in(-L,0)\end{cases}}}}\]
-				
-				<span class="fragment fade-in">
-				<p>And</p> 
-				<p><b>Odd extension:</b></p>
-				\[\color{red}{\boxed{\color{white}{f_\mathrm{ee} = \begin{cases}f(x)&x\in(0,L)\\-f(-x)& x\in(-L,0)\end{cases}}}}\]
-				</span>
-				</section>				
-								
-				<section align=left>
-					<h1>Advanced Calculus L6</h1>
-					<br>
-					<ul>
-						<li>Odd and even extensions</li>
-						<br>
-						<span style="color: #00FF00"> <li>Fourier series of functions of general period</li></span>
-						<br>
-						<li>Examples</li>											
-					</ul>
-				</section>			
-				
-				<section>
-					<section  align="left">					
-						<h2>Functions of any period</h2>					
-							
-						<ul>
-							<li>Consider a function of period $T=2L$</li><br>
-							<li> For example</li><br><br><br><br>
-							<li>We would like to represent such functions as a FS consisting of terms like</li><br>
-							\[
-							 \color{red}{\boxed{\color{white}{
-							 \cos\left(\frac{n\pi}{L}x\right) ~\text{ and }~ \sin\left(\frac{n\pi}{L}x\right)
-							 }}}
-							\]
-						</ul>						
-						
-						<img data-src="figures/PeriodT.png"style="position:absolute;top:35px;left:400px;scale: 0.6;">													
-					</section>	
-					
-					<section  align="left">											
-
-						<p>To see how to do this we make the following change of variables \[X = x\pi/L\] so that, for example,</p>
-						\[
-						f(x) = \cos\left(\frac{n\pi}{L}x\right) = f(\frac{LX}{\pi}) =\cos(nX)=g(X)
-						\]
-						<p>Importantly, $g(X)$ is a $2\pi$-periodic function.</p>
-						
-					</section>		
-					
-					<section  align="left">													
-					
-						<ul>
-							<li>Note that the example over slide holds more generally, <em>i.e.</em> if $f(x)$ is $2L$-periodic then $g(X)$ is $2\pi$-periodic</li><br>
-							<span class="fragment fade-in">
-							<li><p>To see this note that</p></li>
-							\[
-							\begin{align*}
-							g(X+2\pi) &= f\left(\frac{L(X+2\pi)}{\pi}\right)\\ &= 
-							f\left(\frac{LX}{\pi}+2L\right)=f\left(\frac{LX}{\pi}\right)=g(X)
-							\end{align*}
-							\]
-							</span>
-							<span class="fragment fade-in">
-							<li><p>Since $g(X)$ is $2\pi$-periodic we have its FS:</p></li>
-							\[
-							 \color{#00FF00}{\boxed{\color{white}{
-							 g(X) = \frac{a_0}{2}+\sum_{n=1}^\infty\left[a_n\cos(nX)+b_n\sin(nX)\right]
-							 }}}
-							\]							
-						</ul></span>
-						
-						
-					</section>		
-					<section  align="left">													
-						
-						<p>Under the above transformation the Euler integrals and FS become</p>
-						
-						<img data-src="figures/EulerTrans.png"style="scale: 1.15; border: 3px solid white">													
-					</section>
-				</section>
-				
-				<section align="left">
-					<h1>Advanced Calculus L6</h1>
-					<br>
-					<ul>
-						<li>Odd and even extensions</li>
-						<br>
-						<li>Fourier series of functions of general period</li>		
-						<br>
-						<span style="color: #00FF00"> <li>Examples</li>	</span>
-					</ul>
-				</section>
-
-				<section>
-					<section  align="left">											
-						
-						<h3>Example 6.1 </h3><p>Find the <b>sine series</b> of the function </p>
-						
-						\[
-						 f(x) = x \quad \text{for } x\in(0,\pi)\quad (T=2L=2\pi)
-						\]
-						
-						
-						<h3>Solution:</h3> 
-						
-						<p>We need the <em>odd extension</em> to compute the sine series (<em>i.e.</em> a FS consisting of sines only)</p>
-						<span class="fragment fade-in">
-						<img data-src="figures/Example6p1.png"style=" border: 3px solid red;">
-						</span>
-					</section>		
-					<section  align="left">											
-						
-						<p>Since $F$ is odd we have $a_0=a_n=0, n=1,2,\ldots$</p>
-						
-						<p>And</p>
-						\[
-						 \begin{align*}
-						 b_n &=\frac{1}{\pi}\int_{-\pi}^\pi F(x)\sin(nx)\mathrm{d}x\\
-						 &= \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\
-						 &= \frac{2}{\pi}\int_0^\pi x\sin(nx)\mathrm{d}x\\
-						 &=\frac{2}{\pi}\bigg[-\frac{x}{n}\cos(nx)\bigg]_0^\pi+\frac{2}{n\pi}\int_0^\pi \cos(nx)\mathrm{d}x\\
-						 &= \frac{2}{n\pi}\left(-(-1)^n\right) = \color{red}{\boxed{\color{white}{\frac{2}{n\pi}(-1)^{n+1}}}}
-						 \end{align*}						
-						\]
-						
-					</section>	
-					
-					<section  align="left">													
-													
-						<p>Thus the FS for the function $F(x)$ is given by </p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						F(x)\sim \sum_{n=1}^\infty \frac{2}{n\pi}(-1)^{n+1}\sin(nx)
-						}}}
-						\]
-						<p>which equals $f(x)$ on the interval $(0,\pi)$</p>
-						
-						<br><br>
-						<span class="fragment fade-in">
-						<p>100 terms of the FS:</p>
-						
-						<img data-src="figures/Example6p1FSfig100.png" style="position:absolute;top:210px;left:400px;scale: .8;">
-						</span>
-					</section>						
-				</section>				
-				
-				<section>
-					<section  align="left">											
-										
-						<h3>Example 6.2 </h3><p>Find the <b>cosine series</b> of the function</p> 
-						
-						\[
-						 f(x) = x \quad \text{for } x\in(0,L)
-						\]
-						
-						
-						<h3>Solution:</h3> 
-						<span class="fragment fade-in">
-						We need the <em>even extension</em> to compute the cosine series (<em>i.e.</em> a FS consisting of cosines only)
-						
-						<img data-src="figures/Example6p2.png"style=" border: 3px solid green;">
-						</span>
-					</section>		
-					
-					<section  align="left">											
-						
-						<p>Since $F$ is even we have $b_n=0, n=1,2,\ldots$</p>
-						
-						<p>Thus</p>
-						\[
-						a_0 = \frac{2}{L}\int_0^L x\mathrm{d}x = \frac{2}{L}\bigg[\frac{1}{2}x^2\bigg]_0^L 
-						= \color{red}{\boxed{\color{white}{L}}}
-						\]
-						<span class="fragment fade-in">
-						<p>And</p>
-						\[
-						 \begin{align*}
-						 a_n &=\frac{2}{L}\int_0^L x\cos\left(\frac{n\pi}{L}x\right)\mathrm{d}x\\\\
-						 &= \frac{2}{L}\bigg[\frac{L}{n\pi}x\sin\left(\frac{n\pi}{L}x\right)\bigg]_0^L-
-						 \frac{2}{n\pi}\int_0^L\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x\\
-						 &= \ldots						 
-						 \end{align*}						
-						\]
-						</span>
-					</section>	
-					
-					<section  align="left">													
-					
-						<p>...</p>
-						\[
-						\begin{align*}
-						a_n &= \frac{2}{L}\bigg[\frac{L}{n\pi}x\sin\left(\frac{n\pi}{L}x\right)\bigg]_0^L-
-						 \frac{2}{n\pi}\int_0^L\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x\\
-						 &= -\frac{2}{n\pi}\bigg[-\frac{L}{n\pi}\cos\left(\frac{n\pi}{L}x\right)\bigg]_0^L\\ 						 
-						 &= \color{red}{\boxed{\color{white}{\frac{2L}{n^2\pi^2}\left((-1)^n-1\right)}}}
-						 \end{align*}
-						\]
-						<span class="fragment fade-in">
-						<p>so that the FS is given by</p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						F(x) = \frac{L}{2} + \sum_{n=1}^\infty \frac{2L}{n^2\pi^2}\left((-1)^n-1\right) \cos\left(\frac{n\pi}{L}x\right)
-						}}}
-						\]						
-						</span>
-					</section>	
-					
-					<section  align="left">													
-						
-						<p>Of course the FS given above for $F(x)$ converges to our original function $f(x)$ on the interval $(0,L)$, <em>i.e.</em></p>
-											\[
-						\color{#00FF00}{\boxed{\color{white}{
-						f(x) = \frac{L}{2} + \sum_{n=1}^\infty \frac{2L}{n^2\pi^2}\left((-1)^n-1\right) \cos\left(\frac{n\pi}{L}x\right) \text{ on } (0,\pi)
-						}}}
-						\]
-						<br><br>
-						<span class="fragment fade-in">
-						<p>100 terms of the FS ($L=5$):</p>
-						
-						<img data-src="figures/Example6p2FSfig100.png" style="position:absolute;top:235px;left:400px;scale: .75; border: 3px solid white;">
-						</span>
-					</section>
-				</section>		
-
-				<section>
-					<h2 style="color:#00FF00">Lecture 6 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>Odd and even extensions</li>
-							<li>Fourier series of functions of general period</li>							
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>
-							<li>be able to able to compute the odd/even extension of a function</li>
-							<li>be able to compute Fourier series of functions of any period</li>														
-						</ul><br>					
-					</ul>			
-					
-				</section>					
-						 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
