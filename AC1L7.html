@@ -18,333 +18,373 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 7</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->					
-				<section align="left">
-					<h1>Advanced Calculus L7</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>The 1D heat equation</li></span>
-						<br>
-						<li>The method of separation of variables</li>		
-						<br>
-						<li>Examples</li>											
-					</ul>
-				</section>		
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 7</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L7</h1>
+	<br>
+	<ul>								
+		<li style="color:#00FF00">Calculating the surface area</li>			
+		<br>		
+		<li>Surface integrals</li>
+		<br>
+		<li>Flux through a surface</li>
+	</ul>
+	</section>			
+	
+	<section  align="left">	
+	<h3> Surface Area</h3>
+	
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Definition 7.1</h3>
+	</boxTitle>			
+	<p>The <b>area of the smooth surface $S$</b> parametrised by</p>
+	\[
+		\quad\mathbf{r}(u,v) = f(u,v)\mathbf{i}+g(u,v)\mathbf{j}+h(u,v)\mathbf{k}, \quad u\in[a, b], v\in[c,d]\quad
+	\]
+	<p>is</p>
+	\[
+		A = \iint_S\,\mathrm{d}\sigma = \int_a^b\int_c^d |\mathbf{r}_u\times\mathbf{r}_v|\,\mathrm{d}u\mathrm{d}v
+	\]
+	<p></p>
+	</textBox>
+	<span class="fragment fade-in">
+	<p>Here</p>
+	\[
+	 \color{red}{\boxed{\color{white}{
+	 \mathrm{d}\sigma = |\mathbf{r}_u\times\mathbf{r}_v|\,\mathrm{d}u\mathrm{d}v
+	 }}}
+	\]
+	<p>is called the <b style="color:red">surface element</b></p>
+	
+	<p>See the online notes for a derivation of this result</p>
+	</span>
+	</section>	
+	
+	<section>
+		<section  align="left">				
+		<h3>Example 7.1</h3>
+		<p>Find the surface area of a spehere of radius $2$</p>
+	
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>We use spherical coordinates to parametrise the sphere as follows</p>
+		\[
+			\mathbf{r}(\theta, \phi) = \left(2\cos\theta\sin\phi\right)\mathbf{i}+\left(2\sin\theta\sin\phi\right)\mathbf{j}+\left(2\cos\phi\right)\mathbf{k}
+		\]
+		</span>
+		
+		<span class="fragment fade-in">
+		<p>To compute the surface element we need the derivatives wrt $\theta$ and $\phi$:</p>
+		\[
+			\begin{align*}
+			\mathbf{r}_\theta &= \left(-2\sin\theta\sin\phi\right)\mathbf{i}+\left(2\cos\theta\sin\phi\right)\mathbf{j}+\left(0\right)\mathbf{k}\\
+			\mathbf{r}_\phi &=\left(2\cos\theta\cos\phi\right)\mathbf{i}+\left(2\sin\theta\cos\phi\right)\mathbf{j}+\left(-2\sin\phi\right)\mathbf{k}
+			\end{align*}
+		\]
+		</span>
+		
+		<span class="fragment fade-in">
+		<p>Thus</p>
+		\[
+			\color{red}{\boxed{\color{white}{
+			\mathrm{d}\sigma = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+			-2\sin\theta\sin\phi&2\cos\theta\sin\phi&0\\
+			2\cos\theta\cos\phi&2\sin\theta\cos\phi&-2\sin\phi\end{vmatrix}\mathrm{d}u\mathrm{d}v
+			}}}
+		\]
+		</span>
+		</section>
+	
+		<section  align="left">		
+		<span style="font-size: 23px">
+		<h3>Example 7.1 (ctd)</h3>
+		<p>Computing the cross product:</p>
+		\[
+		\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+			-2\sin\theta\sin\phi&2\cos\theta\sin\phi&0\\
+			2\cos\theta\cos\phi&2\sin\theta\cos\phi&-2\sin\phi\end{vmatrix} = -4(\cos\theta\sin^2\phi, \sin\theta\sin^2\phi, \sin\phi\cos\phi)\\
+		\]
+		<span class="fragment fade-in">
+		<p>So that</p>
+		\[
+		\begin{align*}
+		|\mathbf{r}_\theta\times\mathbf{r}_\phi|^2 &= 16\left(\cos^2\theta\sin^4\phi+\sin^2\theta\sin^4\phi+\sin^2\phi\cos^2\phi\right)\\
+		&= 16\left(\sin^4\phi+\sin^2\phi\cos^2\phi\right)\\
+		&= 16\sin^2\phi \implies |\mathbf{r}_\theta\times\mathbf{r}_\phi| = 4\sin\phi
+		\end{align*}		
+		\]
+		
+		<p>And</p>
+		\[
+		\mathrm{d}\sigma = 4\sin\phi\,\mathrm{d}u\mathrm{d}v
+		\]
+		</span>
+		
+		<span class="fragment fade-in">
+		<p>The surface area is given by</p>
+		\[
+		 \begin{align*}
+		 \iint_S \,\mathrm{d}\sigma &= \int_0^{2\pi}\int_0^\pi 4\sin\phi\,\mathrm{d}\phi\mathrm{d}\theta\\
+		 &=\int_0^{2\pi}\bigg[-4\cos\phi\bigg]_0^\pi\,\mathrm{d}\theta = \int_0^{2\pi}8\,\mathrm{d}\theta = 
+		 \color{red}{\boxed{\color{white}{16\pi}}} \quad\text{(as expected ...)}
+		 \end{align*}
+		\]
+		</span>
+		</section>
+	
+	</section>
+				
+	<section align="left">
+	<h1>Advanced Calculus L7</h1>
+	<br>
+	<ul>						
+		<li>Calculating the surface area</li>
+		<br>
+		<li style="color:#00FF00">Surface integrals</li>								
+		<br>
+		<li>Flux through a surface</li>
+	</ul>
+	</section>		
+	
+	<section  align="left">		
+	<h3>Surface integrals</h3>
+	<p>Analogous to line integrals, which integrate a function over a curve, we can define a <b style="color:#00FF00">surface integral</b> 
+	to integrate a function over a two-dimensional surface.</p>
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Definition 7.1</h3>
+	</boxTitle>			
+	<p>If $S$ is a smooth surface defined by the parametrisation</p>
+	\[
+		\mathbf{r}(u,v) = f(u,v)\mathbf{i}+g(u,v)\mathbf{j}+h(u,v)\mathbf{k}, \quad u\in[a, b], v\in[c,d]
+	\]
+	<p>and $G(x,y,z)$ is a continuous function defined on $S$, then the <b>integral of $G$ over $S$</b> is</p>
+	\[
+		\iint_SG(x,y,z)\,\mathrm{}d \sigma= \int_a^b\int_c^d G(f(u,v),g(u,v),h(u,v))|\mathbf{r}_u\times\mathbf{r}_v|\,\mathrm{d}u\mathrm{d}v
+	\]
+	<p></p>
+	</textBox>
+	</section>	
+	
+	<section>
+		<section  align="left">		
+		<span style="font-size:24px">
+		<h3>Example 7.2</h3>
+		<p>Integrate $G(x,y,z)=x^2$ over the cone $z=\sqrt{x^2+y^2}$, $0\leq z\leq 1$.</p>
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>To start let us compute the surface element of the cone</p>
+		
+		<p>We can take as a parametrisation </p>
+		\[
+			\mathbf{r}(u,v) = (u, v, \sqrt{u^2+v^2})
+		\]
+		<p>so that</p>
+		\[
+			\mathbf{r}_u\times\mathbf{r}_v = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+			1&0&u/\sqrt{u^2+v^2}\\0&1&v/\sqrt{u^2+v^2}\end{vmatrix} = \frac{u}{\sqrt{u^2+v^2}}\mathbf{i}+\frac{v}{\sqrt{u^2+v^2}}\mathbf{j}+\mathbf{k}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>Thus</p>
+		\[
+		|\mathbf{r}_u\times\mathbf{r}_v| = \sqrt{\frac{u^2}{u^2+v^2}+\frac{v^2}{u^2+v^2}+1} = \sqrt{2} \implies 
+		\color{red}{\boxed{\color{white}{\mathrm{d}\sigma = \sqrt{2}\mathrm{d}u\mathrm{d}v}}}
+		\]
+		</span>
+		</span>
+		</section>	
+	
+		<section  align="left">		
+		<h3>Example 7.2 (ctd)</h3> 
+		<span style="font-size: 24px">
+		<p>We thus have the following integral to solve</p>
+		\[
+		 \iint_S x^2\,\mathrm{d}\sigma = \iint_\mathcal{R} u^2\sqrt{2}\,\mathrm{d}u\mathrm{d}v,
+		\]
+		<p>where $\mathcal{R}$ is the unit circle in the $uv$-plane</p>
+		
+		<span class="fragment fade-in">
+		We can further simplify the problem by moving to polar coordinates</p>
+		\[
+		\begin{align*}
+			\iint_\mathcal{R} u^2\sqrt{2}\,\mathrm{d}u\mathrm{d}v&= \sqrt{2}\int_0^{2\pi}\int_0^1 r^3\cos^2\theta\,\mathrm{d}r\mathrm{d}\theta\\
+			&=\sqrt{2}\int_0^{2\pi}\left[\frac{r^4}{4}\cos^2\theta\right]_0^1\,\mathrm{d}\theta = 
+			\sqrt{2}\int_0^{2\pi}\frac{1}{4}\cos^2\theta\,\mathrm{d}\theta
+		\end{align*}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>Using the identity $\displaystyle \cos^2\theta = (1+\cos{2\theta})/2$ gives</p> 
+		\[
+		\sqrt{2}\int_0^{2\pi}\frac{1}{4}\cos^2\theta\,\mathrm{d}\theta = \frac{\sqrt{2}}{8}\bigg[\theta+\frac{1}{2}\sin{2\theta}\bigg]_0^{2\pi} 
+		= \color{red}{\boxed{\color{white}{\frac{\pi\sqrt{2}}{4}}}}
+		\]
+		</span>
+		</span>
+		</section>
+		
+	</section>
+		
+	
+	<section align="left">
+	<h1>Advanced Calculus L7</h1>
+	<br>
+	<ul>						
+		<li>Calculating the surface area</li>
+		<br>
+		<li>Surface integrals</li>								
+		<br>
+		<li style="color:#00FF00">Flux through a surface</li>
+	</ul>
+	</section>		
 
-				<section  align="left">					
-					<h2>The 1d Heat Equation</h2>					
-																					
-					<img data-src="figures/HeatBar.png"style="border: 3px solid white;">																			
-					<ul>
-						<li><p>Plus BCs: ends of rod held constant at zero degrees, <em>i.e.</em></p></li>
-						\[
-						 u(0,t) = u(L,t) = 0
-						\]
-						<li><p>And IC giving the initial temperature distribution: $u(x,0)=f(x)$</p></li>
-					</ul>						
-					
-				</section>	
+	<section  align="left">		
+	<h3>Orientation of a surface</h3>
+	<p>We call a smooth surface $S$ <b style="color:#00FF00">orientable</b> or <b style="color:#00FF00">two-sided</b> if it is possible to define a field $\mathbf{n}$ 
+	of unit normal vectors on $S$ that varies continuously with position</p>
+	
+		<img style="margin:0px;padding:0px"				
+		height="150"					
+		src="figures/Orientability.png">
+		<img style="margin:0px;padding:0px;position:absolute;top:185px;left:700px"				
+		height="150"					
+		src="figures/OrientedSurface.png">
+	
+	<span class="fragment fade-in">
+	<p>If a curve $C$ lies on an orientable surface $S$ then we say that the curve $C$ is <b style="color:#00FF00">positively oriented</b> if a right handed screw
+	driver would turn in the direction of the normal field when turned in the direction of the path traversal</p>	
+	<img style="margin:0px;padding:0px;position:absolute;top:500px;left:100px"				
+		height="175"					
+		src="figures/OrientedSurface.png">
+	</span>	
+	<br><br><br><br>
+	<p></p>
+	</section>	
+	
+	<section  align="left">		
+	<h3>Flux through a surface</h3>
+	<p>The flux of a vector field is an intuitive measure of how much of that vector field flows through a given surface over a period of time.</p>
+	
+	<span class="fragment fade-in">
+	<p style="color:#00FF00">In mathematical terms, flux is calculated as the surface integral of the component of the vector field that is normal (perpendicular) 
+	to the surface at every point.</p>
+	
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Definition 7.3</h3>
+	</boxTitle>			
+	<p>The <b>Flux</b> of a three-dimensional vector field $\mathbf{F}$ across an oriented surface $S$ in the direction of $\mathbf{n}$
+	is given by the formula</p>
+	\[
+		\mathrm{Flux} = \iint_{S}\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma
+	\]
+	<p></p>
+	</textBox>
+	</span>
+	</section>	
+	
+	<section>
+		<section  align="left">		
+		<h3>Example 7.3</h3> 
+		<p>Find the flux of $\mathbf{F}=(yz, x, -z^2)$ through the parabolic cylinder $y=x^2$, $x\in[0, 1]$, $z\in[0, 4]$.</p>
+	
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>On the surface we have the parametrisation</p>
+		\[
+		 \mathbf{r}(u,v) = (u, u^2, v),\quad u\in[0, 1], v\in[0, 4]
+		\]		
+		</span>
+		<span class="fragment fade-in">
+		<p>The cross product of the tangent vectors is</p>
+		\[
+		\mathbf{r}_u\times\mathbf{r}_v = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+		1&2u&0\\0&0&1\end{vmatrix} = (2u, -1, 0)
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>The unit outward normal is </p>
+		\[
+		 \mathbf{n} = \frac{\mathbf{r}_u\times\mathbf{r}_v}{|\mathbf{r}_u\times\mathbf{r}_v|}
+		 = \frac{2u\mathbf{i}-\mathbf{j}}{\sqrt{4u^2+1}}
+		\]
+		</span>
+		</section>	
+						
+		<section  align="left">		
+		<h3>Example 7.3 (ctd)</h3> 
+		<p>On the surface $y=x^2$ the vector field is</p>
+		\[
+			\begin{align*}
+			\mathbf{F} &= (yz, x, -z^2)\\ &= (u^2v, u, -v^2)
+			\end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>Thus</p>
+		\[
+		\begin{align*}
+		\mathbf{F}\cdot\mathbf{n}&= \frac{1}{\sqrt{4u^2+1}}\left((u^2v)(2u)+(u)(-1)+(-v^2)(0)\right)\\\\
+		&= \frac{2u^3v-u}{\sqrt{4u^2+1}}
+		\end{align*}
+		\]
+		</span>
+		</section>
+		
+				<section  align="left">		
+		<h3>Example 7.3 (ctd)</h3> 
+		<p>The flux of $\mathbf{F}$ through the surface is</p>
+		\[
+		\begin{align*}
+		\iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma &= \int_0^4\int_0^1\frac{2u^3v-u}{\sqrt{4u^2+1}}|\mathbf{r}_u\times\mathbf{r}|\,\mathrm{d}u\mathrm{d}v\\
+		&=\int_0^4\int_0^1\frac{2u^3v-u}{\sqrt{4u^2+1}}\sqrt{4u^2+1}\,\mathrm{d}u\mathrm{d}v\\
+		&=\int_0^4\int_0^1\left(2u^3v-u\right)\,\mathrm{d}u\mathrm{d}v = \int_0^4\left[\frac{1}{2}u^4v-\frac{1}{2}u^2\right]_0^1\,\mathrm{d}v\\
+		&=\int_0^4 \frac{1}{2}\left(v-1\right)\,\mathrm{d}v =\bigg[\frac{1}{4}\left(z-1\right)^2\bigg]_0^4\\
+		&= \frac{1}{4}(9)-\frac{1}{4}(1) = \color{red}{\boxed{\color{white}{2}}}
+		\end{align*}
+		\]
+		
+		</section>
+	</section>
 				
-				<section align="left">
-					<h1>Advanced Calculus L7</h1>
-					<br>
-					<ul>
-						<li>The 1D heat equation</li>
-						<br>
-						<span style="color: #00FF00"> <li>The method of separation of variables</li>		</span>
-						<br>
-						<li>Examples</li>											
-					</ul>
-				</section>	
-
-				<section>
-					<section  align="left">																
-						<h2>Method of Separation of Variables</h2>	
-						
-						<p>The trick is to assume that your solution takes the <em>separable form</em></p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						 u(x,t) = F(x)G(t)
-						 }}}
-						\]
-						<span class="fragment fade-in">
-						<p>Substituting this into the PDE gives</p>
-						\[
-						 \begin{align*}
-						  \frac{\partial u}{\partial t} &= F(x)G'(t) \\
-						  \frac{\partial^2 u}{\partial x^2} &= F(x)''G(t)
-						 \end{align*}\implies F(x)G'(t) = \kappa F''(x)G(t)
-						\]						
-						</span>
-					</section>	
+	<section>
+	<h2 style="color:#00FF00">Lecture 7 Review</h2>
+	<br>
 					
-					<section  align="left">																
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Calculating the surface area</li>
+			<li>Surface integrals</li>							
+			<li>Flux through a surface</li>
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul>
+			<li>Parameterise common surfaces in three dimensions to facilitate integration</li>
+			<li>Evaluate surface integrals to calculate the surface area of a given surface</li>							
+			<li>Calculate the flux of a vector field through a surface using a vector surface integral</li>
+		</ul><br>					
+	</ul>			
 					
-						<p>Now </p>
-						\[
-						F(x)G'(t) = \kappa F''(x)G(t) \implies 
-						\begin{align*}
-						\frac{G'(t)}{\kappa G(t)} &=\frac{F''(x)}{F(x)}\\
-						&= \lambda ~\text{ a constant}
-						\end{align*}
-						\]
-						<p>This follows since the LHS is a function of $t$ only and the RHS a function of $x$ only.</p>
-						
-						<span class="fragment fade-in">
-						<p>Multiplying by the denominators and rearranging gives</p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						\begin{cases}
-						F''-\lambda F = 0 & F(0)=F(L)=0\\
-						G'-\kappa\lambda G = 0&
-						\end{cases}						
-						}}}
-						\]
-						<p>Where do the new BCs come from?</p>
-						</span>
-					</section>
-					
-					<section  align="left">																
-					
-						<p>It follows that in order to solve for $u(x,t)$ we need to solve the ODEs for $F$ and $G$.</p>
-						
-						<span class="fragment fade-in">
-						<p>Let's start with the $F$-equation:</p>
-						\[
-						 F''-\lambda F = 0\quad F(0)=F(L)=0
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>This is a BVP and we have seen previously that we require $\lambda=-\omega^2<0$ to obtain non-trivial solutions, <em>i.e.</em>						</p>
-						\[
-						F'' +\omega^2 F=0,
-						\]
-						<p>which has solution </p>
-						\[
-						F(x) = A\cos(\omega x)+B\sin(\omega x)
-						\]
-						
-						<img data-src="figures/ODESols.png"style="position:absolute;top:200px;left:650px;scale: 0.6; border: 3px solid white">												
-						</span>
-					</section>
-					
-					<section  align="left">																
-					
-						<p>Applying the BCs </p>
-						\[
-						 F(0) = A\cos(\omega 0)+B\sin(\omega 0) = 0 \implies A=0
-						\]
-						<p>So that $F(x) = B\sin(\omega x)$</p>
-						
-						<span class="fragment fade-in">
-						<p>The second BC gives</p>
-						\[
-						 F(L) = B\sin(\omega L)=0 \implies \omega L = n\pi, n=1,2,3,\ldots
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>Or </p>
-						\[
-						 \omega_n = \frac{n\pi}{L}, n=1,2,\ldots \implies 
-						 \color{#00FF00}{\boxed{\color{white}{F_n(x) = B_n\sin\left(\frac{n\pi}{L} x\right)}}}
-						\]
-						</span>
-					</section>
-					
-					<section  align="left">																
-						
-						<p>Now	for the $G$-equation</p>
-						\[
-						 G'-\kappa\lambda G = 0 \quad\text{or}\quad \color{#00FF00}{\boxed{\color{white}{ G'+\kappa\frac{n^2\pi^2}{L^2}G=0}}}
-						\]
-						<p>since </p>
-						\[
-						\lambda = -\omega^2=-\frac{n^2\pi^2}{L^2}
-						\]
-						
-						<span class="fragment fade-in">
-						<p>We can solve to obtain</p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						G_n(t) = C_ne^{-\kappa\frac{n^2\pi^2}{L^2}t}
-						}}}
-						\]
-						<p>Putting this altogether we get...</p>
-						</span>
-					</section>
-					
-					<section  align="left">																
-					
-					<p>... a <b>family of solutions</b></p>
-					\[
-					 u_n(x,t) = D_ne^{-\kappa\frac{n^2\pi^2}{L^2}t}\sin\left(\frac{n\pi}{L}x\right) \quad(D_n = B_nC_n)
-					\]					
-					<span class="fragment fade-in">
-					<p>Now, since the PDE is <a style="color:red">linear and homogeneous</a> we can sum these solutions to obtain a general solution, <em>i.e.</em></p>
-					\[
-						\color{#00FF00}{\boxed{\color{white}{
-					\begin{align*}
-					 u(x,t) &=\sum_{n=1}^\infty u_n(x,t)\\
-					     	&=\sum_{n=1}^\infty D_ne^{-\kappa\frac{n^2\pi^2}{L^2}t}\sin\left(\frac{n\pi}{L}x\right)
-					 \end{align*}					}}}
-					\]
-					<p>We shall see how to incorporate the IC in the example to follow</p>
-					</span>
-					</section>
-				</section>
-				
-				<section align="left">
-					<h1>Advanced Calculus L7</h1>
-					<br>
-					<ul>
-						<li>The 1D heat equation</li>
-						<br>
-						<li>The method of separation of variables</li>		
-						<br>
-						<span style="color: #00FF00"> <li>Examples</li>											</span>
-					</ul>
-				</section>	
-				
-				<section>
-					<section  align="left">																
-					
-						<h3>Example 7.1</h3> <p>Find the solution to the IBVP						</p>
-						\[
-						 \frac{\partial u}{\partial t} = 4\frac{\partial^2u}{\partial x^2}, \quad x\in(0,\pi), ~ t>0
-						\]
-						<p>with BCs \[u(0,t)=u(\pi,t)=0\] and IC</p>
-						\[
-						 u(x,0) = \sin(x)+\frac{1}{2}\sin(2x)=f(x), x\in(0,\pi)
-						\]
-											
-					</section>	
-					
-					<section  align="left">																
-					
-						<h3>Solution</h3>
-						<p>Assuming a separable solution $u(x,t) = F(x) G(t)$ we can derive a pair of ODEs for $F,G$:</p>
-						\[
-						\begin{cases}
-						F''-\lambda F = 0 & F(0)=F(\pi)=0\\
-						G'-4\lambda G = 0&
-						\end{cases}	
-						\]
-						<p>Also, since we have zero BCs we know that the $F$-equation should admit oscillatory solutions implying that</p>
-						\[
-						 \lambda = -\omega^2<0
-						\]
-						
-					</section>
-					
-					<section  align="left">																
-					
-						<p><b>$F$-equation:</b> We can solve</p> \[F''+\omega^2 F=0\] <p>to obtain</p>
-						\[
-						 F(x) = A\cos(\omega x)+B\sin(\omega x)
-						\]
-						<span class="fragment fade-in">
-						<p>Incorporating the BCs gives</p>
-						\[
-						F(0) = A = 0 ~~\text{and}~~ F(\pi) = B\sin(\omega\pi) = 0
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>The second equation implies that $\omega\pi=n\pi$ or that $\omega=n$ giving</p>
-						\[
-						 F_n(x) = B_n\sin(nx), \quad n=1,2,\ldots
-						\]
-						</span>
-					</section>
-				
-					<section  align="left">																
-						
-						<p><b>$G$-equation:</b> Since $\lambda = -\omega^2 = -n^2$ this equation becomes</p>
-						\[
-						 G' +4n^2 G = 0
-						\]
-						<span class="fragment fade-in">
-						<p>This is a first-order separable ODE with solution</p>
-						\[
-						 G(t) = C_ne^{-4n^2t},\quad n=1,2,\ldots
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>Putting this altogether gives</p>
-						\[
-						 u_n(x,t) = D_ne^{-4n^2t}\sin(nx), \quad n=1,2,\ldots
-						\]
-						</span>
-					</section>
-					
-					<section  align="left">																
-					
-						<p>Since our PDE is linear and homogeneous we sum to get</p>
-						\[
-						 u(x,t) = \sum_{n=1}^\infty D_ne^{-4n^2t}\sin(nx)
-						\]						
-						<span class="fragment fade-in">
-						<p>To determine the coefficients $D_n$ we incorporate the IC:</p>
-						\[
-						u(x,0) = \sum_{n=1}^\infty D_n\sin(nx) = \sin(x)+\frac{1}{2}\sin(2x)
-						\]
-						<p>which implies that $D_1=1, D_2=1/2$ and $D_n=0$ otherwise.</p>
-						</span>
-						<span class="fragment fade-in">
-						<p>Thus</p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						 u(x,t) = e^{-4t}\sin(x)+\frac{1}{2}e^{-16t}\sin(2x)
-						 }}}
-						\]
-						</span>
-						
-					</section>
-					<section>																
-						
-						
-						<p>A video showing how the temperature distribution changes in Example 7.1 after the heat source is removed </p>
-						
-						<video data-src="videos/heateqn.mp4" controls style="border: 3px solid white;" class="center"></video>											
-						
-						
-					</section>
-				</section>
-				
-				<section>
-					<h2 style="color:#00FF00">Lecture 7 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>the 1D heat equation</li>
-							<li>the method of separation of variables</li>							
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>
-							<li>have knowledge of the 1D heat equation and in paticular its use in modelling real-world phenomena</li>
-							<li>be able to solve the 1D heat equation for 'special' initial conditions using the technique of separation of variables</li>														
-						</ul><br>					
-					</ul>			
-					
-				</section>					
-						 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
