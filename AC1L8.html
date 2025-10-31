@@ -18,349 +18,323 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 8</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->				
-				<section align="left">
-					<h1>Advanced Calculus L8</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>Fourier series solutions of the 1D heat equation</li></span>
-						<br>
-						<li>Examples</li>								
-					</ul>
-				</section>			
-				<section>
-					<section  align="left">																
-						<h2>Method of Separation of Variables (Ctd)</h2>	
-						
-						<ul>
-							<li>Previously, we saw how to solve the 1D heat equation using the method of <em>separation of variables</em></li>
-							<li><p>In particular, we solved the <b>heat equation</b> with zero BCs and IC given by </p></li>
-							\[
-							 u(x,0) = \sin(x)+\frac{1}{2}\sin(2x)
-							\]
-							<li><p>This enabled us to determine the coefficients of our general solution simply by equating terms:</p></li>
-						</ul>
-						\[
-						u(x,t) =\sum D_n\sin(nx)e^{-4n^2t} \\~\\\implies \color{#00FF00}{\boxed{\color{white}{u(x,t) = \sin(x)e^{-4t}+\frac{1}{2}\sin(2x)e^{-16t}}}}
-						\]						
-						
-					</section>	
-					<section  align="left">																
-						
-						<p>Now suppose we want to solve the 1D heat equation for 'non-trivial' initial conditions</p>
-						
-						<p>How can we do that?</p>
-						
-						<span class="fragment fade-in">
-						<h3>Example 8.1</h3> <p>Solve the IBVP</p>
-						\[
-						 \frac{\partial u}{\partial t} = 4\frac{\partial^2 u}{\partial x^2},\quad x\in(0, \pi), t>0 \quad u(0,t)=u(\pi,t)=0
-						\]
-						<p>when</p>
-						\[
-						 u(x,0) = f(x) = \begin{cases}x& \text{if } x\in(0,\pi/2)\\\pi-x, &\text{if } x\in [\pi/2,\pi)\end{cases}
-						\]						
-						</span>
-					</section>	
-					
-					<section  align="left">																
-						
-						<h3>Solution</h3>
-						<p>We know from Example 7.1 that a general solution to our PDE is					</p>
-						\[
-						 u(x,t) = \sum_{n=1}^\infty D_n \sin(nx)e^{-4n^2t}
-						\]						
-						
-						<span class="fragment fade-in">
-						<p>We wish to seek the particular solution with a triangle initial profile <em>i.e.</em></p>
-						\[	
-						 \begin{align*}						
-						 u(x,0) &= f(x)\\ &= \begin{cases}x& \text{if } x\in(0,\pi/2)\\\pi-x, &\text{if } x\in [\pi/2,\pi)\end{cases}
-						 \end{align*}
-						\]
-						
-						<img data-src="figures/fx.png"style="position:absolute;top:250px;left:700px;scale: .65; border: 3px solid white">													
-						</span>
-					</section>	
-					
-					<section  align="left">																
-							
-						<p>Incorporating the initial condition into the general solution gives</p>
-						\[
-						 u(x,0) = \sum_{n=1}^\infty D_n\sin(nx) = f(x) = \begin{cases}x& \text{if } x\in(0,\pi/2)\\\pi-x, &\text{if } x\in [\pi/2,\pi)\end{cases}
-						\]
-						
-						<span class="fragment fade-in">
-						<p>This looks like a <b>Fourier series</b>, right?</p>
-						
-						<p>We can work out $D_n$ by computing the FS of <br> the <b>odd extension</b> of $f(x)$</p>
-						
-						<img data-src="figures/fxEx.png"style="position:absolute;top:175px;left:600px;scale: .8; border: 3px solid white">													
-						</span>
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>Putting this altogether we have that the $D_n$ are given by computing the FS of the odd extension $F(x)$.</p>
-						
-						<p>The $D_n$ are what we would usually refer to as $b_n$.</p>
-						
-						<p>We want to write </p>
-						\[
-						 F(x) = \sum_{n=1}^\infty D_n\sin(nx)
-						\]
-						<span class="fragment fade-in">
-						<p>Importantly this FS will agree with $f(x)$ on $(0, \pi)$.</p>
-						
-						<p>The Fourier coefficients are given by</p>
-						\[
-						 D_n = \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x
-						\]
-						
-						<img data-src="figures/FSSepVarComment.png"style="position:absolute;top:500px;left:750px;scale: 1">													
-						</span>
-					</section>	
-					
-					<section  align="left">																
-					
-							<p>To solve for the particular solution with initial triangular heat distribution</p>
-							\[
-							 \begin{align*}
-							  D_n &=\frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\mathrm{d}x\\ 
-							  &=\frac{2}{\pi}\left(\int_0^{\pi/2}x\sin(nx)\mathrm{d}x+\int_{\pi/2}^\pi (\pi-x)\sin(nx)\mathrm{d}x\right)\\
-							  &=\frac{2}{\pi}\left(\bigg[-\frac{1}{n}x\cos(nx)\bigg]_0^{\pi/2}+\frac{1}{n}\int_0^{\pi/2}\cos(nx)\mathrm{d}x\right.\\
-							  &+\left.\bigg[-\frac{1}{n}(\pi-x)\cos(nx)\bigg]_{\pi/2}^\pi - \frac{1}{n}\int_{\pi/2}^\pi \cos(nx)\mathrm{d}x\right) = \cdots
-							 \end{align*}
-							\]
-						
-					</section>	
-					
-					<section  align="left">																
-					
-						\[
-						 \begin{align*}
-						 \cdots&=\frac{2}{\pi}\left(\frac{1}{n}\bigg[\frac{1}{n}\sin(nx)\bigg]_0^{\pi/2} - \frac{1}{n}\bigg[\frac{1}{n}\sin(nx)\bigg]_{\pi/2}^\pi\right)\\
-						 &= \color{#00FF00}{\boxed{\color{white}{\frac{4}{n^2\pi}\sin(n\pi/2) = D_n}}}
-						 \end{align*}
-						\]						
-						<br><br>
-						
-						<span class="fragment fade-in">
-						<p>It follows that the FS of $F(x)$ is</p>
-						\[
-						\begin{align*}
-						 F(x) &= \sum_{n=1}^\infty \frac{4}{n^2\pi}\sin(n\pi/2)\sin(nx)\\
-						 &= \sum_{n=1}^\infty \frac{4}{(2n-1)^2\pi}(-1)^{n+1}\sin((2n-1)x)						 
-						 \end{align*}
-						\]
-						<p>Since $\sin(n\pi/2) = 0$ for even $n$ and alternates between $\pm 1$ for odd $n$</p>
-						
-						<img data-src="figures/sinnpi2.png"style="position:absolute;top:-25px;left:650px;scale: .5; border: 3px solid white">													
-						</span>
-						</section>	
-						
-					<section  align="left">																
-						
-						<p>Since the above FS agrees with $f(x)$ on $(0,\pi)$ we have that </p>
-						\[
-						u(x,0) = f(x) = \sum_{n=1}^\infty \frac{4}{(2n-1)^2\pi}(-1)^{n+1}\sin((2n-1)x) 
-						\]
-						<p>on $(0,\pi)$. <br> And so the solution to our PDE is</p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						 u(x,t) = \sum_{n=1}^\infty \frac{4}{(2n-1)^2\pi}(-1)^{n+1}\sin((2n-1)x) e^{-4(2n-1)^2t}
-						 }}}
-						\]
-						
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>The video below shows the heat distribution for $t=0$ to $t=10$ with $n=1000$ terms </p>
-						
-						<video data-src="videos/HeatEx8p1.mp4" controls style="border: 4px solid red" class="center"></video>											
-						
-					</section>	
-				</section>
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 8</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L8</h1>
+	<br>
+	<ul>						
+		<li style="color:#00FF00">Green's theorem</li>
+		<br>
+		<li>Using Green's theorem to compute the flux and/or circulation of a vector field</li>								
+		<br>
+		<li>Examples</li>
+	</ul>
+	</section>		
+	
+	<section  align="left">		
+	<h3>Green's theorem</h3>
+	<p>Let $C$ denote a closed curve bouding a region $\mathcal{D}$</p>
+	<p>Green's theorem allows us to restate the line integal along $C$ as a multiple integral of a certain function over $\mathcal{D}$</p>
+	
+	<img style="margin:0px;padding:50px"				
+		height="250"					
+		src="figures/GreensTheorem.png">
+	
+	<span class="fragment fade-in">
+	<p style="color:#00FF00">The Green of Green's theorem was George Green (1793-1841), a self-taught
+	scientist from Nottingham!</p>	
+	<img style="margin:0px;padding:0px;position:absolute;top:350px;left:700px"				
+		height="250"					
+		src="figures/WindMill.png">
+	</span>
+	
+	</section>	
+	
+	<section align="left">
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Theorem 8.1 (Green's theorem)</h3>
+	</boxTitle>			
+	<p>Let $\mathcal{D}$ be a planar region and let $C$ be its boundary. Suppose that $C$ is a simple closed curve. Suppose also that $P=P(x,y)$
+	and $Q=Q(x,y)$ are any pair of continously differentiable functions defined on $\mathcal{D}$, then</p>
+	\[
+	\oint_C	P(x,y)\,\mathrm{d}x + Q(x,y)\,\mathrm{d}y = \iint_\mathcal{D}\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\,\mathrm{d}x\mathrm{d}y
+	\]
+	<p>where the curve $C$ is traversed counter-clockwise in the integral on the left.</p>	
+	<p></p>
+	</textBox>
+	
+	<p class="fragment fade-in" style="color:#00FF00">For a proof of the above result see Section 5.1 of the online notes</p>
+	</section>
+	
+	<section>
+	<section align="left">
+	<h3>Example 8.1</h3>
+	<p>Evaluate the integral </p>
+	\[
+		\int_CP\,\mathrm{d}x+Q\,\mathrm{d}y
+	\]
+	<p>where $\mathcal{U}$ is the unit square and</p>
+	\[
+	 P(x,y) = y^2+\sin{x^2}, \qquad Q(x,y) = \cos{y^2}-x
+	\]
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	Firstly,
+	\[
+	 \frac{\partial Q}{\partial x} = -1,\qquad \frac{\partial P}{\partial y} = 2y
+	\]
+	<p>so that by Green's theorem:</p>
+	\[
+	\int_C\left(y^2+\sin{x^2}\right)\,\mathrm{d}x +\left(\cos{y^2}-x\right)\,\mathrm{d}y = \int_0^1\int_0^1 \left(-1-2y\right)\,\mathrm{d}x\mathrm{d}y
+	\]
+	</span>
+	</section>
+	
+	<section align="left">
+	<h3>Example 8.1 (ctd)</h3>
+	\[
+	\int_C\left(y^2+\sin{x^2}\right)\,\mathrm{d}x +\left(\cos{y^2}-x\right)\,\mathrm{d}y = \int_0^1\int_0^1 \left(-1-2y\right)\,\mathrm{d}x\mathrm{d}y
+	\]
+	
+	<p>Thus</p>
+	\[
+	\begin{align*}
+	\int_0^1\int_0^1 \left(-1-2y\right)\,\mathrm{d}x\mathrm{d}y &= \int_0^1\bigg[(-1-2y)x\bigg]_0^1\,\mathrm{d}y\\
+	&=\int_0^1\left(-1-2y\right)\,\mathrm{d}y\\
+	&= \bigg[-y-y^2\bigg]_0^1 = \color{red}{\boxed{\color{white}{-2}}}
+	\end{align*}
+	\]
+	</section>
+	
+	</section>
+	
+	
+	<section align="left">
+	<h1>Advanced Calculus L8</h1>
+	<br>
+	<ul>						
+		<li>Green's theorem</li>
+		<br>
+		<li style="color:#00FF00">Using Green's theorem to compute the flux and/or circulation of a vector field</li>								
+		<br>
+		<li>Examples</li>
+	</ul>
+	</section>		
 				
-				<section align="left">
-					<h1>Advanced Calculus L8</h1>
-					<br>
-					<ul>
-						<li>Fourier series solutions of the 1D heat equation</li>
-						<br>
-						<span style="color: #00FF00"> <li>Examples</li></span>								
-					</ul>
-				</section>			
-					
-				<section>
-					<section  align="left">																
-						
-						<h3>Example 8.2</h3> <p>Find the solution to the IBVP</p>
-						\[
-						\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,L),~ t>0,\quad u(0,t)=u(L,t)=0
-						\]
-						<p>when the initial condition is given by</p>
-						\[
-						 f(x) = 100, x\in(0,L)
-						\]
-						
-						<h3>Solution</h3>
-						<span class="fragment fade-in">
-						<p>As usual we assume a separable form $u(x,t) = F(x)G(t)$ from which we derive the ODEs:</p>
-						\[
-						\begin{cases}
-						 F''+\omega^2F = 0&F(0)=F(L)=0\\G'+\omega^2G=0
-						\end{cases}
-						\]
-						</span>
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>We can solve the $F$-equation to obtain</p>
-						\[
-						 F(x) = A\cos(\omega x)+B\sin(\omega x)
-						\]
-						<p>and then susbstitute the BCs</p>
-						\[
-						 F(0) = A = 0 ~~\text{ and }~~ F(L) = B\sin(\omega L) = 0
-						\]
-						<span class="fragment fade-in">
-						<p>The second equation implies that </p>
-						\[
-						\omega L=n\pi \implies \omega_n = n\pi/L, n=1,2,\ldots
-						\]
-						<p>so &emsp; $\color{red}{\boxed{\color{white}{ F_n(x) = B_n\sin\left(\frac{n\pi}{L}x\right), n=1,2,\ldots}}}$</p>
-						
-						<p><b>A family of solutions</b> </p>
-						</span>
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>To solve the $G$-equation we note that $\omega^2 = n^2\pi^2/L^2$ so that</p>
-						\[
-						 G' +\frac{n^2\pi^2}{L^2}G = 0
-						\]
-						<span class="fragment fade-in">
-						<p>This is a separable ODE which solves to </p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						 G(t) = C_n e^{-n^2\pi^2 t/L^2}, n=1,2,\ldots
-						 }}}
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>Putting this altogether we have the following family of solutions</p>
-						\[
-						\color{#00ff00}{\boxed{\color{white}{
-						 u_n(x,t) = F_n(x)G_n(t) = D_n\sin\left(\frac{n\pi}{L}x\right)e^{-n^2\pi^2 t/L^2}, n=1,\ldots
-						 }}}
-						\]
-						</span>
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>Now, since the PDE is <b>linear and homogeneous</b> we can sum our solutions to obtain a general solution of the form </p>
-						\[
-						 \begin{align*}
-						 u(x,t) &= \sum_{n=1}^\infty u_n(x,t)\\
-						 &= \sum_{n=1}^\infty D_n \sin\left(\frac{n\pi}{L}x\right)e^{-n^2\pi^2 t/L^2}
-						 \end{align*}
-						\]
-						<span class="fragment fade-in">
-						<p>To find the $D_n$ we need to use the IC, <em>i.e.</em></p>
-						\[
-						 u(x,0) = \sum_{n=1}^\infty D_n\sin\left(\frac{n\pi}{L}x\right) = 100
-						\]
-						<p><b>We want to compute the Fourier sine series of $f(x)$</b></p>
-						</span>
-
-					</section>	
-					
-					<section  align="left">																
-						
-						<ul>
-						<li>
-						<p>The odd extension of the function $f(x)=100$ on $(0,L)$ is </p>
-						<img src="figures/Ex8p1OddEx.png" style="position:absolute;top:-50px;left:50px;scale: .5; border: 3px solid red">
-						 </li>
-						 </ul>
-						<ul>
-						
-						<br><br><br><br><br><br><br>
-						
-						<span class="fragment fade-in">
-						<li>The FS of $F(x)$ agrees with $f(x)$ on $(0,L)$</li>
-						
-						<li><p>The Fourier coefficient is given by</p></li>												
-						\[
-						\begin{align*}
-						 D_n = \frac{2}{L}\int_0^L100\sin(\frac{n\pi}{L}x)\mathrm{d}x &= \frac{2}{L}\bigg[-\frac{100L}{n\pi}\cos\left(\frac{n\pi}{L}x\right)\bigg]_0^L\\
-						 &= \color{#00ff00}{\boxed{\color{white}{\frac{200}{n\pi}\left(1-(-1)^n\right)}}}
-						 \end{align*}
-						\]
-						</ul>
-						</span>
-						
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>It follows that the particular solution is given by</p>
-						\[
-						\color{red}{\boxed{\color{white}						{
-						u(x,t) = \sum_{n=1}^\infty \frac{200}{n\pi}\left(1-(-1)^n\right) \sin\left(\frac{n\pi}{L}x\right)e^{-n^2\pi^2 t/L^2}												
-						}}}
-						\]
-						<br><br>
-						<span class="fragment fade-in">
-						<p>The video shows how the heat distribution in this example changes with time</p>
-						<br><br><br><br>
-						<video data-src="videos/HeatEx8p2.mp4" controls style="border: 4px solid white;position:absolute;top:295px;left:50px;scale: .75" class="center"></video>											
-						
-						<br><br><br><br>
-						<p>Notice Gibb's phenomenom in the plot to the LHS</p>
-						
-						</span>
-					</section>	
-				</section>
+	<section  align="left">		
+	<span style="font-size:24px">
+	<p>Green's Theorem can be applied directly to compute the work done when $\mathbf{F}$ is a force field or 
+	the circulation when $\mathbf{F}$ is a velocity field. However, to compute the flux, the formulation of the 
+	theorem needs to be modified using the concept of outward normal or divergence.</p>
+	
+	<span class="fragment fade-in">
+	<p>The flux is given by:</p>
+	\[
+	 \oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p style="color:#00FF00">To Use Green's theorem we need to write $\mathbf{n}$ in terms of our parametrisation $\mathbf{r}$:</p>
+	\[
+	 \begin{align*}
+	 \mathbf{n} &= \mathbf{T}\times\mathbf{k}\\
+	 &= \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+	 x'&y'&0\\
+	 0&0&1
+	 \end{vmatrix}
+	 \end{align*} = (y', -x', 0)
+	\]
+	<p>Here, $\mathbf{T}$ is the unit tangent vector and $\mathbf{k} = (0,0,1)$</p>
+	</span>
+	<span class="fragment fade-in">
+	<p>Thus</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+	 \oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s = \oint_C (F_1, F_2)\cdot (\mathrm{d}y, -\mathrm{d}x) 
+	 = \oint_C\left(-F_2\right)\,\mathrm{d}x + \left(F_1\right)\,\mathrm{d}y}}}
+	\]
+	<p>In the above setting $P = -F_2$ and $Q=F_1$ allows us to apply Green's theorem</p>
+	</span>
+	</section>
+	
+	
+	<section align="left">
+	<h1>Advanced Calculus L8</h1>
+	<br>
+	<ul>						
+		<li>Green's theorem</li>
+		<br>
+		<li>Using Green's theorem to compute the flux and/or circulation of a vector field</li>								
+		<br>
+		<li style="color:#00FF00">Examples</li>
+	</ul>
+	</section>		
 				
-				<section>
-					<h2 style="color:#00FF00">Lecture 8 Review</h2>
-					<br>
+	<section>			
+	<section  align="left">		
+	<h3>Example 8.2</h3>
+	<p>Find the counterclockwise circulation and outward flux of the field</p>
+	\[
+	\mathbf{F} = xy\mathbf{i}+y^2\mathbf{j}
+	\]
+	<p>around and over the boundary of the region enclosed by the curves $y=x^2$ and $y=x$ in the first quadrant</p>
+	<h3>Solution</h3>
+	<span class="fragment fade-in">
+	<p><b>Circulation:</b> We have $\mathbf{F} = (xy, y^2)$ so that </p>
+	\[
+	 P(x,y) = xy\quad\text{and}\quad Q(x,y) = y^2
+	\]
+	<p>with respective partial derivatives:</p>
+	\[
+	\frac{\partial Q}{\partial x} = 0 \quad\text{and}\quad\frac{\partial P}{\partial y} = x
+	\]
+	<p class="fragment fade-in" style="color:#00FF00">We are now in a position to implement Green's theorem </p>
+	
+	<img style="margin:0px;padding:0px;border: 3px solid red;position:absolute;top:400px;left:800px"				
+		height="250"					
+		src="figures/Example6p2GreensTheorem.png">
+	</span>
+	</section>	
+	
+	<section  align="left">		
+	<h3>Example 8.2 (ctd)</h3>
+	<p>We need to compute the integral:</p>
+	\[
+	 \begin{align*}
+	  \oint_C \mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \oint_C F_1\,\mathrm{d}x+ F_2\,\mathrm{d}y\\
+	  &= \oint_C \left(xy\right)\,\mathrm{d}x+\left(y^2\right)\,\mathrm{d}y\\
+	  &= \int_0^1\int_{y=x^2}^{y=x} \left(\frac{\partial}{\partial x}\left(y^2\right) - \frac{\partial}{\partial y}\left(xy\right)\right)\,\mathrm{d}y\mathrm{d}x \\
+	  &= \int_0^1\int_{y=x^2}^{y=x}\left(-x\right)\,\mathrm{d}y\mathrm{d}x = \int_0^1\bigg[-xy\bigg]_{x^2}^{x}\,\mathrm{d}x\\
+	  &=\int_0^1 \left(-x^2+x^3\right)\,\mathrm{d}x = \bigg[-\frac{1}{3}x^3+\frac{1}{4}x^4\bigg]_0^1 = \color{red}{\boxed{\color{white}{-\frac{1}{12}}}}
+	 \end{align*}
+	\]
+	</section>
+	
+	<section  align="left">		
+	<h3>Example 8.2 (ctd)</h3>
+	<p><b>Flux:</b> For the flux equation we have that</p>
+	\[
+	 P(x,y) = -F_2 = -y^2\quad\text{and}\quad Q(x,y) = F_1 = xy
+	\]
+	<p>So that</p>
+	\[
+	 \oint_C \mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s = \oint_C \left(-y^2\right)\,\mathrm{d}x+\left(xy\right)\,\mathrm{d}y
+	\]
+	<span class="fragment fade-in">
+	<p>Computing the partial derivatives gives:</p>
+	\[
+	 \frac{\partial Q}{\partial x} = y\quad\text{and}\quad \frac{\partial P}{\partial y} = -2y
+	\]
+	</span>
+	<span class="fragment fade-in">
+	<p>And so by Green's theorem</p>
+	\[
+	 \begin{align*}
+	 \oint_C \mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s&=\int_0^1\int_{y=x^2}^{y=x}\left(3y\right)\,\mathrm{d}y\mathrm{d}x 
+	 = \int_0^1\left[\frac{3}{2}y^2\right]_{x^2}^x\,\mathrm{d}x\\
+	 &=\int_0^1 \frac{3}{2}\left(x^2-x^4\right)\,\mathrm{d}x = \frac{3}{2}\bigg[\frac{1}{3}x^3-\frac{1}{5}x^5\bigg]_0^1 
+	 = \color{red}{\boxed{\color{white}{\frac{1}{5}}}}
+	 \end{align*}
+	\]	
+	</span>
+	</Section>
+	
+	<section  align="left">		
+	<h3>Example 8.3</h3>
+	<p>Let</p>
+		\[
+		\mathbf{F} = \left(y^2-x^2\right)\mathbf{i}+\left(x^2+y^2\right)\mathbf{j}
+		\]
+		<p> and let $C$ be the boundary of the region $\mathcal{D}$ in the first quadrant bounded by the triangle 
+		$y=0$, $x=3$ and $y=x$, oriented counter-clockwise.</p>
+		
+		<p>(a) Sketch the region $\mathcal{D}$</p>
+		<p>(b) Evaluate $\displaystyle \oint_C\mathbf{F}\cdot\mathrm{d}\mathbf{r}$ using Green's theorem</p>
+		
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>We begin by drawing the region $\mathcal{D}$</p>
+		
+		<p>Here</p>
+		
+		\[
+		\color{red}{\boxed{\color{white}{
+		 P(x,y) = y^2-x^2 \quad\text{and}\quad Q(x,y) = x^2+y^2
+		 }}}
+		\]
+		
+		<img style="margin:0px;padding:0px;border: 3px solid #00FF00;position:absolute;top:450px;left:850px"				
+				height="175"					
+				src="figures/Example6p1Region.png">
+		
+		</span>
+	</section>	
+	
+	<section  align="left">		
+	<span style="font-size:26px">
+	<h3>Example 8.3 (ctd)</h3>
+	<p>Thus</p>
+	\[
+	\frac{\partial Q}{\partial x} = 2x \quad\text{and}\quad\frac{\partial P}{\partial y} = 2y 
+	\]
+	<span class="fragment fade-in">
+	<p>And so by Green's theorem we have</p>
+	\[
+	\begin{align*}
+	\oint_C \mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \iint_\mathcal{D}\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\,\mathrm{d}x\mathrm{d}y\\
+	&=\int_0^3\int_0^{y=x}\left(2x-2y\right)\,\mathrm{d}y\mathrm{d}x	\\
+	&=\int_0^3\bigg[ 2xy-y^2\bigg]_0^x\,\mathrm{d}x = \int_0^3\left(2x^2-x^2\right)\,\mathrm{d}x\\
+	&=\int_0^3 x^2\,\mathrm{d}x = \left[\frac{1}{3}x^3\right]_0^3 = \color{red}{\boxed{\color{white}{9}}}
+	\end{align*}
+	\]
+	</span>
+	<p class="fragment fade-in" style="color:#00FF00">As demonstrated in Example 6.1, calculating this integral via direct line integration proved to 
+	be substantially less efficient than utilising Green's Theorem.</p>
+	</span>
+	</section>
+	
+	</section>
+						
+				
+	<section>
+	<h2 style="color:#00FF00">Lecture 8 Review</h2>
+	<br>
 					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>Fourier series solutions of the 1D heat equation</li>										
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>							
-							<li>be able to use Fourier series to solve the 1D heat equation for general initial conditions</li>														
-						</ul><br>					
-					</ul>			
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Green's theorem</li>
+			<li>Using Green's theorem to compute the flux and/or circulation of a vector field</li>							
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul>
+			<li>State Green's Theorem and identify the conditions under which it can be applied to a 
+			vector field over a planar region.</li>
+			<li>Apply Green's Theorem to transform a line integral into a double integral, and vice versa, 
+			to simplify calculations.</li>							
+			<li>Evaluate line integrals over closed curves by using the double integral form of Green's Theorem</li>
+		</ul><br>					
+	</ul>			
 					
-				</section>
-							 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
