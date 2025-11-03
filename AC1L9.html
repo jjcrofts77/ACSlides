@@ -18,475 +18,277 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 9</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->				
-				<section align="left">
-					<h1>Advanced Calculus L9</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>The 1D wave equation</li></span>
-						<br>
-						<li>Solving the 1D wave equation using the separation of variables technique</li>								
-						<br>
-						<li>Examples</li>											
-					</ul>
-				</section>	
-				
-				<section  align="left">					
-					<h2>The 1d Wave Equation</h2>					
-																					
-					<p><b>Vibrating string model</b> </p>
-					\[
-					 \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}, x\in(0,L), t>0
-					\]
-					
-					
-					<ul>
-						<li><p>Plus BCs: ends of string held constant at height zero, <em>i.e.</em></p></li>
-						\[
-						 u(0,t) = u(L,t) = 0
-						\]
-						<li><p>And IC giving the initial profile and velocity of the string </p>
-						\[
-						u(x,0)=f(x) ~\text{ and }~ u_t(x,0) = g(x)
-						\]
-						</li> 
-						<li><p>$c$ denotes the <b>wave speed</b> </p></li>
-					</ul>						
-					
-					<video data-src="videos/string.mp4" controls style="position:absolute;top:-150px;left:550px;scale: 0.4; border: 5px solid white class="center"></video>	
-					<img data-src="figures/BVnonzero.png"style="position:absolute;top:275px;left:710px;scale: .5">													
-				</section>	
-				
-				<section align="left">
-					<h1>Advanced Calculus L9</h1>
-					<br>
-					<ul>
-						<li>The 1D wave equation</li>
-						<br>
-						<span style="color: #00FF00"> <li>Solving the 1D wave equation using the separation of variables technique</li>								</span>
-						<br>
-						<li>Examples</li>											
-					</ul>
-				</section>	
-				
-				<section>
-										
-					<section  align="left">					
-					<h2>Separation of variables</h2>					
-					
-					
-					<p>The basic idea is to: </p>
-					
-					<ul>
-						<li><p>Apply the method of separation to obtain two ODEs</p></li><br>
-						<li><p>Determine solutions that satisfy the BCs</p></li><br>
-						<li><p>Use Fourier series to superimpose solutions to get the final solution 
-						that satifies both the wave equation and the initial conditions</p></li>
-					</ul>
-					
-					
-					</section>
-					
-					<section  align="left">					
-					
-										<p>Assuming the form $u(x,t)=F(x)G(t)$, differentiating and substituting into the wave equation:</p>
-					\[					
-				 \begin{align*}
-					  \frac{\partial^2u}{\partial x^2}&=F(x)''G(t)\\\frac{\partial^2u}{\partial t^2}&=F(x)G(t)''
-					 \end{align*} 		\implies 			
-					\color{#00FF00}{\boxed{\color{white}{
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 9</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L9</h1>
+	<br>
+	<ul>						
+		<li style="color:#00FF00">Integral theorems in 3 dimensions</li>
+		<br>
+		<li>The Divergence Theorem</li>										
+	</ul>
+	</section>		
 	
-					 \begin{align*}F(x)''G(t) &= \frac{1}{c^2}F(x)G(t)''\\ \frac{F''}{F} &= \frac{G''}{c^2G}= \lambda \text{ (a constant)}\end{align*}
-					}}}
-					\]
-					<span class="fragment fade-in">
-					<p>Rearranging gives </p>
-					\[
-					\begin{cases}
-					 F''-\lambda F = 0, &F(0)=F(L)=0\\ G''-c^2\lambda G=0
-					\end{cases}					
-					\]
-					<p>For the wave equation we have <b>two</b> second order ODEs to solve</p>
-					
-					<img data-src="figures/F_BCs.png"style="position:absolute;top:400px;left:750px;scale: .65">													
-					</span>												
-					</section>					
-
-					<section  align="left">																
-							
-						<p>It follows that in order to solve for $u(x,t)$ we need to solve the ODEs for $F$ and $G$.</p>
-						
-						<p>Let's start with the $F$-equation:</p>
-						\[
-						 F''-\lambda F = 0\quad F(0)=F(L)=0
-						\]
-						<span class="fragment fade-in">
-						<p>This is a BVP and we have seen previously that we require $\lambda=-\omega^2<0$ to obtain non-trivial solutions, <em>i.e.</em>						</p>
-						\[
-						F'' +\omega^2 F=0,
-						\]
-						<p>which has solution </p>
-						\[
-						F(x) = A\cos(\omega x)+B\sin(\omega x)
-						\]
-						
-						<img data-src="figures/ODESols.png"style="position:absolute;top:195px;left:650px;scale: 0.6; border: 3px solid white">												
-						</span>
-					</section>
-					
-					<section  align="left">																
-					
-						<p>Applying the BCs </p>
-						\[
-						 F(0) = A\cos(\omega 0)+B\sin(\omega 0) = 0 \implies A=0
-						\]
-						<p>So that $F(x) = B\sin(\omega x)$</p>
-						
-						<span class="fragment fade-in">
-						<p>The second BC gives</p>
-						\[
-						 F(L) = B\sin(\omega L)=0 \implies \omega L = n\pi, n=1,2,3,\ldots
-						\]
-						<p>Or </p>
-						\[
-						 \omega_n = \frac{n\pi}{L}, n=1,2,\ldots \implies 
-						 \color{#00FF00}{\boxed{\color{white}{F_n(x) = B_n\sin\left(\frac{n\pi}{L} x\right)}}}
-						\]
-						</span>
-					</section>
-					
-					<section  align="left">					
-					
-					<p>Now for the $G$-equation			</p>
-					\[
-					 G''+c^2\lambda G = 0 \quad\text{or}\quad \color{#00FF00}{\boxed{\color{white}{G''+c^2\frac{n^2\pi^2}{L^2}G=0}}}
-					\]		
-					<p>since $\lambda = -\omega^2 = -\frac{n^2\pi^2}{L^2}$. </p>
-					
-					<span class="fragment fade-in">
-					<p> This is the same as the $F$-equation and so has solution</p>
-					\[
-					\color{red}{\boxed{\color{white}{
-					G_n(t) = C_n\cos\left(\frac{n\pi c}{L}t\right) + D_n\sin\left(\frac{n\pi c}{L}t\right), n=1,2,\ldots
-					}}}
-					\]
-					</span>
-					<span class="fragment fade-in">
-					<p>Putting this all together gives </p>
-					\[
-					 u_n(x,t) = \Bigg(E_n\cos\left(\frac{n\pi c}{L}t\right)+F_n\sin\left(\frac{n\pi c}{L}t\right)\Bigg)\sin\left(\frac{n\pi}{L}x\right)
-					\]
-					</span>
-					</section>
-					
-					<section  align="left">					
-					
-					<ul>
-						<li><p>Finally, since the PDE is <b>linear and homogeneous</b> we can combine solutions 
-						linearly to obtain a general solution</p>						
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						\begin{align*}
-						 u(x,t) &= \sum_{n=1}^\infty u_n(x,t)\\
-						 &=\sum_{n=1}^\infty \Bigg(E_n\cos\left(\frac{n\pi c}{L}t\right)+F_n\sin\left(\frac{n\pi c}{L}t\right)\Bigg)\sin\left(\frac{n\pi}{L}x\right)
-						\end{align*}
-						}}}
-						\]
-						</li> <br>
-						
-						<li><p>To compute the $E_n$ and the $F_n$ we need to incorporate the ICs</p></li>
-					</ul>
-					
-					
-					</section>
-					
-					<section  align="left">					
-					
-					<p>Applying the first IC</p>
-					\[
-					 u(x,0)= f(x) = \sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}x\right)
-					\]
-					<p>Hence we must express $f(x)$ as a Fourier sine series 
-					</p>
-					
-					<span class="fragment fade-in">
-					<p>It follows that the $E_n$ are given by</p>
-					\[
-					\color{red}{\boxed{\color{white}{
-					 E_n = \frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x
-					 }}}
-					\]
-					<h3>Remarks</h3>
-					<ul>
-						<li><p>We are of course computing the FS of the odd extension of $f$</p></li>
-						<li><p>In practice we don't need to compute the extension</p></li>
-					</ul>
-					</span>
-					</section>
-					
-					<section  align="left">					
-																								
-					<p>Applying the second BC</p>
-					\[
-					\frac{\partial u}{\partial t} = \sum_{n=1}^\infty \frac{n\pi c}{L}\left(-E_n\sin\left(\frac{n\pi c}{L}t\right)+F_n\cos\left(\frac{n\pi c}{L}t\right)\right)\sin\left(\frac{n\pi}{L}x\right)
-					\]
-					<span class="fragment fade-in">
-					<p>Hence at $t=0$</p>
-					\[
-					\frac{\partial u}{\partial t}(x,0) = \sum_{n=1}^\infty \frac{n\pi c}{L}F_n \sin\left(\frac{n\pi}{L}x\right)
-					\]
-					</span>
-					<span class="fragment fade-in">
-					<p>Using the IC we have</p>
-					\[
-					 g(x)  =\sum_{n=1}^\infty \frac{n\pi c}{L}F_n \sin\left(\frac{n\pi}{L}x\right) = \sum_{n=1}^\infty H_n\sin\left(\frac{n\pi}{L}x\right)
-					\]
-					
+	<section  align="left">		
+	<p>The two primary integral theorems in three dimensions are <b>Gauss's Divergence Theorem</b> 
+	and <b>Stokes' Theorem</b>. These theorems relate integrals over a region to integrals over its boundary, 
+	generalising the one-dimensional <b>Fundamental Theorem of Vector Calculus</b>.</p>
+	
+	<p>In this lecture we consider the <b style="color:red">Divergence Theorem</b>, which incidentally we have already seen the 2-D version of!</p>
+	
+	<span class="fragment fade-in">
+	<p>Recall, the divergence form of Green's Theorem:</p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s = \iint_\mathcal{R}\left(\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}\right)\,\mathrm{d}x\mathrm{d}y 
+		= \iint\nabla F\,\mathrm{d}x\mathrm{d}y}}}
+	\]
+	<p>This equation states that the outward flux across a simple curve can be computed by integrating the divergence of the field 
+	over the region enclosed by the curve</p>
+	</span>
+	
+	<p class="fragment fade-in" style="color:#00FF00">Gauss generalised this result to three dimensions as we shall see ...</p>
+	</section>
 				
-					<img data-src="figures/Hn.png"style="position:absolute;top:400px;left:900px;scale: 0.75">												
-					</span>
-					</section>
+	<section align="left">
+	<h1>Advanced Calculus L9</h1>
+	<br>
+	<ul>						
+		<li>Integral theorems in 3 dimensions</li>
+		<br>
+		<li style="color:#00FF00">The Divergence Theorem</li>										
+	</ul>
+	</section>		
+	
+	<section align="left">
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Theorem 9.1 (Gauss's Divergence Theorem)</h3>
+	</boxTitle>			
+	<p>The flux of a vector field </p>
+	\[
+	\mathbf{F} = M(x,y,z)\mathbf{i}+N(x,y,z)\mathbf{j}+P(x,y,z)\mathbf{k}
+	\]
+	<p>across a closed oriented surface $S$ in the direction of the surface's outward unit normal field $\mathbf{n}$ equals the 
+	integral of $\displaystyle \nabla\cdot\mathbf{F}$ over the region $\mathcal{D}$ enclosed by the surface:</p>
+	\[
+	\iint_S \mathbf{F}\cdot\mathbf{d}\,\mathrm{d}\sigma = \iiint_\mathcal{D} \nabla\cdot\mathbf{F}\,\mathrm{d}V
+	\]
+	<p></p>
+	</textBox>
+	
+	<span class="fragment fade-in">
+	<p><b>Note:</b></p>
+	<ol>
+		<li>If the vector field is divergence free on $\mathcal{D}$ then the RHS vanishes</li>
+		<li>The most common use of the divergence theorem is to calculate nasty surface integrals by turning them into 
+		volume integrals</li>
+	</ol>
+	</span>	
+	</section>
+	
+	<section>
+		<section align="left">
+		<span style="font-size: 24px">
+		<h3>Example 9.1</h3>
+		<p>Find the flux of</p>
+		\[
+			\mathbf{F}  = xy\mathbf{i}+yz\mathbf{j}+xz\mathbf{k}
+		\]
+		<p>outward through the surface of the cube cut from the first octant by the planes $x=1$, 
+		$y=1$ and $z=1$</p>
+	
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>Instead of calculating the flux as a sum of six seperate integrals, one for each face of the cube, we can calculate
+		the flux by integrating the divergence</p>
+		\[
+			\nabla\cdot\mathbf{F} = \frac{\partial}{\partial x}\left(xy\right)+
+			\frac{\partial}{\partial x}\left(yz\right)+
+			\frac{\partial}{\partial x}\left(xz\right) = y+z+x
+		\]
+		<p>over the cube's interior:</p>
+		\[
+			\begin{align*}
+			\mathrm{Flux} &=\iint_{S}\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma = \iiint_\mathcal{D}\nabla\cdot\mathbf{F}\,\mathrm{d}V\\
+			&=\int_0^1\int_0^1\int_0^1 \left(x+y+z\right)\,\mathrm{d}x\mathrm{d}y\mathrm{d}z
+			\end{align*}
+		\]
+		</span>
+		</span>
+		</section>
+	
+		<section align="left">
+		<h3>Example 9.1 (ctd)</h3>
+		\[
+			\begin{align*}
+			\int_0^1\int_0^1\int_0^1 \left(x+y+z\right)\,\mathrm{d}x\mathrm{d}y\mathrm{d}z &= \int_0^1\int_0^1\bigg[\frac{1}{2}x^2+yx+zx\bigg]_0^1\,\mathrm{d}y\mathrm{d}z\\
+			&=\int_0^1\int_0^1\left(\frac{1}{2}+y+z\right)\,\mathrm{d}y\mathrm{d}z = \int_0^1\bigg[\frac{1}{2}y+\frac{1}{2}y^2+zy\bigg]_0^1\,\mathrm{d}z\\
+			&= \int_0^1 \left(1+z\right)\,\mathrm{d}z = \bigg[z+\frac{1}{2}z^2\bigg]_0^1 = \color{red}{\boxed{\color{white}{\frac{3}{2}}}}
+			\end{align*}
+		\]
+		<br>
+		<p class="fragment fade-in" style="color:#00FF00">This is considerably less work than computing six surface intergals!<p>
+		
+		</section>
+		
+	</section>
 				
-				<section  align="left">					
-										
-					<p> As before we can compute the unkown coefficients $F_n$ by constructing a FS approximation for $g(x)$</p>
-					 
-					 <span  class="fragment fade-in">
-					 <p>Here</p>
-					 \[
-					  g(x) = \sum_{n=1}^\infty H_n \sin\left(\frac{n\pi}{L}x\right)
-					 \]
-					 <p>And so</p>
-					 \[
-					  H_n = \frac{2}{L}\int_0^L g(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x
-					 \]
-					 </span>
-					 <span class="fragment fade-in">
-					 <p>Giving </p>
-					 \[
-					 \color{#00FF00}{\boxed{\color{white}{
-					  F_n = \frac{2}{n\pi c}\int_0^Lg(x)\sin\left(\frac{n\pi}{L}x\right)\mathrm{d}x 
-					  }}}
-					 \]
-					 
-					 <p>Substituting all of this back into the general solution gives the required answer!!!</p>
-					</span>
-					</section>	
-				</section>
+	<section>			
+		<section  align="left">		
+		<h3>Example 9.2</h3>
+		<p>Use the Divergence Theorem to find the outward normal flux of </p>
+		\[
+			\mathbf{F} = x^2\mathbf{i}-2xy\mathbf{j}+3xz\mathbf{k}
+		\]
+		<p>across the boundary of the region $\mathcal{D}$ cut from the first octant by the sphere</p>
+		\[
+			x^2+y^2+z^2\leq 4
+		\]
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>We can calculate the flux by integrating the divergence</p>
+		\[
+			\nabla\cdot\mathbf{F} = \frac{\partial}{\partial x}\left(x^2\right)+
+			\frac{\partial}{\partial y}\left(-2xy\right)+
+			\frac{\partial}{\partial z}\left(3xz\right) = 2x-2x+3x = 3x
+		\]
+		<p>over the interior region, <em>i.e.</em></p>
+		\[
+		 \iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma = \iiint_\mathcal{D} \nabla\cdot\mathbf{F}\,\mathrm{d}V 
+		 = \iiint_\mathcal{D} 3x\,\mathrm{d}x\mathrm{d}y\mathrm{d}z
+		\]
+		</span>
+		
+		<p class="fragment fade-in" style="color:#00FF00"> Since the region $\mathcal{D}$ is a spherical quadrant this 
+		suggests changing to spherical coordinates ...</p>
+		
+		</section>	
+	
+		<section  align="left">
+		<span style="font-size:25px">	
+		<h3>Example 9.2 (ctd)</h3>
+		<p>In spherical coordinates the region is defined as</p>
+		\[
+			r^2\leq 4,\quad \theta\in[0, \pi/2], \quad \phi\in[0, \pi/2]
+		\]
+		<span class="fragment fade-in">
+		<p>Recall that </p>
+		\[
+		\Phi(r,\theta,\phi) = \begin{pmatrix}x(r,\theta, \phi)\\y(r,\theta, \phi)\\z(r,\theta, \phi)\end{pmatrix}
+		= \begin{pmatrix}r\sin(\phi)\cos(\theta)\\r\sin(\phi)\sin(\theta)\\r\cos(\phi)\end{pmatrix}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>So that the integral becomes</p>
+		\[
+		\begin{align*}
+			\iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma &= \iiint_\mathcal{D} \nabla\cdot\mathbf{F}\,\mathrm{d}V \\
+			&= \iiint_\mathcal{D} 3x\,\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
+			&= \int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r\sin(\phi)\cos(\theta)|J(r,\theta,\phi)|\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi\\		 
+			\end{align*}
+		\]
+	 
+		<p class="fragment fade-in" style="color:#00FF00"> We need to compute the Jacobian determinant of our transformation</p>
+		</span>
+		</section>
+	 
+		<section  align="left"> 
+		<span style="font-size: 24px">
+		<h3>Example 9.2 (ctd)</h3>
+		<p>Recall</p>
+		\[
+		\begin{align*}
+		J &= \begin{pmatrix}
+			\frac{\partial \phi_1}{\partial r}\frac{\partial \phi_1}{\partial \theta}\frac{\partial \phi_1}{\partial \phi}\\
+			\frac{\partial \phi_2}{\partial r}\frac{\partial \phi_2}{\partial \theta}\frac{\partial \phi_2}{\partial \phi}\\
+			\frac{\partial \phi_3}{\partial r}\frac{\partial \phi_3}{\partial \theta}\frac{\partial \phi_3}{\partial \phi}
+			\end{pmatrix} \\
+			&=\begin{pmatrix}
+			\frac{\partial}{\partial r}\left(r\sin(\phi)\cos(\theta)\right)&\frac{\partial}{\partial \theta}\left(r\sin(\phi)\cos(\theta)\right)&\frac{\partial}{\partial \phi}\left(r\sin(\phi)\cos(\theta)\right)\\
+			\frac{\partial}{\partial r}\left(r\sin(\phi)\sin(\theta)\right)&\frac{\partial}{\partial \theta}\left(r\sin(\phi)\sin(\theta)\right)&\frac{\partial}{\partial \phi}\left(r\sin(\phi)\sin(\theta)\right)\\
+			\frac{\partial}{\partial r}\left(r\cos(\phi)\right)&\frac{\partial}{\partial \theta}\left(r\cos(\phi)\right)&\frac{\partial}{\partial \phi}\left(r\cos(\phi)\right)
+			\end{pmatrix}  \\
+			&=\begin{pmatrix}
+			\sin\phi\cos\theta&-r\sin\phi\sin\theta&r\cos\phi\cos\theta\\
+			\sin\phi\sin\theta&r\sin\phi\cos\theta&r\cos\phi\sin\theta\\\cos\phi&0&-r\sin\phi
+			\end{pmatrix}
+		\end{align*}
+		\]
+		<br>
+		<span class="fragment fade-in">
+		<p>The determinant of which is given by</p>
+		\[
+			\color{red}{\boxed{\color{white}{
+			|J| = r^2\sin\phi}}}
+		\]
+		<p style="color:#00FF00">(Exercise to show this ...)</p>
+		</span>
+		</span>
+		</section>
+		
+		<section  align="left"> 
+		
+		<h3>Example 9.2 (ctd)</h3>
+		<span style="font-size:25px">
+		<p>Thus</p>
+		\[
+		\int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r\sin(\phi)\cos(\theta)|J(r,\theta,\phi)|\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi =
+		\int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r^3\sin^2(\phi)\cos(\theta)\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi 
+		\]
+		<span class="fragment fade-in">
+		<p>Computing the above integral gives</p>
+		\[
+		\begin{align*}
+		\int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r^3\sin^2(\phi)\cos(\theta)\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi &= 
+		\int_0^{\pi/2}\int_0^{\pi/2}\bigg[\frac{3}{4}r^4\sin^2\phi\cos\theta\bigg]_0^2\,\mathrm{d}\theta\mathrm{d}\phi\\
+		&= \int_0^{\pi/2}\int_0^{\pi/2}12\sin^2\phi\cos\theta\,\mathrm{d}\theta\mathrm{d}\phi\\
+		&= \int_0^{\pi/2}\bigg[12\sin^2\phi\sin\theta\bigg]_0^{\pi/2}\,\mathrm{d}\phi\\
+		&=\int_0^{\pi/2}12\sin^2\theta\,\mathrm{d}\theta \\		
+		&=12\bigg[\frac{\phi}{2}-\frac{\sin(2\phi)}{4}\bigg]_0^{\pi/2} = 12\left(\frac{\pi}{4}\right) = 
+		\color{red}{\boxed{\color{white}{3\pi}}}
+		\end{align*}
+		\]
+		</span>
+		</span>
+		</section>
+	</section>			
 				
-				<section align="left">
-					<h1>Advanced Calculus L9</h1>
-					<br>
-					<ul>
-						<li>The 1D wave equation</li>
-						<br>
-						<li>Solving the 1D wave equation using the separation of variables technique</li>								
-						<br>
-						<span style="color: #00FF00"> <li>Examples</li>											</span>
-					</ul>
-				</section>	
-				
-				<section>
-					<section  align="left">																
-						
-						<h3>Example 9.1</h3> <p>Find the solution to the IBVP</p>
-						\[
-						\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,\pi),~ t>0,\quad u(0,t)=u(\pi,t)=0
-						\]
-						<p>when the initial conditions are given by</p>
-						\[
-						 u(x,0) = f(x) = \sin(x), x\in(0,L)
-						\]
-						<p>and</p>
-						\[
-						u_t(x,0) = g(x)=-\sin(x), x\in(0,L)
-						\]											
-						
-						
-					</section>	
+	<section>
+	<h2 style="color:#00FF00">Lecture 10 Review</h2>
+	<br>
 					
-					<section  align="left">																
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Integral theorems in 3 dimensions</li>
+			<li>The Divergence Theorem</li>										
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul>
+			<li>State the Divergence Theorem and apply it to transform a surface integral over a 
+			closed surface into a volume integral over the enclosed region.</li>			
+		</ul><br>					
+	</ul>			
 					
-						<h3>Solution</h3>
-						<p>Since $L=\pi$ and $c=1$, we have that</p>
-						\[
-						 u(x,t) = \sum_{n=1}^\infty \Bigg(E_n\cos(nt)+F_n\sin(nt)\Bigg)\sin(nx)
-						\]
-						<span class="fragment fade-in">
-<p>						The first IC gives</p>
-						\[
-						 u(x,0) = \sum_{n=1}^\infty E_n\sin(nx) = \sin(nx) \implies E_1=1 ~\&~ E_n=0,  n>1
-						\]
-						
-						\[
-						 \implies u(x,t) = \cos(t)\sin(x) + \sum_{n=1}^\infty F_n\sin(nt)\sin(nx)
-						\]
-						</span>
-					</section>	
-					<section  align="left">																
-						
-						<p>The second BC states that $u_t(x,0) = -\sin(x)$ </p>
-						
-						<p>Now</p>
-						\[
-						u_t(x,t) = -\sin(t)\sin(x)+\sum_{n=1}^\infty nF_n\cos(nt)\sin(nx)
-						\]
-						<span class="fragment fade-in">
-						<p>so</p>
-						\[
-						 u_t(x,0) = -\sin(x) = \sum_{n=1}^\infty nF_n\sin(nx) \implies F_n=\begin{cases}-1&n=1\\0&\text{otherwise}\end{cases}
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>Finally,</p>
-						\[
-						 \color{red}{\boxed{\color{white}{
-						 u(x,t) = \cos(t)\sin(x)-\sin(t)\sin(x)
-						 }}}
-						\]
-						</span>
-						
-					</section>						
-				</section>
-				
-				<section>
-					<section  align="left">																
-						
-						<h3>Example 9.2</h3> <p>Find the solution to the IBVP</p>
-						\[
-						\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}\quad x\in(0,\pi),~ t>0,\quad u(0,t)=u(\pi,t)=0
-						\]
-						<p>when the initial conditions are given by</p>
-						\[
-						 u(x,0) = f(x) = 0, x\in(0,\pi)
-						\]
-						<p>and</p>
-						\[
-						u_t(x,0) = g(x)=\begin{cases}\frac{2}{\pi}x& x\in(0, \pi/2)\\\frac{2}{\pi}(\pi-x)& x\in[\pi/2,\pi)\end{cases}
-						\]											
-						
-						
-					</section>	
-					
-					<section  align="left">																
-					
-						<h3>Solution</h3>
-						<p>Since $L=\pi$ and $c=1$, we have that</p>
-						\[
-						 u(x,t) = \sum_{n=1}^\infty \Bigg(E_n\cos(nt)+F_n\sin(nt)\Bigg)\sin(nx)
-						\]
-						<span class="fragment fade-in">
-						<p>The first BC gives</p>
-						\[
-						 u(x,0) = \sum_{n=1}^\infty E_n\sin(nx) = 0 \implies E_n=0,  \forall n 
-						\]
-						
-						\[
-						 \implies u(x,t) = \sum_{n=1}^\infty F_n\sin(nt)\sin(nx)
-						\]
-											</span>
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>Since </p>
-						\[
-						 u_t(x,t) = \sum_{n=1}^\infty nF_n\cos(nt)\sin(nx)
-						\]
-						<p>we have</p>
-						\[
-						 u_t(x,0) = \sum_{n=1}^\infty nF_n\sin(nx) = \sum_{n=1}^\infty H_n\sin(nx) = g(x)
-						\]
-						<span class="fragment fade-in">
-						<p>so</p>
-						\[
-						 H_n = \frac{2}{\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x \implies F_n = \frac{2}{n\pi}\int_0^\pi g(x)\sin(x)\mathrm{d}x
-						\]						
-						</span>
-						
-						
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>Thus</p>
-						\[
-						\begin{align*}
-						F_n &= \frac{2}{n\pi}\Bigg(\int_0^\frac{\pi}{2}\frac{2x}{\pi}\sin(nx)\mathrm{d}x + \int_\frac{\pi}{2}^\pi\frac{2}{\pi}(\pi-x)\sin(nx)\mathrm{d}x\Bigg)\\
-						&= \frac{2}{n\pi}\Bigg(\left[-\frac{2x}{n\pi}\cos(nx)\right]_0^{\pi/2} + \frac{2}{n\pi}\int_0^\frac{\pi}{2}\cos(nx)\mathrm{d}x \\
-						&+\left[-\frac{2}{n\pi}(\pi-x)\cos(nx)\right]_{\pi/2}^\pi - \frac{2}{n\pi}\int_\frac{\pi}{2}^\pi\cos(nx)\mathrm{d}x\Bigg)\\
-						&= \frac{4}{n^2\pi^2}\Bigg(\left[\frac{1}{n}\sin(nx)\right]_0^{\pi/2}-\left[\frac{1}{n}\sin(nx)\right]_{\pi/2}^\pi\Bigg)\\
-						&=\frac{8}{n^3\pi^2}\sin\left(\frac{n\pi}{2}\right)
-						\end{align*}
-						\]
-						
-					</section>	
-					
-					<section  align="left">																
-									
-						<p>It follows that the solution of the wave equation is given by</p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						 \begin{align*}
-						 u(x,t) &= \sum_{n=1}^\infty \frac{8}{n^3\pi^2}\sin\left(\frac{n\pi}{2}\right)\sin(nt)\sin(nx)\\
-						 &= \sum_{n=1}^\infty \frac{8}{(2n-1)^3\pi^2}(-1)^{n+1}\sin((2n-1)t)\sin((2n-1)x)
-						 \end{align*}
-						 }}}
-						\]
-						
-						<br>
-						<span class="fragment fade-in">
-						<ur>
-							<li>The last line follows since $\sin(n\pi/2)=0$ for even values of $n$</li><br>
-							<li>Replacing $n$ by $2n-1$ in our equation ensures that we pick out odd terms only</li>
-						</ur>
-						</span>
-					</section>	
-					
-					<section  align="left">																
-					
-						<p>The following video shows the solution $u(x,t)$</p>
-						
-						<video data-src="videos/WaveEx9p2.mp4" controls style="border: 4px solid white" class="center"></video>																
-						</font>
-					</section>	
-				</section>
-
-				<section>
-					<h2 style="color:#00FF00">Lecture 9 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>The 1D wave equation</li>
-							<li>Solving the 1D wave equation using the separation of variables technique</li>										
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>							
-							<li>be aware of modelling applications of the 1D wave equation</li>														
-							<li>be able to solve the 1D wave equation for general initial conditions</li>
-						</ul><br>					
-					</ul>			
-					
-				</section>
-					 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
