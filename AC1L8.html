@@ -138,7 +138,7 @@
 	</section>		
 				
 	<section  align="left">		
-	<span style="font-size:24px">
+	<span style="font-size:23px">
 	<p>Green's Theorem can be applied directly to compute the work done when $\mathbf{F}$ is a force field or 
 	the circulation when $\mathbf{F}$ is a velocity field. However, to compute the flux, the formulation of the 
 	theorem needs to be modified using the concept of outward normal or divergence.</p>
@@ -152,21 +152,20 @@
 	<span class="fragment fade-in">
 	<p style="color:#00FF00">To Use Green's theorem we need to write $\mathbf{n}$ in terms of our parametrisation $\mathbf{r}$:</p>
 	\[
-	 \begin{align*}
-	 \mathbf{n} &= \mathbf{T}\times\mathbf{k}\\
-	 &= \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
-	 x'&y'&0\\
+	 \mathbf{n} = \frac{\mathbf{r'}}{||\mathbf{r}'||}\times\mathbf{k}
+	 = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+	 \frac{x'}{||\mathbf{r}'||}&\frac{y'}{||\mathbf{r}'||}&0\\
 	 0&0&1
 	 \end{vmatrix}
-	 \end{align*} = (y', -x', 0)
+	 = \frac{1}{||\mathbf{r}'||}(y', -x', 0)
 	\]
-	<p>Here, $\mathbf{T}$ is the unit tangent vector and $\mathbf{k} = (0,0,1)$</p>
+	<p>Here, $\displaystyle\frac{\mathbf{r}'}{||\mathbf{r}'||}$ is the unit tangent vector and $\mathbf{k} = (0,0,1)$</p>
 	</span>
 	<span class="fragment fade-in">
-	<p>Thus</p>
+	<p>Recalling $\displaystyle\mathrm{d}s = ||\mathbf{r}'||\,\mathrm{d}t$ gives</p>
 	\[
 	\color{red}{\boxed{\color{white}{
-	 \oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s = \oint_C (F_1, F_2)\cdot (\mathrm{d}y, -\mathrm{d}x) 
+	 \oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s = \oint_C (F_1, F_2)\cdot \left(\frac{\mathrm{d}y}{\mathrm{d}t}, -\frac{\mathrm{d}x}{\mathrm{d}t}\right)\,\mathrm{d}t 
 	 = \oint_C\left(-F_2\right)\,\mathrm{d}x + \left(F_1\right)\,\mathrm{d}y}}}
 	\]
 	<p>In the above setting $P = -F_2$ and $Q=F_1$ allows us to apply Green's theorem</p>
@@ -381,4 +380,5 @@
         <!-- ################################################### -->
 </body>
 </html>
+
 
