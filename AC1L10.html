@@ -18,380 +18,373 @@
 
  <div class="reveal">
     <div class="slides">
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <!-- ################################################### -->
-      <section>
-        <h1>Advanced Calculus</h1>
-        <h2>Lecture 10</h2>
-        <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
-        <p style="color: #00FF00">Nottingham Trent University</p>
-      </section>
-	  <!-- ################################################### -->
-      <!-- ################################################### -->					
-				<section align="left">
-					<h1>Advanced Calculus L10</h1>
-					<br>
-					<ul>
-						<span style="color: #00FF00"> <li>d'Alembert's solution of the wave equation</li></span>
-						<br>
-						<li>Incorporating initial conditions</li>		
-						<br>
-						<li>Connections to the separable solutions</li>		
-						<br>
-						<li>Example</li>		
-					</ul>
-				</section>	
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 10</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L10</h1>
+	<br>
+	<ul>						
+		<li style="color:#00FF00">Integral theorems in 3 dimensions</li>
+		<br>
+		<li>Stoke's theorem</li>								
+		<br>
+		<li>Connections to Green's theorem in the plane</li>								
+	</ul>
+	</section>		
+	
+	<section  align="left">		
+	<p>The two primary integral theorems in three dimensions are <b>Gauss's Divergence Theorem</b> 
+	and <b>Stokes' Theorem</b>. These theorems relate integrals over a region to integrals over its boundary, 
+	generalising the one-dimensional <b>Fundamental Theorem of Vector Calculus</b>.</p>
+	
+	<p>In this lecture we consider <b style="color:#00FF00">Stoke's Theorem</b>, which incidentally we have already seen the 2-D version of!</p>
+	
+	<span class="fragment fade-in">
+	<img style="margin:25px;padding:0px"				
+				height="275"					
+				src="figures/StokesTheorem.png">
+	<p>Stoke's theorem applies to a piece of surface $S$ with a boundary curve $C$ and relates the line integral of a field $\mathbf{F}$
+	on $C$ to the surface integral of $\mathbf{F}$ on $S$</p>
 
-<section>
-					<section align="left">
-							
-						<h2>d'Alembert's solution</h2>					
-						
-						<p>Note that unusually for a PDE, the <b>wave equation</b> can be solved to obtain a general solution 
-						for given initial data. </p>
-						
-						<p>Given the wave equation</p>
-						\[
-						 \frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2 u}{\partial x^2}
-						\]
-						<p>we can introduce new independent variables </p>
-						\[
-						 v = x+ct ~\text{ and }~ w=x-ct
-						\]
-						<p>such that the wave equation reduces to</p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						 \frac{\partial^2 u}{\partial v\partial w} = 0
-						 }}}
-						\]
-								
-					</section>				
-										
-					<section  align="left">											
-						
-						<p>To see this note </p>
-						\[
-						 u_x = \frac{\partial u}{\partial v}\frac{\partial v}{\partial x}+\frac{\partial u}{\partial w}\frac{\partial w}{\partial x}
-						 = u_v+u_w
-						\]
-						<span class="fragment fade-in">
-						<p>and</p>
-						\[
-						\begin{align*}
-						u_{xx} = \frac{\partial}{\partial x}(u_v+u_w)&=u_{vv}v_x+u_{vw}w_x+u_{wv}v_x+u_{ww}w_x\\
-						&= u_{vv}+2u_{vw}+u_{ww}
-						\end{align*}
-						\]
-						<p>The last line follows since $u_{vw}=u_{wv}$</p>
-						</span>
-						
-						<span  class="fragment fade-in">
-						<p>Using the exact same procedure as above (exercise)</p>
-						\[
-						 u_{tt} = c^2(u_{vv}-2u_{vw}+u_{ww})
-						\]
-						</span>
-						
-					</section>				
-					
-					<section  align="left">											
-						
-						
-						<p>Substituting these results into the wave equation gives...</p>
-						\[
-						\begin{align*}
-						 u_{xx} &= u_{vv}+2u_{vw}+u_{ww}\\
-						 u_{tt} &= c^2(u_{vv}-2u_{vw}+u_{ww})
-						\end{align*}
-						\]
-						<span class="fragment fade-in">
-						<p>So that the wave equation becomes:						</p>
-						\[
-						c^2(u_{vv}-2u_{vw}+u_{ww}) = c^2(u_{vv}+2u_{vw}+u_{ww}) \implies u_{vw}=0
-						\]
-						<p>Or </p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						\frac{\partial^2 u}{\partial v\partial w} = 0
-						}}}
-						\]
-						<p>As required.</p>
-												</span>
-						</font>					
-						
-					</section>	
-					
-					<section  align="left">											
-																										
-						<p>We can solve this equation by direct integration, <em>i.e.</em></p>
-						\[
-						\begin{align*}
-						u_{vw} = 0 \implies u_v = h(v) \implies u(v,w) &= \int h(v)\mathrm{d}v+\psi(w)\\
-						&= \phi(v)+\psi(w)
-						\end{align*}
-						\]
-						<span class="fragment fade-in">
-						<p>Recalling that $v=x+ct$ and $w=x-ct$ gives the solution</p>
-						\[
-						\color{#00FF00}{\boxed{\color{white}{
-						u(x,t) = \phi(x+ct)+\psi(x-ct)
-						}}}
-						\]
-						<p>In words: <b>the general solution is a sum of left and right travelling waves with profiles given 
-						by the functions $\phi$ and $\psi$</b></p>
-						</span>					
-					</section>	
-				</section>
+	</span>
+	
+	<p class="fragment fade-in" style="color:#00FF00">Gauss generalised this result to three dimensions as we shall see ...</p>
+	</section>
+	
+	<section align="left">
+	<h1>Advanced Calculus L10</h1>
+	<br>
+	<ul>						
+		<li>Integral theorems in 3 dimensions</li>
+		<br>
+		<li style="color:#00FF00">Stoke's theorem</li>								
+		<br>
+		<li>Connections to Green's theorem in the plane</li>
+	</ul>
+	</section>		
 				
-				
-				<section align="left">
-					<h1>Advanced Calculus L10</h1>
-					<br>
-					<ul>
-						<li>d'Alembert's solution of the wave equation</li>
-						<br>
-						<span style="color: #00FF00"> <li>Incorporating initial conditions</li></span>		
-						<br>
-						<li>Connections to the separable solutions</li>		
-						<br>
-						<li>Example</li>		
-					</ul>
-				</section>			
-				
-				
-				<section>
-					<section  align="left">					
-						<h2>Incorporating ICs</h2>					
-						
-						<p>Suppose we have the ICs $~~u(x,0) = f(x)~~$ and $~~u_t(x,0) = g(x)$, 
-						then from d'Alembert's solution of the wave equation we have</p>
-						\[
-						\begin{align}
-						 u(x,0) &= \phi(x)+\psi(x) = f(x)\\\nonumber
-						 u_t(x,0)&= c\phi'(x)-c\psi'(x) = g(x)
-						\end{align}
-						\]
-						<span class="fragment fade-in">
-						<p>Integrating the second equation gives</p>
-						\[
-						\begin{equation}
-						 \phi(x)-\psi(x) = k(x_0)+\frac{1}{c}\int_{x_0}^x g(s)\mathrm{d}s
-						\end{equation}						
-						\]
-						<p>where $k = \phi(x_0)-\psi(x_0)$</p>
-						</span>
-					</section>
-					
-					<section  align="left">											
-					
-						<p>Adding equations (1) and (2) gives </p>
-						\[
-						 2\phi(x) =f(x)+k(x_0)+\frac{1}{c}\int_{x_0}^x g(s)\mathrm{d}s
-						\]
-						<span class="fragment fade-in">
-						<p>Whilst subtracting (2) from (1) gives </p>
-						\[
-						\begin{align*}
-						 2\psi(x) &=f(x)-k(x_0)-\frac{1}{c}\int_{x_0}^xg(s)\mathrm{d}s\\
-						 &=f(x)-k(x_0)+\frac{1}{c}\int_x^{x_0}g(s)\mathrm{d}s
-						\end{align*}
-						\]
-						<p>Putting this altogther gives an expression for $u(x,t)...$</p>
-						</span>
-					</section>
-					
-					<section  align="left">											
-					
-						<p>...</p>
-						\[
-						\begin{align*}
-						u(x,t) &= \phi(x+ct)+\psi(x-ct)\\
-						&= \frac{1}{2}\left[f(x+ct)+k(x_0)+\frac{1}{c}\int_{x_0}^{x+ct} g(s)\mathrm{d}s\right]+\\
-						&+\frac{1}{2}\left[f(x-ct)-k(x_0)+\frac{1}{c}\int_{x-ct}^{x_0}g(s)\mathrm{d}s\right]\\
-						&= \color{#00FF00}{\boxed{\color{white}{
-						\frac{1}{2}\left[f(x+ct)+f(x-ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct} g(s)\mathrm{d}s
-						}}						}
-						\end{align*}
-						\]
-						
-						<p><b>The above derivation is examinable</b></p>
-						
-					</section>
-				</section>
-				
-				<section align="left">
-					<h1>Advanced Calculus L10</h1>
-					<br>
-					<ul>
-						<li>d'Alembert's solution of the wave equation</li>
-						<br>
-						<li>Incorporating initial conditions</li>		
-						<br>
-						<span style="color: #00FF00"> <li>Connections to the separable solutions</li></span>		
-						<br>
-						<li>Example</li>		
-					</ul>
-				</section>			
-				
-				<section>
-					<section  align="left">					
-						<h3>How does this relate to the separable solutions we found?</h3>					
-						
-						<span class="fragment fade-in">
-						<p>Suppose we solve the following wave equation using separation of variables</p>
-						\[
-						\frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}, \quad x\in(0,L), u(0,t)=u(0,L)=0 
-						\]
-						<p>And ICs $u(x,0) = f(x)$ and $u_t(x,0)=0$ (the second for simplicity)</p>
-						
-						<p>It can be shown that</p>
-						\[
-						\color{red}{\boxed{\color{white}{
-						u(x,t) = \sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}x\right)\cos\left(\frac{n\pi}{L}t\right)
-						}}}
-						\]
-									</span>
-					</section>							
-					
-					<section  align="left">											
-					
-						<p>Now using trig identity we can write</p>
-						\[
-						\sin\left(\frac{n\pi}{L}x\right)\cos\left(\frac{n\pi c}{L}t\right) = \frac{1}{2}\left[\sin\left(\frac{n\pi}{L}(x-ct)\right)+\sin\left(\frac{n\pi}{L}(x+ct)\right)\right]
-						\]
-						<span class="fragment fade-in">
-						<p>Consequently we can write our separable solution as </p>
-						\[
-						\begin{align*}
-						 u(x,t) &= \sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}x\right)\cos\left(\frac{n\pi c}{L}t\right)\\
-						 &= \frac{1}{2}\sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}(x-ct)\right) + \frac{1}{2}\sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}(x+ct)\right)
-						\end{align*}
-						\]
-						</span>
-						<span class="fragment fade-in">
-						<p>Recalling that </p>
-						\[
-						 u(x,0) = \sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}x\right) = f(x)\qquad \text{We see that...}
-						\]
-						</span>
-					</section>	
-					
-					<section  align="left">											
+	<section  align="left">	
+<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Theorem 9.1 (Stoke's Theorem)</h3>
+	</boxTitle>			
+	<p>Let $S$ be a smooth two-dimensional surface in $\mathbb{R}^3$ with boundary $\partial S$ a piecewise smooth closed curve. Let $\mathbf{F}$ be any smooth vector field </p>
+	\[
+	\mathbf{F} = M(x,y,z)\mathbf{i}+N(x,y,z)\mathbf{j}+P(x,y,z)\mathbf{k}
+	\]
+	<p>defined on $S$. Then</p>
+	\[
+	\iint_S \left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\mathrm{d}\sigma = \oint_{\partial S} \mathbf{F}\cdot\mathrm{d}\mathbf{r}
+	\]
+	<p></p>
+	</textBox>
+	
+	<span class="fragment fade-in">
+	<p><b>Note:</b></p>
+	<ol>
+		<li>If the vector field is curl free on $S$ then the LHS vanishes</li>
+		<li>As we shall see later on, Stoke's theorem naturally extends the circulation version of Green's 
+		theorem to 3 dimensions</li>
+	</ol>
+	</span>		
+	</section>	
+	
+	<section>
+		<section  align="left">	
+		<h3>Example 10.1</h3>
+		<p>Let $S$ be the part of the ellipsoid $\displaystyle 3x^2+3y^2+z^2=28$ lying above the plane $z=1$,
+		and $\mathbf{n}$ represent the normal to the surface $S$ with positive $z$ component. Let</p>
+		\[
+			\mathbf{F} = yz^2\mathbf{i} + 4xz\mathbf{j} + x^2yz\mathbf{k}
+		\]
+		<p>Apply Stoke's theorem to evaluate the surface integral</p>
+		\[
+			I = \iint_S \left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\mathrm{d}\sigma
+		\]
+		
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>By Stoke's theorem we have that</p>
+		\[
+			I = \oint_C\mathbf{F}\cdot\mathrm{d}\mathbf{r}
+		\]
+		
+		<p>We need a parametrisation of the bounding curve $C$ ...</p>
+		</span>
+		</section>
+		
+		<section  align="left">	
+		<span style="font-size:25.5px">
+		<h3>Example 10.1 (ctd)</h3>
+		<p>The curve $C$ is given by the intersection of the plane $z=1$ and the ellipsoid, <em>i.e.</em></p>
+		\[
+			3x^2+3y^2+1^2=28 \implies x^2+y^2=9, \quad z = 1
+		\]
+		<p>That is, the curve $C$ is the circle of radius 3 centred at the origin lying in the plane $z=1$</p>
+		<span class="fragment fade-in">
+		<p>We can parametrise this curve using cylindrical coordinates</p>
+		\[
+			\mathbf{r}(t) = (3\cos{t}, 3\sin{t}, 1),\quad t\in[0,2\pi]
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>Differentiating our parametrisation gives</p>
+		\[
+			\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = (-\sin{t}, 3\cos{t}, 0)
+		\]
+		<p>and since $\displaystyle\mathbf{F}(\mathbf{r}(t)) = (3\sin{t}, 12\cos{t},27\cos^2{t}\sin{t})$ we have</p>
+		\[
+		\begin{align*}
+		 \mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \mathbf{F}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\,\mathrm{d}t\\
+		 &= (3\sin{t}, 12\cos{t},27\cos^2{t}\sin{t})\cdot(-\sin{t}, 3\cos{t}, 0)\\ 
+		 &= \color{red}{\boxed{\color{white}{-9\sin^2{t}+36\cos^2{t}}}}
+		 \end{align*}
+		\]
+		</span>
+		</span>
+		<img style="margin:25px;padding:0px;position:absolute;top:250px;left:750px"				
+				height="300"					
+				src="figures/Ex10p1EllipsoidPlane.png">
+		</section>
+		
+		<section  align="left">	
+		<h3>Example 10.1 (ctd)</h3>
+		<p>Thus we need to compute the integral</p>
+		\[
+		 \begin{align*}
+		 I = \oint_C \mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \int_0^{2\pi} \left(-9\sin^2{t}+36\cos^2{t}\right)\,\mathrm{d}t\\
+		 &=\int_0^{2\pi} \left(45\cos^2{t} - 9\right)\,\mathrm{d}t
+		 \end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>Recalling that</p>
+		\[
+		\cos^2{t} = \frac{\cos{2t}+1}{2}
+		\]
+		<p>we can solve as </p>
+		\[
+		 \begin{align*}
+		  I &= \int_0^{2\pi} \left(\frac{45}{2}\left(\cos{2t}+1\right) - 9\right)\,\mathrm{d}t\\
+			&= \left[\frac{45}{4}\sin{2t}+\frac{45}{2}t-9t\right]_0^{2\pi} = \color{red}{\boxed{\color{white}{27\pi}}}
+		 \end{align*}
+		\]
+		</span>
+		</section>
+		
+	</section>
+	
+	<section>
+		<section  align="left">	
+		<h3>Example 10.2</h3>
+		<p>Using Stoke's theorem, show that the circulation of the field</p>
+		\[
+			\mathbf{F} = y\mathbf{i}-x\mathbf{j}
+		\]
+		<p>around the curve $C: x^2+y^2=9$ bounding the hemisphere</p>
+		\[
+			x^2+y^2+z^2=9, \quad z\geq 0
+		\]
+		<p>is given by</p>
+		\[
+		\oint_C\mathbf{F}\cdot\mathrm{d}\mathbf{r} = -18\pi
+		\]
+		
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>Stoke's theorem gives</p>
+		\[
+		\oint_C\mathbf{F}\cdot\mathrm{d}\mathbf{r} = \iint_S\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\mathrm{d}\sigma
+		\]
+		<p>We need to compute the surface integral ...</p>
+		</span>
+		</section>
+		
+		<section  align="left">	
+		<h3>Example 10.2 (ctd)</h3>
+		<p>A spherical coordinate representation of the hemisphere is</p>
+		\[
+		 \mathbf{r}(\theta, \phi) = (3\cos\theta\sin\phi, 3\sin\theta\sin\phi, 3\cos\phi),\quad\theta\in[0,2\pi),~ \phi\in[0,\pi/2]
+		\]
+		<p>and so</p>
+		\[
+		\begin{align*}
+		\mathbf{r}_\theta\times\mathbf{r}_\phi &= 
+		\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+		-3\sin\theta\sin\phi&3\cos\theta\sin\phi&0\\
+		3\cos\theta\cos\phi&3\sin\theta\cos\phi&-3\sin\phi
+		\end{vmatrix}\\ 
+		&= (-9\cos\theta\sin^2\phi, -9\sin^2\phi\sin\theta, -9\sin\phi\cos\phi)
+		\end{align*}
+		\]
+		<span class="fragment fade-in">
+		<p>So that</p>
+		\[
+		||\mathbf{r}_\theta\times\mathbf{r}_\phi|| = 9\sin\phi \qquad\text{(Exercise!!!)}
+		\]
+		<p>Giving the surface element:</p>
+		\[
+		\mathrm{d}\sigma = ||\mathbf{r}_\theta\times\mathbf{r}_\phi||\,\mathrm{d}\theta\mathrm{d}\phi 
+		= \color{red}{\boxed{\color{white}{9\sin\phi\,\mathrm{d}\theta\mathrm{d}\phi}}}
+		\]
+		</span>
+		</section>
+		
+		<section  align="left">	
+		<span style="font-size:22.5px">
+		<h3>Example 10.2 (ctd)</h3>
+		<p>We need to compute</p>
+		\[		
+		\iint_S\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\mathrm{d}\sigma = 
+		\int_0^{\pi/2}\int_0^{2\pi} \left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\left(9\sin\phi\right)\mathrm{d}\theta\mathrm{d}\phi
+		\]
+		<span class="fragment fade-in">
+		<p>The cross product term is</p>
+		\[
+			\nabla\times\mathbf{F} = 
+			\begin{vmatrix}
+			\mathbf{i}&\mathbf{j}&\mathbf{k}\\
+			\partial/\partial x&\partial/\partial y&\partial/\partial z&\\
+			y&-x&0
+			\end{vmatrix} = (0, 0, -2)
+		\]
+		<p>and the unit normal is</p>
+		\[
+		\mathbf{n} = \frac{\nabla f}{||\nabla f||} = \frac{1}{\sqrt{x^2+y^2+z^2}}(x,y,z) = \frac{1}{3}(x, y, z)
+		\]		
+		</span>
+		<span class="fragment fade-in">
+		<p>So that</p>
+		\[
+		\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n} = (0, 0, -2)\cdot\frac{1}{3}(x, y, z) = -\frac{2}{3}z
+		\]
+		<p>Or in spherical coordinates</p>
+		\[
+		 \color{red}{\boxed{\color{white}{\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n} = -2\cos\phi}}}
+		\]
+		</span>
+		</span>
+		</section>
+		
+		<section  align="left">	
 
-						<p>...</p>
-						\[
-						\begin{align*}
-						 u(x,t)&=\frac{1}{2}\sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}(x-ct)\right) + \frac{1}{2}\sum_{n=1}^\infty E_n\sin\left(\frac{n\pi}{L}(x+ct)\right)\\
-						 &=\frac{1}{2}\left[F(x-ct)+F(x+ct)\right]
-						\end{align*}
-						\]
-						<p>Here, $F$ is the odd extension of the function $f$ with period $T=2L$</p>
-						
-						<span class="fragment fade-in">
-						<h3>Note</h3>
-						
-						<ul>
-							<li><p>$F(x\pm ct)$ is obtained from the graph of $F$ by shifting the latter by $ct$ units</p></li>
-							<li><p>Thus $F(x\pm ct)$ represent <b> left or right travelling waves</b></p></li>
-							<li><p>The seperable solution corresponds to standing waves whilst d'Alembert's solution corresponds to travelling waves</p></li>
-							<li><p>In the separable solution above, the <b>travelling waves interfere to produce standing waves</b></p></li>														
-						</ul>
-						</span>					
-					</section>							
-				</section>
+		<h3>Example 10.2 (ctd)</h3>
+		<p>Putting this all together</p>
+		\[
+		\begin{align*}
+		\iint_S\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\mathrm{d}\sigma &= 
+		\int_0^{\pi/2}\int_0^{2\pi}\left(-18\cos\phi\sin\phi\right)\,\mathrm{d}\theta\mathrm{d}\phi\\
+		&=\int_0^{\pi/2}\bigg[-18\theta\cos\phi\sin\phi\bigg]_0^{2\pi}\,\mathrm{d}\phi\\
+		&=-36\pi\int_0^{\pi/2}\cos\phi\sin\phi\,\mathrm{d}\phi\\
+		&= -36\pi\bigg[\frac{1}{2}\sin^2\phi\bigg]_0^{\pi/2} = \color{red}{\boxed{\color{white}{-18\pi}}}
+		\end{align*}
+		\]
+		<p>As required</p>
+		
+		</section>
+	</section>	
+	
+	
+	<section align="left">
+	<h1>Advanced Calculus L10</h1>
+	<br>
+	<ul>						
+		<li>Integral theorems in 3 dimensions</li>		
+		<br>
+		<li>Stoke's theorem</li>								
+		<br>
+		<li style="color:#00FF00">Connections to Green's theorem in the plane</li>
+	</ul>
+	</section>		
 				
-				<section align="left">
-					<h1>Advanced Calculus L10</h1>
-					<br>
-					<ul>
-						<li>d'Alembert's solution of the wave equation</li>
-						<br>
-						<li>Incorporating initial conditions</li>		
-						<br>
-						<li>Connections to the separable solutions</li>		
-						<br>
-						<span style="color: #00FF00"> <li>Example</li></span>		
-					</ul>
-				</section>	
-
-				<section>
-					<section  align="left">											
+	<section>
+	<section  align="left">		
+	<p style="color:#00FF00">Stoke's theorem generalises the circulation version of Green's theorem.</p>
+	
+	<p>To see this, let us view a planar region $\mathcal{D}$ as a flat surface with $z=0$, and suppose that </p>
+	\[\mathbf{F} = (F_1, F_2, 0)\]
+	<p>is a vector field</p>
+	
+	<span class="fragment fade-in">
+	<p>If $C$ denotes the closed curve bounding the region $\mathcal{D}$ (also denoted $\partial\mathcal{D}$) then the 
+	line integral of $\mathbf{F}$ about $C is</p>
+	\[
+		\oint_{C}\mathbf{F}\cdot\mathrm{d}\mathbf{r} = \oint_C F_1\mathrm{d}x + F_2\mathrm{d}y
+	\]
+	</span>
+	
+	<span class="fragment fade-in">
+	<p>We can rewrite this using Green's theorem as</p>
+	\[
+		\oint_C F_1\mathrm{d}x + F_2\mathrm{d}y = \iint_{\mathcal{D}}\left(\partial F_2/\partial x - \partial F_1/\partial y\right)\,\mathrm{d}x\mathrm{d}y
+	\]
+	</span>
+	</section>	
+	
+	<section  align="left">		
+	<p>But the integrand in the RHS of Green's theorem is just the $\mathbf{k}$ component of the curl of $\mathbf{F}$, <em>i.e.
+	</em>
+	\[
+	\iint_{\mathcal{D}}\left(\partial F_2/\partial x - \partial F_1/\partial y\right)\,\mathrm{d}x\mathrm{d}y = 
+	\iint_\mathcal{D}\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{k}\,\mathrm{d}A 
+	\]
+	<p>where $\mathrm{d}A = \mathrm{d}x\mathrm{d}y$</p>
+	
+	<span class="fragment fade-in">
+	<p>Now, since our surface is 'flat' we have that $\mathbf{n}=\mathbf{k}$ we have the relation</p>
+	\[
+	\color{red}{\boxed{\color{white}{
+		\begin{align*}
+		\oint_{C}\mathbf{F}\cdot\mathrm{d}\mathbf{r} &= \iint_\mathcal{D}\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{k}\,\mathrm{d}A \\
+		&= \iint_\mathcal{D}\left(\nabla\times\mathbf{F}\right)\cdot\mathbf{n}\,\mathrm{d}\sigma  
+		\end{align*}
+		}}}
+	\]
+	
+	<p>In a planar domain the surface element and the area element are equal, <em>i.e.</em> $\mathrm{d}\sigma = \mathrm{d}A$</p>
+	
+	</span>
+	</section>
+	</section>
 						
-						<p>Let us consider Example 4.3 from the online notes, <em>i.e.</em> the wave equation with zero BCs and ICs given by</p>
-						\[
-						 u(x,0) = f(x) = \begin{cases}\frac{2x}{\pi}&x\in[0,\pi/2]\\\frac{2}{\pi}(\pi-x)&x\in[\pi/2,\pi]\end{cases}
-						\]
-						<p>and</p>
-						\[						
-						 u_t(x,0) = g(x)=0\qquad\qquad\qquad
-						\]
-						<p>Here $L=\pi$ and $c=1$</p>
-						
-						<span class="fragment fade-in">
-						<p><b>A guitar string plucked and released from rest</b></p>
-						
-						<img data-src="figures/GuitarStringEg.png"style="position:absolute;top:250px;left:575px;scale: .7">													
-						</span>
-					</section>
-					<section  align="left">											
-						
-						<p>This problem can be solved to obtain the solution</p>
-						\[
-						u(x,t) = \sum_{n=1}^\infty \frac{8}{n^2\pi^2}\sin\left(\frac{n\pi}{2}\right)\sin(nx)\cos(nt)
-						\]
-						<span class="fragment fade-in">
-						<p>Which can be rewritten as </p>
-						\[
-						\begin{align*}
-						 u(x,t)&=\frac{1}{2}\sum_{n=1}^\infty \frac{8}{n^2\pi^2}\sin\left(\frac{n\pi}{2}\right)\sin(n(x-t))+\\
-						 &\frac{1}{2}\sum_{n=1}^\infty\frac{8}{n^2\pi^2}\sin\left(\frac{n\pi}{2}\right)\sin(n(x+t))\\
-						 &=F(x-t)+F(x+t)
-						 \end{align*}
-						\]
-						<p>Here $F(x)$ is the odd extension of the function $f$</p>
-												
-						</span>
-					</section>
+				
+	<section>
+	<h2 style="color:#00FF00">Lecture 10 Review</h2>
+	<br>
 					
-					<section  align="left">											
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Integral theorems in 3 dimensions</li>
+			<li>Stoke's theorem</li>
+			<li>Connections to Green's theorem in the plane</li>
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul> 			
+			<li>State Stokes' Theorem and apply it to transform a line integral around a 
+			closed loop into a surface integral over the surface it bounds.</li>							
+			<li>Explain how both theorems are three-dimensional generalisations of Green's Theorem 
+			in the plane, and use them to simplify complex integral calculations</li>
+		</ul><br>					
+	</ul>		
+	
 					
-						<p>The video below illustrates the point</p>
-						
-						<center>
-						<video data-src="videos/L10_TravWave.mp4" controls style="border: 5px solid white"></video>	
-						</center>
-						
-						<p>The standing wave in <b>black</b> is the sum of the <b>left</b> and <b>right</b> travelling waves (blue and red, respectively)</p>
-						
-					</section>
-				</section>
-
-				<section>
-					<h2 style="color:#00FF00">Lecture 10 Review</h2>
-					<br>
-					
-					<ul>						
-						<li>In this lecture we covered</li>
-						<ul>
-							<li>d'Alembert's solution of the wave equation</li>
-							<li>Examples</li>										
-						</ul><br>
-						<li>After this lecture you should</li>
-						<ul>							
-							<li>be able to solve the 1D wave equation on an infinite domain</li>																					
-						</ul><br>					
-					</ul>			
-					
-				</section>				
-			
-			 <!-- ################################################### -->
- <!-- ################################################### -->
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
     </div>
  </div>
  <!-- ################################################### -->
