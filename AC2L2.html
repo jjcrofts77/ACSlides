@@ -60,12 +60,13 @@
             <boxTitle>
               <h3>Definition 12.1</h3>
             </boxTitle>
+			<p>	
 			A function of a complex variable $f(z)$ (where $z=x+iy$) maps $z$ onto another variable $w=u+iv$. In general, we write
-            <p >
-              \[w = f(z)=u(x,y)+iv(x,y)\]
             </p>
+              \[w = f(z)=u(x,y)+iv(x,y)\]
+            <p></p>
           </textBox>
-		 		  <span class="fragment fade-in">
+		  <span class="fragment fade-in">
 			<p>Examples include</p>
 					
 			\[
@@ -97,7 +98,7 @@
             </boxTitle>
 			<p>This means that familiar functions such as</p>
 			\[
-			\sin{z}, ~\cos{z}, ~e^z, ~\cosh{z}, ~z^n+z^{n-1}+\cdots+z+c, ~~etc.
+			\quad\sin{z}, ~\cos{z}, ~e^z, ~\cosh{z}, ~z^n+z^{n-1}+\cdots+z+c, ~~etc.\quad
 			\]
 			<p>(plus composite functions) are continuous</p>
             </p>
@@ -202,7 +203,7 @@
 	Here $t\in [0, 1]$
 	</p>
 	
-	<span class="fragment fade-in" style=" color:red">This is akin to finding the vector equation of a line (see the figure)</span>
+	<span class="fragment fade-in" style=" color:#00FF00">This is akin to finding the vector equation of a line (see the figure)</span>
 	
 		<img
                 style="margin:0px;padding:0px;border: 3px solid black;position:absolute;top:200px;left:850px"				
@@ -245,20 +246,19 @@
             <boxTitle>
               <h3>Definition 12.2</h3>
             </boxTitle>
-			If $f(z)$ is a complex function, then $f$ is said to be differentiable at the point $z$ if
-            <p >
+			<p>If $f(z)$ is a complex function, then $f$ is said to be differentiable at the point $z$ if</p>
+            
               \[\lim_{\Delta z\to 0}\frac{f(z+\Delta z)-f(z)}{\Delta z}\]
-            </p>
-			exists and is <em>independent</em> of the manner that $\Delta z$ approaches zero
+            <p>
+			exists and is <em>independent</em> of the manner that $\Delta z$ approaches zero</p>
           </textBox>
 		  
-		  <p class="fragment fade-in"> Alternatively
+		  <p class="fragment fade-in"> Alternatively</p>
 		  \[
 		   \left.\frac{\mathrm{d}f}{\mathrm{d}z}\right|_{z=z_0} = \lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}
-		  \]
-		  </p>
+		  \]		  
 		  
-		  <p class="fragment fade-in" style="color:red">These definitions are equivalent</p>
+		  <p class="fragment fade-in" style="color:#00FF00">These definitions are equivalent</p>
 		  <p class="fragment fade-in">Note that it is important to stress that $f'$ does not depend on the path of approach</p>
 				</section>
 								
@@ -299,7 +299,7 @@
 					\]
 					</p>
 					
-					<p class="fragment fade-in" style=color:red>Importantly these two expressions are equivalent</p>
+					<p class="fragment fade-in" style=color:#00FF00>Importantly these two expressions are equivalent</p>
 				</section>	
 				
 				<section  align="left">						
@@ -339,18 +339,18 @@
             <boxTitle>
               <h3>Definition 12.3</h3>
             </boxTitle>
-			A complex function $f$ is said to be <em>analytic</em> (a.k.a. <em>holomorphic</em>) on a region $R$
-			if it is differentiable at every point in $R$. If $f(z)$ is analytic at every point in $\mathbb{C}$ then it is called <em>entire</em>
+			<p>A complex function $f$ is said to be <em>analytic</em> (a.k.a. <em>holomorphic</em>) on a region $R$
+			if it is differentiable at every point in $R$. If $f(z)$ is analytic at every point in $\mathbb{C}$ then it is called <em>entire</em></p>
           </textBox>
 		  
-		  <p style="color:red" class="fragment fade-in"> Note that if a function is holomorphic then it can be represented (locally at least) as a Taylor series</p>
+		  <p style="color:#00FF00" class="fragment fade-in"> Note that if a function is holomorphic then it can be represented (locally at least) as a Taylor series</p>
 		  
 		  <span class="fragment fade-in">
 		  <textBox touch-action="none">
             <boxTitle>
               <h3>Definition 12.4</h3>
             </boxTitle>
-			A function $\phi(x,y)$ is said to be <em>harmonic</em> if it satisfies Laplace's equation
+			<p>A function $\phi(x,y)$ is said to be <em>harmonic</em> if it satisfies Laplace's equation</p>
 			\[
 			 \nabla^2\phi = 0; \quad \nabla^2 \equiv \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}
 			\]
@@ -496,4 +496,5 @@
         <!-- ################################################### -->
         <!-- ################################################### -->
 </body>
+
 </html>
