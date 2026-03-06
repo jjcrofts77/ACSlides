@@ -71,21 +71,21 @@
 				<li >straight line between the points $z_1, z_2$</li>
 				
 				\[
-				\quad\quad\quad\color{#00FF00}{\boxed{\color{white}{
+				\quad\quad\quad\color{red}{\boxed{\color{white}{
 				\mathcal{C}: z(t) = (1-t)z_1 + tz_2, \quad t\in[0,1]}}}
 				\]
 				</li> </span>
 				
 				<li class="fragment fade-in">The unit circle
 				\[
-				\quad\quad\quad\color{magenta}{\boxed{\color{white}{
+				\quad\quad\quad\color{red}{\boxed{\color{white}{
 				 \mathcal{C}: \cos{t}+i\sin{t}\quad t\in[0, 2\pi)}}}
 				\]				
 				</li>
 			</ul>
 						
 			
-			<p class="fragment fade-in">A <span style="color: magenta">closed path</span> is one such that $z_1=z(a)=z(b)=z_2$</p>
+			<p class="fragment fade-in">A <span style="color: #00FF00">closed path</span> is one such that $z_1=z(a)=z(b)=z_2$</p>
 			
 			<p class="fragment fade-in"> A <span style="color: #00FF00">simple path</span> is one that does not self intersect</p>
 			
@@ -93,7 +93,7 @@
 		</section>
 		
 		<section  align="left">															
-			<p>The <span style="color: #FF33F9">opposite path</span> $-\mathcal{C}$ is the path $\mathcal{C}$ traversed in the opposite direction</p>
+			<p>The <span style="color: #00FF00">opposite path</span> $-\mathcal{C}$ is the path $\mathcal{C}$ traversed in the opposite direction</p>
 			
 			<span  class="fragment fade-in">
 			<p>The figures below illustrate some of these definitions</p>
@@ -101,8 +101,8 @@
 
 			<div class="r-stack">
 				<img class="fragment" style="border : 3px solid red" src="figures/OACP.png" >
-				<img class="fragment" style="border : 3px solid #00FF00" src="figures/SVNS.png"> 				
-				<img class="fragment" style="border : 3px solid #FF33F9" src="figures/OC.png">				
+				<img class="fragment" style="border : 3px solid red" src="figures/SVNS.png"> 				
+				<img class="fragment" style="border : 3px solid red" src="figures/OC.png">				
 			</div>			
 			
 			</span>
@@ -144,7 +144,7 @@
 						<p>&emsp; 1. If two curves $\mathcal{C_1}, \mathcal{C}_2$ start and end at the same points $z_1$ and $z_2$ then</p>
 						
 						\[
-						\color{#00FF00}{\boxed{\color{white}{
+						\color{red}{\boxed{\color{white}{
 						\int_\mathcal{C_1} f(z)\mathrm{d}z = \int_\mathcal{C_2} f(z)\mathrm{d}z = F(z_2)-F(z_1)}}}
 						\]
 						</span>
@@ -152,13 +152,13 @@
 						<span class="fragment fade-in">
 						<p>&emsp; 2. If a closed contour is defined by $\mathcal{C} = \mathcal{C_1}-\mathcal{C_2}$</p>
 						\[
-						\color{#00FF00}{\boxed{\color{white}{
+						\color{red}{\boxed{\color{white}{
 						\int_\mathcal{C}f(z)\mathrm{d}z = \int_\mathcal{C_1} f(z)\mathrm{d}z-\int_\mathcal{C_2} f(z)\mathrm{d}z = 0}}}
 						\]
 						</span>		
 						
 						<br>
-						<p class="fragment fade-in" style="color: magenta"> <em>i.e.</em> <b>integrals of analytic functions are path indepenent</b></p>
+						<p class="fragment fade-in" style="color: #00FF00"> <em>i.e.</em> <b>integrals of analytic functions are path indepenent</b></p>
 				</section>
 			
 		</section>
@@ -183,7 +183,7 @@
 				<p> The proof is an application of <a style="color: #00FF00" href="https://mathworld.wolfram.com/GreensTheorem.html">Green's theorem</a> which states</p>
 				
 				\[
-				\color{#00FF00}{\boxed{\color{white}{
+				\color{red}{\boxed{\color{white}{
 				 \oint_\mathcal{C} f_1\mathrm{d}x +f_2\mathrm{d}y = \int\int_\mathcal{D}\left(\frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y}\right)\mathrm{d}x\mathrm{d}y}}}
 				\]
 				
@@ -231,7 +231,7 @@
 				
 			<textBox touch-action="none" >
 			<boxTitle>
-			<h3>Theorem 15.3 &emsp;(Integration via a path)</h3>
+			<h3>Definition 15.3 &emsp;(Integration via a path)</h3>
 			</boxTitle>			
 			<p>Let $\mathcal{C}$ be a piecewise smooth path, represented by $z(t)$, where $t\in[a,b]$. Let $f(z)$ be a continuous 
 			function on $\mathcal{C}$. Then </p>
@@ -242,8 +242,8 @@
 			</textBox>
 				
 			<span class="fragment fade-in">
-			<h3>Proof</h3>	
-			See online notes
+				
+			<p>This definition is a natural extension of the definition of contour integration in the real setting.</p>
 			
 			<p style="color: #00FF00"><b>Note</b> This method of integration can be applied to <em>any</em> continuous function regardless of whether an antiderivative exists</p>
 			</span>
@@ -297,7 +297,7 @@
 				\[
 				\begin{align*}
 				 \mathcal{C}: z(t) &= (1-t)z_1+tz_2\\
-				 &= t(1+i) =\color{#00FF00}{\boxed{\color{white}{  t+it\quad t\in[0,1]}}}
+				 &= t(1+i) =\color{red}{\boxed{\color{white}{  t+it\quad t\in[0,1]}}}
 				\end{align*}
 				\]
 				</span>
@@ -316,7 +316,7 @@
 				\[
 				\begin{align*}
 				 \int_0^1 (t+it)^2(1+i)\mathrm{d}t = (1+i)\int_0^1 2it^2\mathrm{d}t &= 2i(1+i)\left[\frac{1}{3}t^3\right]_0^1\\
-				 &=\color{#00FF00}{\boxed{\color{white}{ \frac{2}{3}(i-1)}}}
+				 &=\color{red}{\boxed{\color{white}{ \frac{2}{3}(i-1)}}}
 				\end{align*}
 				\]
 				</span>
@@ -355,7 +355,7 @@
 				<p>Noting that </p>
 				
 				\[
-				\color{#00FF00}{\boxed{\color{white}{
+				\color{red}{\boxed{\color{white}{
 				 z'(t) = ie^{it} \quad \text{and} \quad f(z(t)) = \frac{1}{e^{it}} = e^{-it}}}}
 				\]										
 				</span>	
@@ -375,7 +375,7 @@
 			<span class="fragment fade-in">
 			<p>More generally, it can be shown that </p>
 			\[
-			\color{#00FF00}{\boxed{\color{white}{
+			\color{red}{\boxed{\color{white}{
 			\int_\mathcal{C}\frac{1}{z-z_0}\mathrm{d}z = 2\pi i}}}
 			\]			
 			<p>for $z_0\in\mathbb{C}$</p>
@@ -385,7 +385,7 @@
 			<span class="fragment fade-in">
 			<p> This result will prove useful moving forward</p>
 			
-			<p style="color:magenta"><b>Exercise: prove the above result</b></p>
+			<p style="color:#00FF00"><b>Exercise: prove the above result</b></p>
 			</span>
 
 			</section>				
@@ -433,7 +433,7 @@
 				<p> $\bullet$ Setting $n=0$ gives <em>Cauchy's integral formula</em>:</p>
 				
 				\[
-				\color{#00FF00}{\boxed{\color{white}{
+				\color{red}{\boxed{\color{white}{
 				 f(z_0) = \frac{1}{2\pi i}\oint_\mathcal{C} \frac{f(z)}{z-z_0}\mathrm{d}z}}}
 				\]
 				</span>
@@ -529,4 +529,5 @@
         <!-- ################################################### -->
 </body>
 </html>
+
 
