@@ -138,65 +138,135 @@
 	</section>	
 
 	<section>
-  <h3>Circulation: going <em>with</em> the flow</h3>
+  	<h3>Circulation: going <em>with</em> the flow</h3>
 
-  <div style="display:flex; align-items:center; gap:1.5em;">
-    <div style="flex:1.2; font-size:0.72em; text-align:left;">
-      <p>Recall \(d\mathbf{r} = \mathbf{T}\,ds\), where \(\mathbf{T}\) is the unit tangent. So</p>
-      <p style="text-align:center;">\[ \oint_C \mathbf{F}\cdot d\mathbf{r} \;=\; \oint_C \mathbf{F}\cdot\mathbf{T}\,ds \]</p>
+  	<div style="display:flex; align-items:center; gap:1.5em;">
+    	<div style="flex:1.2; font-size:0.72em; text-align:left;">
+      	<p>Recall \(d\mathbf{r} = \mathbf{T}\,ds\), where \(\mathbf{T}\) is the unit tangent. So</p>
+      	<p style="text-align:center;">\[ \oint_C \mathbf{F}\cdot d\mathbf{r} \;=\; \oint_C \mathbf{F}\cdot\mathbf{T}\,ds \]</p>
 
-      <ul>
-        <li class="fragment">\(\mathbf{F}\cdot\mathbf{T}\) is the part of \(\mathbf{F}\) that points <strong>along</strong> the curve.</li>
-        <li class="fragment">Think of \(\mathbf{F}\) as a current of water and walk once around \(C\) (anticlockwise).
-          <br>\(\mathbf{F}\cdot\mathbf{T} &gt; 0\) means the current helps you along.
-          <br>\(\mathbf{F}\cdot\mathbf{T} &lt; 0\) means it pushes against you.</li>
-        <li class="fragment">Adding this up all the way round gives the <strong>circulation</strong> of \(\mathbf{F}\) around \(C\), which measures how much the field <em>swirls around</em> the loop.</li>
-      </ul>
+      	<ul>
+        	<li class="fragment">\(\mathbf{F}\cdot\mathbf{T}\) is the part of \(\mathbf{F}\) that points <strong>along</strong> the curve.</li>
+        	<li class="fragment">Think of \(\mathbf{F}\) as a current of water and walk once around \(C\) (anticlockwise).
+          	<br>\(\mathbf{F}\cdot\mathbf{T} &gt; 0\) means the current helps you along.
+          	<br>\(\mathbf{F}\cdot\mathbf{T} &lt; 0\) means it pushes against you.</li>
+       	 	<li class="fragment">Adding this up all the way round gives the <strong>circulation</strong> of \(\mathbf{F}\) around \(C\), which measures how much the field <em>swirls around</em> the loop.</li>
+      	</ul>
 
-      <p class="fragment" style="font-size:0.9em;">
-        <strong>Example:</strong> \(\mathbf{F}=\langle -y,\,x\rangle\) on the unit circle.
-        Here \(\mathbf{F}=\mathbf{T}\), so \(\mathbf{F}\cdot\mathbf{T}=1\) and the circulation is \(\oint_C 1\,ds = 2\pi\).
-      </p>
-    </div>
+      	<p class="fragment" style="font-size:0.9em;">
+        	<strong>Example:</strong> \(\mathbf{F}=\langle -y,\,x\rangle\) on the unit circle.
+        	Here \(\mathbf{F}=\mathbf{T}\), so \(\mathbf{F}\cdot\mathbf{T}=1\) and the circulation is \(\oint_C 1\,ds = 2\pi\).
+      	</p>
+    	</div>
 
-    <div style="flex:1;">
-      <svg viewBox="0 0 300 300" width="100%" style="max-width:340px;">
-        <defs>
-          <marker id="circ-arrT" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 z" fill="#2a7fd4"/>
-          </marker>
-          <marker id="circ-arrF" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 z" fill="#e07b00"/>
-          </marker>
-        </defs>
+    	<div style="flex:1;">
+      	<svg viewBox="0 0 300 300" width="100%" style="max-width:340px;">
+       		<defs>
+          	<marker id="circ-arrT" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            	<path d="M0,0 L8,4 L0,8 z" fill="#2a7fd4"/>
+          	</marker>
+          	<marker id="circ-arrF" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            	<path d="M0,0 L8,4 L0,8 z" fill="#e07b00"/>
+          	</marker>
+        	</defs>
 
-        <!-- curve C -->
-        <circle cx="150" cy="150" r="90" fill="none" stroke="#888" stroke-width="3"/>
-        <text x="150" y="160" font-size="20" fill="#888" text-anchor="middle" font-style="italic">C</text>
+        	<!-- curve C -->
+        	<circle cx="150" cy="150" r="90" fill="none" stroke="#888" stroke-width="3"/>
+        	<text x="150" y="160" font-size="20" fill="#888" text-anchor="middle" font-style="italic">C</text>
 
-        <!-- unit tangents (anticlockwise) -->
-        <line x1="240" y1="150" x2="240" y2="108" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
-        <line x1="150" y1="60"  x2="108" y2="60"  stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
-        <line x1="60"  y1="150" x2="60"  y2="192" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
-        <line x1="150" y1="240" x2="192" y2="240" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
-        <line x1="213.6" y1="86.4" x2="183.9" y2="56.7" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
-        <text x="168" y="48" font-size="18" fill="#2a7fd4" font-weight="bold">T</text>
+        	<!-- unit tangents (anticlockwise) -->
+        	<line x1="240" y1="150" x2="240" y2="108" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        	<line x1="150" y1="60"  x2="108" y2="60"  stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        	<line x1="60"  y1="150" x2="60"  y2="192" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        	<line x1="150" y1="240" x2="192" y2="240" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        	<line x1="213.6" y1="86.4" x2="183.9" y2="56.7" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        	<text x="168" y="48" font-size="18" fill="#2a7fd4" font-weight="bold">T</text>
 
-        <!-- F at one point, with its projection onto T -->
-        <g class="fragment" data-fragment-index="0">
-          <line x1="213.6" y1="86.4" x2="163.6" y2="96.4" stroke="#e07b00" stroke-width="3" marker-end="url(#circ-arrF)"/>
-          <text x="140" y="104" font-size="18" fill="#e07b00" font-weight="bold">F</text>
-          <line x1="163.6" y1="96.4" x2="193.6" y2="66.4" stroke="#e07b00" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="213.6" cy="86.4" r="3.5" fill="#333"/>
-        </g>
-      </svg>
-      <p style="font-size:0.5em; margin-top:0;">
-        <span style="color:#2a7fd4;">■</span> unit tangent \(\mathbf{T}\) &nbsp;
-        <span style="color:#e07b00;">■</span> field \(\mathbf{F}\) (dashed: its part along \(\mathbf{T}\))
-      </p>
-    </div>
-  </div>
-</section>	
+        	<!-- F at one point, with its projection onto T -->
+        	<g class="fragment" data-fragment-index="0">
+          	<line x1="213.6" y1="86.4" x2="163.6" y2="96.4" stroke="#e07b00" stroke-width="3" marker-end="url(#circ-arrF)"/>
+          	<text x="140" y="104" font-size="18" fill="#e07b00" font-weight="bold">F</text>
+          	<line x1="163.6" y1="96.4" x2="193.6" y2="66.4" stroke="#e07b00" stroke-width="1.5" stroke-dasharray="4,3"/>
+          	<circle cx="213.6" cy="86.4" r="3.5" fill="#333"/>
+        	</g>
+      	</svg>
+      	<p style="font-size:0.5em; margin-top:0;">
+        	<span style="color:#2a7fd4;">■</span> unit tangent \(\mathbf{T}\) &nbsp;
+        	<span style="color:#e07b00;">■</span> field \(\mathbf{F}\) (dashed: its part along \(\mathbf{T}\))
+      	</p>
+    	</div>
+  	</div>
+	</section>	
+
+	<section>
+  	<h3>Flux: flowing <em>across</em> the curve</h3>
+
+  	<div style="display:flex; align-items:center; gap:1.5em;">
+    	<div style="flex:1.2; font-size:0.72em; text-align:left;">
+      	<p>Swap the tangent \(\mathbf{T}\) for the <strong>outward unit normal</strong> \(\mathbf{n}\):</p>
+      	<p style="text-align:center;">\[ \text{Flux of } \mathbf{F} \text{ across } C \;=\; \oint_C \mathbf{F}\cdot\mathbf{n}\,ds \]</p>
+
+      	<ul>
+        	<li class="fragment">\(\mathbf{F}\cdot\mathbf{n}\) is the part of \(\mathbf{F}\) that points <strong>straight out through</strong> the curve.</li>
+        	<li class="fragment">Think of \(C\) as a fence in the water. Each small piece \(ds\) lets through roughly \(\mathbf{F}\cdot\mathbf{n}\,ds\) of water, counted <strong>outwards</strong>.</li>
+        	<li class="fragment">Adding this up gives the <strong>net outflow</strong> through \(C\).
+          	<br>Flux \(&gt; 0\): more leaves than enters. &nbsp; Flux \(&lt; 0\): more enters than leaves.</li>
+      	</ul>
+
+      	<p class="fragment" style="font-size:0.9em;">
+        	<strong>Computing it:</strong> going anticlockwise, \(\mathbf{T}\,ds = \langle dx,\,dy\rangle\).
+        	Rotating by \(90^\circ\) clockwise gives \(\mathbf{n}\,ds = \langle dy,\,-dx\rangle\). So for \(\mathbf{F}=\langle P,Q\rangle\),
+        	\[ \oint_C \mathbf{F}\cdot\mathbf{n}\,ds = \oint_C P\,dy - Q\,dx
+           	\qquad\text{vs.}\qquad
+           	\oint_C \mathbf{F}\cdot d\mathbf{r} = \oint_C P\,dx + Q\,dy \]
+      	</p>
+
+      	<p class="fragment" style="font-size:0.9em;">
+        	<strong>Example:</strong> \(\mathbf{F}=\langle x,\,y\rangle\) on the unit circle points straight outwards, so \(\mathbf{F}=\mathbf{n}\) and the flux is \(2\pi\).
+      	</p>
+    	</div>
+
+    	<div style="flex:1;">
+      	<svg viewBox="0 0 300 300" width="100%" style="max-width:340px;">
+        	<defs>
+          	<marker id="flux-arrN" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            	<path d="M0,0 L8,4 L0,8 z" fill="#2a9d4a"/>
+          	</marker>
+          	<marker id="flux-arrF" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            	<path d="M0,0 L8,4 L0,8 z" fill="#e07b00"/>
+          	</marker>
+        	</defs>
+
+        	<!-- region and curve -->
+        	<circle cx="150" cy="150" r="90" fill="#2a9d4a" fill-opacity="0.07" stroke="#888" stroke-width="3"/>
+        	<text x="150" y="160" font-size="20" fill="#888" text-anchor="middle" font-style="italic">C</text>
+
+        	<!-- outward unit normals -->
+        	<line x1="150" y1="60"  x2="150" y2="18"  stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="60"  y1="150" x2="18"  y2="150" stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="150" y1="240" x2="150" y2="282" stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="213.6" y1="86.4"  x2="243.3" y2="56.7"  stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="86.4"  y1="86.4"  x2="56.7"  y2="56.7"  stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="86.4"  y1="213.6" x2="56.7"  y2="243.3" stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="213.6" y1="213.6" x2="243.3" y2="243.3" stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<line x1="240" y1="150" x2="282" y2="150" stroke="#2a9d4a" stroke-width="3" marker-end="url(#flux-arrN)"/>
+        	<text x="252" y="50" font-size="18" fill="#2a9d4a" font-weight="bold">n</text>
+
+        	<!-- F at one point, with its projection onto n -->
+        	<g class="fragment" data-fragment-index="0">
+          	<line x1="240" y1="150" x2="270" y2="115" stroke="#e07b00" stroke-width="3" marker-end="url(#flux-arrF)"/>
+          	<text x="274" y="110" font-size="18" fill="#e07b00" font-weight="bold">F</text>
+          	<line x1="270" y1="115" x2="270" y2="150" stroke="#e07b00" stroke-width="1.5" stroke-dasharray="4,3"/>
+          	<circle cx="240" cy="150" r="3.5" fill="#333"/>
+        	</g>
+      	</svg>
+      	<p style="font-size:0.5em; margin-top:0;">
+        	<span style="color:#2a9d4a;">■</span> outward normal \(\mathbf{n}\) &nbsp;
+        	<span style="color:#e07b00;">■</span> field \(\mathbf{F}\) (dashed: its part along \(\mathbf{n}\))
+      	</p>
+    	</div>
+  	</div>
+	</section>	
 				
 	<section  align="left">		
 	<span style="font-size:23px">
