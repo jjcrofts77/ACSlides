@@ -201,19 +201,19 @@
 	<section  align="left">
   	<h3>Flux: flowing <em>across</em> the curve</h3>
 
-  	<div style="display:flex; align-items:center; gap:1.5em;">
-    	<div style="flex:1.2; font-size:0.72em; text-align:left;">
+  	<div style="display:flex; align-items:center; gap:2em;">
+    	<div style="flex:1.2; font-size:1.0em; text-align:left;">
       	<p>Swap the tangent \(\mathbf{T}\) for the <strong>outward unit normal</strong> \(\mathbf{n}\):</p>
       	<p style="text-align:center;">\[ \text{Flux of } \mathbf{F} \text{ across } C \;=\; \oint_C \mathbf{F}\cdot\mathbf{n}\,ds \]</p>
 
       	<ul>
-        	<li class="fragment">\(\mathbf{F}\cdot\mathbf{n}\) is the part of \(\mathbf{F}\) that points <strong>straight out through</strong> the curve.</li>
-        	<li class="fragment">Think of \(C\) as a fence in the water. Each small piece \(ds\) lets through roughly \(\mathbf{F}\cdot\mathbf{n}\,ds\) of water, counted <strong>outwards</strong>.</li>
+        	<li class="fragment">\(\mathbf{F}\cdot\mathbf{n}\) is the part of \(\mathbf{F}\) that points <strong>straight out through</strong> the curve.</li><br>
+        	<li class="fragment">Think of \(C\) as a fence in the water. Each small piece \(ds\) lets through roughly \(\mathbf{F}\cdot\mathbf{n}\,ds\) of water, counted <strong>outwards</strong>.</li><br>
         	<li class="fragment">Adding this up gives the <strong>net outflow</strong> through \(C\).
-          	<br>Flux \(&gt; 0\): more leaves than enters. &nbsp; Flux \(&lt; 0\): more enters than leaves.</li>
+          	<br>Flux \(&gt; 0\): more leaves than enters. &nbsp; Flux \(&lt; 0\): more enters than leaves.</li><br>
       	</ul>
 
-      	<p class="fragment" style="font-size:0.9em;">
+      	<p class="fragment" style="font-size:1.0em;">
         	<strong>Computing it:</strong> going anticlockwise, \(\mathbf{T}\,ds = \langle dx,\,dy\rangle\).
         	Rotating by \(90^\circ\) clockwise gives \(\mathbf{n}\,ds = \langle dy,\,-dx\rangle\). So for \(\mathbf{F}=\langle P,Q\rangle\),
         	\[ \oint_C \mathbf{F}\cdot\mathbf{n}\,ds = \oint_C P\,dy - Q\,dx
@@ -221,7 +221,7 @@
            	\oint_C \mathbf{F}\cdot d\mathbf{r} = \oint_C P\,dx + Q\,dy \]
       	</p>
 
-      	<p class="fragment" style="font-size:0.9em;">
+      	<p class="fragment" style="font-size:1.0em;">
         	<strong>Example:</strong> \(\mathbf{F}=\langle x,\,y\rangle\) on the unit circle points straight outwards, so \(\mathbf{F}=\mathbf{n}\) and the flux is \(2\pi\).
       	</p>
     	</div>
