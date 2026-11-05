@@ -135,7 +135,68 @@
 		<br>
 		<li>Examples</li>
 	</ul>
-	</section>		
+	</section>	
+
+	<section>
+  <h3>Circulation: going <em>with</em> the flow</h3>
+
+  <div style="display:flex; align-items:center; gap:1.5em;">
+    <div style="flex:1.2; font-size:0.72em; text-align:left;">
+      <p>Recall \(d\mathbf{r} = \mathbf{T}\,ds\), where \(\mathbf{T}\) is the unit tangent. So</p>
+      <p style="text-align:center;">\[ \oint_C \mathbf{F}\cdot d\mathbf{r} \;=\; \oint_C \mathbf{F}\cdot\mathbf{T}\,ds \]</p>
+
+      <ul>
+        <li class="fragment">\(\mathbf{F}\cdot\mathbf{T}\) is the part of \(\mathbf{F}\) that points <strong>along</strong> the curve.</li>
+        <li class="fragment">Think of \(\mathbf{F}\) as a current of water and walk once around \(C\) (anticlockwise).
+          <br>\(\mathbf{F}\cdot\mathbf{T} &gt; 0\) means the current helps you along.
+          <br>\(\mathbf{F}\cdot\mathbf{T} &lt; 0\) means it pushes against you.</li>
+        <li class="fragment">Adding this up all the way round gives the <strong>circulation</strong> of \(\mathbf{F}\) around \(C\), which measures how much the field <em>swirls around</em> the loop.</li>
+      </ul>
+
+      <p class="fragment" style="font-size:0.9em;">
+        <strong>Example:</strong> \(\mathbf{F}=\langle -y,\,x\rangle\) on the unit circle.
+        Here \(\mathbf{F}=\mathbf{T}\), so \(\mathbf{F}\cdot\mathbf{T}=1\) and the circulation is \(\oint_C 1\,ds = 2\pi\).
+      </p>
+    </div>
+
+    <div style="flex:1;">
+      <svg viewBox="0 0 300 300" width="100%" style="max-width:340px;">
+        <defs>
+          <marker id="circ-arrT" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#2a7fd4"/>
+          </marker>
+          <marker id="circ-arrF" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#e07b00"/>
+          </marker>
+        </defs>
+
+        <!-- curve C -->
+        <circle cx="150" cy="150" r="90" fill="none" stroke="#888" stroke-width="3"/>
+        <text x="150" y="160" font-size="20" fill="#888" text-anchor="middle" font-style="italic">C</text>
+
+        <!-- unit tangents (anticlockwise) -->
+        <line x1="240" y1="150" x2="240" y2="108" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        <line x1="150" y1="60"  x2="108" y2="60"  stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        <line x1="60"  y1="150" x2="60"  y2="192" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        <line x1="150" y1="240" x2="192" y2="240" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        <line x1="213.6" y1="86.4" x2="183.9" y2="56.7" stroke="#2a7fd4" stroke-width="3" marker-end="url(#circ-arrT)"/>
+        <text x="168" y="48" font-size="18" fill="#2a7fd4" font-weight="bold">T</text>
+
+        <!-- F at one point, with its projection onto T -->
+        <g class="fragment" data-fragment-index="0">
+          <line x1="213.6" y1="86.4" x2="163.6" y2="96.4" stroke="#e07b00" stroke-width="3" marker-end="url(#circ-arrF)"/>
+          <text x="140" y="104" font-size="18" fill="#e07b00" font-weight="bold">F</text>
+          <line x1="163.6" y1="96.4" x2="193.6" y2="66.4" stroke="#e07b00" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="213.6" cy="86.4" r="3.5" fill="#333"/>
+        </g>
+      </svg>
+      <p style="font-size:0.5em; margin-top:0;">
+        <span style="color:#2a7fd4;">■</span> unit tangent \(\mathbf{T}\) &nbsp;
+        <span style="color:#e07b00;">■</span> field \(\mathbf{F}\) (dashed: its part along \(\mathbf{T}\))
+      </p>
+    </div>
+  </div>
+</section>	
 				
 	<section  align="left">		
 	<span style="font-size:23px">
