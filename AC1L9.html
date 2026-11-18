@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="main.css">
+  <!-- ===== Added: styles for the weather slides ===== -->
+  <style>
+    .wx-hint { font-size: 18px; opacity: 0.7; }
+    .wx-sim { position: relative; width: 800px; height: 400px; margin: 0 auto; touch-action: none; }
+    .wx-sim canvas { position: absolute; left: 0; top: 0; border-radius: 8px; }
+    .wx-controls { font-size: 20px; margin-top: 8px; text-align: center; }
+    .wx-controls button {
+      font: inherit; padding: 3px 12px; margin: 0 3px; border-radius: 6px;
+      border: 1px solid #888; background: #222; color: #eee; cursor: pointer;
+    }
+    .wx-controls button.on { background: #eee; color: #111; }
+    .wx-readout { font-size: 24px; text-align: center; margin-top: 6px; }
+    .wx-readout b { color: #00FF00; display: inline-block; min-width: 4.5em; text-align: left; }
+    .wx-legend { font-size: 18px; text-align: center; opacity: 0.85; }
+    .wx-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 14px; }
+    #wx-ink { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 50; pointer-events: none; }
+    #wx-ink.drawing { pointer-events: auto; cursor: crosshair; }
+    #wx-pen-badge {
+      position: fixed; right: 14px; bottom: 50px; z-index: 51; display: none;
+      font: 14px/1.2 sans-serif; padding: 6px 10px; border-radius: 6px; background: rgba(0,0,0,0.75); color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+ <div class="reveal">
+    <div class="slides">
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ################################################### -->
+    <section>
+	<h1>Advanced Calculus</h1>
+    <h2>Lecture 9</h2>
+    <p style="font-size:48px; color: #00FF00">Jonathan Crofts</p>        
+    <p style="color: #00FF00">Nottingham Trent University</p>
+    </section>
+	<!-- ################################################### -->
+	<!-- ===== Added: motivating question (live wind map) ===== -->
+	<section>
+	<h3>Where does the air go?</h3>
+	<iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-3.51,51.22,2425"
+	        width="960" height="500" style="border:0; border-radius:8px;"></iframe>
+	<p style="font-size:24px">Surface winds, live. Near a <b>low</b>, air spirals <b>in</b> from every side.
+	<span class="fragment fade-in" style="color:#00FF00">So where does it all go? By the end of this lecture a theorem will tell us.</span></p>
+	<p class="wx-hint">Drag to rotate · scroll to zoom · pen: D on/off, 1 orange, 2 blue, X clear</p>
+	</section>
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L9</h1>
+	<br>
+	<ul>						
+		<li style="color:#00FF00">Integral theorems in 3 dimensions</li>
+		<br>
+		<li>The Divergence Theorem</li>										
+	</ul>
+	</section>		
+	
+	<section  align="left">		
+	<p>The two primary integral theorems in three dimensions are <b>Gauss's Divergence Theorem</b> 
+	and <b>Stokes' Theorem</b>. These theorems relate integrals over a region to integrals over its boundary, 
+	generalising the one-dimensional <b>Fundamental Theorem of Vector Calculus</b>.</p>
+	
+	<p>In this lecture we consider the <b style="color:red">Divergence Theorem</b>, which incidentally we have already seen the 2-D version of!</p>
+	
+	<span class="fragment fade-in">
+	<p>Recall, the divergence form of Green's Theorem:</p>
+	\[
+		\color{red}{\boxed{\color{white}{
+		\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s = \iint_\mathcal{R}\left(\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}\right)\,\mathrm{d}x\mathrm{d}y 
+		= \iint\nabla\cdot F\,\mathrm{d}x\mathrm{d}y}}}
+	\]
+	<p>This equation states that the outward flux across a simple curve can be computed by integrating the divergence of the field 
+	over the region enclosed by the curve</p>
+	</span>
+	
+	<p class="fragment fade-in" style="color:#00FF00">Gauss generalised this result to three dimensions as we shall see ...</p>
+	</section>
+
+	<!-- ===== Added: Green's theorem (divergence form) checked on a model wind field ===== -->
+	<section>
+	<h3>Green's theorem in the wind</h3>
+	<div class="wx-sim" data-mode="wind"></div>
+	<div class="wx-controls">
+		Shading:
+		<button data-set="wind">wind speed</button>
+		<button data-set="div">divergence</button>
+		<button data-set="curl">curl</button>
+		&nbsp;&nbsp; radius <input class="wx-radius" type="range" min="8" max="60" value="30" style="vertical-align:middle">
+	</div>
+	<div class="wx-readout" data-show="flux">
+		\(\displaystyle\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s=\) <b class="wx-line"></b>
+		&nbsp;&nbsp;&nbsp;
+		\(\displaystyle\iint_\mathcal{R}\nabla\cdot\mathbf{F}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
+	</div>
+	<div class="wx-readout" data-show="circ" style="display:none">
+		\(\displaystyle\oint_C\mathbf{F}\cdot\mathbf{T}\,\mathrm{d}s=\) <b class="wx-line"></b>
+		&nbsp;&nbsp;&nbsp;
+		\(\displaystyle\iint_\mathcal{R}(\nabla\times\mathbf{F})\cdot\mathbf{k}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
+	</div>
+	<div class="wx-legend"></div>
+	</section>
+				
+	<section align="left">
+	<h1>Advanced Calculus L9</h1>
+	<br>
+	<ul>						
+		<li>Integral theorems in 3 dimensions</li>
+		<br>
+		<li style="color:#00FF00">The Divergence Theorem</li>										
+	</ul>
+	</section>		
+	
+	<section align="left">
+	<textBox touch-action="none" >
+	<boxTitle>
+		<h3>Theorem 9.1 (Gauss's Divergence Theorem)</h3>
+	</boxTitle>			
+	<p>The flux of a vector field </p>
+	\[
+	\mathbf{F} = M(x,y,z)\mathbf{i}+N(x,y,z)\mathbf{j}+P(x,y,z)\mathbf{k}
+	\]
+	<p>across a closed oriented surface $S$ in the direction of the surface's outward unit normal field $\mathbf{n}$ equals the 
+	integral of $\displaystyle \nabla\cdot\mathbf{F}$ over the region $\mathcal{D}$ enclosed by the surface:</p>
+	\[
+	\iint_S \mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma = \iiint_\mathcal{D} \nabla\cdot\mathbf{F}\,\mathrm{d}V
+	\]
+	<p></p>
+	</textBox>
+	
+	<span class="fragment fade-in">
+	<p><b>Note:</b></p>
+	<ol>
+		<li>If the vector field is divergence free on $\mathcal{D}$ then the RHS vanishes</li>
+		<li>The most common use of the divergence theorem is to calculate nasty surface integrals by turning them into
+		volume integrals</li>
+	</ol>
+	</span>
+	</section>
+
+	<!-- ===== Added: answer to the opening question ===== -->
+	<section align="left">
+	<h3>Back to the weather: where does the air go?</h3>
+	<svg viewBox="0 0 340 230" width="340" style="float:right; margin-left:20px">
+		<defs><marker id="wxa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+			<path d="M0,0 L10,5 L0,10 z" fill="#00FF00"/></marker></defs>
+		<rect x="90" y="60" width="160" height="130" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="6 4"/>
+		<line x1="20" y1="190" x2="320" y2="190" stroke="#aaa" stroke-width="3"/>
+		<text x="170" y="215" fill="#aaa" font-size="14" text-anchor="middle">ground: no flux</text>
+		<text x="170" y="125" fill="#ddd" font-size="22" text-anchor="middle">L</text>
+		<line x1="30" y1="165" x2="85" y2="165" stroke="#00FF00" stroke-width="3" marker-end="url(#wxa)"/>
+		<line x1="310" y1="165" x2="255" y2="165" stroke="#00FF00" stroke-width="3" marker-end="url(#wxa)"/>
+		<line x1="140" y1="55" x2="140" y2="10" stroke="#00FF00" stroke-width="3" marker-end="url(#wxa)"/>
+		<line x1="200" y1="55" x2="200" y2="10" stroke="#00FF00" stroke-width="3" marker-end="url(#wxa)"/>
+		<text x="170" y="80" fill="#ccc" font-size="14" text-anchor="middle">region 𝒟</text>
+	</svg>
+	<p>Put a box \(\mathcal{D}\) over the low: the ground underneath, a lid above.</p>
+	<p class="fragment fade-in">In the lower atmosphere air behaves almost <b>incompressibly</b>: \(\nabla\cdot\mathbf{F}\approx 0\).
+	So by the Divergence Theorem (Note 1)
+	\[\iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma=\iiint_\mathcal{D}\nabla\cdot\mathbf{F}\,\mathrm{d}V\approx 0\]</p>
+	<p class="fragment fade-in">No air passes through the ground, so
+	\[\text{flux in through the sides}\;=\;\text{flux out through the lid}\]
+	The air that converges at the surface has to <b>rise</b>.</p>
+	<p class="fragment fade-in" style="color:#00FF00">Rising air cools and its water vapour condenses. That is why lows bring cloud and rain.</p>
+	</section>
+	
+	<section>
+		<section align="left">
+		<span style="font-size: 24px">
+		<h3>Example 9.1</h3>
+		<p>Find the flux of</p>
+		\[
+			\mathbf{F}  = xy\mathbf{i}+yz\mathbf{j}+xz\mathbf{k}
+		\]
+		<p>outward through the surface of the cube cut from the first octant by the planes $x=1$, 
+		$y=1$ and $z=1$</p>
+	
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>Instead of calculating the flux as a sum of six seperate integrals, one for each face of the cube, we can calculate
+		the flux by integrating the divergence</p>
+		\[
+			\nabla\cdot\mathbf{F} = \frac{\partial}{\partial x}\left(xy\right)+
+			\frac{\partial}{\partial y}\left(yz\right)+
+			\frac{\partial}{\partial z}\left(xz\right) = y+z+x
+		\]
+		<p>over the cube's interior:</p>
+		\[
+			\begin{align*}
+			\mathrm{Flux} &=\iint_{S}\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma = \iiint_\mathcal{D}\nabla\cdot\mathbf{F}\,\mathrm{d}V\\
+			&=\int_0^1\int_0^1\int_0^1 \left(x+y+z\right)\,\mathrm{d}x\mathrm{d}y\mathrm{d}z
+			\end{align*}
+		\]
+		</span>
+		</span>
+		</section>
+	
+		<section align="left">
+		<h3>Example 9.1 (ctd)</h3>
+		\[
+			\begin{align*}
+			\int_0^1\int_0^1\int_0^1 \left(x+y+z\right)\,\mathrm{d}x\mathrm{d}y\mathrm{d}z &= \int_0^1\int_0^1\bigg[\frac{1}{2}x^2+yx+zx\bigg]_0^1\,\mathrm{d}y\mathrm{d}z\\
+			&=\int_0^1\int_0^1\left(\frac{1}{2}+y+z\right)\,\mathrm{d}y\mathrm{d}z \\
+			&= \int_0^1\bigg[\frac{1}{2}y+\frac{1}{2}y^2+zy\bigg]_0^1\,\mathrm{d}z\\
+			&= \int_0^1 \left(1+z\right)\,\mathrm{d}z = \bigg[z+\frac{1}{2}z^2\bigg]_0^1 = \color{red}{\boxed{\color{white}{\frac{3}{2}}}}
+			\end{align*}
+		\]
+		<br>
+		<p class="fragment fade-in" style="color:#00FF00">This is considerably less work than computing six surface integrals!<p>
+		
+		</section>
+		
+	</section>
+				
+	<section>			
+		<section  align="left">	
+		<span style="font-size:26px">		
+		<h3>Example 9.2</h3>
+		<p>Use the Divergence Theorem to find the outward normal flux of </p>
+		\[
+			\mathbf{F} = x^2\mathbf{i}-2xy\mathbf{j}+3xz\mathbf{k}
+		\]
+		<p>across the boundary of the region $\mathcal{D}$ cut from the first octant by the sphere</p>
+		\[
+			x^2+y^2+z^2\leq 4
+		\]
+		<h3>Solution</h3>
+		<span class="fragment fade-in">
+		<p>We can calculate the flux by integrating the divergence</p>
+		\[
+			\nabla\cdot\mathbf{F} = \frac{\partial}{\partial x}\left(x^2\right)+
+			\frac{\partial}{\partial y}\left(-2xy\right)+
+			\frac{\partial}{\partial z}\left(3xz\right) = 2x-2x+3x = 3x
+		\]
+		<p>over the interior region, <em>i.e.</em></p>
+		\[
+		 \iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma = \iiint_\mathcal{D} \nabla\cdot\mathbf{F}\,\mathrm{d}V 
+		 = \iiint_\mathcal{D} 3x\,\mathrm{d}x\mathrm{d}y\mathrm{d}z
+		\]
+		</span>
+		
+		<p class="fragment fade-in" style="color:#00FF00"> Since the region $\mathcal{D}$ is a spherical quadrant this 
+		suggests changing to spherical coordinates ...</p>
+		</span>
+		</section>	
+	
+		<section  align="left">
+		<span style="font-size:25px">	
+		<h3>Example 9.2 (ctd)</h3>
+		<p>In spherical coordinates the region is defined as</p>
+		\[
+			r^2\leq 4,\quad \theta\in[0, \pi/2], \quad \phi\in[0, \pi/2]
+		\]
+		<span class="fragment fade-in">
+		<p>Recall that </p>
+		\[
+		\Phi(r,\theta,\phi) = \begin{pmatrix}x(r,\theta, \phi)\\y(r,\theta, \phi)\\z(r,\theta, \phi)\end{pmatrix}
+		= \begin{pmatrix}r\sin(\phi)\cos(\theta)\\r\sin(\phi)\sin(\theta)\\r\cos(\phi)\end{pmatrix}
+		\]
+		</span>
+		<span class="fragment fade-in">
+		<p>So that the integral becomes</p>
+		\[
+		\begin{align*}
+			\iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma &= \iiint_\mathcal{D} \nabla\cdot\mathbf{F}\,\mathrm{d}V \\
+			&= \iiint_\mathcal{D} 3x\,\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
+			&= \int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r\sin(\phi)\cos(\theta)|J(r,\theta,\phi)|\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi\\		 
+			\end{align*}
+		\]
+	 
+		<p class="fragment fade-in" style="color:#00FF00"> We need to compute the Jacobian determinant of our transformation</p>
+		</span>
+		</section>
+	 
+		<section  align="left"> 
+		<span style="font-size: 23px">
+		<h3>Example 9.2 (ctd)</h3>
+		<p>Recall</p>
+		\[
+		\begin{align*}
+		J &= \begin{pmatrix}
+			\frac{\partial \phi_1}{\partial r}&\frac{\partial \phi_1}{\partial \theta}&\frac{\partial \phi_1}{\partial \phi}\\
+			\frac{\partial \phi_2}{\partial r}&\frac{\partial \phi_2}{\partial \theta}&\frac{\partial \phi_2}{\partial \phi}\\
+			\frac{\partial \phi_3}{\partial r}&\frac{\partial \phi_3}{\partial \theta}&\frac{\partial \phi_3}{\partial \phi}
+			\end{pmatrix} \\
+			&=\begin{pmatrix}
+			\frac{\partial}{\partial r}\left(r\sin(\phi)\cos(\theta)\right)&\frac{\partial}{\partial \theta}\left(r\sin(\phi)\cos(\theta)\right)&\frac{\partial}{\partial \phi}\left(r\sin(\phi)\cos(\theta)\right)\\
+			\frac{\partial}{\partial r}\left(r\sin(\phi)\sin(\theta)\right)&\frac{\partial}{\partial \theta}\left(r\sin(\phi)\sin(\theta)\right)&\frac{\partial}{\partial \phi}\left(r\sin(\phi)\sin(\theta)\right)\\
+			\frac{\partial}{\partial r}\left(r\cos(\phi)\right)&\frac{\partial}{\partial \theta}\left(r\cos(\phi)\right)&\frac{\partial}{\partial \phi}\left(r\cos(\phi)\right)
+			\end{pmatrix}  \\
+			&=\begin{pmatrix}
+			\sin\phi\cos\theta&-r\sin\phi\sin\theta&r\cos\phi\cos\theta\\
+			\sin\phi\sin\theta&r\sin\phi\cos\theta&r\cos\phi\sin\theta\\\cos\phi&0&-r\sin\phi
+			\end{pmatrix}
+		\end{align*}
+		\]
+		<br>
+		<span class="fragment fade-in">
+		<p>The determinant of which is given by</p>
+		\[
+			\color{red}{\boxed{\color{white}{
+			|J| = r^2\sin\phi}}}
+		\]
+		<p style="color:#00FF00">(Exercise to show this ...)</p>
+		</span>
+		</span>
+		</section>
+		
+		<section  align="left"> 
+		
+		<h3>Example 9.2 (ctd)</h3>
+		<span style="font-size:25px">
+		<p>Thus</p>
+		\[
+		\int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r\sin(\phi)\cos(\theta)|J(r,\theta,\phi)|\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi =
+		\int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r^3\sin^2(\phi)\cos(\theta)\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi 
+		\]
+		<span class="fragment fade-in">
+		<p>Computing the above integral gives</p>
+		\[
+		\begin{align*}
+		\int_0^{\pi/2}\int_0^{\pi/2}\int_0^2 3r^3\sin^2(\phi)\cos(\theta)\,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi &= 
+		\int_0^{\pi/2}\int_0^{\pi/2}\bigg[\frac{3}{4}r^4\sin^2\phi\cos\theta\bigg]_0^2\,\mathrm{d}\theta\mathrm{d}\phi\\
+		&= \int_0^{\pi/2}\int_0^{\pi/2}12\sin^2\phi\cos\theta\,\mathrm{d}\theta\mathrm{d}\phi\\
+		&= \int_0^{\pi/2}\bigg[12\sin^2\phi\sin\theta\bigg]_0^{\pi/2}\,\mathrm{d}\phi\\
+		&=\int_0^{\pi/2}12\sin^2\phi\,\mathrm{d}\phi \\		
+		&=12\bigg[\frac{\phi}{2}-\frac{\sin(2\phi)}{4}\bigg]_0^{\pi/2} = 12\left(\frac{\pi}{4}\right) = 
+		\color{red}{\boxed{\color{white}{3\pi}}}
+		\end{align*}
+		\]
+		</span>
+		</span>
+		</section>
+	</section>			
+				
+	<section>
+	<h2 style="color:#00FF00">Lecture 9 Review</h2>
+	<br>
+					
+	<ul>						
+		<li>In this lecture we covered</li>
+		<ul>
+			<li>Integral theorems in 3 dimensions</li>
+			<li>The Divergence Theorem</li>										
+		</ul><br>
+		<li>After this lecture you should be able to</li>
+		<ul>
+			<li>State the Divergence Theorem and apply it to transform a surface integral over a 
+			closed surface into a volume integral over the enclosed region.</li>			
+		</ul><br>					
+	</ul>			
+					
+	</section>					
+	<!-- ################################################### -->
+	<!-- ################################################### -->
+    </div>
+ </div>
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <!-- ################################################### -->
+ <script src="reveal.js/lib/js/head.min.js"></script>
+ <script src="reveal.js/js/reveal.js"></script>
+ <script>
+ // Full list of configuration options available here:
+ // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          // width: 960,
+          // height:700,
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'slide',
+
+          //// Optional libraries used to extend on reveal.js
+          dependencies: [
+            // { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            // { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; }},
+            { src: 'reveal.js/plugin/math/math.js', async: true }
+          ]
+        });
+        Reveal.configure({
+          keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding) document.body.style.cursor = 'none';
+          }
+        });
+        </script>
+
+	<!-- ===== Added: model wind field, draggable circle, presenter pen ===== -->
+	<canvas id="wx-ink"></canvas>
+	<div id="wx-pen-badge"></div>
+	<script>
+	(function () {
+	  /* Model wind field: a low (L), a high (H) and a westerly jet.
+	     x in [-1.6, 1.6], y in [-0.8, 0.8], y pointing up.
+	     Each system = rotation (stream function) + inflow/outflow (potential). */
+	  var X0 = -1.6, X1 = 1.6, Y0 = -0.8, Y1 = 0.8;
+	  var SYSTEMS = [
+	    { name: 'L', x: -0.65, y: -0.15, s: 0.35, A:  0.12, B:  0.045 },  // A>0 anticlockwise, B>0 converging
+	    { name: 'H', x:  0.70, y: -0.05, s: 0.45, A: -0.15, B: -0.050 }
+	  ];
+	  var JET = { y: 0.6, w: 0.12, U: 0.45 }, BG_U = 0.08;
+
+	  function vel(x, y) {
+	    var u = BG_U + JET.U * Math.exp(-Math.pow((y - JET.y) / JET.w, 2)), v = 0;
+	    for (var i = 0; i < SYSTEMS.length; i++) {
+	      var p = SYSTEMS[i], dx = x - p.x, dy = y - p.y, s2 = p.s * p.s;
+	      var g = Math.exp(-(dx * dx + dy * dy) / s2);
+	      u += (-2 * p.A * dy - 2 * p.B * dx) / s2 * g;
+	      v += ( 2 * p.A * dx - 2 * p.B * dy) / s2 * g;
+	    }
+	    return [u, v];
+	  }
+	  var H = 0.004;
+	  function divAt(x, y)  { return (vel(x+H,y)[0]-vel(x-H,y)[0])/(2*H) + (vel(x,y+H)[1]-vel(x,y-H)[1])/(2*H); }
+	  function curlAt(x, y) { return (vel(x+H,y)[1]-vel(x-H,y)[1])/(2*H) - (vel(x,y+H)[0]-vel(x,y-H)[0])/(2*H); }
+
+	  // Line integral round the circle and area integral over the disc (midpoint rule)
+	  function integrals(cx, cy, R, which) {
+	    var n = 720, line = 0, k, th, f, c, s;
+	    for (k = 0; k < n; k++) {
+	      th = (k + 0.5) / n * 2 * Math.PI; c = Math.cos(th); s = Math.sin(th);
+	      f = vel(cx + R * c, cy + R * s);
+	      line += which === 'circ' ? (-f[0] * s + f[1] * c) : (f[0] * c + f[1] * s);
+	    }
+	    line *= 2 * Math.PI * R / n;
+	    var nr = 60, nt = 120, area = 0, i, j, r;
+	    for (i = 0; i < nr; i++) {
+	      r = (i + 0.5) / nr * R;
+	      for (j = 0; j < nt; j++) {
+	        th = (j + 0.5) / nt * 2 * Math.PI;
+	        var x = cx + r * Math.cos(th), y = cy + r * Math.sin(th);
+	        area += (which === 'circ' ? curlAt(x, y) : divAt(x, y)) * r;
+	      }
+	    }
+	    area *= (R / nr) * (2 * Math.PI / nt);
+	    return [line, area];
+	  }
+
+	  var POS = [228, 87, 46], NEG = [58, 134, 255], ZERO = [24, 24, 28];
+	  var LEGENDS = {
+	    wind: 'Shading = wind speed. Guess the sign of the flux first, then switch on the divergence.',
+	    div:  '<span class="wx-swatch" style="background:rgb(228,87,46)"></span>∇·F &gt; 0 (source)' +
+	          '<span class="wx-swatch" style="background:rgb(58,134,255)"></span>∇·F &lt; 0 (sink)',
+	    curl: '<span class="wx-swatch" style="background:rgb(228,87,46)"></span>curl &gt; 0 anticlockwise' +
+	          '<span class="wx-swatch" style="background:rgb(58,134,255)"></span>curl &lt; 0 clockwise · try the jet: shear, no swirl'
+	  };
+
+	  function makeSim(wrap) {
+	    var W = 800, Hh = 400, dpr = window.devicePixelRatio || 1, layers = [];
+	    for (var k = 0; k < 3; k++) {
+	      var cv = document.createElement('canvas');
+	      cv.width = W * dpr; cv.height = Hh * dpr; cv.style.width = W + 'px'; cv.style.height = Hh + 'px';
+	      wrap.appendChild(cv); layers.push(cv);
+	    }
+	    var bg = layers[0], fg = layers[1], top = layers[2];
+	    var bctx = bg.getContext('2d'), fctx = fg.getContext('2d'), tctx = top.getContext('2d');
+	    fctx.scale(dpr, dpr); tctx.scale(dpr, dpr);
+	    function toPx(x, y) { return [(x - X0) / (X1 - X0) * W, (Y1 - y) / (Y1 - Y0) * Hh]; }
+
+	    var section = wrap.parentNode;
+	    while (section.tagName !== 'SECTION') section = section.parentNode;
+	    var buttons = section.querySelectorAll('[data-set]');
+	    var legend = section.querySelector('.wx-legend');
+	    var slider = section.querySelector('.wx-radius');
+	    var state = { mode: wrap.getAttribute('data-mode'), cx: -0.65, cy: -0.15, R: slider.value / 100 };
+
+	    function drawBackground() {
+	      var gw = 200, gh = 100, img = bctx.createImageData(gw, gh), vals = [], max = 0, i, j;
+	      for (j = 0; j < gh; j++) for (i = 0; i < gw; i++) {
+	        var x = X0 + (i + 0.5) / gw * (X1 - X0), y = Y1 - (j + 0.5) / gh * (Y1 - Y0), val;
+	        if (state.mode === 'div') val = divAt(x, y);
+	        else if (state.mode === 'curl') val = curlAt(x, y);
+	        else { var f = vel(x, y); val = Math.sqrt(f[0] * f[0] + f[1] * f[1]); }
+	        vals.push(val); max = Math.max(max, Math.abs(val));
+	      }
+	      for (k = 0; k < vals.length; k++) {
+	        var c;
+	        if (state.mode === 'wind') {
+	          var t = Math.min(1, vals[k] / max); c = [30 + 60 * t, 34 + 70 * t, 44 + 90 * t];
+	        } else {
+	          var a = Math.sqrt(Math.min(1, Math.abs(vals[k]) / (0.6 * max))), end = vals[k] > 0 ? POS : NEG;
+	          c = [0, 1, 2].map(function (n) { return ZERO[n] + (end[n] - ZERO[n]) * a; });
+	        }
+	        img.data[4*k] = c[0]; img.data[4*k+1] = c[1]; img.data[4*k+2] = c[2]; img.data[4*k+3] = 255;
+	      }
+	      var tmp = document.createElement('canvas'); tmp.width = gw; tmp.height = gh;
+	      tmp.getContext('2d').putImageData(img, 0, 0);
+	      bctx.setTransform(1, 0, 0, 1, 0, 0);
+	      bctx.drawImage(tmp, 0, 0, bg.width, bg.height);
+	      bctx.scale(dpr, dpr);
+	      bctx.font = 'bold 32px sans-serif'; bctx.textAlign = 'center'; bctx.textBaseline = 'middle';
+	      bctx.fillStyle = 'rgba(255,255,255,0.9)';
+	      SYSTEMS.forEach(function (p) { var q = toPx(p.x, p.y); bctx.fillText(p.name, q[0], q[1]); });
+	      bctx.font = '16px sans-serif'; var jq = toPx(-1.35, JET.y); bctx.fillText('jet →', jq[0], jq[1]);
+	      fctx.clearRect(0, 0, W, Hh);
+	    }
+
+	    function update() {
+	      // circle
+	      tctx.clearRect(0, 0, W, Hh);
+	      var c = toPx(state.cx, state.cy), rpx = state.R / (X1 - X0) * W;
+	      tctx.beginPath(); tctx.arc(c[0], c[1], rpx, 0, 2 * Math.PI);
+	      tctx.lineWidth = 3; tctx.strokeStyle = '#00FF00'; tctx.setLineDash([8, 5]); tctx.stroke();
+	      tctx.setLineDash([]); tctx.font = 'italic 20px serif'; tctx.fillStyle = '#00FF00';
+	      tctx.fillText('C', c[0] + rpx * 0.75 + 6, c[1] - rpx * 0.75 - 6);
+	      // numbers
+	      var which = state.mode === 'curl' ? 'circ' : 'flux', res = integrals(state.cx, state.cy, state.R, which);
+	      var boxes = section.querySelectorAll('.wx-readout');
+	      for (var b = 0; b < boxes.length; b++) {
+	        var show = boxes[b].getAttribute('data-show') === which;
+	        boxes[b].style.display = show ? '' : 'none';
+	        if (show) {
+	          boxes[b].querySelector('.wx-line').textContent = res[0].toFixed(4);
+	          boxes[b].querySelector('.wx-area').textContent = res[1].toFixed(4);
+	        }
+	      }
+	    }
+
+	    function setMode(m) {
+	      state.mode = m; drawBackground(); update();
+	      for (var i = 0; i < buttons.length; i++) buttons[i].classList.toggle('on', buttons[i].getAttribute('data-set') === m);
+	      legend.innerHTML = LEGENDS[m];
+	    }
+	    for (var i = 0; i < buttons.length; i++) buttons[i].addEventListener('click', function () { setMode(this.getAttribute('data-set')); });
+	    slider.addEventListener('input', function () { state.R = slider.value / 100; update(); });
+
+	    // drag the circle (works with reveal's slide scaling)
+	    var dragging = false;
+	    function moveTo(e) {
+	      var rect = top.getBoundingClientRect();
+	      state.cx = X0 + (e.clientX - rect.left) / rect.width * (X1 - X0);
+	      state.cy = Y1 - (e.clientY - rect.top) / rect.height * (Y1 - Y0);
+	      update();
+	    }
+	    top.addEventListener('pointerdown', function (e) { dragging = true; moveTo(e); e.preventDefault(); });
+	    window.addEventListener('pointermove', function (e) { if (dragging) moveTo(e); });
+	    window.addEventListener('pointerup', function () { dragging = false; });
+
+	    // particles
+	    var P = [], N = 1300;
+	    function spawn(p) { p.x = X0 + Math.random() * (X1 - X0); p.y = Y0 + Math.random() * (Y1 - Y0); p.age = Math.random() * 120; }
+	    for (k = 0; k < N; k++) { var p = {}; spawn(p); P.push(p); }
+	    function step() {
+	      fctx.globalCompositeOperation = 'destination-out';
+	      fctx.fillStyle = 'rgba(0,0,0,0.07)'; fctx.fillRect(0, 0, W, Hh);
+	      fctx.globalCompositeOperation = 'source-over';
+	      fctx.strokeStyle = 'rgba(255,255,255,0.85)'; fctx.lineWidth = 1.2; fctx.beginPath();
+	      for (var q = 0; q < P.length; q++) {
+	        var p = P[q], f = vel(p.x, p.y), a = toPx(p.x, p.y);
+	        p.x += f[0] * 0.03; p.y += f[1] * 0.03; p.age++;
+	        var b = toPx(p.x, p.y); fctx.moveTo(a[0], a[1]); fctx.lineTo(b[0], b[1]);
+	        if (p.age > 160 || p.x < X0 || p.x > X1 || p.y < Y0 || p.y > Y1) spawn(p);
+	      }
+	      fctx.stroke();
+	    }
+	    (function loop() { if (section.classList.contains('present')) step(); requestAnimationFrame(loop); })();
+
+	    setMode(state.mode);
+	  }
+	  var sims = document.querySelectorAll('.wx-sim');
+	  for (var s = 0; s < sims.length; s++) makeSim(sims[s]);
+
+	  /* Presenter pen: D on/off, 1 orange, 2 blue, X clear. Clears on slide change. */
+	  var ink = document.getElementById('wx-ink'), ictx = ink.getContext('2d'), badge = document.getElementById('wx-pen-badge');
+	  var penOn = false, colour = 'rgb(255,120,60)', drawing = false;
+	  function sizeInk() {
+	    var d = window.devicePixelRatio || 1;
+	    ink.width = innerWidth * d; ink.height = innerHeight * d; ictx.setTransform(d, 0, 0, d, 0, 0);
+	  }
+	  function clearInk() { ictx.clearRect(0, 0, innerWidth, innerHeight); }
+	  function badgeUpdate() {
+	    badge.style.display = penOn ? 'block' : 'none';
+	    badge.innerHTML = 'Pen <span style="color:' + colour + '">●</span> (D to stop)';
+	    ink.classList.toggle('drawing', penOn);
+	  }
+	  sizeInk(); window.addEventListener('resize', sizeInk);
+	  ink.addEventListener('pointerdown', function (e) { drawing = true; ictx.beginPath(); ictx.moveTo(e.clientX, e.clientY); });
+	  ink.addEventListener('pointermove', function (e) {
+	    if (!drawing) return;
+	    ictx.lineTo(e.clientX, e.clientY); ictx.strokeStyle = colour; ictx.lineWidth = 5;
+	    ictx.lineCap = 'round'; ictx.lineJoin = 'round'; ictx.stroke();
+	  });
+	  window.addEventListener('pointerup', function () { drawing = false; });
+	  document.addEventListener('keydown', function (e) {
+	    if (e.target.tagName === 'INPUT') return;
+	    var k = e.key.toLowerCase();
+	    if (k === 'd') { penOn = !penOn; badgeUpdate(); }
+	    else if (k === '1') { colour = 'rgb(255,120,60)'; badgeUpdate(); }
+	    else if (k === '2') { colour = 'rgb(80,150,255)'; badgeUpdate(); }
+	    else if (k === 'x') clearInk();
+	  });
+	  Reveal.addEventListener('slidechanged', function () { clearInk(); penOn = false; badgeUpdate(); });
+	})();
+	</script>
+		<!-- ################################################### -->
+        <!-- ################################################### -->
+        </div>
+        </div>
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+        <!-- ################################################### -->
+</body>
+</html>
+
+
