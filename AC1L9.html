@@ -141,7 +141,6 @@
 	<h3>Green's theorem in the wind</h3>
 	<div class="wx-sim" data-mode="wind"><div class="wx-legend"></div></div>
 	<div class="wx-controls">
-		Shading:
 		<button data-set="wind">wind speed</button>
 		<button data-set="div">divergence</button>
 		<!-- For the Stokes lecture, uncomment:  <button data-set="curl">curl</button> -->
@@ -157,27 +156,17 @@
 		&nbsp;&nbsp;&nbsp;
 		\(\displaystyle\iint_\mathcal{R}(\nabla\times\mathbf{F})\cdot\mathbf{k}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
 	</div>
-	<div class="fragment fade-in wx-why">
-		<svg viewBox="0 0 120 120" width="120" height="120">
-			<defs><marker id="wxb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-				<path d="M0,0 L10,5 L0,10 z" fill="#00FF00"/></marker></defs>
-			<circle cx="60" cy="60" r="50" fill="none" stroke="#00FF00" stroke-width="2.5" stroke-dasharray="7 4"/>
-			<line x1="60" y1="10" x2="60" y2="110" stroke="#ccc" stroke-width="2.5"/>
-			<line x1="38" y1="60" x2="82" y2="60" stroke="#fff" stroke-width="3" marker-end="url(#wxb)"/>
-			<text x="30" y="40" fill="#ccc" font-size="16" text-anchor="middle">A</text>
-			<text x="90" y="40" fill="#ccc" font-size="16" text-anchor="middle">B</text>
-		</svg>
-		<div>
-			<p><b style="color:#00FF00">Why it works</b></p>
-			<p>1. Cut the region in two. Air crossing the cut <b>leaves</b> A and <b>enters</b> B, so it cancels when we add the two fluxes.</p>
-			<p>2. Keep cutting into tiny squares. Each one contributes \(\nabla\cdot\mathbf{F}\times\text{its area}\), and adding them all up gives \(\iint_\mathcal{R}\nabla\cdot\mathbf{F}\,\mathrm{d}x\mathrm{d}y\).</p>
-		</div>
-	</div>
 	<aside class="notes">
 		1. Shading on wind speed: guess first! Put C on the low and ask "is the net flux in or out?" Then switch on divergence.
 		2. Move C to the high, then to an empty patch (flux about 0).
 		3. Drag the radius slider down: the flux shrinks with the area, and flux/area tends to div F at the centre.
-		4. Click for "why it works": put C on the low, ask what the flux of each half would be, then point out the cut. Same idea in 3D with tiny cubes.
+		4. Why it works (say it, draw it if wanted):
+		   (a) A tiny square of side h: flux out of the right face minus in at the left is about (du/dx) h^2;
+		       top minus bottom is about (dv/dy) h^2. So a tiny square's net outflow = (div F) x its area.
+		   (b) Chop R into tiny squares and add up their outflows. Every inside edge is shared by two squares:
+		       air crossing it counts as "out" for one and "in" for the other, so it cancels.
+		       Only the edges on C are left, so: sum of (div F) x area = flux through C.
+		   Same in 3D with tiny cubes.
 	</aside>
 	</section>
 				
