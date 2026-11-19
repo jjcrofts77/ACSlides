@@ -16,20 +16,21 @@
   <!-- ===== Added: styles for the weather slides ===== -->
   <style>
     .wx-hint { font-size: 18px; opacity: 0.7; }
-    .wx-sim { position: relative; width: 720px; height: 340px; margin: 0 auto; touch-action: none; }
+    .wx-sim { position: relative; width: 720px; height: 340px; margin: 0; touch-action: none; }
     .wx-sim canvas { position: absolute; left: 0; top: 0; border-radius: 8px; }
-    .wx-controls { font-size: 20px; margin-top: 8px; text-align: center; }
+    .wx-controls { font-size: 20px; margin-top: 8px; text-align: left; }
     .wx-controls button {
       font: inherit; padding: 3px 12px; margin: 0 3px; border-radius: 6px;
       border: 1px solid #888; background: #222; color: #eee; cursor: pointer;
     }
     .wx-controls button.on { background: #eee; color: #111; }
-    .wx-readout { font-size: 22px; text-align: center; margin-top: 6px; }
+    .wx-readout { font-size: 22px; text-align: left; margin-top: 6px; }
     .wx-readout b { color: #00FF00; display: inline-block; min-width: 4.5em; text-align: left; }
-    .wx-why { display: flex; align-items: center; gap: 14px; max-width: 820px; margin: 4px auto 0; font-size: 19px; text-align: left; line-height: 1.3; }
+    .wx-why { display: flex; align-items: center; gap: 14px; max-width: 820px; margin: 6px 0 0; font-size: 19px; text-align: left; line-height: 1.3; }
     .wx-why p { margin: 0; }
-    .wx-legend { font-size: 18px; text-align: center; opacity: 0.85; }
-    .wx-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 14px; }
+    .wx-legend { position: absolute; left: 8px; bottom: 8px; z-index: 3; pointer-events: none;
+                  font-size: 14px; padding: 3px 8px; border-radius: 5px; background: rgba(0,0,0,0.6); color: #ddd; }
+    .wx-swatch { display: inline-block; width: 11px; height: 11px; border-radius: 2px; vertical-align: -1px; margin: 0 3px 0 10px; }
     /* Full-screen live map behind the opening slide */
     #wx-bgmap {
       position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; border: 0;
@@ -134,9 +135,9 @@
 	</section>
 
 	<!-- ===== Added: Green's theorem (divergence form) checked on a model wind field ===== -->
-	<section>
+	<section align="left">
 	<h3>Green's theorem in the wind</h3>
-	<div class="wx-sim" data-mode="wind"></div>
+	<div class="wx-sim" data-mode="wind"><div class="wx-legend"></div></div>
 	<div class="wx-controls">
 		Shading:
 		<button data-set="wind">wind speed</button>
@@ -149,17 +150,11 @@
 		&nbsp;&nbsp;
 		\(\iint_\mathcal{R}\nabla\cdot\mathbf{F}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
 	</div>
-	<div class="wx-readout" data-show="density">
-		\(\dfrac{1}{\text{area}}\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s=\) <b class="wx-ratio"></b>
-		&nbsp;&nbsp;
-		\(\nabla\cdot\mathbf{F}\) at the centre \(=\) <b class="wx-divc"></b>
-	</div>
 	<div class="wx-readout" data-show="circ" style="display:none">
 		\(\displaystyle\oint_C\mathbf{F}\cdot\mathbf{T}\,\mathrm{d}s=\) <b class="wx-line"></b>
 		&nbsp;&nbsp;&nbsp;
 		\(\displaystyle\iint_\mathcal{R}(\nabla\times\mathbf{F})\cdot\mathbf{k}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
 	</div>
-	<div class="wx-legend"></div>
 	<div class="fragment fade-in wx-why">
 		<svg viewBox="0 0 150 70" width="150" height="70">
 			<defs><marker id="wxb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
@@ -170,14 +165,13 @@
 			<text x="40" y="52" fill="#00FF00" font-size="13" text-anchor="middle">out</text>
 			<text x="100" y="52" fill="#00FF00" font-size="13" text-anchor="middle">in</text>
 		</svg>
-		<p><b style="color:#00FF00">Why it works.</b> Shrink \(C\): flux ÷ area \(\to\nabla\cdot\mathbf{F}\), so divergence is
-		<b>flux per unit area</b>. Now tile \(\mathcal{R}\) with tiny squares. Flux leaving one square through a shared edge
+		<p><b style="color:#00FF00">Why it works.</b> Divergence is <b>flux per unit area</b>: shrink \(C\) to a point and flux ÷ area \(\to\nabla\cdot\mathbf{F}\) there. Now tile \(\mathcal{R}\) with tiny squares. Flux leaving one square through a shared edge
 		enters its neighbour, so all inside edges cancel and only the flux through \(C\) is left.</p>
 	</div>
 	<aside class="notes">
-		1. Shading on wind speed: put C on the low and ask "is the net flux in or out?" Then switch on divergence.
+		1. Shading on wind speed: guess first! Put C on the low and ask "is the net flux in or out?" Then switch on divergence.
 		2. Move C to the high, then to an empty patch (flux about 0).
-		3. Drag the radius slider down: the two numbers in the second row meet. That is the definition of divergence.
+		3. Drag the radius slider down: the flux shrinks with the area, and flux/area tends to div F at the centre.
 		4. Click for "why it works": the tiny-squares argument is the whole proof idea, and it is the same in 3D with tiny cubes.
 	</aside>
 	</section>
@@ -535,9 +529,9 @@
 
 	  var POS = [228, 87, 46], NEG = [58, 134, 255], ZERO = [24, 24, 28];
 	  var LEGENDS = {
-	    wind: 'Shading = wind speed. Guess the sign of the flux first, then switch on the divergence.',
-	    div:  '<span class="wx-swatch" style="background:rgb(228,87,46)"></span>∇·F &gt; 0 (source)' +
-	          '<span class="wx-swatch" style="background:rgb(58,134,255)"></span>∇·F &lt; 0 (sink)',
+	    wind: 'Shading: wind speed',
+	    div:  'Shading: ∇·F <span class="wx-swatch" style="background:rgb(228,87,46)"></span>&gt; 0 source' +
+	          '<span class="wx-swatch" style="background:rgb(58,134,255)"></span>&lt; 0 sink',
 	    curl: '<span class="wx-swatch" style="background:rgb(228,87,46)"></span>curl &gt; 0 anticlockwise' +
 	          '<span class="wx-swatch" style="background:rgb(58,134,255)"></span>curl &lt; 0 clockwise · try the jet: shear, no swirl'
 	  };
