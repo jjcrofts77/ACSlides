@@ -45,12 +45,16 @@
     html.wx-map-on .reveal, html.wx-map-on .reveal .slides { pointer-events: none; }
     html.wx-map-on .reveal .controls, html.wx-map-on .reveal .progress, html.wx-map-on .wx-box { pointer-events: auto; }
     html.wx-map-on .reveal .slides section#wx-hook { top: 0 !important; }   /* box at the top, not centred */
-    .wx-box {
-      width: 36%; padding: 14px 20px; border-radius: 10px;
-      background: rgba(0, 0, 0, 0.75); color: #fff; font-size: 24px; line-height: 1.35;
+    .reveal .wx-box {
+      width: 32%; padding: 12px 18px; border-radius: 10px;
+      background: rgba(0, 0, 0, 0.72); color: #fff; line-height: 1.3;
+      margin-left: -10%;   /* nudge towards the screen edge so the box covers less of the map */
     }
-    .wx-box h3 { margin: 0 0 10px; color: #fff; }
-    .wx-box p { margin: 8px 0; }
+    .reveal .wx-box h3 { margin: 0 0 8px; color: #fff; font-size: 34px !important; }
+    .reveal .wx-box p, .reveal .wx-box li { font-size: 20px !important; margin: 6px 0; }
+    .reveal .wx-box ul { margin: 0 0 0 1em; }
+    .reveal .wx-box .wx-q { color: #00FF00; }
+    .reveal .wx-box .wx-hint { font-size: 14px !important; opacity: 0.65; margin-top: 10px; }
     #wx-ink { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 50; pointer-events: none; }
     #wx-ink.drawing { pointer-events: auto; cursor: crosshair; }
     #wx-pen-badge {
@@ -95,10 +99,15 @@
 	<section id="wx-hook" data-state="wx-map-on" align="left">
 	<div class="wx-box">
 		<h3>Where does the air go?</h3>
-		<p>Surface winds, live. Near a <b>low</b>, air spirals <b>in</b> from every side.</p>
-		<p class="fragment fade-in" style="color:#00FF00">So where does it all go? By the end of this lecture a theorem will tell us.</p>
-		<p class="wx-hint">Drag the globe to rotate · scroll to zoom · click this box to get the slide keys back<br>
-		Pen: D on/off, 1 orange, 2 blue, X clear</p>
+		<p>The wind is a vector field \(\mathbf{F}(x,y,z)\), and all three operators can be seen in it:</p>
+		<ul>
+			<li><b>Grad:</b> pressure \(p\) is a scalar field, and \(-\nabla p\) pushes air from high pressure towards low.</li>
+			<li><b>Div:</b> \(\nabla\cdot\mathbf{F}\) measures air spreading out (around highs) or piling in (around lows).</li>
+			<li><b>Curl:</b> \(\nabla\times\mathbf{F}\) measures spin. Lows turn anticlockwise and highs clockwise.</li>
+		</ul>
+		<p class="fragment fade-in wx-q">Air pours <b>into</b> a low from every side. So where does it go?
+		Today's theorem answers that.</p>
+		<p class="wx-hint">Drag or scroll the globe · click this box for slide keys · pen: D, 1, 2, X</p>
 	</div>
 	</section>		
 	
