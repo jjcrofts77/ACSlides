@@ -28,6 +28,27 @@
     .wx-readout b { color: #00FF00; display: inline-block; min-width: 4.5em; text-align: left; }
     .wx-legend { font-size: 18px; text-align: center; opacity: 0.85; }
     .wx-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 14px; }
+    /* Full-screen live map behind the opening slide */
+    #wx-bgmap {
+      position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; border: 0;
+      z-index: 0; visibility: hidden;
+    }
+    .reveal { z-index: 1; }
+    html.wx-map-on #wx-bgmap { visibility: visible; }
+    html.wx-map-on body,
+    html.wx-map-on .reveal,
+    html.wx-map-on .reveal .backgrounds,
+    html.wx-map-on .reveal .slide-background { background: transparent !important; }
+    /* let mouse drags and scrolls reach the globe, except on the text box and controls */
+    html.wx-map-on .reveal, html.wx-map-on .reveal .slides { pointer-events: none; }
+    html.wx-map-on .reveal .controls, html.wx-map-on .reveal .progress, html.wx-map-on .wx-box { pointer-events: auto; }
+    html.wx-map-on .reveal .slides section#wx-hook { top: 0 !important; }   /* box at the top, not centred */
+    .wx-box {
+      width: 36%; padding: 14px 20px; border-radius: 10px;
+      background: rgba(0, 0, 0, 0.75); color: #fff; font-size: 24px; line-height: 1.35;
+    }
+    .wx-box h3 { margin: 0 0 10px; color: #fff; }
+    .wx-box p { margin: 8px 0; }
     #wx-ink { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 50; pointer-events: none; }
     #wx-ink.drawing { pointer-events: auto; cursor: crosshair; }
     #wx-pen-badge {
@@ -56,13 +77,16 @@
     </section>
 	<!-- ################################################### -->
 	<!-- ===== Added: motivating question (live wind map) ===== -->
-	<section>
-	<h3>Where does the air go?</h3>
-	<iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-3.51,51.22,2425"
-	        width="960" height="500" style="border:0; border-radius:8px;"></iframe>
-	<p style="font-size:24px">Surface winds, live. Near a <b>low</b>, air spirals <b>in</b> from every side.
-	<span class="fragment fade-in" style="color:#00FF00">So where does it all go? By the end of this lecture a theorem will tell us.</span></p>
-	<p class="wx-hint">Drag to rotate · scroll to zoom · pen: D on/off, 1 orange, 2 blue, X clear</p>
+	<!-- The map itself is the full-screen #wx-bgmap iframe at the bottom of the page;
+	     it is shown only while this slide is on screen. -->
+	<section id="wx-hook" data-state="wx-map-on" align="left">
+	<div class="wx-box">
+		<h3>Where does the air go?</h3>
+		<p>Surface winds, live. Near a <b>low</b>, air spirals <b>in</b> from every side.</p>
+		<p class="fragment fade-in" style="color:#00FF00">So where does it all go? By the end of this lecture a theorem will tell us.</p>
+		<p class="wx-hint">Drag the globe to rotate · scroll to zoom · click this box to get the slide keys back<br>
+		Pen: D on/off, 1 orange, 2 blue, X clear</p>
+	</div>
 	</section>
 	<!-- ################################################### -->
     <!-- ################################################### -->			
@@ -411,6 +435,8 @@
         </script>
 
 	<!-- ===== Added: model wind field, draggable circle, presenter pen ===== -->
+	<iframe id="wx-bgmap" title="Live surface wind map"
+	        src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-3.51,51.22,2425"></iframe>
 	<canvas id="wx-ink"></canvas>
 	<div id="wx-pen-badge"></div>
 	<script>
@@ -615,6 +641,18 @@
 	    else if (k === 'x') clearInk();
 	  });
 	  Reveal.addEventListener('slidechanged', function () { clearInk(); penOn = false; badgeUpdate(); });
+
+	  /* Show the full-screen map only on the opening slide */
+	  function syncMap() {
+	    var cur = Reveal.getCurrentSlide();
+	    document.documentElement.classList.toggle('wx-map-on', !!cur && cur.id === 'wx-hook');
+	  }
+	  Reveal.addEventListener('ready', syncMap);
+	  Reveal.addEventListener('slidechanged', syncMap);
+	  setTimeout(syncMap, 0);
+	  // Dragging the globe moves keyboard focus into the map; clicking the box brings it back
+	  var hookBox = document.querySelector('#wx-hook .wx-box');
+	  if (hookBox) hookBox.addEventListener('mousedown', function () { window.focus(); });
 	})();
 	</script>
 		<!-- ################################################### -->
@@ -627,5 +665,3 @@
         <!-- ################################################### -->
 </body>
 </html>
-
-
