@@ -223,19 +223,27 @@
 		<line x1="200" y1="55" x2="200" y2="10" stroke="#00FF00" stroke-width="3" marker-end="url(#wxa)"/>
 		<text x="170" y="80" fill="#ccc" font-size="14" text-anchor="middle">region 𝒟</text>
 	</svg>
+	<span style="font-size:26px">
 	<p>Put a box \(\mathcal{D}\) over the low: the ground underneath, a lid above.</p>
-	<p class="fragment fade-in">In the lower atmosphere air behaves almost <b>incompressibly</b>: \(\nabla\cdot\mathbf{F}\approx 0\).
-	So by the Divergence Theorem (Note 1)
-	\[\iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma=\iiint_\mathcal{D}\nabla\cdot\mathbf{F}\,\mathrm{d}V\approx 0\]</p>
-	<p class="fragment fade-in">No air passes through the ground, so
+	<p class="fragment fade-in"><b>Incompressible</b> means the air can't be squashed, so \(\mathcal{D}\) always holds the same
+	volume of air: what flows in must flow out. Since \(\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma\) is the volume crossing
+	\(\mathrm{d}\sigma\) per second,
+	\[\iint_S\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}\sigma = 0 \quad\text{for every closed surface } S.\]</p>
+	<p class="fragment fade-in">By the Divergence Theorem, \(\iiint_\mathcal{D}\nabla\cdot\mathbf{F}\,\mathrm{d}V = 0\) for <em>every</em>
+	region \(\mathcal{D}\). That forces \(\nabla\cdot\mathbf{F}=0\): if it were positive at a point, its integral over a
+	tiny ball around that point would be positive.</p>
+	<p class="fragment fade-in">For our box: no air passes through the ground, so
 	\[\text{flux in through the sides}\;=\;\text{flux out through the lid}\]
 	The air that converges at the surface has to <b>rise</b>.</p>
 	<p class="fragment fade-in" style="color:#00FF00">Rising air cools and its water vapour condenses. That is why lows bring cloud and rain.</p>
+	</span>
 	<aside class="notes">
 		If a student objects that air is compressible (it thins with height): apply the theorem to the mass flux
 		rho*F instead. Conservation of mass gives the continuity equation d(rho)/dt + div(rho F) = 0, and for steady
 		flow div(rho F) = 0. So the net mass flux out of the box is zero and the conclusion is unchanged: the mass
 		coming in at the sides leaves through the top. Same theorem, better physics.
+		Squeezy-bottle picture for incompressibility: a sealed, full bottle of water. You can't push more in
+		without the same amount coming out.
 	</aside>
 	</section>
 
