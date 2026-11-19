@@ -16,7 +16,7 @@
   <!-- ===== Added: styles for the weather slides ===== -->
   <style>
     .wx-hint { font-size: 18px; opacity: 0.7; }
-    .wx-sim { position: relative; width: 800px; height: 400px; margin: 0 auto; touch-action: none; }
+    .wx-sim { position: relative; width: 720px; height: 340px; margin: 0 auto; touch-action: none; }
     .wx-sim canvas { position: absolute; left: 0; top: 0; border-radius: 8px; }
     .wx-controls { font-size: 20px; margin-top: 8px; text-align: center; }
     .wx-controls button {
@@ -24,8 +24,10 @@
       border: 1px solid #888; background: #222; color: #eee; cursor: pointer;
     }
     .wx-controls button.on { background: #eee; color: #111; }
-    .wx-readout { font-size: 24px; text-align: center; margin-top: 6px; }
+    .wx-readout { font-size: 22px; text-align: center; margin-top: 6px; }
     .wx-readout b { color: #00FF00; display: inline-block; min-width: 4.5em; text-align: left; }
+    .wx-why { display: flex; align-items: center; gap: 14px; max-width: 820px; margin: 4px auto 0; font-size: 19px; text-align: left; line-height: 1.3; }
+    .wx-why p { margin: 0; }
     .wx-legend { font-size: 18px; text-align: center; opacity: 0.85; }
     .wx-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 14px; }
     /* Full-screen live map behind the opening slide */
@@ -76,6 +78,17 @@
     <p style="color: #00FF00">Nottingham Trent University</p>
     </section>
 	<!-- ################################################### -->
+	<!-- ################################################### -->
+    <!-- ################################################### -->			
+	<section align="left">
+	<h1>Advanced Calculus L9</h1>
+	<br>
+	<ul>						
+		<li style="color:#00FF00">Integral theorems in 3 dimensions</li>
+		<br>
+		<li>The Divergence Theorem</li>										
+	</ul>
+	</section>
 	<!-- ===== Added: motivating question (live wind map) ===== -->
 	<!-- The map itself is the full-screen #wx-bgmap iframe at the bottom of the page;
 	     it is shown only while this slide is on screen. -->
@@ -87,17 +100,6 @@
 		<p class="wx-hint">Drag the globe to rotate · scroll to zoom · click this box to get the slide keys back<br>
 		Pen: D on/off, 1 orange, 2 blue, X clear</p>
 	</div>
-	</section>
-	<!-- ################################################### -->
-    <!-- ################################################### -->			
-	<section align="left">
-	<h1>Advanced Calculus L9</h1>
-	<br>
-	<ul>						
-		<li style="color:#00FF00">Integral theorems in 3 dimensions</li>
-		<br>
-		<li>The Divergence Theorem</li>										
-	</ul>
 	</section>		
 	
 	<section  align="left">		
@@ -118,7 +120,8 @@
 	over the region enclosed by the curve</p>
 	</span>
 	
-	<p class="fragment fade-in" style="color:#00FF00">Gauss generalised this result to three dimensions as we shall see ...</p>
+	<p class="fragment fade-in" style="color:#00FF00">Gauss generalised this result to three dimensions: the curve \(C\) becomes a
+	closed surface \(S\), and the region \(\mathcal{R}\) becomes the solid \(\mathcal{D}\) it encloses ...</p>
 	</section>
 
 	<!-- ===== Added: Green's theorem (divergence form) checked on a model wind field ===== -->
@@ -129,13 +132,18 @@
 		Shading:
 		<button data-set="wind">wind speed</button>
 		<button data-set="div">divergence</button>
-		<button data-set="curl">curl</button>
-		&nbsp;&nbsp; radius <input class="wx-radius" type="range" min="8" max="60" value="30" style="vertical-align:middle">
+		<!-- For the Stokes lecture, uncomment:  <button data-set="curl">curl</button> -->
+		&nbsp;&nbsp; radius <input class="wx-radius" type="range" min="3" max="60" value="30" style="vertical-align:middle">
 	</div>
 	<div class="wx-readout" data-show="flux">
-		\(\displaystyle\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s=\) <b class="wx-line"></b>
-		&nbsp;&nbsp;&nbsp;
-		\(\displaystyle\iint_\mathcal{R}\nabla\cdot\mathbf{F}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
+		\(\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s=\) <b class="wx-line"></b>
+		&nbsp;&nbsp;
+		\(\iint_\mathcal{R}\nabla\cdot\mathbf{F}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
+	</div>
+	<div class="wx-readout" data-show="density">
+		\(\dfrac{1}{\text{area}}\oint_C\mathbf{F}\cdot\mathbf{n}\,\mathrm{d}s=\) <b class="wx-ratio"></b>
+		&nbsp;&nbsp;
+		\(\nabla\cdot\mathbf{F}\) at the centre \(=\) <b class="wx-divc"></b>
 	</div>
 	<div class="wx-readout" data-show="circ" style="display:none">
 		\(\displaystyle\oint_C\mathbf{F}\cdot\mathbf{T}\,\mathrm{d}s=\) <b class="wx-line"></b>
@@ -143,6 +151,26 @@
 		\(\displaystyle\iint_\mathcal{R}(\nabla\times\mathbf{F})\cdot\mathbf{k}\,\mathrm{d}x\mathrm{d}y=\) <b class="wx-area"></b>
 	</div>
 	<div class="wx-legend"></div>
+	<div class="fragment fade-in wx-why">
+		<svg viewBox="0 0 150 70" width="150" height="70">
+			<defs><marker id="wxb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+				<path d="M0,0 L10,5 L0,10 z" fill="#00FF00"/></marker></defs>
+			<rect x="10" y="10" width="60" height="50" fill="none" stroke="#ccc" stroke-width="2"/>
+			<rect x="70" y="10" width="60" height="50" fill="none" stroke="#ccc" stroke-width="2"/>
+			<line x1="52" y1="28" x2="88" y2="28" stroke="#00FF00" stroke-width="3" marker-end="url(#wxb)"/>
+			<text x="40" y="52" fill="#00FF00" font-size="13" text-anchor="middle">out</text>
+			<text x="100" y="52" fill="#00FF00" font-size="13" text-anchor="middle">in</text>
+		</svg>
+		<p><b style="color:#00FF00">Why it works.</b> Shrink \(C\): flux ÷ area \(\to\nabla\cdot\mathbf{F}\), so divergence is
+		<b>flux per unit area</b>. Now tile \(\mathcal{R}\) with tiny squares. Flux leaving one square through a shared edge
+		enters its neighbour, so all inside edges cancel and only the flux through \(C\) is left.</p>
+	</div>
+	<aside class="notes">
+		1. Shading on wind speed: put C on the low and ask "is the net flux in or out?" Then switch on divergence.
+		2. Move C to the high, then to an empty patch (flux about 0).
+		3. Drag the radius slider down: the two numbers in the second row meet. That is the definition of divergence.
+		4. Click for "why it works": the tiny-squares argument is the whole proof idea, and it is the same in 3D with tiny cubes.
+	</aside>
 	</section>
 				
 	<section align="left">
@@ -206,6 +234,12 @@
 	\[\text{flux in through the sides}\;=\;\text{flux out through the lid}\]
 	The air that converges at the surface has to <b>rise</b>.</p>
 	<p class="fragment fade-in" style="color:#00FF00">Rising air cools and its water vapour condenses. That is why lows bring cloud and rain.</p>
+	<aside class="notes">
+		If a student objects that air is compressible (it thins with height): apply the theorem to the mass flux
+		rho*F instead. Conservation of mass gives the continuity equation d(rho)/dt + div(rho F) = 0, and for steady
+		flow div(rho F) = 0. So the net mass flux out of the box is zero and the conclusion is unchanged: the mass
+		coming in at the sides leaves through the top. Same theorem, better physics.
+	</aside>
 	</section>
 	
 	<section>
@@ -249,9 +283,10 @@
 			&= \int_0^1 \left(1+z\right)\,\mathrm{d}z = \bigg[z+\frac{1}{2}z^2\bigg]_0^1 = \color{red}{\boxed{\color{white}{\frac{3}{2}}}}
 			\end{align*}
 		\]
-		<br>
-		<p class="fragment fade-in" style="color:#00FF00">This is considerably less work than computing six surface integrals!<p>
-		
+		<p class="fragment fade-in" style="color:#00FF00">This is considerably less work than computing six surface integrals!</p>
+		<p class="fragment fade-in" style="font-size:24px"><b>What does it mean?</b> The flux is positive, so the cube is a
+		net <b>source</b>. That fits, because \(\nabla\cdot\mathbf{F}=x+y+z\geq 0\) everywhere inside it, and it is largest at the corner \((1,1,1)\).</p>
+
 		</section>
 		
 	</section>
@@ -390,7 +425,9 @@
 		<li>After this lecture you should be able to</li>
 		<ul>
 			<li>State the Divergence Theorem and apply it to transform a surface integral over a 
-			closed surface into a volume integral over the enclosed region.</li>			
+			closed surface into a volume integral over the enclosed region.</li>
+			<li>Interpret divergence as flux per unit volume, and explain the theorem as adding up the sources
+			inside a region.</li>
 		</ul><br>					
 	</ul>			
 					
@@ -497,7 +534,7 @@
 	  };
 
 	  function makeSim(wrap) {
-	    var W = 800, Hh = 400, dpr = window.devicePixelRatio || 1, layers = [];
+	    var W = 720, Hh = 340, dpr = window.devicePixelRatio || 1, layers = [];
 	    for (var k = 0; k < 3; k++) {
 	      var cv = document.createElement('canvas');
 	      cv.width = W * dpr; cv.height = Hh * dpr; cv.style.width = W + 'px'; cv.style.height = Hh + 'px';
@@ -558,9 +595,15 @@
 	      var which = state.mode === 'curl' ? 'circ' : 'flux', res = integrals(state.cx, state.cy, state.R, which);
 	      var boxes = section.querySelectorAll('.wx-readout');
 	      for (var b = 0; b < boxes.length; b++) {
-	        var show = boxes[b].getAttribute('data-show') === which;
+	        var tag = boxes[b].getAttribute('data-show');
+	        var show = tag === which || (tag === 'density' && which === 'flux');
 	        boxes[b].style.display = show ? '' : 'none';
-	        if (show) {
+	        if (!show) continue;
+	        if (tag === 'density') {
+	          // flux per unit area of C, compared with div at its centre: they agree as C shrinks
+	          boxes[b].querySelector('.wx-ratio').textContent = (res[0] / (Math.PI * state.R * state.R)).toFixed(3);
+	          boxes[b].querySelector('.wx-divc').textContent = divAt(state.cx, state.cy).toFixed(3);
+	        } else {
 	          boxes[b].querySelector('.wx-line').textContent = res[0].toFixed(4);
 	          boxes[b].querySelector('.wx-area').textContent = res[1].toFixed(4);
 	        }
